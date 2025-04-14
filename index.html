@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Third i - Innovative solutions for the future">
+  <title>Third i | Home</title>
+  <link rel="icon" href="Images/Logos/LogoV4.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Three.js and GSAP libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <img src="Images/Logos/LogoV2.png" alt="Third i Logo" class="logo-img">
+          <div class="company-name">third i</div>
+        </div>
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 3D Room View with Three.js - Completely isolated -->
+  <div id="cube-environment">
+    <div id="cube-container">
+      <div class="cube-inner-container">
+        <!-- Three.js will render in this container -->
+        <canvas id="three-canvas"></canvas>
+        
+        <!-- Wall content overlays - These will be positioned over the 3D scene -->
+        <div id="wall-content-center" class="wall-content active">
+          <h2>Center Wall</h2>
+          <!-- Add more content for center wall here -->
+        </div>
+        
+        <div id="wall-content-left" class="wall-content">
+          <h2>Left Wall</h2>
+          <!-- Add more content for left wall here -->
+        </div>
+        
+        <div id="wall-content-right" class="wall-content">
+          <h2>Right Wall</h2>
+          <!-- Add more content for right wall here -->
+        </div>
+        
+        <!-- Navigation hints -->
+        <div class="nav-hint nav-hint-left">
+          <i class="fas fa-chevron-left">&lt;</i>
+        </div>
+        <div class="nav-hint nav-hint-right">
+          <i class="fas fa-chevron-right">&gt;</i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zoom Controls -->
+  <div class="zoom-controls">
+    <button class="zoom-button" id="zoom-out">-</button>
+    <div class="zoom-value" id="zoom-value">112°</div>
+    <button class="zoom-button" id="zoom-in">+</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">
+            <img src="Images/Logos/LogoV4.png" alt="Third i Logo" height="40">
+          </div>
+          <p>Third i is committed to pushing the boundaries of what's possible, delivering innovative solutions that make a difference.</p>
+        </div>
+        <div class="social-links-container">
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Third i. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main script file -->
+  <script src="js/script.js"></script>
+</body>
+</html>
