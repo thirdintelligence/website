@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const maxFOV = 92;        // Maximum FOV (for narrowest screens)
   const MIN_WINDOW_WIDTH = 260; // Ensures 92° FOV at narrowest width
   const MAX_WINDOW_WIDTH = REFERENCE_WIDTH; // Uses original reference for wide width
-  const universalCameraPullback = 0; // Reset to 0 to center camera between walls
+  const universalCameraPullback = 4; // Reduced from 8 to center camera closer to front wall
   
   // --- View State Tracking ---
   let refAspectRatio;      // Reference aspect ratio, set in init()
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create Camera (Perspective)
     // FOV starts at baseFOV and aspect ratio uses reference initially
     camera = new THREE.PerspectiveCamera(baseFOV, refAspectRatio, 0.1, 500);
-    camera.position.set(0, 0, 0); // Place camera exactly at origin (center of cube)
+    camera.position.set(0, 0, universalCameraPullback); // Apply universal pullback to initial position
     camera.lookAt(0, 0, -1); // Look towards the negative Z-axis (front wall)
 
     // Create WebGL Renderer
@@ -257,20 +257,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log(`Window: ${windowWidth}x${windowHeight}, Aspect: ${windowAspect.toFixed(2)}, Wall: ${wallWidth.toFixed(1)}x${wallHeight.toFixed(1)}`);
     
-    // Apply dimensions to walls
-    Object.values(cube).forEach(wall => {
-      if (wall === cube.top || wall === cube.bottom) {
-        wall.scale.set(wallWidth, wallWidth, 1);  // Keep top/bottom square
-      } else {
-        wall.scale.set(wallWidth, wallHeight, 1); // Set width and height for side walls
-      }
-    });
+    // Apply dimensions to walls - ENSURING SIDE WALLS MATCH FRONT WALL EXACTLY
+    cube.front.scale.set(wallWidth, wallHeight, 1);
+    cube.back.scale.set(wallWidth, wallHeight, 1);
+    cube.left.scale.set(wallWidth, wallHeight, 1); // Same dimensions as front
+    cube.right.scale.set(wallWidth, wallHeight, 1); // Same dimensions as front
+    cube.top.scale.set(wallWidth, wallWidth, 1);    // Top/bottom remain square
+    cube.bottom.scale.set(wallWidth, wallWidth, 1); // Top/bottom remain square
     
     // Update wall positions to maintain cube structure
-    cube.front.position.z = -wallWidth / 2;
-    cube.back.position.z = wallWidth / 2;
-    cube.left.position.x = -wallWidth / 2;
-    cube.right.position.x = wallWidth / 2;
+    // This positions walls at exact half-width from center
+    const halfWidth = wallWidth / 2;
+    cube.front.position.z = -halfWidth;
+    cube.back.position.z = halfWidth;
+    cube.left.position.x = -halfWidth;
+    cube.right.position.x = halfWidth;
     cube.top.position.y = wallHeight / 2;
     cube.bottom.position.y = -wallHeight / 2;
     
@@ -351,15 +352,46 @@ document.addEventListener('DOMContentLoaded', function() {
       targetRotationY = 0; // 0 degrees
     }
 
-    // ONLY animate camera rotation - no position change
-    gsap.to(camera.rotation, {
-      y: targetRotationY,
-      duration: 1.0,
-      ease: "power2.inOut",
-      onComplete: function() {
-        isAnimating = false; // Reset animation flag when done
-        updateWallContent(previousWall, wall); // Update wall content
+    // Get current dynamic camera Z based on aspect ratio (from onWindowResize logic)
+    const fovFactor = Math.max(0, 1 - (camera.aspect / refAspectRatio));
+    const narrowScreenEmphasis = Math.pow(fovFactor, 0.6); // Match resize curve
+    const dynamicCamZ = currentCamZ;
+    
+    // Calculate view-specific adjustments
+    const viewSettings = sideWallCameraAdjustment[wall];
+    const baseFrontShift = viewSettings.frontShift || 0;
+    const narrowFrontShift = (viewSettings.frontShiftNarrowFactor || 0) * narrowScreenEmphasis;
+    const targetFrontShift = baseFrontShift + narrowFrontShift;
+    
+    // Store the new front shift
+    currentFrontShift = targetFrontShift;
+    
+    // Calculate final target Z with all adjustments
+    const targetZ = dynamicCamZ + universalCameraPullback + 
+                   viewSettings.z + targetFrontShift;
+    
+    // Calculate small X offset for side views to enhance visibility
+    const targetX = viewSettings.x || 0;
+
+    // Use GSAP (GreenSock Animation Platform) for smooth animation
+    gsap.to(camera.rotation, { // Animate the camera.rotation object
+      y: targetRotationY, // Target the Y rotation
+      duration: 0.8, // Animation duration in seconds
+      ease: 'power2.inOut', // Easing function for smooth start/end
+      onComplete: function() { // Callback when animation finishes
+        isAnimating = false; // Reset animation flag
+        currentRotationY = targetRotationY; // Ensure rotation is exactly at the target
+        updateWallContent(previousWall, wall); // Show/hide HTML content
       }
+    });
+    
+    // Simultaneously adjust camera position for better wall visibility
+    // This is separate from the core resizing logic which remains unchanged
+    gsap.to(camera.position, {
+      z: targetZ, // Combined Z adjustments
+      x: targetX, // Small X offset for better side wall angle
+      duration: 0.8,
+      ease: 'power2.inOut'
     });
   }
 

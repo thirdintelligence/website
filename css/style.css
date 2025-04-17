@@ -1,14 +1,16 @@
 /* Third i Website Styles */
 :root {
-  --primary-color: #0066cc;
-  --secondary-color: #00aaff;
-  --accent-color: #00ffcc;
+  --primary-color: #007bff;
+  --accent-color: #00aaff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
   --dark-color: #121212;
   --light-color: #f8f9fa;
   --text-color: #e0e0e0;
   --header-height: 60px;
   --footer-height: 30px;
   --cube-padding: 0;
+  --wall-container-multiplier: 1.3; /* 30% taller walls container */
 }
 
 * {
@@ -48,7 +50,7 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
-  height: var(--header-height); /* Use the variable for consistent sizing */
+  height: 60px; /* Fixed height for all screen sizes */
   background: rgba(0, 0, 0, 0.2); /* Subtle transparent background */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -216,10 +218,9 @@ header {
 #cube-environment {
   position: relative;
   width: 100%;
-  height: calc(160vh - var(--header-height) - var(--footer-height)); /* Extended to 160vh for 30% more space */
+  height: calc(var(--wall-container-multiplier) * (100vh - var(--header-height) - var(--footer-height))); /* 30% taller container */
   margin-top: var(--header-height); /* Ensure it starts right after header */
-  padding-top: 0; /* Remove variable padding */
-  margin-bottom: var(--footer-height); /* Ensure it connects with footer */
+  padding-top: 0; /* No padding */
   background-color: #000;
   overflow: visible;
 }
@@ -228,7 +229,7 @@ header {
 #cube-container {
   position: relative;
   width: 100%;
-  height: 100%; /* Always 100% of parent */
+  height: 100%; /* Takes full height of parent container */
   overflow: visible;
   touch-action: none;
   background-color: #000;
@@ -328,14 +329,14 @@ header {
 
 /* Footer */
 footer {
-  position: relative;
+  position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
+  z-index: 5;
   height: var(--footer-height);
-  background-color: rgba(18, 18, 18, 0.95);
-  backdrop-filter: blur(10px);
-  margin-top: 0; /* Remove any margin to prevent gaps */
-  z-index: 50; /* Ensure it's above other content */
+  background-color: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
