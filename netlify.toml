@@ -1,0 +1,10 @@
+[build]
+  publish = "."
+  # When Next.js is scaffolded, update to: publish = "out" (for static export)
+  # or use @netlify/plugin-nextjs for SSR
+
+# Redirect all routes to index for SPA behavior (remove when Next.js is added)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

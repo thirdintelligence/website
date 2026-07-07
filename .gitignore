@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+dist/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local Netlify folder
+.netlify
+
+# IDE
+.vscode/
+.idea/
+
+# Debug logs
+*.log
+npm-debug.log*
+
+# Agent memory (symlinked, lives in Obsidian vault)
+memory/
