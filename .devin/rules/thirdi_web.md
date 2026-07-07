@@ -51,12 +51,14 @@ updated: 2026-07-06
 | **Framework** | Next.js 14+ (App Router, SSG for all pages) |
 | **Styling** | TailwindCSS with custom theme from DESIGN.md tokens |
 | **TypeScript** | Strict mode, no `any` types |
-| **Deployment** | Vercel (production + preview branches) |
-| **Domain** | TBD (thirdi.agency or similar — HITL when ready) |
+| **Deployment** | Netlify (auto-deploy on push to `main`) |
+| **Domain** | [thirdi.net](https://thirdi.net) (live, Cloudflare DNS) |
+| **GitHub Repo** | [thirdintelligence/website](https://github.com/thirdintelligence/website) |
+| **Netlify Site ID** | `a790b3a4-8c53-420a-920c-f274c0ec6e3d` |
 | **Performance** | LCP < 2.5s, CLS < 0.1, FID < 100ms, Lighthouse >90 |
 | **SEO** | next-seo, structured data, OG images per page |
-| **Analytics** | Vercel Analytics (privacy-first, no cookies) |
-| **Forms** | Server actions or Vercel serverless (no third-party form services) |
+| **Analytics** | Netlify Analytics or Plausible (privacy-first, no cookies) |
+| **Forms** | Netlify Forms or server actions (no third-party form services) |
 | **Images** | Next/Image with WebP + AVIF, responsive srcset |
 | **Fonts** | Self-hosted via `next/font` (no external font requests) |
 
@@ -113,9 +115,9 @@ updated: 2026-07-06
 
 ## 8. Deployment Rules
 
-- **Production:** Auto-deploy on `main` branch push → Vercel production
-- **Preview:** Every PR gets a Vercel preview URL → share for HITL review
-- **Environment variables:** Managed in Vercel dashboard (never in repo)
+- **Production:** Auto-deploy on `main` branch push → Netlify production → [thirdi.net](https://thirdi.net)
+- **Preview:** Every PR gets a Netlify deploy preview URL → share for HITL review
+- **Environment variables:** Managed in Netlify dashboard (never in repo)
 - **Branch naming:** `feature/[component]`, `fix/[issue]`, `content/[page]`
 - **Commits:** Conventional commits (`feat:`, `fix:`, `style:`, `content:`)
 
