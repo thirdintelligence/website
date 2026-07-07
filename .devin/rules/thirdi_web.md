@@ -94,10 +94,10 @@ updated: 2026-07-06
 
 ## 6. Legacy Site Context
 
-- **Previous site:** `~/Desktop/Third i/Website/` (vanilla HTML/CSS/JS + Three.js)
-- **What carries forward:** Logo assets (`Images/Logos/`), brand name styling
-- **What does NOT carry forward:** Tech stack, design patterns, 3D room concept, code
-- **Migration:** Complete rebuild — no code reuse from legacy
+- **Previous site:** DELETED (was `~/Desktop/Third i/Website/` — vanilla HTML/CSS/JS + Three.js)
+- **What carried forward:** Logo assets (now in `~/Desktop/Third i/Assets/Logos/` + copied to `public/images/`)
+- **What did NOT carry forward:** Tech stack, design patterns, 3D room concept, spin app demo, all old code
+- **Migration:** Complete rebuild — fresh git, same GitHub repo (`thirdintelligence/website`), same Netlify site, same domain
 
 ---
 
