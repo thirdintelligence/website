@@ -97,7 +97,7 @@ async function submit() {
       const r = await apiSend(dataRef.cfg, "/api/comments", "POST", payload);
       if (!r.ok) { toast("Could not post comment (" + r.error + "). Your draft is kept."); return; }
       await refreshLive();
-      toast("Comment posted. Third i has been notified at portal@thirdi.net.");
+      toast("Comment posted. Third i has been notified and will respond within 1-2 business days.");
     } else {
       dataRef.live.comments = dataRef.live.comments || [];
       dataRef.live.comments.unshift({ id: "preview-" + Date.now(), tenant: dataRef.cfg.tenant, kind: "comment", title: f.title, blocker: f.blocker, projectId, description: f.description, context: { ...state.context }, status: "open", attribution: `${dataRef.portal.client.shortName} commented`, createdAt: new Date().toISOString(), revision: 1 });
@@ -108,7 +108,7 @@ async function submit() {
     if (live) {
       const r = await apiSend(dataRef.cfg, "/api/project-requests", "POST", { name: f.name, description: f.description });
       if (!r.ok) { toast("Could not submit request (" + r.error + "). Your draft is kept."); return; }
-      toast("Project request submitted. Third i has been notified at portal@thirdi.net.");
+      toast("Project request submitted. Third i has been notified and will respond within 1-2 business days.");
     } else {
       toast("Project request drafted (preview). In production this creates a client-proposed project + OS action.");
     }
