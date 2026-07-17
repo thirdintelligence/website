@@ -1,0 +1,1005 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "bkwatch",
+  "clientSafe": true,
+  "asOf": "2026-07-16",
+  "projects": [
+    {
+      "id": "film1-shaw-bkwatch",
+      "slug": "film1-shaw-bkwatch",
+      "type": "film",
+      "title": "Bankruptcy, handled inside Spectrum",
+      "displayName": "Film1-ShawBkWatch",
+      "status": "active",
+      "statusLabel": "Active · Final Demo extreme QC passed",
+      "projectType": "Integration film · Shaw × bkWatch",
+      "valueStatement": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
+      "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
+      "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
+      "coreValue": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
+      "phase": "Final Demo extreme QC passed",
+      "nextMilestone": "Justin approves the Final Demo plan; NEW FILING is used in post; Shaw provides sanitized Spectrum assets and written usage permission; exact composite keyframes are approved before generation.",
+      "runtime": "22 seconds",
+      "thumbnail": {
+        "mediaState": "in-production",
+        "label": "In production"
+      },
+      "draft": false,
+      "messaging": [
+        "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
+        "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use."
+      ],
+      "theme": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
+      "vision": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
+      "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows. Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+      "storyboardNote": "Final Demo Script Plan — original 45 words preserved at 122.7 WPM, Jul 16, 2026",
+      "deliverables": [
+        {
+          "title": "Locked 45-word voiceover at 122.7 WPM",
+          "state": "In progress"
+        },
+        {
+          "title": "Final Demo six-scene storyboard",
+          "state": "In progress"
+        },
+        {
+          "title": "Twelve controlled motion segments",
+          "state": "In progress"
+        },
+        {
+          "title": "Thirty Final Demo still/anchor prompts",
+          "state": "In progress"
+        },
+        {
+          "title": "Twelve Final Demo motion prompts",
+          "state": "In progress"
+        },
+        {
+          "title": "Eight supporting-study packages",
+          "state": "In progress"
+        },
+        {
+          "title": "122-prompt project inventory",
+          "state": "In progress"
+        },
+        {
+          "title": "Claim, asset, permission, and keyframe gates",
+          "state": "In progress"
+        }
+      ],
+      "assets": [],
+      "timeline": [
+        {
+          "state": "done",
+          "title": "D0 / project split",
+          "detail": "Film 1 integration brief separated from future Film 2"
+        },
+        {
+          "state": "done",
+          "title": "D1 / locked story",
+          "detail": "Original 45-word script retained"
+        },
+        {
+          "state": "done",
+          "title": "Direction meeting",
+          "detail": "bkWatch meeting complete; Final Demo selected for planning"
+        },
+        {
+          "state": "done",
+          "title": "D2 / Final Demo plan",
+          "detail": "Six scenes, 12 segments, and 122-project-prompt inventory ready"
+        },
+        {
+          "state": "done",
+          "title": "Extreme workflow / QC audit",
+          "detail": "42 Final Demo prompts passed; no media generated"
+        },
+        {
+          "state": "current",
+          "title": "HITL / asset and function lock",
+          "detail": "UI assets, written permission, functions, green, logos, composites, and keyframes awaiting approval"
+        },
+        {
+          "state": "pending",
+          "title": "D3 / media generation",
+          "detail": "No stills or motion clips generated"
+        },
+        {
+          "state": "pending",
+          "title": "D4 / assembly and QC",
+          "detail": "Production begins only after all gates and delivery specifications are approved"
+        }
+      ],
+      "blockers": [
+        "Final Demo plan approval",
+        "Sanitized Spectrum start/working captures and masks",
+        "Written Shaw permission for bkWatch film use and 3D treatment",
+        "Live/showable function confirmation",
+        "Handled-state green",
+        "Final CTA and logo hierarchy",
+        "Composite-frame and keyframe approval"
+      ],
+      "related": [
+        "spectrum-integration",
+        "monitoring"
+      ],
+      "scope": {
+        "ownerApproved": false,
+        "model": "Outcome + effort range",
+        "demoEffort": "Confirmed hours pending",
+        "effortRange": "Scope required",
+        "priceStatement": "Scope required",
+        "assumptions": [
+          "Final Demo plan approved",
+          "Spectrum assets + written permission supplied",
+          "Live/showable functions confirmed"
+        ],
+        "note": "The current demo establishes the visual system and proves direction. A complete film adds refinement passes, product-accuracy review, motion continuity, sound, and final QC. Third i presents the confirmed effort range and pricing model before production begins.",
+        "source": "Third i pricing approach — outcome/scope-led; currency shown only when confirmed"
+      },
+      "film": {
+        "coreMessage": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
+        "creativeThesis": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
+        "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows. Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+        "scriptSource": "Final Demo Script Plan — original 45 words preserved at 122.7 WPM, Jul 16, 2026",
+        "comparisonCriteria": [
+          "Message clarity",
+          "Product accuracy",
+          "Emotional impact",
+          "Production complexity",
+          "Distinctiveness",
+          "Current recommendation"
+        ],
+        "recommendation": "Final Demo is the selected production candidate. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain supporting studies.",
+        "approvals": [
+          "Justin approves the 22-second Final Demo plan and corrected internal segment allocation.",
+          "Use NEW FILING as the post-produced file label.",
+          "Shaw supplies exact sanitized Spectrum start/working captures and masks with written permission to crop, track, animate, simplify, stylize, texture-map, extrude, display, and distribute them for the bkWatch film.",
+          "One internal legacy screenshot containing visible customer/account information is rejected and must not enter the production package.",
+          "Jessica/Dylan and Shaw confirm live/showable Status, Tasks, Credit behavior, real-time wording, CTA, and factual claims.",
+          "Handled-state green, final Shaw + BankruptcyWatch lockup, UI composite frames, and all start/final keyframe pairs receive approval.",
+          "D4 locks delivery resolution, frame rate, color pipeline, audio and caption masters, and review/export formats."
+        ],
+        "ideas": [
+          {
+            "number": "FINAL",
+            "slug": "final-demo",
+            "title": "Final Demo",
+            "concept": "Real Spectrum becomes an intricate physical dashboard, reveals BankruptcyWatch working beneath it, resolves three handled outcomes, and returns to the same active lender workflow.",
+            "status": "Selected / extreme QC passed",
+            "recommended": true,
+            "runtime": "22 seconds",
+            "sceneCount": 6,
+            "demoState": "Six scenes, 12 controlled segments, 30 still/anchor prompts, and 12 motion prompts passed workflow, prompt, claim, privacy, and continuity QC; media not generated",
+            "approval": "Awaiting Justin plan/segment approval plus Spectrum assets, permission, function, color, logo, composite, and keyframe gates",
+            "strength": "Best balance of real product proof, human credibility, native-integration clarity, and premium cinematic impact",
+            "complexity": "High / controlled hybrid",
+            "distinctiveness": "Real UI to physical system to internal mechanism to real UI",
+            "recommendation": "Selected production candidate",
+            "scenes": [
+              {
+                "id": "F01",
+                "title": "Spectrum is already home",
+                "time": "Seconds 0–2",
+                "duration": "2 seconds",
+                "description": "A simple over-the-shoulder push frames a woman working while approved real Spectrum fills more than 80 percent of the monitor and the lender floor remains active behind her.",
+                "direction": "Use a stable human plate and tracked exact UI; keep the real Shaw mark and safe sample data recognizable from the first frame. Production segment: F1.1.",
+                "transition": "Cut from the dominant monitor to a desk-object-height three-quarter face angle.",
+                "purpose": "Establish Spectrum as the familiar operating home base before any metaphor appears.",
+                "status": "Prompts ready · media not generated",
+                "script": "Spectrum runs your lending operation.",
+                "mediaState": "in-production",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "F01",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "F02",
+                "title": "The filing arrives",
+                "time": "Seconds 3–5",
+                "duration": "3 seconds",
+                "description": "The physical filing object lowers perfectly vertically, hovers between the specialist and monitor, and begins moving toward Spectrum after one keyboard input.",
+                "direction": "Allocate F2.1 to 2–4 seconds for descent, deceleration, and hover; allocate F2.2 to 4–5 seconds for the key input and departure. Add the exact file-like label NEW FILING in post.",
+                "transition": "Follow the filing toward the prepared receiving region as the view returns to the monitor.",
+                "purpose": "Give bankruptcy urgency a precise physical event without fear-based imagery.",
+                "status": "Prompts QC-passed · media not generated",
+                "script": "Bankruptcy does not wait.",
+                "mediaState": "in-production",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "F02",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "F03",
+                "title": "Spectrum becomes physical",
+                "time": "Seconds 6–10",
+                "duration": "5 seconds",
+                "description": "The approved real UI gains depth as the camera orbits and sweeps into a city-like physical dashboard. The filing clicks into a prepared slot, one blue pulse crosses the recessed valleys, and Status, Tasks, and Credit begin loading.",
+                "direction": "Build F3.1 at 5–6 seconds, F3.2 at 6–8 seconds, and F3.3 at 8–10 seconds as controlled 3D/VFX from approved UI textures and masks. Preserve safe data, panel geometry, live indicators, and one approved simplified slot region.",
+                "transition": "Hold the side view as the complete Spectrum surface prepares to lift.",
+                "purpose": "Make native automation feel physically engineered into the system the team already uses.",
+                "status": "Previs prompts QC-passed · exact UI assets required · media not generated",
+                "script": "Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum,",
+                "mediaState": "in-production",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "F03",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "F04",
+                "title": "Why the platform knows",
+                "time": "Seconds 11–14",
+                "duration": "4 seconds",
+                "description": "The Spectrum top layer rises as one rigid precision assembly, revealing an intricate black-and-blue BankruptcyWatch mechanism beneath it. One restrained pulse travels outward before the layer closes.",
+                "direction": "Use F4.1 and F4.2 start/final pairs. Composite the approved BankruptcyWatch logo into the unmarked internal recess; avoid generic circuitry or science-fiction effects.",
+                "transition": "The precision layer closes and aligns, setting up the completion hero.",
+                "purpose": "Visually explain why Spectrum already knows without changing the original script order.",
+                "status": "Previs prompts ready · logo/keyframes pending · media not generated",
+                "script": "so when a borrower files, your platform already knows.",
+                "mediaState": "in-production",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "F04",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "F05",
+                "title": "Handled-state hero",
+                "time": "Seconds 15–18",
+                "duration": "4 seconds",
+                "description": "Status, Tasks, and Credit complete one at a time. Each check sends one green signal to a linked dashboard region; all three cards, paths, and targets remain illuminated as the camera widens.",
+                "direction": "Build F5.1–F5.3 separately, preserve completed states, and use exact labels/checks in post after current-function and handled-green approval.",
+                "transition": "Continue the pullback as the physical dashboard resolves into the real working interface.",
+                "purpose": "Turn the integration promise into three visible operational consequences.",
+                "status": "Previs prompts ready · function/color approval pending · media not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected.",
+                "mediaState": "in-production",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "F05",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "F06",
+                "title": "Same Spectrum, more capable",
+                "time": "Seconds 19–22",
+                "duration": "4 seconds",
+                "description": "The view returns to the original over-the-shoulder workplace. The specialist performs another task while meaningful approved state changes occur in Spectrum and the active floor continues behind her.",
+                "direction": "Use F6.1 as a stable human plate, resolve to the approved alternate working UI, and add the transparent Shaw + BankruptcyWatch lockup only in post.",
+                "transition": "End on the working environment rather than a detached generic end card.",
+                "purpose": "Close the switching objection: the team already has Spectrum, and the workflow now has bankruptcy handled.",
+                "status": "Prompts ready · exact working UI and logo lockup pending · media not generated",
+                "script": "You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "in-production",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "F06",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "01",
+            "slug": "already-inside-spectrum",
+            "title": "Already Inside Spectrum",
+            "concept": "A direct product-proof control: one filing arrives, seats natively, and resolves into three handled Spectrum states.",
+            "status": "Supporting study",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Retained as source study; not the current production candidate",
+            "strength": "Clearest baseline for product comprehension",
+            "complexity": "Moderate",
+            "distinctiveness": "Intentional standard control",
+            "recommendation": "Standard benchmark for Final Demo proof clarity",
+            "scenes": [
+              {
+                "id": "I1.1",
+                "title": "Home base",
+                "time": "0:00–0:05",
+                "description": "A stable Spectrum plate holds center while one filing approaches and a receiving point appears.",
+                "direction": "Restrained product demonstration; Spectrum remains the visual anchor.",
+                "transition": "Continuous native route into Scene 2.",
+                "purpose": "Establish Spectrum as the trusted home base and introduce urgency without alarm.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I1.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I1.2",
+                "title": "Native arrival",
+                "time": "0:05–0:10",
+                "description": "The filing travels through a direct native route and seats in the case area.",
+                "direction": "Tier-one integration metaphor with exact interface treatment reserved for approved post-production.",
+                "transition": "Direct movement into the handled state.",
+                "purpose": "Show the filing signal entering through the native integration.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I1.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I1.3",
+                "title": "Handled",
+                "time": "0:10–0:15",
+                "description": "Status, task, and reporting regions settle in order.",
+                "direction": "Calm ordered proof; exact labels and logos remain post-produced and function-gated.",
+                "transition": "End card treatment needs approval.",
+                "purpose": "Show ordered workflow proof and land on the handled payoff.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I1.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "02",
+            "slug": "the-moment-it-lands",
+            "title": "The Moment It Lands",
+            "concept": "A filing lands with controlled kinetic force, opening one blue seam that becomes three ordered outcomes.",
+            "status": "Supporting study",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Retained as source study; not the current production candidate",
+            "strength": "Immediate event-to-consequence clarity",
+            "complexity": "Moderate",
+            "distinctiveness": "Macro kinetic impact",
+            "recommendation": "Kinetic source for the Final Demo filing click and pulse",
+            "scenes": [
+              {
+                "id": "I2.1",
+                "title": "Approach",
+                "time": "0:00–0:05",
+                "description": "A macro account field sits on a Spectrum-derived plane as a filing descends toward one receiving slot.",
+                "direction": "Precise macro cinematography; no personal data or latency promise.",
+                "transition": "Filing impact begins the seam reveal.",
+                "purpose": "Establish home base and the arriving bankruptcy event.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I2.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I2.2",
+                "title": "Impact",
+                "time": "0:05–0:10",
+                "description": "The filing lands edge-first; one blue seam opens and divides into three tracks.",
+                "direction": "One decisive kinetic event; no representation of identity-match mechanics.",
+                "transition": "Hard shape match from physical tracks to product regions.",
+                "purpose": "Make the native automation event legible in one physical action.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I2.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I2.3",
+                "title": "Consequence",
+                "time": "0:10–0:15",
+                "description": "Three physical tabs match-cut to three ordered Spectrum states.",
+                "direction": "Product-region payoff with state labels added only in approved post-production.",
+                "transition": "Hard shape match; end state holds.",
+                "purpose": "Resolve the event into status, task, and reporting proof.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I2.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "03",
+            "slug": "one-desk-no-detours",
+            "title": "One Desk. No Detours.",
+            "concept": "External court information folds into one native folio and docks without breaking the specialist's desk workflow.",
+            "status": "Supporting study",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Retained as source study; not the current production candidate",
+            "strength": "Human workflow continuity",
+            "complexity": "Higher",
+            "distinctiveness": "Document-fold choreography",
+            "recommendation": "Human workflow source for the Final Demo opening and close",
+            "scenes": [
+              {
+                "id": "I3.1",
+                "title": "Outside pull",
+                "time": "0:00–0:05",
+                "description": "A specialist and Spectrum remain central while three translucent document planes enter the desk perimeter.",
+                "direction": "One restrained camera arc around an anchored desk; court information stays abstract.",
+                "transition": "Document planes prepare to hinge together.",
+                "purpose": "Show the external complexity that historically pulled work away from Spectrum.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I3.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I3.2",
+                "title": "Native fold",
+                "time": "0:05–0:10",
+                "description": "The planes hinge into one blue-bound folio and dock at the monitor edge.",
+                "direction": "Physical integration metaphor; never imply zero human review.",
+                "transition": "Folio docking motivates the single hand input.",
+                "purpose": "Compress fragmented court information into a native workflow handoff.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I3.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I3.3",
+                "title": "Same desk",
+                "time": "0:10–0:15",
+                "description": "One hand input settles task and status inside Spectrum; no extra app or operator appears.",
+                "direction": "Continue the same restrained camera arc; approved interface detail is composited later.",
+                "transition": "End on uninterrupted desk continuity.",
+                "purpose": "Resolve the switching objection through a visible same-desk payoff.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I3.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "04",
+            "slug": "confidence-before-motion",
+            "title": "Confidence Before Motion",
+            "concept": "A precision iris accepts the filing, locks, then releases ordered action only after a deliberate beat.",
+            "status": "Supporting study",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Retained as source study; not the current production candidate",
+            "strength": "Control and compliance tone",
+            "complexity": "Moderate",
+            "distinctiveness": "Optical restraint and delayed action",
+            "recommendation": "Precision and trust reference for Final Demo motion",
+            "scenes": [
+              {
+                "id": "I4.1",
+                "title": "Acceptance",
+                "time": "0:00–0:05",
+                "description": "Focus racks from Spectrum to a flush precision iris; the filing seats and the blue ring closes.",
+                "direction": "Acceptance is a metaphor only; do not add unapproved verification wording.",
+                "transition": "Hold the lock before releasing movement.",
+                "purpose": "Frame the event as controlled rather than alarming.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I4.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I4.2",
+                "title": "Controlled handoff",
+                "time": "0:05–0:10",
+                "description": "The locked signal exits on one narrow rail and seats in Spectrum.",
+                "direction": "Minimal controlled movement; no accuracy or identifier claim.",
+                "transition": "One-beat hold after the handoff.",
+                "purpose": "Express native integration as a controlled route.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I4.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I4.3",
+                "title": "Delayed action",
+                "time": "0:10–0:15",
+                "description": "After one held beat, status, task, and reporting move in order.",
+                "direction": "Downstream motion is withheld until acceptance; exact functions remain gated.",
+                "transition": "Ordered settle into end state.",
+                "purpose": "Show the three proof outcomes with a compliance-minded rhythm.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I4.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "05",
+            "slug": "built-beneath-the-surface",
+            "title": "Built Beneath the Surface",
+            "concept": "A tactile Spectrum surface separates by millimeters to reveal a purpose-built bkWatch mechanism underneath.",
+            "status": "Supporting study",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Retained as the primary creative source for Final Demo",
+            "strength": "Ownable architecture and premium materiality",
+            "complexity": "Higher",
+            "distinctiveness": "Tactile architectural cutaway",
+            "recommendation": "Architectural source for the Final Demo internal reveal",
+            "scenes": [
+              {
+                "id": "I5.1",
+                "title": "Trusted surface",
+                "time": "0:00–0:05",
+                "description": "Raking light reveals a tactile Spectrum relief; its top separates by millimeters to expose a blue mechanism.",
+                "direction": "Warm-white paper or resin above a black substrate; architecture is metaphor, not a literal technology stack.",
+                "transition": "Camera follows the revealed channel beneath the surface.",
+                "purpose": "Keep Spectrum visually trusted while revealing specialized capability underneath.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I5.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I5.2",
+                "title": "Purpose-built route",
+                "time": "0:05–0:10",
+                "description": "The filing moves through a recessed channel below and raises one selected account tile flush.",
+                "direction": "Use one precise blue mechanism; do not imply an exact identity-match method.",
+                "transition": "Raised tile motivates an overhead move.",
+                "purpose": "Make the native route feel engineered for bankruptcy work.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I5.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I5.3",
+                "title": "Embossed proof",
+                "time": "0:10–0:15",
+                "description": "From overhead, status, task, and reporting embosses rise into calm order.",
+                "direction": "Exact copy and logos are composited in post after function approval.",
+                "transition": "Calm overhead hold for the handled payoff.",
+                "purpose": "Land three operational outcomes in a premium, ownable final frame.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I5.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "06",
+            "slug": "the-workday-doesnt-break",
+            "title": "The Workday Doesn't Break",
+            "concept": "A continuous side-dolly preserves the specialist's daylight and hand rhythm while the bankruptcy event is handled in Spectrum.",
+            "status": "Supporting study",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Retained as source study; not the current production candidate",
+            "strength": "Human emotional proof without hype",
+            "complexity": "Higher",
+            "distinctiveness": "Continuous workday rhythm",
+            "recommendation": "Continuity reference for the Final Demo return to work",
+            "scenes": [
+              {
+                "id": "I6.1",
+                "title": "Rhythm",
+                "time": "0:00–0:05",
+                "description": "A side dolly follows the specialist, Spectrum, and one stripe of daylight as a filing reaches the monitor.",
+                "direction": "No visible speech or personal data; performance remains measured.",
+                "transition": "Camera and hand rhythm continue without a cut in energy.",
+                "purpose": "Establish an attentive, uninterrupted working environment.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I6.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I6.2",
+                "title": "Native handoff",
+                "time": "0:05–0:10",
+                "description": "The filing seats and one task advances while the specialist completes one measured hand movement.",
+                "direction": "Do not imply zero review; automation supports the operator's continuity.",
+                "transition": "Side dolly continues into a wider frame.",
+                "purpose": "Show native handling without breaking the operator's workflow.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I6.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I6.3",
+                "title": "Continuity",
+                "time": "0:10–0:15",
+                "description": "The camera widens as status and reporting settle; daylight and hand rhythm continue with one operator.",
+                "direction": "The emotional signature is protected attention, not celebration or a headcount claim.",
+                "transition": "Continuous rhythm carries through the final frame.",
+                "purpose": "Turn the handled payoff into visible workflow continuity.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I6.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "07",
+            "slug": "the-update-writes-itself",
+            "title": "The Update Writes Itself",
+            "concept": "An editorial record corrects itself, opens onto Spectrum proof, and resolves into a concise evidence spread.",
+            "status": "Supporting derivative",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Proof derivative only; quote placement remains gated",
+            "strength": "Proof-led sales enablement",
+            "complexity": "Moderate",
+            "distinctiveness": "Editorial correction grammar",
+            "recommendation": "Separate proof-led derivative after the main film",
+            "scenes": [
+              {
+                "id": "I7.1",
+                "title": "Correction",
+                "time": "0:00–0:05",
+                "description": "A text-free record sheet holds one misaligned gray field; a blue rule corrects its position.",
+                "direction": "Use an abstract record only, never real borrower data.",
+                "transition": "The corrected rule creates the die-cut reveal.",
+                "purpose": "Translate bankruptcy risk into a controlled record correction.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I7.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I7.2",
+                "title": "Product reveal",
+                "time": "0:05–0:10",
+                "description": "A die-cut paper window opens to a handled Spectrum state and a blank proof field.",
+                "direction": "Any quote is short, approved, and added in post only.",
+                "transition": "Window expands into an editorial spread.",
+                "purpose": "Connect the correction metaphor to visible product proof.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I7.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I7.3",
+                "title": "Proof spread",
+                "time": "0:10–0:15",
+                "description": "Product and proof field align into one editorial spread with three blue rules.",
+                "direction": "Driveway logo or excerpt placement requires explicit approval.",
+                "transition": "Hold as a proof-led end frame.",
+                "purpose": "Package the three handled outcomes as sales evidence.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I7.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          },
+          {
+            "number": "08",
+            "slug": "the-handled-orbit",
+            "title": "The Handled Orbit",
+            "concept": "A filing token crosses a blue ingress arc, resolves into three states, and leaves a persistent handled marker as the next event arrives.",
+            "status": "Supporting derivative",
+            "recommended": false,
+            "runtime": "15-second visual study",
+            "sceneCount": 3,
+            "demoState": "Study prompt package ready; media not generated",
+            "approval": "Deployment derivative only; not the current production candidate",
+            "strength": "Loopable deployment format",
+            "complexity": "Moderate",
+            "distinctiveness": "Persistent orbital motion",
+            "recommendation": "Booth/site loop after the Final Demo is approved",
+            "scenes": [
+              {
+                "id": "I8.1",
+                "title": "Continuous arrival",
+                "time": "0:00–0:05",
+                "description": "A white filing token orbits a Spectrum-derived plane while one completed blue marker remains visible.",
+                "direction": "Keep the metaphor silent-readable and abstract.",
+                "transition": "The orbit reaches the blue ingress arc.",
+                "purpose": "Establish recurring events around a stable Spectrum home base.",
+                "status": "Not generated",
+                "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I8.1",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I8.2",
+                "title": "Native crossing",
+                "time": "0:05–0:10",
+                "description": "The token crosses the blue ingress arc and enters the central plane.",
+                "direction": "No exact latency promise; the crossing represents native integration.",
+                "transition": "The crossing resolves into three settled states.",
+                "purpose": "Make the native handoff legible within a loopable system.",
+                "status": "Not generated",
+                "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I8.2",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit"
+                  },
+                  "count": 0
+                }
+              },
+              {
+                "id": "I8.3",
+                "title": "Persistent handling",
+                "time": "0:10–0:15",
+                "description": "Three states settle; the completed marker remains while the next token reaches its opening position.",
+                "direction": "The loop continues without resetting the handled state.",
+                "transition": "Seamless loop to Scene 1 opening position.",
+                "purpose": "Show persistent handling and prepare a continuous booth or site loop.",
+                "status": "Not generated",
+                "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+                "mediaState": "ungenerated",
+                "assetIds": [],
+                "comment": {
+                  "context": {
+                    "scope": "scene",
+                    "projectId": "film1-shaw-bkwatch",
+                    "sceneId": "I8.3",
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit"
+                  },
+                  "count": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "context": {
+          "scope": "project",
+          "projectId": "film1-shaw-bkwatch",
+          "route": "/bkwatch/projects/film1-shaw-bkwatch"
+        },
+        "count": 0
+      },
+      "source": "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
+    }
+  ]
+}

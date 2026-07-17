@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/audit-event.schema.json",
+  "title": "Audit event (operational)",
+  "description": "Immutable event for every operational mutation. Event IDs are stable and idempotent so retries and the memory mirror never duplicate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "tenant", "type", "subjectId", "actor", "at"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "type": { "type": "string", "enum": ["comment.created", "comment.edited", "comment.deleted", "comment.completed", "project-request.created", "draft.saved", "draft.deleted", "notification.queued", "notification.sent", "notification.failed", "thumbnail.changed"] },
+    "subjectId": { "$ref": "common.schema.json#/$defs/id" },
+    "actor": { "type": "string", "enum": ["client", "owner", "system", "sync"] },
+    "at": { "type": "string" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "note": { "type": "string" }
+  }
+}

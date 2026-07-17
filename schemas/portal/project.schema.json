@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/project.schema.json",
+  "title": "Projects file (projects.json)",
+  "description": "All client-visible projects with full detail hierarchy. Commercial scope displays only when approved for the client.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "projects"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "projects": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/project" } }
+  },
+  "$defs": {
+    "timelineItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "title"],
+      "properties": {
+        "state": { "$ref": "common.schema.json#/$defs/timelineState" },
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "detail": { "type": "string" }
+      }
+    },
+    "deliverable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "state"],
+      "properties": {
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "state": { "type": "string" },
+        "detail": { "type": "string" },
+        "assetId": { "type": "string" }
+      }
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "body"],
+      "properties": {
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "body": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "source": { "$ref": "common.schema.json#/$defs/source" }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "description": "Commercial scope/investment. Displayed only when ownerApproved is true; otherwise the UI shows 'Scope required'.",
+      "additionalProperties": false,
+      "required": ["ownerApproved", "model"],
+      "properties": {
+        "ownerApproved": { "type": "boolean" },
+        "model": { "type": "string", "description": "Outcome/scope-led model, e.g. 'Fixed scope' or 'Effort range'." },
+        "effortRange": { "type": "string" },
+        "demoEffort": { "type": "string" },
+        "priceStatement": { "type": "string" },
+        "assumptions": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" },
+        "source": { "$ref": "common.schema.json#/$defs/source" }
+      }
+    },
+    "thumbnail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mediaState"],
+      "properties": {
+        "mediaState": { "$ref": "common.schema.json#/$defs/mediaState" },
+        "assetId": { "type": "string" },
+        "label": { "type": "string" }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "slug", "type", "title", "status", "projectType", "valueStatement", "source"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "slug": { "$ref": "common.schema.json#/$defs/slug" },
+        "type": { "type": "string", "enum": ["film", "standard"] },
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "displayName": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "completed", "paused", "archived", "proposed"] },
+        "statusLabel": { "type": "string" },
+        "projectType": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "valueStatement": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "objective": { "type": "string" },
+        "audience": { "type": "string" },
+        "coreValue": { "type": "string" },
+        "phase": { "type": "string" },
+        "nextMilestone": { "type": "string" },
+        "runtime": { "type": "string" },
+        "thumbnail": { "$ref": "project.schema.json#/$defs/thumbnail" },
+        "draft": { "type": "boolean", "description": "True while media are AI-assisted drafts, triggering the draft notice." },
+        "messaging": { "type": "array", "items": { "type": "string" } },
+        "theme": { "type": "string" },
+        "vision": { "type": "string" },
+        "mainMediaAssetId": { "type": "string" },
+        "script": { "type": "string" },
+        "storyboardNote": { "type": "string" },
+        "deliverables": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/deliverable" } },
+        "assets": { "type": "array", "items": { "$ref": "asset.schema.json#/$defs/asset" } },
+        "timeline": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/timelineItem" } },
+        "blockers": { "type": "array", "items": { "type": "string" } },
+        "reports": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/report" } },
+        "related": { "type": "array", "items": { "type": "string" } },
+        "scope": { "$ref": "project.schema.json#/$defs/scope" },
+        "film": { "$ref": "film.schema.json#/$defs/filmBlock" },
+        "comment": { "$ref": "common.schema.json#/$defs/commentTarget" },
+        "source": { "$ref": "common.schema.json#/$defs/source" }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/search-index.schema.json",
+  "title": "Search index file (search-index.json)",
+  "description": "Flat tenant-only search index built from sanitized manifests. Contains no raw memory filenames, prompts, or local paths.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "entries"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "title", "route"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "type": { "type": "string" },
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "excerpt": { "type": "string" },
+          "project": { "type": "string" },
+          "category": { "type": "string" },
+          "status": { "type": "string" },
+          "format": { "type": "string" },
+          "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "route": { "type": "string" },
+          "keywords": { "type": "string" }
+        }
+      }
+    }
+  }
+}

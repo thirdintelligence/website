@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/home.schema.json",
+  "title": "Home / Today file (home.json)",
+  "description": "Decision-useful relationship surface. Live comment/completion feeds are merged at runtime from the operational store; this file carries the sanitized static baseline.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "stats", "needsAttention", "activeWork", "activity", "opportunities"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "stats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value", "source"],
+        "properties": {
+          "label": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "value": { "type": ["string", "number"] },
+          "unit": { "type": "string" },
+          "state": { "type": "string" },
+          "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "source": { "$ref": "common.schema.json#/$defs/source" }
+        }
+      }
+    },
+    "needsAttention": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "title", "status", "route", "source"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "kind": { "type": "string", "enum": ["blocker", "comment", "decision", "milestone", "general"] },
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "projectId": { "type": "string" },
+          "projectLabel": { "type": "string" },
+          "status": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "createdAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "route": { "type": "string" },
+          "source": { "$ref": "common.schema.json#/$defs/source" }
+        }
+      }
+    },
+    "activeWork": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["projectId", "name", "purpose", "route"],
+        "properties": {
+          "projectId": { "type": "string" },
+          "name": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "purpose": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "phase": { "type": "string" },
+          "nextMilestone": { "type": "string" },
+          "openCount": { "type": "integer", "minimum": 0 },
+          "latestUpdate": { "type": "string" },
+          "thumbnailState": { "$ref": "common.schema.json#/$defs/mediaState" },
+          "route": { "type": "string" }
+        }
+      }
+    },
+    "activity": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "title", "date"],
+        "properties": {
+          "type": { "type": "string", "enum": ["project-update", "completed-action", "new-deliverable", "communication", "meeting", "email", "comment"] },
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "detail": { "type": "string" },
+          "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "projectId": { "type": "string" },
+          "route": { "type": "string" }
+        }
+      }
+    },
+    "opportunities": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "outcome", "why", "value", "effort", "recommendation", "source"],
+        "properties": {
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "outcome": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "why": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "value": { "$ref": "common.schema.json#/$defs/band" },
+          "effort": { "$ref": "common.schema.json#/$defs/band" },
+          "evidence": { "$ref": "common.schema.json#/$defs/evidenceQuality" },
+          "recommendation": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "link": { "type": "string" },
+          "source": { "$ref": "common.schema.json#/$defs/source" }
+        }
+      }
+    }
+  }
+}

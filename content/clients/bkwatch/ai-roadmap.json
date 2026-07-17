@@ -1,0 +1,869 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "bkwatch",
+  "clientSafe": true,
+  "asOf": "2026-07-16",
+  "researchAsOf": "2026-07-16",
+  "executiveSummary": {
+    "currentState": "Current automation is primarily rules-based: API calls, predefined rules, custom scrapers, and regex parsing. Little to no generative or agentic AI is in production today.",
+    "topImprovement": "Add human-reviewed AI assistance to bankruptcy monitoring exception handling, where the confirmed rules-based pipeline already produces reviewable exceptions.",
+    "risks": "Product-accuracy, compliance review, and data-privacy boundaries must gate any generative step; no capability is presented as adopted before it is confirmed.",
+    "recommendation": "Third i evaluates the workflow first and the tool second. Begin with one bounded, high-value pilot with explicit human review and success criteria.",
+    "positioning": "Rankings and new releases help identify candidates, but the recommendation is based on bkWatch's work, risk, cost, and adoption path.",
+    "source": "BankruptcyWatch factual canon — AI Use Audit"
+  },
+  "categories": [
+    {
+      "id": "operations",
+      "title": "Operations & monitoring"
+    },
+    {
+      "id": "marketing",
+      "title": "Marketing"
+    },
+    {
+      "id": "acquisition",
+      "title": "Acquisition & growth"
+    },
+    {
+      "id": "service",
+      "title": "Service & support"
+    },
+    {
+      "id": "analytics",
+      "title": "Analytics & reporting"
+    },
+    {
+      "id": "compliance",
+      "title": "Compliance & risk support"
+    },
+    {
+      "id": "film",
+      "title": "Film & creative production"
+    },
+    {
+      "id": "web",
+      "title": "Website design & development"
+    },
+    {
+      "id": "communications",
+      "title": "Communications"
+    },
+    {
+      "id": "product-workflow",
+      "title": "Product & workflow automation"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "ai-operations-1",
+      "category": "operations",
+      "name": "Rules-based API monitoring baseline",
+      "status": "active",
+      "outcome": "Confirmed current automation baseline; this is not generative AI.",
+      "detail": "Confirmed current automation baseline; this is not generative AI.",
+      "value": "Medium",
+      "effort": "Low",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Maintain and measure this working baseline; do not present it as generative AI.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — AI Use Audit",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-operations-1",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-operations-2",
+      "category": "operations",
+      "name": "Agentic case routing",
+      "status": "not-in-use",
+      "outcome": "Opportunity only; no current adoption is recorded.",
+      "detail": "Opportunity only; no current adoption is recorded.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — Agentic Case Workflows",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-operations-2",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-operations-3",
+      "category": "operations",
+      "name": "Exception triage copilot",
+      "status": "not-in-use",
+      "outcome": "Proposed service opportunity for cases that fall outside rigid rules.",
+      "detail": "Proposed service opportunity for cases that fall outside rigid rules.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Derived Third i opportunity from current rules-based limitations",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-operations-3",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-marketing-4",
+      "category": "marketing",
+      "name": "AI-assisted product content system",
+      "status": "needs-confirmation",
+      "outcome": "No current marketing production workflow is documented.",
+      "detail": "No current marketing production workflow is documented.",
+      "value": "Unknown",
+      "effort": "Unknown",
+      "evidence": "Needs-confirmation",
+      "recommendation": "Confirm current usage and data boundaries before recommending a change.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Approved memory contains no adoption evidence",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-marketing-4",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-marketing-5",
+      "category": "marketing",
+      "name": "Role-specific campaign generation",
+      "status": "not-in-use",
+      "outcome": "Recommended opportunity for compliance, servicing, and recovery audiences.",
+      "detail": "Recommended opportunity for compliance, servicing, and recovery audiences.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Third i guidance; not a client adoption claim",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-marketing-5",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-marketing-6",
+      "category": "marketing",
+      "name": "Film-to-sales-content repurposing",
+      "status": "partial",
+      "outcome": "Film 1 is in creative development; no final media exists to repurpose.",
+      "detail": "Film 1 is in creative development; no final media exists to repurpose.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Film1 Working Memory — D2 complete, media not started",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-marketing-6",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-acquisition-7",
+      "category": "acquisition",
+      "name": "Account research briefs",
+      "status": "not-in-use",
+      "outcome": "No AI-assisted account research process is confirmed.",
+      "detail": "No AI-assisted account research process is confirmed.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Approved memory contains no adoption evidence",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-acquisition-7",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-acquisition-8",
+      "category": "acquisition",
+      "name": "Lead scoring and prioritization",
+      "status": "needs-confirmation",
+      "outcome": "Funnel data, scoring model, and adoption state require confirmation.",
+      "detail": "Funnel data, scoring model, and adoption state require confirmation.",
+      "value": "Unknown",
+      "effort": "Unknown",
+      "evidence": "Needs-confirmation",
+      "recommendation": "Confirm current usage and data boundaries before recommending a change.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "No client-safe acquisition baseline is recorded",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-acquisition-8",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-acquisition-9",
+      "category": "acquisition",
+      "name": "Native-integration sales enablement",
+      "status": "partial",
+      "outcome": "Film 1 and product-proof directions are in progress; public claims remain gated.",
+      "detail": "Film 1 and product-proof directions are in progress; public claims remain gated.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Film1 Working Memory and factual canon",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-acquisition-9",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-service-10",
+      "category": "service",
+      "name": "Case status explanation assistant",
+      "status": "not-in-use",
+      "outcome": "Opportunity only; no current client-facing assistant is documented.",
+      "detail": "Opportunity only; no current client-facing assistant is documented.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Third i guidance; not a client adoption claim",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-service-10",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-service-11",
+      "category": "service",
+      "name": "Human-gated service response drafts",
+      "status": "not-in-use",
+      "outcome": "Opportunity to draft clear responses while retaining specialist approval.",
+      "detail": "Opportunity to draft clear responses while retaining specialist approval.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Third i guidance; not a client adoption claim",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-service-11",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-service-12",
+      "category": "service",
+      "name": "Support request classification",
+      "status": "needs-confirmation",
+      "outcome": "Support tooling and ticket volume are not documented.",
+      "detail": "Support tooling and ticket volume are not documented.",
+      "value": "Unknown",
+      "effort": "Unknown",
+      "evidence": "Needs-confirmation",
+      "recommendation": "Confirm current usage and data boundaries before recommending a change.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Needs client confirmation",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-service-12",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-analytics-13",
+      "category": "analytics",
+      "name": "Bankruptcy trend narratives",
+      "status": "needs-confirmation",
+      "outcome": "Data reporting is documented, but AI-generated analysis adoption is not.",
+      "detail": "Data reporting is documented, but AI-generated analysis adoption is not.",
+      "value": "Unknown",
+      "effort": "Unknown",
+      "evidence": "Needs-confirmation",
+      "recommendation": "Confirm current usage and data boundaries before recommending a change.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — leadership and AI audit",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-analytics-13",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-analytics-14",
+      "category": "analytics",
+      "name": "Predictive case early warning",
+      "status": "not-in-use",
+      "outcome": "Listed as a potential future capability, not current usage.",
+      "detail": "Listed as a potential future capability, not current usage.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — Predictive Sentiment & Early Warning",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-analytics-14",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-analytics-15",
+      "category": "analytics",
+      "name": "Portfolio anomaly detection",
+      "status": "not-in-use",
+      "outcome": "Opportunity only; no confirmed deployed model is recorded.",
+      "detail": "Opportunity only; no confirmed deployed model is recorded.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Third i guidance; not a client adoption claim",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-analytics-15",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-compliance-16",
+      "category": "compliance",
+      "name": "District-level compliance copilot",
+      "status": "not-in-use",
+      "outcome": "Proposed retrieval system across local rules for 94 districts.",
+      "detail": "Proposed retrieval system across local rules for 94 districts.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — potential benefits",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-compliance-16",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-compliance-17",
+      "category": "compliance",
+      "name": "Automatic-stay communication review",
+      "status": "not-in-use",
+      "outcome": "Potential compliant-communications capability; not currently confirmed.",
+      "detail": "Potential compliant-communications capability; not currently confirmed.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — potential benefits",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-compliance-17",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-compliance-18",
+      "category": "compliance",
+      "name": "Claim citation and evidence checking",
+      "status": "partial",
+      "outcome": "Film 1 uses manual source provenance and claim gates; automated checking is not deployed.",
+      "detail": "Film 1 uses manual source provenance and claim gates; automated checking is not deployed.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Film1 claim-control workflow",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-compliance-18",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-film-19",
+      "category": "film",
+      "name": "AI-assisted concept development",
+      "status": "partial",
+      "outcome": "Final Demo and eight supporting studies are planned; generation has not started.",
+      "detail": "Final Demo and eight supporting studies are planned; generation has not started.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Film1 Working Memory — 122 visual prompts ready",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-film-19",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-film-20",
+      "category": "film",
+      "name": "Generated still production",
+      "status": "not-in-use",
+      "outcome": "Zero generated stills are approved because media generation has not started.",
+      "detail": "Zero generated stills are approved because media generation has not started.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Film1 Working Memory — Session State",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-film-20",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-film-21",
+      "category": "film",
+      "name": "Generated motion production",
+      "status": "not-in-use",
+      "outcome": "Zero motion clips have been generated for current Film 1.",
+      "detail": "Zero motion clips have been generated for current Film 1.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Film1 Working Memory — Session State",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-film-21",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-web-22",
+      "category": "web",
+      "name": "Personalized product education",
+      "status": "not-in-use",
+      "outcome": "No AI-personalized web experience is confirmed.",
+      "detail": "No AI-personalized web experience is confirmed.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Approved memory contains no adoption evidence",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-web-22",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-web-23",
+      "category": "web",
+      "name": "Portal status summarization",
+      "status": "partial",
+      "outcome": "This sourced portal organizes status manually; no autonomous updater is deployed.",
+      "detail": "This sourced portal organizes status manually; no autonomous updater is deployed.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Current portal architecture",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-web-23",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-web-24",
+      "category": "web",
+      "name": "Natural-language product discovery",
+      "status": "not-in-use",
+      "outcome": "Opportunity only; no product assistant is confirmed.",
+      "detail": "Opportunity only; no product assistant is confirmed.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Third i guidance; not a client adoption claim",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-web-24",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-communications-25",
+      "category": "communications",
+      "name": "Compliant borrower communication drafts",
+      "status": "not-in-use",
+      "outcome": "Potential future capability requiring automatic-stay safeguards and human review.",
+      "detail": "Potential future capability requiring automatic-stay safeguards and human review.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — potential benefits",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-communications-25",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-communications-26",
+      "category": "communications",
+      "name": "Executive operating briefs",
+      "status": "not-in-use",
+      "outcome": "No AI-generated executive brief process is documented.",
+      "detail": "No AI-generated executive brief process is documented.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Approved memory contains no adoption evidence",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-communications-26",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-communications-27",
+      "category": "communications",
+      "name": "Approval-aware copy review",
+      "status": "partial",
+      "outcome": "Film copy is manually gated by status and provenance; automated review is not deployed.",
+      "detail": "Film copy is manually gated by status and provenance; automated review is not deployed.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "Film1 Working Memory and procedural HITL discipline",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-communications-27",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-product-workflow-28",
+      "category": "product-workflow",
+      "name": "Multimodal bankruptcy document parsing",
+      "status": "not-in-use",
+      "outcome": "Proposed replacement or supplement for rigid parsing, with human validation required.",
+      "detail": "Proposed replacement or supplement for rigid parsing, with human validation required.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — Intelligent Document Parsing",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-product-workflow-28",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-product-workflow-29",
+      "category": "product-workflow",
+      "name": "Case-to-task orchestration agents",
+      "status": "not-in-use",
+      "outcome": "Potential agentic workflow; current automation remains rules-based.",
+      "detail": "Potential agentic workflow; current automation remains rules-based.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — Agentic Case Workflows",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-product-workflow-29",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    },
+    {
+      "id": "ai-product-workflow-30",
+      "category": "product-workflow",
+      "name": "Proof-of-Claim drafting assistant",
+      "status": "needs-confirmation",
+      "outcome": "Response capability is documented, but AI assistance and exact live scope require confirmation.",
+      "detail": "Response capability is documented, but AI assistance and exact live scope require confirmation.",
+      "value": "Unknown",
+      "effort": "Unknown",
+      "evidence": "Needs-confirmation",
+      "recommendation": "Confirm current usage and data boundaries before recommending a change.",
+      "service": {
+        "offered": false,
+        "investment": "Scope required"
+      },
+      "source": "BankruptcyWatch factual canon — Automated Bankruptcy Response",
+      "researchAsOf": "2026-07-16",
+      "comment": {
+        "context": {
+          "scope": "ai-roadmap",
+          "recordId": "ai-product-workflow-30",
+          "route": "/bkwatch/ai-roadmap"
+        },
+        "count": 0
+      }
+    }
+  ],
+  "sources": [
+    {
+      "tier": 1,
+      "name": "Official vendor documentation and release notes",
+      "use": "Product capabilities, limits, pricing, and security."
+    },
+    {
+      "tier": 2,
+      "name": "Artificial Analysis (independent benchmarking)",
+      "url": "https://artificialanalysis.ai/methodology",
+      "use": "Independently measured model intelligence, performance, and cost."
+    },
+    {
+      "tier": 2,
+      "name": "Arena leaderboard",
+      "url": "https://help.arena.ai/articles/7011479247-how-to-see-ai-rankings-in-arena-leaderboards-2-0-wip",
+      "use": "Human-preference rankings with confidence intervals."
+    },
+    {
+      "tier": 3,
+      "name": "Peer-reviewed / institutional research",
+      "use": "Adoption, risk, and impact evidence."
+    },
+    {
+      "tier": 4,
+      "name": "FutureTools",
+      "url": "https://futuretools.io/",
+      "use": "Discovery and category scanning; popularity is not proof of suitability."
+    }
+  ]
+}

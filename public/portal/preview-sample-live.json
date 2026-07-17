@@ -1,0 +1,31 @@
+{
+  "_note": "PREVIEW-ONLY sample operational records to demonstrate the comment/completion UI. Not client content. Production comments come from the tenant-authorized operational store (gated DATA-01).",
+  "comments": [
+    {
+      "id": "preview-c1", "tenant": "bkwatch", "kind": "comment",
+      "title": "Can the filing object read a touch faster in F02?",
+      "blocker": false, "projectId": "film1-shaw-bkwatch",
+      "description": "The descent feels slightly long against the 3-second window — worth testing a quicker settle.",
+      "context": { "scope": "scene", "projectId": "film1-shaw-bkwatch", "sceneId": "F02", "label": "Scene F02", "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo" },
+      "timestampMs": 3500, "rangeMs": 5000,
+      "status": "open", "attribution": "bkWatch commented", "createdAt": "2026-07-16T18:20:00Z", "revision": 1
+    },
+    {
+      "id": "preview-c2", "tenant": "bkwatch", "kind": "comment",
+      "title": "Please confirm we can show the live Status field",
+      "blocker": true, "projectId": "film1-shaw-bkwatch",
+      "description": "We want to be sure the Status update shown is an approved, showable function before the demo goes wider.",
+      "context": { "scope": "project", "projectId": "film1-shaw-bkwatch", "label": "Film 1", "route": "/bkwatch/projects/film1-shaw-bkwatch" },
+      "status": "open", "attribution": "bkWatch commented", "createdAt": "2026-07-16T19:02:00Z", "revision": 1
+    },
+    {
+      "id": "preview-c3", "tenant": "bkwatch", "kind": "comment",
+      "title": "Locked script reads great — approved from our side",
+      "blocker": false, "projectId": "film1-shaw-bkwatch",
+      "description": "The 45-word voiceover lands the integration message clearly.",
+      "context": { "scope": "script", "projectId": "film1-shaw-bkwatch", "label": "Script", "route": "/bkwatch/projects/film1-shaw-bkwatch" },
+      "status": "completed", "completionNote": "Confirmed — script remains locked at 45 words / 22 seconds.",
+      "attribution": "bkWatch commented", "createdAt": "2026-07-15T16:40:00Z", "completedAt": "2026-07-16T09:10:00Z", "revision": 2
+    }
+  ]
+}

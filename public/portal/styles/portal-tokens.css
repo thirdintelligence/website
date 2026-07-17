@@ -1,0 +1,144 @@
+/* ============================================================================
+   Portal design tokens  —  reusable across every client portal.
+   Dark mode is the DEFAULT (:root). Light mode activates on [data-theme="light"].
+   Client brand color + gradient are injected by tenants/<client>.css.
+   Philosophy (plan 03): plain near-black / white backgrounds; brand color used
+   discretely in text, outlines, dividers, icons, focus, and buttons — never as a
+   large saturated page background.
+   ============================================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Layer 1 · primitives (neutral ramp, brand-neutral) ─────────────────── */
+  --ink-950: #05080d;
+  --ink-900: #080d14;   /* app background (dark) */
+  --ink-850: #0b0f14;   /* card / surface */
+  --ink-800: #0e141c;   /* elevated surface */
+  --ink-750: #131b25;   /* hover surface */
+  --ink-700: #1b2530;
+
+  --paper-0:  #ffffff;
+  --paper-50: #f7fafc;  /* app background (light) */
+  --paper-100:#eef3f8;
+  --paper-200:#e3ebf2;
+
+  --text-hi:  #f5f9fc;
+  --text-mid: #a8bac8;
+  --text-lo:  #7c8a98;
+  --text-ink: #12202c;  /* near-black text for light mode */
+  --text-ink-mid: #45596a;
+
+  /* Client tokens — overridden per tenant; safe neutral fallbacks here. */
+  --client-blue: #2b66ae;
+  --client-blue-light: #79c4f5;
+  --client-gradient: linear-gradient(135deg, var(--client-blue-light) 0%, var(--client-blue) 100%);
+  --client-gradient-soft: linear-gradient(135deg, rgba(121,196,245,.16) 0%, rgba(43,102,174,.16) 100%);
+
+  /* Status (paired always with icon/text; never color-only) */
+  --ok:   #57c98a;
+  --warn: #e7b451;
+  --risk: #ef6b63;
+  --info: var(--client-blue-light);
+
+  /* ── Layer 2 · semantic (dark defaults) ─────────────────────────────────── */
+  --bg:            var(--ink-900);
+  --bg-elevated:   var(--ink-950);
+  --surface:       var(--ink-850);
+  --surface-2:     var(--ink-800);
+  --surface-hover: var(--ink-750);
+
+  --text:           var(--text-hi);
+  --text-secondary: var(--text-mid);
+  --text-tertiary:  var(--text-lo);
+
+  --line:        rgba(121, 196, 245, 0.14);
+  --line-strong: rgba(121, 196, 245, 0.30);
+  --line-plain:  rgba(255, 255, 255, 0.08);
+
+  --link:        var(--client-blue-light);
+  --link-hover:  #a8dbfb;
+  --accent:      var(--client-blue-light);   /* accent text on dark */
+  --accent-solid:var(--client-blue-light);
+  --accent-gradient: var(--client-gradient);
+  --accent-tint: rgba(43, 102, 174, 0.14);
+
+  --focus: var(--client-blue-light);
+  --on-accent: #05131f;   /* readable text on gradient buttons */
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.28);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.34);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,.46);
+
+  /* ── Layer 3 · scale primitives ─────────────────────────────────────────── */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+
+  --radius-xs: 6px; --radius-sm: 10px; --radius: 14px; --radius-lg: 18px; --radius-pill: 999px;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-head: "Space Grotesk", var(--font-sans);
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --fs-display: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  --fs-h1: clamp(1.6rem, 1.25rem + 1.4vw, 2.25rem);
+  --fs-h2: clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem);
+  --fs-h3: 1.2rem;
+  --fs-h4: 1.02rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-caption: 0.78rem;
+
+  --dur-fast: 140ms; --dur: 240ms; --dur-slow: 420ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Layout */
+  --sidebar-w: 264px;
+  --sidebar-w-collapsed: 76px;
+  --topbar-h: 64px;
+  --content-max: 1180px;
+  --reading-max: 74ch;
+  --z-sidebar: 40; --z-topbar: 45; --z-composer: 70; --z-overlay: 80; --z-toast: 90;
+
+  /* Select caret (recolored per theme below) */
+  --select-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a8bac8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* ── Light mode ───────────────────────────────────────────────────────────── */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg:            var(--paper-50);
+  --bg-elevated:   var(--paper-0);
+  --surface:       var(--paper-0);
+  --surface-2:     var(--paper-50);
+  --surface-hover: var(--paper-100);
+
+  --text:           var(--text-ink);
+  --text-secondary: var(--text-ink-mid);
+  --text-tertiary:  #6a7d8c;
+
+  --line:        rgba(43, 102, 174, 0.16);
+  --line-strong: rgba(43, 102, 174, 0.34);
+  --line-plain:  rgba(18, 32, 44, 0.10);
+
+  --link:        var(--client-blue);
+  --link-hover:  #1c4f8b;
+  --accent:      var(--client-blue);
+  --accent-solid:var(--client-blue);
+  --accent-tint: rgba(43, 102, 174, 0.08);
+
+  --focus: var(--client-blue);
+  --on-accent: #ffffff;
+
+  --shadow-sm: 0 1px 2px rgba(43,102,174,.10);
+  --shadow-md: 0 12px 30px rgba(43,102,174,.12);
+  --shadow-lg: 0 28px 60px rgba(43,102,174,.16);
+
+  --select-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2345596a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Respect users who prefer reduced motion at the token level. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; --dur-slow: 0ms; }
+}

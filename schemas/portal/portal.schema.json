@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/portal.schema.json",
+  "title": "Client manifest v2 (portal.json)",
+  "description": "Tenant identity, brand, theme profile, and relationship header for a client portal. Client-safe; contains no prompts, secrets, or local paths.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "client", "brand", "theme", "relationship"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "client": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "name", "shortName", "route", "partner"],
+      "properties": {
+        "key": { "$ref": "common.schema.json#/$defs/slug" },
+        "name": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "shortName": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "route": { "type": "string", "pattern": "^/[a-z0-9-]+$" },
+        "partner": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "logo": { "type": "string" }
+      }
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mission", "audience", "voice", "tagline", "differentiators", "source"],
+      "properties": {
+        "mission": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "audience": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "voice": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "tagline": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "differentiators": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/nonEmptyText" } },
+        "communication": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "confirmed": { "type": "string" },
+            "currentAcquisition": { "type": "string" },
+            "recommendedAcquisition": { "type": "string" }
+          }
+        },
+        "source": { "$ref": "common.schema.json#/$defs/source" }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile", "canonicalColor", "gradient", "defaultMode"],
+      "properties": {
+        "profile": { "$ref": "common.schema.json#/$defs/slug" },
+        "canonicalColor": { "type": "string", "pattern": "^#([0-9a-fA-F]{6})$" },
+        "gradient": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["from", "to"],
+          "properties": {
+            "from": { "type": "string", "pattern": "^#([0-9a-fA-F]{6})$" },
+            "to": { "type": "string", "pattern": "^#([0-9a-fA-F]{6})$" }
+          }
+        },
+        "defaultMode": { "type": "string", "enum": ["dark", "light"] }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mission", "summary", "phase", "lastUpdate", "source"],
+      "properties": {
+        "mission": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "summary": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "phase": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "lastUpdate": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "source": { "$ref": "common.schema.json#/$defs/source" }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "poweredBy": { "type": "string" },
+        "poweredByFavicon": { "type": "string" }
+      }
+    }
+  }
+}

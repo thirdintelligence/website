@@ -1,0 +1,14 @@
+/* ============================================================================
+   bkWatch tenant profile.
+   Source: memory/BKWATCH/DESIGN.md (2026-07-14) + masterplan 03.
+   Canonical blue #2B66AE; interface light-blue endpoint #79C4F5 (an interface
+   tint, not a new brand color) — validated for contrast in each usage.
+   ============================================================================ */
+:root[data-tenant="bkwatch"],
+[data-tenant="bkwatch"] {
+  --client-blue: #2b66ae;
+  --client-blue-dark: #214f88;
+  --client-blue-light: #79c4f5;
+  --client-gradient: linear-gradient(135deg, #79c4f5 0%, #2b66ae 100%);
+  --client-gradient-soft: linear-gradient(135deg, rgba(121,196,245,.16) 0%, rgba(43,102,174,.18) 100%);
+}

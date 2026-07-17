@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/ai-capability.schema.json",
+  "title": "AI Roadmap file (ai-roadmap.json)",
+  "description": "Research-backed AI adoption guidance. Value/effort/evidence/recommendation are woven into each capability; opportunities are never shown as current adoption.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "executiveSummary", "categories", "capabilities", "sources"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "researchAsOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "executiveSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currentState", "topImprovement", "recommendation", "source"],
+      "properties": {
+        "currentState": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "topImprovement": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "risks": { "type": "string" },
+        "recommendation": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "positioning": { "type": "string" },
+        "source": { "$ref": "common.schema.json#/$defs/source" }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/slug" },
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "category", "name", "status", "outcome", "recommendation", "value", "effort", "evidence", "source"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "category": { "$ref": "common.schema.json#/$defs/slug" },
+          "name": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "status": { "type": "string", "enum": ["active", "partial", "not-in-use", "needs-confirmation", "recommended-experiment"] },
+          "outcome": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "detail": { "type": "string" },
+          "workflow": { "type": "string" },
+          "toolClass": { "type": "string" },
+          "value": { "$ref": "common.schema.json#/$defs/band" },
+          "effort": { "$ref": "common.schema.json#/$defs/band" },
+          "evidence": { "$ref": "common.schema.json#/$defs/evidenceQuality" },
+          "prerequisites": { "type": "string" },
+          "privacy": { "type": "string" },
+          "recommendation": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "experiment": { "type": "string" },
+          "service": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "offered": { "type": "boolean" },
+              "deliverables": { "type": "string" },
+              "engagement": { "type": "string" },
+              "investment": { "type": "string", "description": "Approved range, or 'Scope required'." }
+            }
+          },
+          "source": { "$ref": "common.schema.json#/$defs/source" },
+          "researchAsOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "comment": { "$ref": "common.schema.json#/$defs/commentTarget" }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tier", "name"],
+        "properties": {
+          "tier": { "type": "integer", "minimum": 1, "maximum": 4 },
+          "name": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "url": { "type": "string" },
+          "use": { "type": "string" }
+        }
+      }
+    }
+  }
+}

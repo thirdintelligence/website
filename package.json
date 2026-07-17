@@ -1,0 +1,21 @@
+{
+  "name": "thirdi-web",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test \"tests/**/*.test.mjs\"",
+    "portal:validate": "node scripts/portal/validate-client-content.mjs",
+    "portal:build": "node scripts/portal/build-client-manifest.mjs",
+    "portal:search": "node scripts/portal/build-search-index.mjs",
+    "portal:preview": "node scripts/portal/preview-server.mjs"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "playwright": "1.61.1"
+  }
+}

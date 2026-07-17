@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/asset.schema.json",
+  "title": "Asset and version",
+  "description": "Client-visible media/deliverable. Version history applies to stills/video only. No storage keys, UUIDs, prompts, or local paths are ever exposed.",
+  "$defs": {
+    "version": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "state", "current"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "label": { "type": "string", "description": "Client-readable name, e.g. act1.scene2.vers3." },
+        "state": { "type": "string", "enum": ["approved", "draft"] },
+        "current": { "type": "boolean" },
+        "createdAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "downloadName": { "type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*\\.[a-z0-9]+$" },
+        "sizeLabel": { "type": "string", "description": "Human size label, e.g. 1.82 GB." },
+        "note": { "type": "string" }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "title", "mediaState", "downloadable"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "kind": { "type": "string", "enum": ["still", "video", "poster", "pdf", "file"] },
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "sceneId": { "type": "string" },
+        "mediaState": { "$ref": "common.schema.json#/$defs/mediaState" },
+        "draft": { "type": "boolean" },
+        "downloadable": { "type": "boolean" },
+        "isThumbnail": { "type": "boolean" },
+        "durationSeconds": { "type": "number", "minimum": 0 },
+        "versioned": { "type": "boolean" },
+        "currentVersionId": { "type": "string" },
+        "versions": { "type": "array", "items": { "$ref": "asset.schema.json#/$defs/version" } },
+        "source": { "$ref": "common.schema.json#/$defs/source" }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/common.schema.json",
+  "title": "Portal common definitions",
+  "description": "Shared building blocks for Third i client-portal v2 manifests. Every client-visible fact keeps a source; missing values stay explicit rather than invented.",
+  "$defs": {
+    "tenant": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Server-derived tenant key. Never sourced from a request body."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "isoDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Calendar date, YYYY-MM-DD."
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Provenance for a client-visible fact. Required so statistics keep as-of/source metadata even when visually quiet."
+    },
+    "nonEmptyText": {
+      "type": "string",
+      "minLength": 1
+    },
+    "band": {
+      "type": "string",
+      "enum": ["Low", "Medium", "High", "Unknown"]
+    },
+    "evidenceQuality": {
+      "type": "string",
+      "enum": ["Vendor-confirmed", "Independent-benchmark", "Peer-reviewed", "Curated-discovery", "Internal-confirmed", "Needs-confirmation"]
+    },
+    "timelineState": {
+      "type": "string",
+      "enum": ["done", "current", "pending", "blocked"]
+    },
+    "mediaState": {
+      "type": "string",
+      "description": "Honest lifecycle state of a media slot.",
+      "enum": ["approved", "draft", "in-production", "prompts-ready", "not-started", "ungenerated"]
+    },
+    "commentContext": {
+      "type": "object",
+      "description": "System-supplied context attached to any comment target.",
+      "additionalProperties": false,
+      "properties": {
+        "scope": { "type": "string", "enum": ["home", "project", "asset", "scene", "script", "storyboard", "report", "library", "ai-roadmap", "general"] },
+        "route": { "type": "string" },
+        "projectId": { "type": "string" },
+        "recordId": { "type": "string" },
+        "category": { "type": "string" },
+        "sceneId": { "type": "string" },
+        "assetId": { "type": "string" },
+        "versionId": { "type": "string" },
+        "label": { "type": "string" }
+      }
+    },
+    "commentTarget": {
+      "type": "object",
+      "description": "Declares that a content node accepts comments and how they are attributed.",
+      "additionalProperties": false,
+      "properties": {
+        "context": { "$ref": "common.schema.json#/$defs/commentContext" },
+        "count": { "type": "integer", "minimum": 0 },
+        "openBlockers": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

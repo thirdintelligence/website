@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-tenant="bkwatch">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>bkWatch · Client workspace (preview)</title>
+  <link rel="stylesheet" href="/public/portal/styles/portal-tokens.css" />
+  <link rel="stylesheet" href="/public/portal/styles/tenants/bkwatch.css" />
+  <link rel="stylesheet" href="/public/portal/styles/portal-shell.css" />
+  <link rel="stylesheet" href="/public/portal/styles/portal-components.css" />
+  <link rel="stylesheet" href="/public/portal/styles/portal-pages.css" />
+  <link rel="stylesheet" href="/public/portal/styles/portal-motion.css" />
+  <link rel="stylesheet" href="/public/portal/styles/portal-print.css" media="print" />
+  <script>
+    /* Local PREVIEW config. Production is served by the protected Netlify
+       function with tenant-path routing and the live operational API. */
+    window.__PORTAL_CONFIG__ = {
+      tenant: "bkwatch",
+      contentBase: "/content/clients/bkwatch/",
+      routeBase: "/bkwatch",
+      mode: "preview",
+      sampleLive: "/public/portal/preview-sample-live.json"
+    };
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/public/portal/core/app.js"></script>
+</body>
+</html>

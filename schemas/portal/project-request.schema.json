@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/project-request.schema.json",
+  "title": "Client project request (operational)",
+  "description": "A client-proposed project created from the composer. Renders as a protected route from the live record; no static HTML file is mutated and no strategy/milestone/budget is invented.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "tenant", "kind", "name", "description", "status", "createdAt", "revision"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "kind": { "type": "string", "const": "client_project_request" },
+    "name": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+    "description": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "name": { "type": "string" },
+          "sizeLabel": { "type": "string" }
+        }
+      }
+    },
+    "status": { "type": "string", "const": "Client proposed — awaiting Third i review" },
+    "createdAt": { "type": "string" },
+    "revision": { "type": "integer", "minimum": 1 }
+  }
+}

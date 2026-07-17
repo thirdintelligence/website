@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "bkwatch",
+  "clientSafe": true,
+  "asOf": "2026-07-16",
+  "stats": [
+    {
+      "label": "Active projects",
+      "value": 1,
+      "source": "Derived from client-safe project manifest"
+    },
+    {
+      "label": "Open blockers",
+      "value": 7,
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "label": "Deliverables ready for review",
+      "value": 8,
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "label": "Approved generated media",
+      "value": 0,
+      "unit": "stills or clips",
+      "state": "not-started",
+      "source": "Film1 Working Memory — media generation has not started"
+    },
+    {
+      "label": "Next milestone",
+      "value": "Final Demo plan + asset/permission lock",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    }
+  ],
+  "needsAttention": [
+    {
+      "id": "na-blocker-1",
+      "kind": "blocker",
+      "title": "Final Demo plan approval",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "Bankruptcy, handled inside Spectrum",
+      "status": "Awaiting Third i / client input",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "id": "na-blocker-2",
+      "kind": "blocker",
+      "title": "Sanitized Spectrum start/working captures and masks",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "Bankruptcy, handled inside Spectrum",
+      "status": "Awaiting Third i / client input",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "id": "na-blocker-3",
+      "kind": "blocker",
+      "title": "Written Shaw permission for bkWatch film use and 3D treatment",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "Bankruptcy, handled inside Spectrum",
+      "status": "Awaiting Third i / client input",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "id": "na-blocker-4",
+      "kind": "blocker",
+      "title": "Live/showable function confirmation",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "Bankruptcy, handled inside Spectrum",
+      "status": "Awaiting Third i / client input",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "id": "na-blocker-5",
+      "kind": "blocker",
+      "title": "Handled-state green",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "Bankruptcy, handled inside Spectrum",
+      "status": "Awaiting Third i / client input",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "id": "na-blocker-6",
+      "kind": "blocker",
+      "title": "Final CTA and logo hierarchy",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "Bankruptcy, handled inside Spectrum",
+      "status": "Awaiting Third i / client input",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "id": "na-blocker-7",
+      "kind": "blocker",
+      "title": "Composite-frame and keyframe approval",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "Bankruptcy, handled inside Spectrum",
+      "status": "Awaiting Third i / client input",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    }
+  ],
+  "activeWork": [
+    {
+      "projectId": "film1-shaw-bkwatch",
+      "name": "Bankruptcy, handled inside Spectrum",
+      "purpose": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
+      "phase": "Final Demo extreme QC passed",
+      "nextMilestone": "Justin approves the Final Demo plan; NEW FILING is used in post; Shaw provides sanitized Spectrum assets and written usage permission; exact composite keyframes are approved before generation.",
+      "openCount": 7,
+      "latestUpdate": "Final Demo extreme workflow and prompt QC passed; no media generated yet.",
+      "thumbnailState": "in-production",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    }
+  ],
+  "activity": [
+    {
+      "type": "project-update",
+      "title": "D0 / project split",
+      "detail": "Film 1 integration brief separated from future Film 2",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "project-update",
+      "title": "D1 / locked story",
+      "detail": "Original 45-word script retained",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "project-update",
+      "title": "Direction meeting",
+      "detail": "bkWatch meeting complete; Final Demo selected for planning",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "project-update",
+      "title": "D2 / Final Demo plan",
+      "detail": "Six scenes, 12 segments, and 122-project-prompt inventory ready",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "project-update",
+      "title": "Extreme workflow / QC audit",
+      "detail": "42 Final Demo prompts passed; no media generated",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "new-deliverable",
+      "title": "Locked 45-word voiceover at 122.7 WPM",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "new-deliverable",
+      "title": "Final Demo six-scene storyboard",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "new-deliverable",
+      "title": "Twelve controlled motion segments",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    },
+    {
+      "type": "new-deliverable",
+      "title": "Thirty Final Demo still/anchor prompts",
+      "date": "2026-07-16",
+      "projectId": "film1-shaw-bkwatch",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    }
+  ],
+  "opportunities": [
+    {
+      "title": "Approved in-product Spectrum walkthrough",
+      "outcome": "A sanctioned demo that shows the native bankruptcy workflow inside Spectrum without switching tools.",
+      "why": "Directly resolves the switching objection Film 1 is built to answer, using proof existing Spectrum users trust.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Lock live/showable functions and Spectrum asset permission, then produce a short role-specific walkthrough.",
+      "link": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
+    },
+    {
+      "title": "Exception triage copilot for monitoring",
+      "outcome": "Human-reviewed AI assist that prioritizes filings the current rules-based pipeline flags as exceptions.",
+      "why": "Monitoring is confirmed as rules-based today; targeted AI reduces manual review effort without replacing controls.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a bounded pilot on a sample exception queue with clear human validation and success criteria.",
+      "link": "/bkwatch/ai-roadmap",
+      "source": "BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring and AI Use Audit"
+    },
+    {
+      "title": "Role-specific integration one-pager",
+      "outcome": "Concise enablement piece tailored to servicing, compliance, and recovery leaders evaluating the integration.",
+      "why": "Supports acquisition and retention conversations once claim/asset language is approved for publication.",
+      "value": "Medium",
+      "effort": "Low",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Draft after Film 1 claim lock so wording matches approved public language.",
+      "link": "/bkwatch/library/products",
+      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic"
+    }
+  ]
+}

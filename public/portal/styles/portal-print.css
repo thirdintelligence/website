@@ -1,0 +1,17 @@
+/* ============================================================================
+   Print / PDF layout for project presentation and full-project export.
+   Preserves reading order: storyboard + script evidence stays visible.
+   ============================================================================ */
+@media print {
+  :root { --bg: #fff; --surface: #fff; --text: #111; --text-secondary: #333; --line: #ccc; --line-plain: #ddd; }
+  .portal-sidebar, .topbar, .scrim, .composer, .draft-dock, .filters, .thumb-play, .add-comment, .btn { display: none !important; }
+  .portal-app { display: block; }
+  .portal-content { padding: 0; }
+  .card { border: 1px solid #ccc !important; box-shadow: none !important; break-inside: avoid; }
+  .motif, .card-feature::after { display: none !important; }
+  .section { margin-top: 24px; }
+  .scene-block, .idea-block { break-inside: avoid; }
+  a { color: #111; text-decoration: underline; }
+  .source-note, .draft-notice { color: #333 !important; }
+  body { background: #fff; color: #111; }
+}

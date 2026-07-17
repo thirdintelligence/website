@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/library-record.schema.json",
+  "title": "Library file (library.json)",
+  "description": "Client-facing knowledge database. Every record is a structured, owner-approved, client-safe publishing unit — never auto-published prose.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "categories", "records"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/slug" },
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "description": { "type": "string" },
+          "subcategories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "title"],
+              "properties": {
+                "id": { "$ref": "common.schema.json#/$defs/slug" },
+                "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "library-record.schema.json#/$defs/record" }
+    }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tenant", "type", "category", "title", "summary", "status", "format", "clientSafe", "sourceRefs"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+        "type": { "type": "string" },
+        "category": { "$ref": "common.schema.json#/$defs/slug" },
+        "subcategory": { "$ref": "common.schema.json#/$defs/slug" },
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "summary": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "body": { "type": "string" },
+        "facts": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string" },
+        "projectId": { "type": "string", "description": "A project id or 'general'." },
+        "format": { "type": "string", "enum": ["fact", "product", "feature", "integration", "partner", "comment", "email", "meeting", "asset", "film-knowledge", "report", "branding", "other"] },
+        "eventDate": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "lastReviewedAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "sourceRefs": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/source" } },
+        "clientSafe": { "type": "boolean", "const": true },
+        "relatedIds": { "type": "array", "items": { "type": "string" } },
+        "comment": { "$ref": "common.schema.json#/$defs/commentTarget" }
+      }
+    }
+  }
+}

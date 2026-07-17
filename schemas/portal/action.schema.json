@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/action.schema.json",
+  "title": "OS action item (operational)",
+  "description": "Owner-facing action derived from a portal event. A 'complete' control renders only when work is executable without an agent or the result already exists.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "tenant", "type", "projectId", "title", "priority", "status", "sourceEventId", "createdAt", "executable"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "type": { "type": "string", "enum": ["comment", "blocker", "project-request", "library-correction", "notification-retry", "thumbnail-change"] },
+    "projectId": { "type": "string" },
+    "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+    "context": { "type": "string" },
+    "priority": { "type": "integer", "minimum": 0 },
+    "status": { "type": "string", "enum": ["open", "in-progress", "completed", "hidden"] },
+    "sourceEventId": { "$ref": "common.schema.json#/$defs/id" },
+    "executable": { "type": "boolean", "description": "True only for owner actions completable without an agent." },
+    "assignedAgent": { "type": "string" },
+    "superpromptId": { "type": "string", "description": "Reference to a non-client-visible prompt template; the prompt text is never client-facing." },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" }
+  }
+}

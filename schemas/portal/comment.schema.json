@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/comment.schema.json",
+  "title": "Comment (operational)",
+  "description": "A live tenant-scoped comment. Frozen contract for Phase 3; wired to the operational store only after DATA-01. Tenant is server-derived, never from the request body's authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "tenant", "kind", "title", "blocker", "projectId", "status", "attribution", "createdAt", "revision"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "kind": { "type": "string", "const": "comment" },
+    "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+    "blocker": { "type": "boolean" },
+    "projectId": { "type": "string", "description": "Project id or 'general'." },
+    "description": { "type": "string" },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "name"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "kind": { "type": "string" },
+          "name": { "type": "string", "description": "Escaped original filename metadata; never used as a storage key." },
+          "sizeLabel": { "type": "string" }
+        }
+      }
+    },
+    "context": { "$ref": "common.schema.json#/$defs/commentContext" },
+    "timestampMs": { "type": "integer", "minimum": 0 },
+    "rangeMs": { "type": "integer", "minimum": 0 },
+    "status": { "type": "string", "enum": ["open", "completed"] },
+    "attribution": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+    "completionNote": { "type": "string" },
+    "completedAt": { "type": "string" },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "deleted": { "type": "boolean" }
+  }
+}
