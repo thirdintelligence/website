@@ -1,0 +1,143 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
+
+const manifestText = await readFile(new URL("../content/clients/bkwatch.json", import.meta.url), "utf8");
+const manifest = JSON.parse(manifestText);
+
+test("bkWatch manifest is explicitly client-safe and tenant-scoped", () => {
+  assert.equal(manifest.clientSafe, true);
+  assert.equal(manifest.client.key, "bkwatch");
+  assert.equal(manifest.client.route, "/bkwatch");
+  assert.doesNotMatch(manifestText, /\/Users\//);
+  assert.doesNotMatch(manifestText, /memory\//i);
+  assert.doesNotMatch(manifestText, /"password"\s*:/i);
+  assert.doesNotMatch(manifestText, /100% accuracy/i);
+});
+
+test("Film 1 current state is internally consistent", () => {
+  assert.equal(manifest.film.runtime, "22 seconds");
+  assert.equal(manifest.film.ideas.length, 9);
+  assert.equal(manifest.film.ideas[0].number, "FINAL");
+  assert.equal(manifest.film.ideas[0].title, "Final Demo");
+  assert.equal(manifest.film.ideas.reduce((sum, idea) => sum + idea.scenes.length, 0), 30);
+  assert.equal(manifest.film.ideas[0].scenes.length, 6);
+  assert.equal(manifest.film.ideas.slice(1).every((idea) => idea.scenes.length === 3), true);
+  assert.equal(manifest.film.ideas.every((idea) => idea.scenes.map((scene) => scene.script).join(" ") === manifest.film.script), true);
+  assert.equal(manifest.film.approvedMedia, 0);
+  assert.equal(manifest.film.ideas[0].recommendation, "Selected production candidate");
+  assert.deepEqual(manifest.film.ideas[0].scenes.map((scene) => scene.time), ["Seconds 0–2", "Seconds 3–5", "Seconds 6–10", "Seconds 11–14", "Seconds 15–18", "Seconds 19–22"]);
+  assert.match(manifest.film.ideas[0].scenes[1].direction, /NEW FILING/);
+  assert.doesNotMatch(manifestText, /NEW CLAIM/);
+  assert.equal(manifest.metrics.find((metric) => metric.label === "Generation plan").value, "122");
+  assert.match(manifest.metrics.find((metric) => metric.label === "Locked voiceover").unit, /122\.7 WPM/);
+});
+
+test("product and AI records retain status and provenance", () => {
+  assert.equal(manifest.products.length, 5);
+  assert.equal(manifest.products.every((product) => product.source && product.state && product.decisions.length), true);
+  const categories = new Set(manifest.aiCapabilities.map((item) => item.category));
+  for (const required of ["Operations", "Marketing", "Acquisition", "Service", "Analytics", "Compliance", "Film", "Web", "Communications", "Product / workflow"]) {
+    assert.equal(categories.has(required), true, `Missing AI category: ${required}`);
+  }
+  assert.deepEqual(new Set(manifest.aiCapabilities.map((item) => item.status)), new Set(["active", "partial", "not", "unknown"]));
+  assert.equal(manifest.aiCapabilities.every((item) => item.source && item.detail), true);
+});
+
+test("public homepage contact and canonical route are wired", async () => {
+  const home = await readFile(new URL("../pages/home.html", import.meta.url), "utf8");
+  const contact = await readFile(new URL("../pages/contact.html", import.meta.url), "utf8");
+  const netlify = await readFile(new URL("../netlify.toml", import.meta.url), "utf8");
+  const portalHtml = await readFile(new URL("../bkWatch-os.html", import.meta.url), "utf8");
+  const portalFunction = await readFile(new URL("../netlify/functions/bkwatch-portal.mjs", import.meta.url), "utf8");
+  const css = await readFile(new URL("../public/portal/bkwatch.css", import.meta.url), "utf8");
+  const loginCss = await readFile(new URL("../public/portal/bkwatch-login.css", import.meta.url), "utf8");
+  const lightTheme = await readFile(new URL("../public/portal/bkwatch-professional-light-20260714.css", import.meta.url), "utf8");
+  const loginLightTheme = await readFile(new URL("../public/portal/bkwatch-login-professional-light-20260714.css", import.meta.url), "utf8");
+  const darkTheme = await readFile(new URL("../public/portal/bkwatch-dark-mode-20260714.css", import.meta.url), "utf8");
+  const loginDarkTheme = await readFile(new URL("../public/portal/bkwatch-login-dark-mode-20260714.css", import.meta.url), "utf8");
+  const themeInit = await readFile(new URL("../public/portal/bkwatch-theme-init.js", import.meta.url), "utf8");
+  const compactHeaders = await readFile(new URL("../public/portal/bkwatch-compact-headers-20260714.css", import.meta.url), "utf8");
+  const logoFrame = await readFile(new URL("../public/portal/bkwatch-logo-white-frame-20260714.css", import.meta.url), "utf8");
+  const portalScript = await readFile(new URL("../public/portal/client-portal.js", import.meta.url), "utf8");
+  const designMemory = await readFile(new URL("../memory/BKWATCH/DESIGN.md", import.meta.url), "utf8");
+  assert.match(contact, /mailto:ceo@thirdi\.net\?subject=Third%20i%20—%20New%20Project%20Inquiry/);
+  assert.match(home, /href="\/bkwatch"/);
+  assert.match(netlify, /from = "\/bkWatch"[\s\S]*to = "\/bkwatch"[\s\S]*status = 301/);
+  assert.match(netlify, /from = "\/bkwatch"[\s\S]*bkwatch-portal/);
+  assert.match(netlify, /for = "\/public\/portal\/\*"[\s\S]*Cache-Control = "no-store, max-age=0"/);
+  assert.match(portalHtml, /bkwatch-theme-init\.js\?v=20260714-11/);
+  assert.match(portalHtml, /bkwatch-professional-light-20260714\.css\?v=20260714-11/);
+  assert.match(portalHtml, /bkwatch-dark-mode-20260714\.css\?v=20260714-11/);
+  assert.match(portalHtml, /id="theme-toggle"[\s\S]*role="switch"[\s\S]*aria-checked="false"/);
+  assert.match(portalHtml, /bkwatch-compact-headers-20260714\.css/);
+  assert.match(portalHtml, /bkwatch-logo-white-frame-20260714\.css/);
+  assert.doesNotMatch(portalHtml, /bkwatch-(?:blue-black|light-blue|black-blue)-2026071[34]\.css/);
+  assert.match(portalHtml, /client-portal\.js\?v=__ASSET_RELEASE__/);
+  assert.match(portalHtml, /bkwatch-logo\.png\?v=white-frame-20260714/);
+  assert.match(portalFunction, /bkwatch-theme-init\.js\?v=20260714-11/);
+  assert.match(portalFunction, /bkwatch-login-professional-light-20260714\.css\?v=20260714-11/);
+  assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
+  assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
+  assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260717-01"/);
+  // The authenticated route now serves the redesigned shell: embedded (private)
+  // manifests + live operational config, with the login page unchanged above.
+  assert.match(portalFunction, /id="portal-data" type="application\/json"/);
+  assert.match(portalFunction, /portal\/core\/app\.js/);
+  assert.match(portalFunction, /bkwatch-logo\.png\?v=white-frame-20260714/);
+  assert.match(css, /--blue:#2B66AE/);
+  assert.match(css, /--black:#214f88/);
+  assert.doesNotMatch(css, /color-scheme:dark|bkWatch blue \+ black portal theme/);
+  assert.doesNotMatch(loginCss, /color-scheme:dark|bkWatch blue \+ black login theme/);
+  assert.match(lightTheme, /body,[\s\S]*\.workspace \{[\s\S]*background: #fff;[\s\S]*color: #214f88/);
+  assert.match(lightTheme, /\.sidebar,[\s\S]*\.topbar \{[\s\S]*background: #fff;[\s\S]*color: #2b66ae/);
+  assert.match(lightTheme, /\.primary-nav a\[aria-current="page"\] \{[\s\S]*background: #2b66ae;[\s\S]*color: #fff/);
+  assert.match(lightTheme, /\.page-head h1,[\s\S]*\.section-head h2,[\s\S]*\.page-head \.eyebrow,[\s\S]*\.section-head a \{[\s\S]*color: #2b66ae/);
+  assert.match(lightTheme, /\.hero-panel,[\s\S]*\.voiceover \{[\s\S]*background: #2b66ae;[\s\S]*color: #fff/);
+  assert.match(lightTheme, /\.metric-card \.metric-value,[\s\S]*\.voiceover blockquote \{[\s\S]*color: #fff/);
+  assert.match(lightTheme, /\.status-active \{[\s\S]*background: #0d5238;[\s\S]*color: #dff5e9/);
+  assert.match(lightTheme, /\.status-partial \{[\s\S]*background: #5a4309;[\s\S]*color: #fff1c2/);
+  assert.match(lightTheme, /\.status-not \{[\s\S]*background: #6c2926;[\s\S]*color: #ffe4e1/);
+  assert.match(lightTheme, /\.status-unknown \{[\s\S]*background: #344b5c;[\s\S]*color: #e5edf2/);
+  assert.match(lightTheme, /\.page-actions \.status \{[\s\S]*border: 0;[\s\S]*box-shadow: none/);
+  assert.match(lightTheme, /\.page-actions \.status-active \{[\s\S]*background: #eaf7f0;[\s\S]*color: #147a48/);
+  assert.match(lightTheme, /\.page-actions \.status-partial \{[\s\S]*background: #fff6db;[\s\S]*color: #8b6200/);
+  assert.match(lightTheme, /\.page-actions \.status-not \{[\s\S]*background: #fff0ef;[\s\S]*color: #a33128/);
+  assert.match(lightTheme, /\.page-actions \.status-unknown \{[\s\S]*background: #edf1f3;[\s\S]*color: #5d6870/);
+  assert.match(loginLightTheme, /body \{[\s\S]*background: #fff;[\s\S]*color: #214f88/);
+  assert.match(loginLightTheme, /\.login-card \{[\s\S]*background: #2b66ae;[\s\S]*color: #fff/);
+  assert.match(loginLightTheme, /\.login-form input \{[\s\S]*background: #fff;[\s\S]*color: #214f88/);
+  assert.match(loginLightTheme, /\.login-form button \{[\s\S]*background: #fff;[\s\S]*color: #2b66ae/);
+  assert.match(darkTheme, /\.theme-toggle \{[\s\S]*background: rgba\(43, 102, 174, 0\.08\);[\s\S]*color: #2b66ae/);
+  assert.match(darkTheme, /html\[data-theme="dark"\] \.status-active \{[\s\S]*background: #0b2d22;[\s\S]*color: #8bcbaa/);
+  assert.match(darkTheme, /html\[data-theme="dark"\] \.status-partial \{[\s\S]*background: #34290d;[\s\S]*color: #d7bb70/);
+  assert.match(darkTheme, /html\[data-theme="dark"\] \.status-not \{[\s\S]*background: #341918;[\s\S]*color: #e39992/);
+  assert.match(darkTheme, /html\[data-theme="dark"\] \.status-unknown \{[\s\S]*background: #222b32;[\s\S]*color: #b4c1ca/);
+  assert.match(darkTheme, /html\[data-theme="dark"\][\s\S]*background: #080d14/);
+  assert.match(darkTheme, /\.hero-panel,[\s\S]*\.voiceover \{[\s\S]*linear-gradient\(#0b0f14, #0b0f14\) padding-box,[\s\S]*linear-gradient\(135deg, #79c4f5 0%, #2b66ae 100%\) border-box/);
+  assert.match(darkTheme, /\.button,[\s\S]*\.scene-index a \{[\s\S]*linear-gradient\(135deg, #79c4f5 0%, #2b66ae 100%\)/);
+  assert.match(darkTheme, /\.theme-toggle\[aria-checked="true"\][\s\S]*translateX\(16px\)/);
+  assert.match(loginDarkTheme, /html\[data-theme="dark"\] \.login-card \{[\s\S]*#0b0f14[\s\S]*#79c4f5[\s\S]*#2b66ae/);
+  assert.match(themeInit, /const storageKey = "bkwatch-theme"/);
+  assert.match(themeInit, /document\.documentElement\.dataset\.theme = theme/);
+  assert.match(portalScript, /window\.localStorage\.setItem\(themeStorageKey, nextTheme\)/);
+  assert.match(portalScript, /themeToggle\.setAttribute\("aria-checked", String\(darkMode\)\)/);
+  assert.match(designMemory, /Primary Blue \| `#2B66AE`/);
+  assert.match(designMemory, /#79C4F5` → `#2B66AE/);
+  assert.match(logoFrame, /background: #fff/);
+  assert.match(logoFrame, /border-radius: 12px/);
+  assert.match(logoFrame, /padding: 10px 12px/);
+  assert.match(logoFrame, /\.brand-block \{[\s\S]*padding-left: 0;[\s\S]*padding-right: 0/);
+  assert.match(logoFrame, /\.brand-block img \{[\s\S]*width: 100%;[\s\S]*max-width: none/);
+  assert.match(compactHeaders, /data-page-spacing="compact"[\s\S]*padding-top: 36px/);
+  assert.match(compactHeaders, /\.page-head \.eyebrow \{[\s\S]*margin: 0 0 8px/);
+  assert.match(compactHeaders, /max-width: 820px[\s\S]*padding-top: 26px/);
+  assert.match(portalScript, /main\.dataset\.pageSpacing = isFilm1Route \? "film1" : "compact"/);
+  assert.match(portalScript, /path\.startsWith\(ideaPrefix\)/);
+  assert.doesNotMatch([css, loginCss, lightTheme, loginLightTheme].join("\n"), /#2d333b|#79c4f5|color-scheme:\s*dark/i);
+  assert.doesNotMatch([css, loginCss, lightTheme, loginLightTheme, darkTheme, loginDarkTheme, designMemory].join("\n"), /#0869b2/i);
+  assert.match(portalScript, /derived: "Sourced count"/);
+  assert.doesNotMatch(portalScript, /Derived from sourced counts/);
+  assert.doesNotMatch(css, /filter:brightness/);
+});

@@ -2,14 +2,24 @@
    layer (comments/completions) is seeded from a bundled sample set; in live mode
    (Phase 3+) it will come from the tenant-authorized operational API instead. */
 
+/** Read a non-executed <script type="application/json"> block by id (CSP-safe). */
+function readJsonScript(id) {
+  const el = typeof document !== "undefined" ? document.getElementById(id) : null;
+  if (!el) return null;
+  try { return JSON.parse(el.textContent || "null"); } catch { return null; }
+}
+
 export function getConfig() {
-  const c = window.__PORTAL_CONFIG__ || {};
+  // Live mode injects #portal-config from the authenticated function; preview
+  // uses window.__PORTAL_CONFIG__. Inline config is CSP-safe (data, not script).
+  const c = readJsonScript("portal-config") || (typeof window !== "undefined" && window.__PORTAL_CONFIG__) || {};
   return {
     tenant: c.tenant || "bkwatch",
     contentBase: (c.contentBase || "/content/clients/bkwatch/").replace(/\/?$/, "/"),
     routeBase: c.routeBase || "/bkwatch",
     mode: c.mode || "preview",
-    sampleLive: c.sampleLive || null
+    sampleLive: c.sampleLive || null,
+    csrfToken: c.csrfToken || null
   };
 }
 
@@ -43,15 +53,23 @@ export async function apiSend(cfg, path, method, body) {
 
 export async function loadPortalData() {
   const cfg = getConfig();
-  const b = cfg.contentBase;
-  const [portal, home, projects, library, aiRoadmap, search] = await Promise.all([
-    getJSON(b + "portal.json"),
-    getJSON(b + "home.json"),
-    getJSON(b + "projects.json"),
-    getJSON(b + "library.json"),
-    getJSON(b + "ai-roadmap.json"),
-    getJSON(b + "search-index.json")
-  ]);
+  // Live: manifests are embedded in the authenticated HTML (client-confidential,
+  // never served as public static files). Preview: fetched from the local content dir.
+  const embedded = readJsonScript("portal-data");
+  let portal, home, projects, library, aiRoadmap, search;
+  if (embedded) {
+    ({ portal, home, projects, library, aiRoadmap, search } = embedded);
+  } else {
+    const b = cfg.contentBase;
+    [portal, home, projects, library, aiRoadmap, search] = await Promise.all([
+      getJSON(b + "portal.json"),
+      getJSON(b + "home.json"),
+      getJSON(b + "projects.json"),
+      getJSON(b + "library.json"),
+      getJSON(b + "ai-roadmap.json"),
+      getJSON(b + "search-index.json")
+    ]);
+  }
 
   // Operational (live) records.
   //  • live mode  → real tenant-authorized operational API (comments + CSRF)

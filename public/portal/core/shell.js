@@ -96,6 +96,17 @@ function wireShell() {
 
   const logout = document.getElementById("logout-btn");
   logout?.addEventListener("click", () => {
+    const cfg = data.cfg || {};
+    if (cfg.mode === "live") {
+      // Real server-side logout: POST clears the HttpOnly session cookie.
+      const form = document.createElement("form");
+      form.method = "post";
+      form.action = cfg.routeBase || "/bkwatch";
+      form.innerHTML = `<input type="hidden" name="action" value="logout"><input type="hidden" name="csrf" value="${cfg.csrfToken || ""}">`;
+      document.body.appendChild(form);
+      form.submit();
+      return;
+    }
     // Preview: logout is server-side in production. Show a non-blocking note.
     logout.innerHTML = `${icon("check")}<span>Server-side in production</span>`;
     setTimeout(() => (logout.innerHTML = `${icon("logout")}<span>Log out</span>`), 1800);
