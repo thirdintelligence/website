@@ -49,6 +49,7 @@ export function renderShell(root, data) {
         <div class="topbar-utilities">
           <span class="topbar-action" id="topbar-action"></span>
           <button class="btn btn-primary" id="add-comment-btn" type="button">${icon("comment")}<span>Add Comment</span></button>
+          <button class="btn btn-icon btn-ghost mobile-search-trigger" id="mobile-search-trigger" type="button" aria-label="Search">${icon("search")}</button>
           <div class="search-utility">
             ${icon("search")}
             <input class="search-input" id="global-search" type="search" placeholder="Search ${c.shortName}…" aria-label="Search this workspace" autocomplete="off" />
@@ -56,6 +57,14 @@ export function renderShell(root, data) {
           ${themeToggleButton()}
         </div>
       </header>
+      <div class="search-sheet" id="search-sheet" data-open="false">
+        <div class="search-sheet-bar">
+          ${icon("search")}
+          <input id="global-search-mobile" type="search" placeholder="Search ${c.shortName}…" aria-label="Search this workspace" autocomplete="off" />
+          <button class="btn btn-sm btn-ghost" id="search-sheet-close" type="button">Cancel</button>
+        </div>
+        <div class="search-sheet-results" id="search-sheet-results"></div>
+      </div>
       <main class="portal-content" id="main" tabindex="-1"></main>
     </div>
   </div>

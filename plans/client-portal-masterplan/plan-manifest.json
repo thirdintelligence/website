@@ -1,0 +1,50 @@
+{
+  "name": "Third i Client Portal Masterplan",
+  "version": "2.2",
+  "preparedAt": "2026-07-16",
+  "status": "local_handoff_ready_pending_setup_and_hitl",
+  "firstTenant": "bkwatch",
+  "secondTenant": "shaw",
+  "topLevelPages": [
+    "home",
+    "projects",
+    "library",
+    "ai-roadmap"
+  ],
+  "documents": [
+    "00-README.md",
+    "01-approved-requirements.md",
+    "02-information-architecture.md",
+    "03-portal-design-system.md",
+    "04-home-today.md",
+    "05-projects-and-creative.md",
+    "06-comments-and-intake.md",
+    "07-library-memory-mapping.md",
+    "08-ai-roadmap.md",
+    "09-live-data-security.md",
+    "10-os-redesign.md",
+    "11-research-decisions.md",
+    "12-implementation-file-plan.md",
+    "13-test-qc-deploy.md",
+    "14-roadmap-hitl.md",
+    "15-requirements-traceability.md",
+    "16-future-features.md",
+    "17-agent-handoff.md",
+    "18-asset-storage-delivery.md",
+    "19-gate-activation-checklist.md"
+  ],
+  "phases": [
+    "plan-freeze",
+    "contracts-and-shell",
+    "bkwatch-four-pages",
+    "comments-and-intake",
+    "os-redesign",
+    "qc-and-preview",
+    "bkwatch-production",
+    "generator-and-shaw",
+    "learning"
+  ],
+  "productionChangesAuthorized": false,
+  "memoryMutationsAuthorized": false,
+  "externalProviderSetupAuthorized": false
+}

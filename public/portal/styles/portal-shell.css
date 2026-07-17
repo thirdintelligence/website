@@ -191,6 +191,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .theme-toggle .icon { width: 20px; height: 20px; }
 
+/* Mobile search sheet (hidden on desktop) */
+.mobile-search-trigger { display: none; }
+.search-sheet { display: none; }
+.search-sheet-bar { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.search-sheet-bar .icon { color: var(--text-tertiary); flex: none; }
+.search-sheet-bar input { flex: 1; height: 44px; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--surface); color: var(--text); padding: 0 14px; font: inherit; }
+.search-sheet-bar input:focus { border-color: var(--line-strong); outline: none; }
+.search-sheet-results { padding: 12px; overflow: auto; height: calc(100vh - var(--topbar-h)); }
+
 .portal-content { flex: 1 1 auto; padding: var(--space-7) var(--space-5) var(--space-9); }
 .portal-content > .page { max-width: var(--content-max); margin: 0 auto; }
 
@@ -209,6 +218,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   }
   .portal-app[data-drawer="open"] .portal-sidebar { transform: translateX(0); }
   .menu-trigger { display: inline-flex; }
-  .search-input { width: 0; padding: 0; border: none; pointer-events: none; }
+  .search-utility { display: none; }
+  .mobile-search-trigger { display: inline-flex; }
+  .search-sheet[data-open="true"] { display: block; position: fixed; inset: 0; background: var(--bg); z-index: var(--z-overlay); }
   .portal-content { padding: var(--space-5) var(--space-4) var(--space-8); }
 }
