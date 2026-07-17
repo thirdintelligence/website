@@ -16,6 +16,7 @@
     "priority": { "type": "integer", "minimum": 0 },
     "status": { "type": "string", "enum": ["open", "in-progress", "completed", "hidden"] },
     "sourceEventId": { "$ref": "common.schema.json#/$defs/id" },
+    "subjectId": { "$ref": "common.schema.json#/$defs/id", "description": "The comment/request record this action tracks." },
     "executable": { "type": "boolean", "description": "True only for owner actions completable without an agent." },
     "assignedAgent": { "type": "string" },
     "superpromptId": { "type": "string", "description": "Reference to a non-client-visible prompt template; the prompt text is never client-facing." },

@@ -18,6 +18,9 @@ Thumbs.db
 # Local Netlify folder
 .netlify
 
+# Local portal operational store (dev/preview file adapter)
+.portal-store/
+
 # IDE
 .vscode/
 .idea/

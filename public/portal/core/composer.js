@@ -7,6 +7,7 @@
  */
 import { esc } from "./util.js";
 import { icon } from "./icons.js";
+import { apiSend, fetchLive } from "./data.js";
 
 let dataRef = null;
 let rerender = () => {};
@@ -82,28 +83,46 @@ function saveFields() {
   };
 }
 
-function submit() {
+async function submit() {
   saveFields();
   const f = state.fields;
+  const live = dataRef.cfg.mode === "live";
+
   if (state.mode === "comment") {
     if (!f.title.trim()) { host.querySelector("#cmp-title")?.focus(); return; }
-    const comment = {
-      id: "preview-" + Date.now(), tenant: dataRef.cfg.tenant, kind: "comment",
-      title: f.title, blocker: f.blocker, projectId: state.context.projectId || (f.project === "general" ? "general" : f.project),
-      description: f.description, context: { ...state.context }, status: "open",
-      attribution: `${dataRef.portal.client.shortName} commented`, createdAt: new Date().toISOString(), revision: 1
-    };
-    dataRef.live.comments = dataRef.live.comments || [];
-    dataRef.live.comments.unshift(comment);
-    toast("Comment posted (preview). In production this writes to the operational store and emails ceo@thirdi.net.");
+    const projectId = state.context.projectId || (f.project === "general" ? "general" : f.project);
+    if (live) {
+      const payload = { title: f.title, blocker: f.blocker, projectId, description: f.description, context: { ...state.context },
+        ...(Number.isFinite(state.context.timestampMs) ? { timestampMs: state.context.timestampMs, rangeMs: state.context.rangeMs || 5000 } : {}) };
+      const r = await apiSend(dataRef.cfg, "/api/comments", "POST", payload);
+      if (!r.ok) { toast("Could not post comment (" + r.error + "). Your draft is kept."); return; }
+      await refreshLive();
+      toast("Comment posted. Third i has been notified at portal@thirdi.net.");
+    } else {
+      dataRef.live.comments = dataRef.live.comments || [];
+      dataRef.live.comments.unshift({ id: "preview-" + Date.now(), tenant: dataRef.cfg.tenant, kind: "comment", title: f.title, blocker: f.blocker, projectId, description: f.description, context: { ...state.context }, status: "open", attribution: `${dataRef.portal.client.shortName} commented`, createdAt: new Date().toISOString(), revision: 1 });
+      toast("Comment posted (preview). In production this writes to the store and emails portal@thirdi.net.");
+    }
   } else {
     if (!f.name.trim() || !f.description.trim()) return;
-    toast("Project request drafted (preview). In production this creates a client-proposed project + OS action.");
+    if (live) {
+      const r = await apiSend(dataRef.cfg, "/api/project-requests", "POST", { name: f.name, description: f.description });
+      if (!r.ok) { toast("Could not submit request (" + r.error + "). Your draft is kept."); return; }
+      toast("Project request submitted. Third i has been notified at portal@thirdi.net.");
+    } else {
+      toast("Project request drafted (preview). In production this creates a client-proposed project + OS action.");
+    }
   }
+
   state = { open: false, minimized: false, mode: "comment", context: null, pos: null, fields: {} };
   host.hidden = true;
   renderDock();
   rerender();
+}
+
+async function refreshLive() {
+  const l = await fetchLive(dataRef.cfg);
+  if (l) { dataRef.live.comments = l.comments || []; dataRef.cfg.csrfToken = l.csrfToken; }
 }
 
 function render() {

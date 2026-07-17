@@ -1,13 +1,22 @@
 # Gate Activation Checklist (Phase 3+)
 
 Prepared: 2026-07-17 · For: Justin
-Status of build: Phase 1–2 preview is COMPLETE and accepted at the design/content gate
-(`feature/client-portal-redesign`, commit `e27525d`). The live backend below is
-intentionally NOT built yet — the masterplan requires each named gate first
-("Add live comments only after DATA-01", see `17-agent-handoff.md`).
 
-This is the concrete "what I need from you" list to unblock each phase. Nothing
-here changes production until you complete the step and explicitly say go.
+## Build status (updated 2026-07-17, after DATA-02 + EMAIL-01 grant)
+
+- Phase 1–2 preview: COMPLETE + accepted at the design/content gate.
+- Phase 3 live backend: **CODE BUILT + FULLY TESTED locally** (comments CRUD,
+  drafts, project requests, owner completion round-trip, tenant isolation, R2
+  media signing, readable download names, idempotent email queue). 53/53 tests
+  pass. It runs on a local file store for dev/tests and switches to Netlify Blobs
+  + Cloudflare R2 + your mail provider purely via environment variables.
+- What remains to go LIVE is **configuration + a deploy-preview**, not new code:
+  set the env vars below in Netlify, then verify on a preview URL before prod.
+- MEM-01 (memory mirror) remains DRY-RUN only until you approve it.
+- No production state has changed; nothing is pushed.
+
+This is the concrete "what I need from you" list to finish each gate. Nothing
+changes production until you complete the step and explicitly say go.
 
 ---
 

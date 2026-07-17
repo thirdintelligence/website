@@ -1,10 +1,248 @@
 [build]
-  publish = "."
-  # When Next.js is scaffolded, update to: publish = "out" (for static export)
-  # or use @netlify/plugin-nextjs for SSR
+  command = "npm run build"
+  publish = "dist"
 
-# Redirect all routes to index for SPA behavior (remove when Next.js is added)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  included_files = ["bkWatch-os.html", "os.html", "content/clients/bkwatch.json", "content/clients/shaw.json", "content/clients/bkwatch/**", "schemas/portal/**", "lib/portal-auth.mjs"]
+
+# ═══ Homepage ═══
+# Root serves the home page
+[[redirects]]
+  from = "/"
+  to = "/pages/home.html"
+  status = 200
+
+# ═══ Marketing pages ═══
+[[redirects]]
+  from = "/services"
+  to = "/pages/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/pages/portfolio.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/pages/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/pages/contact.html"
+  status = 200
+
+# ═══ bkWatch portal ═══
+[[redirects]]
+  from = "/bkWatch"
+  to = "/bkwatch"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bkWatch/*"
+  to = "/bkwatch/:splat"
+  status = 301
+  force = true
+
+# bkWatch operational APIs — MUST precede the /bkwatch/* catch-all so the
+# Path=/bkwatch session cookie is sent and reaches these functions.
+[[redirects]]
+  from = "/bkwatch/api/comments"
+  to = "/.netlify/functions/portal-comments"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/bkwatch/api/comments/*"
+  to = "/.netlify/functions/portal-comments"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/bkwatch/api/drafts"
+  to = "/.netlify/functions/portal-drafts"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/bkwatch/api/drafts/*"
+  to = "/.netlify/functions/portal-drafts"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/bkwatch/api/project-requests"
+  to = "/.netlify/functions/portal-project-requests"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/bkwatch/api/live"
+  to = "/.netlify/functions/portal-live"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/bkwatch/api/media/*"
+  to = "/.netlify/functions/portal-media"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/bkwatch"
+  to = "/.netlify/functions/bkwatch-portal"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/bkwatch/*"
+  to = "/.netlify/functions/bkwatch-portal"
+  status = 200
+  force = true
+
+# ═══ Shaw portal (placeholder) ═══
+[[redirects]]
+  from = "/Shaw"
+  to = "/shaw"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Shaw/*"
+  to = "/shaw/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shaw"
+  to = "/.netlify/functions/shaw-portal"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/shaw/*"
+  to = "/.netlify/functions/shaw-portal"
+  status = 200
+  force = true
+
+# ═══ Owner OS dashboard (server-side protected) ═══
+# OS operational APIs — precede the /os/* catch-all (Path=/os cookie).
+[[redirects]]
+  from = "/os/api/actions"
+  to = "/.netlify/functions/os-portal-actions"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/os/api/actions/*"
+  to = "/.netlify/functions/os-portal-actions"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/os/api/portal-events"
+  to = "/.netlify/functions/os-portal-actions"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/os"
+  to = "/.netlify/functions/os-portal"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/os.html"
+  to = "/os"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/os/*"
+  to = "/.netlify/functions/os-portal"
+  status = 200
+  force = true
+
+# ═══ Portal live APIs (operational; tenant-authorized in the function) ═══
+[[redirects]]
+  from = "/api/portal/comments"
+  to = "/.netlify/functions/portal-comments"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/portal/comments/*"
+  to = "/.netlify/functions/portal-comments"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/portal/drafts"
+  to = "/.netlify/functions/portal-drafts"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/portal/drafts/*"
+  to = "/.netlify/functions/portal-drafts"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/portal/project-requests"
+  to = "/.netlify/functions/portal-project-requests"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/portal/live"
+  to = "/.netlify/functions/portal-live"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/portal/media/*"
+  to = "/.netlify/functions/portal-media"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/os/actions"
+  to = "/.netlify/functions/os-portal-actions"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/os/actions/*"
+  to = "/.netlify/functions/os-portal-actions"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/api/os/portal-events"
+  to = "/.netlify/functions/os-portal-actions"
+  status = 200
+  force = true
+
+# ═══ Favicons ═══
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/public/images/favicon.png"
+  status = 200
+
+[[redirects]]
+  from = "/favicon.png"
+  to = "/public/images/favicon.png"
+  status = 200
+
+[[redirects]]
+  from = "/apple-touch-icon.png"
+  to = "/public/images/favicon.png"
+  status = 200
+
+# ═══ Security headers ═══
+[[headers]]
+  for = "/public/portal/*"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# ═══ Fallback — SPA catch-all ═══
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/pages/home.html"
   status = 200
