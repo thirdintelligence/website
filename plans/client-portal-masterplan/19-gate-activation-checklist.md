@@ -2,18 +2,20 @@
 
 Prepared: 2026-07-17 · For: Justin
 
-## Build status (updated 2026-07-17, after DATA-02 + EMAIL-01 grant)
+## Build status (updated 2026-07-17 — VERIFIED ON A NETLIFY DEPLOY-PREVIEW)
 
 - Phase 1–2 preview: COMPLETE + accepted at the design/content gate.
-- Phase 3 live backend: **CODE BUILT + FULLY TESTED locally** (comments CRUD,
-  drafts, project requests, owner completion round-trip, tenant isolation, R2
-  media signing, readable download names, idempotent email queue). 53/53 tests
-  pass. It runs on a local file store for dev/tests and switches to Netlify Blobs
-  + Cloudflare R2 + your mail provider purely via environment variables.
-- What remains to go LIVE is **configuration + a deploy-preview**, not new code:
-  set the env vars below in Netlify, then verify on a preview URL before prod.
+- Phase 3 live backend: **BUILT, TESTED (53/53), and VERIFIED END-TO-END on a
+  Netlify deploy-preview** — real login, comment write/read persistence, and R2
+  media presigning all succeeded on Netlify infrastructure.
+- **Operational store = Cloudflare R2** (not Netlify Blobs). Reason: `@netlify/blobs`
+  pulls `@netlify/otel` → 6 moderate OpenTelemetry advisories. R2 reuses the media
+  credentials, keeps the dependency tree at **0 vulnerabilities**, and stores JSON
+  under an isolated `_ops/<version>/` prefix. Toggle with `PORTAL_STORE=r2`.
+- Required env vars now set in Netlify: the 8 media/mail vars + `PORTAL_STORE=r2`.
+  The 3 auth secrets already existed (production-scoped).
 - MEM-01 (memory mirror) remains DRY-RUN only until you approve it.
-- No production state has changed; nothing is pushed.
+- Production deploy remains the final gated step (RELEASE).
 
 This is the concrete "what I need from you" list to finish each gate. Nothing
 changes production until you complete the step and explicitly say go.
