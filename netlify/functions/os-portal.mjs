@@ -74,39 +74,79 @@ async function osPage(csrfToken) {
   const nonce = randomBytes(18).toString("base64url");
   const logout = `<form method="post" action="/os" class="os-owner-logout"><input type="hidden" name="csrf" value="${csrfToken}"><input type="hidden" name="action" value="logout"><button type="submit">Log out</button></form>`;
 
-  // Client-portal activity widget: surfaces open client comments/requests from
-  // the live operational store and lets the owner mark them complete (which flips
-  // the client's comment to Completed). Same-origin fetch + nonce'd inline script
-  // satisfy the OS CSP. csrf token matches the thirdi_os_csrf cookie set below.
-  const widget = `<div id="tp-widget"><button id="tp-toggle" type="button">Client portal <span id="tp-badge">0</span></button><div id="tp-panel"><div class="tp-head">Client portal activity</div><div id="tp-list"><p class="tp-empty">Loading…</p></div></div></div>`;
-  const widgetScript = `<script nonce="${nonce}">(function(){var token=${JSON.stringify(csrfToken)};var list,badge;function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
-function load(){fetch("/os/api/portal-events",{credentials:"same-origin",headers:{accept:"application/json"}}).then(function(r){return r.ok?r.json():null;}).then(function(d){if(!d){list.innerHTML='<p class="tp-empty">Could not load.</p>';return;}var items=[];Object.keys(d.tenants||{}).forEach(function(t){(d.tenants[t].actions||[]).forEach(function(a){if(a.status==="open"){a._t=t;items.push(a);}});});badge.textContent=items.length;badge.style.display=items.length?"inline-block":"none";if(!items.length){list.innerHTML='<p class="tp-empty">No open client items.</p>';return;}list.innerHTML=items.map(function(a){var k=a.type==="blocker"?"Blocker":a.type==="project-request"?"Project request":a.type==="library-correction"?"Library":"Comment";var when=a.createdAt?new Date(a.createdAt).toLocaleString():"";var btn=a.executable?'<button class="tp-done" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Mark complete</button>':'<span class="tp-note">Create a new project to resolve</span>';return '<div class="tp-item"><div class="tp-kind '+(a.type==="blocker"?"blk":"")+'">'+esc(k)+" · "+esc(a._t)+'</div><div class="tp-title">'+esc(a.title)+'</div><div class="tp-meta">'+esc(a.projectId)+" · "+esc(a.context)+" · "+esc(when)+"</div>"+btn+"</div>";}).join("");}).catch(function(){list.innerHTML='<p class="tp-empty">Could not load.</p>';});}
-document.addEventListener("DOMContentLoaded",function(){list=document.getElementById("tp-list");badge=document.getElementById("tp-badge");document.getElementById("tp-toggle").addEventListener("click",function(){document.getElementById("tp-panel").classList.toggle("open");});list.addEventListener("click",function(e){var b=e.target.closest(".tp-done");if(!b)return;b.disabled=true;b.textContent="Completing…";fetch("/os/api/actions/"+encodeURIComponent(b.getAttribute("data-id")),{method:"PATCH",credentials:"same-origin",headers:{"content-type":"application/json","x-csrf-token":token},body:JSON.stringify({tenant:b.getAttribute("data-t"),op:"complete"})}).then(function(r){if(r.ok){load();}else{b.disabled=false;b.textContent=r.status===403?"Reload page":"Retry";}}).catch(function(){b.disabled=false;b.textContent="Retry";});});load();setInterval(load,60000);});})();</script>`;
+  // Client-portal DASHBOARD section (owner cockpit): an honest live-connection
+  // strip plus the prioritized client action queue with directly-executable
+  // owner controls — Complete, Reopen, and Reprioritize. Injected at the top of
+  // the OS so it survives the 5-minute os.html auto-sync; same-origin fetch +
+  // nonce'd inline script satisfy the OS CSP. csrf matches the cookie set below.
+  const dash = `<section id="tp-dash" aria-label="Client portal action queue">
+    <div class="tp-bar">
+      <div class="tp-lead"><span class="tp-eyebrow">Client portal</span><span class="tp-h2">Action queue</span></div>
+      <div class="tp-strip"><span class="tp-chip on">Sheets</span><span class="tp-chip on">Gmail</span><span class="tp-chip on">Calendar</span><span class="tp-chip pending" id="tp-portals">Portals · checking</span></div>
+    </div>
+    <div id="tp-list" class="tp-list"><p class="tp-empty">Loading client activity…</p></div>
+  </section>`;
+
+  const script = `<script nonce="${nonce}">(function(){var token=${JSON.stringify(csrfToken)};var listEl;
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function kindLabel(t){return t==="blocker"?"Blocker":t==="project-request"?"Project request":t==="library-correction"?"Library":"Comment";}
+function row(a){var when=a.createdAt?new Date(a.createdAt).toLocaleString():"";var ctrls="";
+ if(a.status==="completed"){ctrls='<button class="tp-btn ghost" data-op="reopen" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Reopen</button>';}
+ else{var done=a.executable?'<button class="tp-btn" data-op="complete" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Complete</button>':'<span class="tp-note">Create a new project to resolve</span>';
+  ctrls=done+'<span class="tp-prio"><button class="tp-btn icon" title="Higher priority" data-op="up" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'" data-p="'+(a.priority||0)+'">\u25B2</button><button class="tp-btn icon" title="Lower priority" data-op="down" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'" data-p="'+(a.priority||0)+'">\u25BC</button></span>';}
+ return '<div class="tp-item'+(a.status==="completed"?" done":"")+'"><div class="tp-kind '+(a.type==="blocker"?"blk":"")+'">'+esc(kindLabel(a.type))+" · "+esc(a._t)+(a.status==="completed"?" · completed":"")+'</div><div class="tp-title">'+esc(a.title)+'</div>'+(a.detail?'<div class="tp-detail">'+esc(a.detail)+'</div>':'')+'<div class="tp-meta">'+esc(a.projectId||"general")+" · "+esc(a.context||"")+" · "+esc(when)+'</div><div class="tp-ctrls">'+ctrls+'</div></div>';}
+function load(){fetch("/os/api/portal-events",{credentials:"same-origin",headers:{accept:"application/json"}}).then(function(r){return r.ok?r.json():null;}).then(function(d){var p=document.getElementById("tp-portals");
+ if(!d){listEl.innerHTML='<p class="tp-empty">Could not load client activity.</p>';if(p){p.textContent="Portals · error";p.className="tp-chip err";}return;}
+ var all=[],failed=0;Object.keys(d.tenants||{}).forEach(function(t){(d.tenants[t].actions||[]).forEach(function(a){if(a.status!=="hidden"){a._t=t;all.push(a);}});failed+=((d.tenants[t].notifications||[]).filter(function(n){return n.status==="failed";})).length;});
+ var open=all.filter(function(a){return a.status!=="completed";});open.sort(function(a,b){return (a.priority||0)-(b.priority||0)||String(b.createdAt).localeCompare(String(a.createdAt));});
+ var done=all.filter(function(a){return a.status==="completed";}).slice(0,5);
+ var okp=d.connection&&d.connection.portals==="ok"&&failed===0;if(p){p.textContent="Portals · "+(okp?"healthy":"attention")+" ("+open.length+" open)";p.className="tp-chip "+(okp?"on":"warn");}
+ var html="";if(!open.length){html+='<p class="tp-empty">No open client items. You are all caught up.</p>';}else{html+=open.map(row).join("");}
+ if(done.length){html+='<div class="tp-divider">Recently completed</div>'+done.map(row).join("");}
+ listEl.innerHTML=html;}).catch(function(){listEl.innerHTML='<p class="tp-empty">Could not load client activity.</p>';});}
+function send(b,body){b.disabled=true;var prev=b.textContent;b.textContent="…";fetch("/os/api/actions/"+encodeURIComponent(b.getAttribute("data-id")),{method:"PATCH",credentials:"same-origin",headers:{"content-type":"application/json","x-csrf-token":token},body:JSON.stringify(body)}).then(function(r){if(r.ok){load();}else{b.disabled=false;b.textContent=r.status===403?"Reload":prev;}}).catch(function(){b.disabled=false;b.textContent=prev;});}
+document.addEventListener("DOMContentLoaded",function(){listEl=document.getElementById("tp-list");
+ listEl.addEventListener("click",function(e){var b=e.target.closest("[data-op]");if(!b)return;var op=b.getAttribute("data-op"),t=b.getAttribute("data-t");
+  if(op==="complete")send(b,{tenant:t,op:"complete"});else if(op==="reopen")send(b,{tenant:t,op:"reopen"});
+  else if(op==="up")send(b,{tenant:t,priority:(parseInt(b.getAttribute("data-p"),10)||0)-1});else if(op==="down")send(b,{tenant:t,priority:(parseInt(b.getAttribute("data-p"),10)||0)+1});});
+ load();setInterval(load,60000);});})();</script>`;
 
   const css = `<style nonce="${nonce}">.os-owner-logout{position:fixed;z-index:99998;right:18px;bottom:18px;margin:0}.os-owner-logout button{border:1px solid rgba(255,255,255,.2);border-radius:999px;background:#1a1a1a;color:#fff;padding:9px 14px;font:600 12px/1 Inter,sans-serif;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.25)}.os-owner-logout button:hover{border-color:#fff}
-#tp-widget{position:fixed;z-index:99998;left:18px;bottom:18px;font:500 13px/1.4 Inter,sans-serif}
-#tp-toggle{border:1px solid rgba(255,255,255,.2);border-radius:999px;background:#1a1a1a;color:#fff;padding:9px 14px;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.25)}
-#tp-toggle:hover{border-color:#fff}
-#tp-badge{display:none;margin-left:6px;background:#2b66ae;color:#fff;border-radius:999px;padding:1px 7px;font-size:11px;font-weight:700}
-#tp-panel{display:none;margin-top:10px;width:340px;max-height:62vh;overflow:auto;background:#101418;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
-#tp-panel.open{display:block}
-.tp-head{color:#fff;font-weight:700;margin-bottom:6px}
-.tp-item{border-top:1px solid rgba(255,255,255,.1);padding:10px 0}
-.tp-item:first-of-type{border-top:0}
+#tp-dash{max-width:1180px;margin:16px auto 0;padding:18px 22px;background:#0d1218;border:1px solid rgba(121,196,245,.18);border-radius:16px;font-family:Inter,ui-sans-serif,-apple-system,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.tp-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.tp-eyebrow{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#79c4f5;font-weight:700}
+.tp-h2{font-size:1.25rem;font-weight:700;color:#fff}
+.tp-strip{display:flex;gap:8px;flex-wrap:wrap}
+.tp-chip{font-size:11px;font-weight:600;color:#c7d3dc;background:#141b23;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px 11px}
+.tp-chip.on{color:#8fe0b4;border-color:rgba(87,201,138,.4)}
+.tp-chip.on::before,.tp-chip.warn::before,.tp-chip.err::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle;background:#57c98a}
+.tp-chip.warn{color:#ffd08a;border-color:rgba(255,183,77,.4)}.tp-chip.warn::before{background:#ffb74d}
+.tp-chip.err{color:#ff9a8b;border-color:rgba(229,107,99,.4)}.tp-chip.err::before{background:#e56b63}
+.tp-chip.pending{color:#9fb0bd}
+.tp-list{display:grid;gap:10px}
+.tp-item{background:#111820;border:1px solid rgba(255,255,255,.08);border-left:3px solid #2b66ae;border-radius:12px;padding:12px 14px}
+.tp-item.done{opacity:.66;border-left-color:#57c98a}
 .tp-kind{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#79c4f5}
 .tp-kind.blk{color:#ff9a8b}
 .tp-title{color:#fff;font-weight:600;margin:3px 0}
-.tp-meta{color:#9fb0bd;font-size:11px;margin-bottom:8px}
-.tp-done{background:#2b66ae;color:#fff;border:0;border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:600}
-.tp-done:hover{background:#214f88}.tp-done:disabled{opacity:.6;cursor:default}
-.tp-note{color:#9fb0bd;font-size:11px}.tp-empty{color:#9fb0bd;margin:6px 0}</style>`;
+.tp-detail{color:#c7d3dc;font-size:13px;line-height:1.5;margin-bottom:4px}
+.tp-meta{color:#8397a5;font-size:11px;margin-bottom:10px}
+.tp-ctrls{display:flex;align-items:center;gap:8px}
+.tp-btn{background:#2b66ae;color:#fff;border:0;border-radius:8px;padding:6px 13px;cursor:pointer;font-weight:600;font-size:12px}
+.tp-btn:hover{background:#214f88}.tp-btn:disabled{opacity:.6;cursor:default}
+.tp-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.22);color:#c7d3dc}.tp-btn.ghost:hover{border-color:#fff;background:transparent}
+.tp-btn.icon{padding:5px 9px;background:#1a232c}.tp-btn.icon:hover{background:#243140}
+.tp-prio{display:inline-flex;gap:4px;margin-left:auto}
+.tp-note{color:#9fb0bd;font-size:12px}
+.tp-divider{color:#8397a5;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin:8px 2px 2px;font-weight:700}
+.tp-empty{color:#9fb0bd;margin:6px 0}</style>`;
 
   const html = source
     .replace(/<div id="passGate"[\s\S]*?<\/script>/, "")
     .replaceAll("<script>", `<script nonce="${nonce}">`)
     .replace("</head>", `${css}</head>`)
-    .replace("<body>", `<body>${logout}${widget}`)
-    .replace("</body>", `${widgetScript}</body>`);
+    .replace("<body>", `<body>${logout}${dash}`)
+    .replace("</body>", `${script}</body>`);
   const csp = `default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-ancestors 'none'; img-src 'self' data:; media-src 'self'; object-src 'none'; script-src 'self' 'nonce-${nonce}'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`;
   return { html, csp };
 }
