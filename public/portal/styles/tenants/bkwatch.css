@@ -13,7 +13,3 @@
   --client-gradient-soft: linear-gradient(135deg, rgba(121,196,245,.16) 0%, rgba(43,102,174,.18) 100%);
 }
 
-/* The bkWatch wordmark is dark ink on transparent. On the dark sidebar (the
-   default theme) render it white so it reads on the dark surface; keep the
-   original ink in light mode. */
-[data-tenant="bkwatch"][data-theme="dark"] .sidebar-brand img { filter: brightness(0) invert(1); }

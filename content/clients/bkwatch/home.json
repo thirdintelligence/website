@@ -11,7 +11,7 @@
     },
     {
       "label": "Open blockers",
-      "value": 7,
+      "value": 2,
       "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
     },
     {
@@ -37,69 +37,21 @@
       "id": "na-blocker-1",
       "kind": "blocker",
       "title": "Final Demo plan approval",
+      "detail": "Approve the 22-second Final Demo plan and its corrected segment allocation — including confirmation that the live/showable Status, Tasks, and Credit behavior can be demonstrated — before any media is generated.",
       "projectId": "film1-shaw-bkwatch",
       "projectLabel": "Bankruptcy, handled inside Spectrum",
-      "status": "Awaiting Third i / client input",
+      "status": "Awaiting your approval",
       "route": "/bkwatch/projects/film1-shaw-bkwatch",
       "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
     },
     {
       "id": "na-blocker-2",
       "kind": "blocker",
-      "title": "Sanitized Spectrum start/working captures and masks",
-      "projectId": "film1-shaw-bkwatch",
-      "projectLabel": "Bankruptcy, handled inside Spectrum",
-      "status": "Awaiting Third i / client input",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
-    },
-    {
-      "id": "na-blocker-3",
-      "kind": "blocker",
-      "title": "Written Shaw permission for bkWatch film use and 3D treatment",
-      "projectId": "film1-shaw-bkwatch",
-      "projectLabel": "Bankruptcy, handled inside Spectrum",
-      "status": "Awaiting Third i / client input",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
-    },
-    {
-      "id": "na-blocker-4",
-      "kind": "blocker",
-      "title": "Live/showable function confirmation",
-      "projectId": "film1-shaw-bkwatch",
-      "projectLabel": "Bankruptcy, handled inside Spectrum",
-      "status": "Awaiting Third i / client input",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
-    },
-    {
-      "id": "na-blocker-5",
-      "kind": "blocker",
-      "title": "Handled-state green",
-      "projectId": "film1-shaw-bkwatch",
-      "projectLabel": "Bankruptcy, handled inside Spectrum",
-      "status": "Awaiting Third i / client input",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
-    },
-    {
-      "id": "na-blocker-6",
-      "kind": "blocker",
       "title": "Final CTA and logo hierarchy",
+      "detail": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene.",
       "projectId": "film1-shaw-bkwatch",
       "projectLabel": "Bankruptcy, handled inside Spectrum",
-      "status": "Awaiting Third i / client input",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
-    },
-    {
-      "id": "na-blocker-7",
-      "kind": "blocker",
-      "title": "Composite-frame and keyframe approval",
-      "projectId": "film1-shaw-bkwatch",
-      "projectLabel": "Bankruptcy, handled inside Spectrum",
-      "status": "Awaiting Third i / client input",
+      "status": "Awaiting your approval",
       "route": "/bkwatch/projects/film1-shaw-bkwatch",
       "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
     }
@@ -111,7 +63,7 @@
       "purpose": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "phase": "Final Demo extreme QC passed",
       "nextMilestone": "Justin approves the Final Demo plan; NEW FILING is used in post; Shaw provides sanitized Spectrum assets and written usage permission; exact composite keyframes are approved before generation.",
-      "openCount": 7,
+      "openCount": 2,
       "latestUpdate": "Final Demo extreme workflow and prompt QC passed; no media generated yet.",
       "thumbnailState": "in-production",
       "route": "/bkwatch/projects/film1-shaw-bkwatch"

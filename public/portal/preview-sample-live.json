@@ -2,6 +2,14 @@
   "_note": "PREVIEW-ONLY sample operational records to demonstrate the comment/completion UI. Not client content. Production comments come from the tenant-authorized operational store (gated DATA-01).",
   "comments": [
     {
+      "id": "rec-handled-green", "tenant": "bkwatch", "kind": "comment",
+      "title": "Handled-state green — recommended fix",
+      "blocker": false, "projectId": "film1-shaw-bkwatch",
+      "description": "Third i recommends locking the handled-state green in Scene F05 to the approved success color so the Status, Tasks, and Credit completion checks read consistently across all three cards. We will apply this in post once you confirm — no action needed from you.",
+      "context": { "scope": "scene", "projectId": "film1-shaw-bkwatch", "sceneId": "F05", "label": "Scene F05 · Handled-state hero", "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo" },
+      "status": "open", "attribution": "Third i recommends", "createdAt": "2026-07-17T10:00:00Z", "revision": 1
+    },
+    {
       "id": "preview-c1", "tenant": "bkwatch", "kind": "comment",
       "title": "Can the filing object read a touch faster in F02?",
       "blocker": false, "projectId": "film1-shaw-bkwatch",

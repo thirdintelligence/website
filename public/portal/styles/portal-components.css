@@ -83,6 +83,7 @@
 .action-rail.blocker { background: linear-gradient(180deg, #ef6b63, #b5322b); }
 .action-body { min-width: 0; flex: 1; }
 .action-title { font-weight: 600; }
+.action-detail { margin-top: 4px; font-size: var(--fs-small); color: var(--text-secondary); line-height: 1.5; }
 .action-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; font-size: var(--fs-caption); color: var(--text-tertiary); }
 
 /* ── Activity feed / timeline ───────────────────────────────────────────────── */

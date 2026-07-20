@@ -24,7 +24,8 @@ export function renderShell(root, data) {
   <div class="portal-app" data-tenant="${portal.tenant}" data-sidebar="${collapsed ? "collapsed" : "expanded"}">
     <aside class="portal-sidebar" aria-label="Portal navigation">
       <div class="sidebar-brand">
-        <img src="${portal.client.logo || "/public/portal/bkwatch-logo.png"}" alt="${c.name} logo" />
+        <img class="brand-logo brand-logo-light" src="${portal.client.logo || "/public/portal/bkwatch-logo.png"}" alt="${c.name} logo" />
+        ${portal.client.logoDark ? `<img class="brand-logo brand-logo-dark" src="${portal.client.logoDark}" alt="${c.name} logo" />` : ""}
         <span class="brand-text"><span class="brand-name">${c.shortName}</span><span class="brand-sub">Client workspace</span></span>
       </div>
       <nav class="sidebar-nav" aria-label="Primary">

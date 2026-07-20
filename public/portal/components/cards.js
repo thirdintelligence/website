@@ -63,6 +63,7 @@ export function actionItem(item) {
     <span class="action-rail ${item.kind === "blocker" ? "blocker" : ""}"></span>
     <div class="action-body">
       <div class="action-title">${esc(item.title)}</div>
+      ${item.detail ? `<div class="action-detail">${esc(item.detail)}</div>` : ""}
       <div class="action-meta">
         ${statusLabel(item.kind === "blocker" ? "Blocker" : (item.status || "Open"), item.kind === "blocker" ? "risk" : undefined)}
         ${item.projectLabel ? `<span>${esc(item.projectLabel)}</span>` : ""}

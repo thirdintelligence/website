@@ -125,7 +125,8 @@ function buildPortal(v1) {
       shortName: v1.client.shortName,
       route: v1.client.route,
       partner: v1.client.partner,
-      logo: "/public/portal/bkwatch-logo.png"
+      logo: "/public/portal/bkwatch-logo-black.png",
+      logoDark: "/public/portal/bkwatch-logo-white.png"
     },
     brand: {
       mission: v1.brand.mission,
@@ -160,16 +161,23 @@ function buildHome(v1, projects) {
     { label: "Next milestone", value: "Final Demo plan + asset/permission lock", source: v1.currentWork.source }
   ];
 
-  const needsAttention = (v1.currentWork.blockers || []).map((b, i) => ({
-    id: `na-blocker-${i + 1}`,
-    kind: "blocker",
-    title: b,
-    projectId: film.id,
-    projectLabel: film.title,
-    status: "Awaiting Third i / client input",
-    route: `/bkwatch/projects/${film.slug}`,
-    source: v1.currentWork.source
-  }));
+  // Blockers may be plain strings (legacy) or { title, detail } objects. The
+  // detail carries the real reasoning so blockers are never bare placeholders.
+  const needsAttention = (v1.currentWork.blockers || []).map((b, i) => {
+    const title = typeof b === "string" ? b : b.title;
+    const detail = typeof b === "object" ? b.detail : undefined;
+    return {
+      id: `na-blocker-${i + 1}`,
+      kind: "blocker",
+      title,
+      ...(detail ? { detail } : {}),
+      projectId: film.id,
+      projectLabel: film.title,
+      status: "Awaiting your approval",
+      route: `/bkwatch/projects/${film.slug}`,
+      source: v1.currentWork.source
+    };
+  });
 
   const activeWork = [{
     projectId: film.id,
@@ -262,7 +270,7 @@ function buildProjects(v1) {
     deliverables: (v1.currentWork.deliverables || []).map((d) => ({ title: d, state: "In progress" })),
     assets: [],
     timeline: f.timeline,
-    blockers: v1.currentWork.blockers,
+    blockers: (v1.currentWork.blockers || []).map((b) => (typeof b === "string" ? b : b.title)),
     related: ["spectrum-integration", "monitoring"],
     scope: {
       ownerApproved: false,

@@ -37,6 +37,7 @@
           "id": { "$ref": "common.schema.json#/$defs/id" },
           "kind": { "type": "string", "enum": ["blocker", "comment", "decision", "milestone", "general"] },
           "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "detail": { "type": "string" },
           "projectId": { "type": "string" },
           "projectLabel": { "type": "string" },
           "status": { "$ref": "common.schema.json#/$defs/nonEmptyText" },

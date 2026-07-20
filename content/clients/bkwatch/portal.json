@@ -9,7 +9,8 @@
     "shortName": "bkWatch",
     "route": "/bkwatch",
     "partner": "Third i",
-    "logo": "/public/portal/bkwatch-logo.png"
+    "logo": "/public/portal/bkwatch-logo-black.png",
+    "logoDark": "/public/portal/bkwatch-logo-white.png"
   },
   "brand": {
     "mission": "Make bankruptcy operations easy through live, automated, API-first tools that reduce compliance risk and effort at scale.",

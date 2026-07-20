@@ -21,7 +21,8 @@
         "shortName": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
         "route": { "type": "string", "pattern": "^/[a-z0-9-]+$" },
         "partner": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
-        "logo": { "type": "string" }
+        "logo": { "type": "string" },
+        "logoDark": { "type": "string" }
       }
     },
     "brand": {
