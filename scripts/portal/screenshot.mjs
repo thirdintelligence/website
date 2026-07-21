@@ -104,12 +104,11 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
       return {
         offset: (box.top + box.height / 2) - (content.top + content.height / 2),
         topOffset: box.top - head.top,
-        position: buttonStyle.position,
-        top: parseFloat(buttonStyle.top),
+        marginTop: parseFloat(buttonStyle.marginTop),
         transform: style.transform
       };
     });
-    if (createButtonAlignment.position !== "relative" || createButtonAlignment.top !== -8 || (viewport.width > 680 && Math.abs(createButtonAlignment.topOffset + 8) > .1)) errors.push(`[${name}/${theme}] Create Project button is not positioned 8px above the Projects header line`);
+    if (createButtonAlignment.marginTop !== -16 || (viewport.width > 680 && Math.abs(createButtonAlignment.topOffset + 16) > .1)) errors.push(`[${name}/${theme}] Create Project button is not positioned 16px above the Projects header line`);
     if (Math.abs(createButtonAlignment.offset - 2) > .1 || !/matrix\(1, 0, 0, 1, 0, -2\)/.test(createButtonAlignment.transform)) errors.push(`[${name}/${theme}] Create Project button contents are not optically centered 2px upward`);
   }
   if (name === "project-detail") {
@@ -167,6 +166,16 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     const sceneBadgeFontSizes = await page.locator(".scene-media .ip-badge").evaluateAll((badges) => badges.map((badge) => parseFloat(getComputedStyle(badge).fontSize)));
     if (!sceneBadgeFontSizes.length || sceneBadgeFontSizes.some((size) => size > 13)) errors.push(`[${name}/${theme}] scene In production labels no longer use the standard preview size`);
     if (await page.locator(".scene-media > .pc-meta .status").count()) errors.push(`[${name}/${theme}] scene preview areas still contain secondary status text`);
+  }
+  if (name === "projects" || name === "library") {
+    const filterSpacing = await page.locator(".filter-page").evaluate((root) => {
+      const filters = root.querySelector(".filters").getBoundingClientRect();
+      const preceding = root.querySelector(".filters").previousElementSibling.getBoundingClientRect();
+      const section = root.querySelector(".filters + .section").getBoundingClientRect();
+      return { above: filters.top - preceding.bottom, below: section.top - filters.bottom };
+    });
+    const expectedAbove = name === "projects" ? 0 : 8;
+    if (Math.abs(filterSpacing.above - expectedAbove) > .1 || Math.abs(filterSpacing.below - 8) > .1) errors.push(`[${name}/${theme}] filter row spacing is not compact around the controls`);
   }
   if (name === "library-branding") {
     const entry = await page.locator(".record-row").first().evaluate((row) => {

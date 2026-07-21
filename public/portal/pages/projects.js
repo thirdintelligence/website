@@ -19,7 +19,7 @@ export function render(data) {
     <button class="btn btn-sm btn-ghost filter-clear" id="f-clear" type="button">Clear</button>
   </div>`;
 
-  const html = `<div class="page">
+  const html = `<div class="page filter-page">
     <div class="page-head-row">
       <div>
         <h1 class="page-title">Projects</h1>

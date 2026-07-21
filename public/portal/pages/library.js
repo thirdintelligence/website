@@ -24,7 +24,7 @@ export function render(data, params) {
       ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => chip(s.title)).join("")}</div>` : ""}
     </a>`).join("");
 
-  const html = `<div class="page">
+  const html = `<div class="page filter-page">
     <h1 class="page-title">Library</h1>
     <p class="page-lede">Everything Third i has learned and built for ${esc(portal.client.name)} — brand, products, features, integrations, film knowledge, and communication. Each record keeps its source.</p>
 
