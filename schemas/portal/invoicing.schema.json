@@ -53,20 +53,6 @@
         }
       }
     },
-    "outcomes": {
-      "type": "array",
-      "description": "Concrete outcomes delivered — defined by the business impact they produce, not just activity.",
-      "items": {
-        "type": "object",
-        "required": ["title", "description", "status"],
-        "properties": {
-          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
-          "description": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "What was achieved and why it matters to the client." },
-          "status": { "type": "string", "enum": ["delivered", "in-progress", "planned"], "description": "Whether this outcome is done, being worked on, or planned." },
-          "projectId": { "type": "string", "description": "Optional link to the project this outcome came from." }
-        }
-      }
-    },
     "capabilities": {
       "type": "array",
       "description": "Capabilities Third i has delivered — tools built, knowledge transferred, and services enabled.",

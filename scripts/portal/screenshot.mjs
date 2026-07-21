@@ -235,8 +235,13 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     if (gate.completed !== "0" || gate.required !== "2") errors.push(`[${name}/${theme}] efficiency gate is not set to 0 of 2 completed projects`);
     const momentumLabels = await page.locator(".metric-descriptor").allTextContents();
     if (!momentumLabels.includes("deliverables") || !momentumLabels.includes("hours") || !momentumLabels.includes("capabilities") || momentumLabels.some((label) => /invested|delivered/i.test(label))) errors.push(`[${name}/${theme}] momentum labels were not normalized`);
-    if (await page.locator(".financial-metric").count() < 9) errors.push(`[${name}/${theme}] financial summary does not fill the banner with the full metric set`);
     if (await page.locator(".future-value-item").count() !== 6) errors.push(`[${name}/${theme}] future value record does not include all six placeholder sections`);
+    if (await page.locator(".financial-metric, .outcome-list").count()) errors.push(`[${name}/${theme}] removed financial summary or outcomes content is still rendered`);
+    if (await page.getByRole("heading", { name: /Financial summary|Outcomes|Future value record/i }).count()) errors.push(`[${name}/${theme}] removed Value & Results section title is still rendered`);
+    if (await page.locator(".momentum-section .future-value-grid").count() !== 1) errors.push(`[${name}/${theme}] future metric placeholders are not inside Momentum`);
+    if (await page.getByText("Monthly Video Series", { exact: true }).count()) errors.push(`[${name}/${theme}] monthly film series remains a separate capability`);
+    const filmCapability = page.locator(".cap-row").filter({ hasText: "AI Film Production" });
+    if (await filmCapability.count() !== 1 || !/ongoing monthly film series/i.test(await filmCapability.innerText())) errors.push(`[${name}/${theme}] monthly film series was not merged into AI Film Production`);
     const privacyText = await page.locator(".learning-privacy").innerText();
     if (!/stays private/i.test(privacyText) || /Shaw Systems|Amplify|614 hours|250 hours/i.test(privacyText)) errors.push(`[${name}/${theme}] learning proof is missing its privacy boundary or exposes cross-client details`);
   }

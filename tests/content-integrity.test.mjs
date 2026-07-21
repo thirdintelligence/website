@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-14"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-15"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -239,16 +239,17 @@ test("Value & Results gates efficiency evidence and preserves tenant privacy", a
   assert.match(valuePage, /class="efficiency-readiness"/);
   assert.match(valuePage, /class="efficiency-chart"/);
   assert.match(valuePage, /Only verified actual efficiency is labeled/);
-  assert.match(valuePage, /financial-metric-grid/);
-  assert.match(valuePage, /partnership \/ R&D hours/);
   assert.match(valuePage, /future-value-item/);
+  assert.match(valuePage, /class="section momentum-section"/);
+  assert.match(valuePage, /\$\{futureMomentum\(invoicing\)\}/);
   assert.match(valuePage, /What stays private/);
+  assert.doesNotMatch(valuePage, /financialSection|Financial summary|outcomeRow|>Outcomes<|Future value record/);
   assert.doesNotMatch(valuePage, /crossClientSection|crossClientTraining|614 hours|Shaw Conference|Amplify/);
   assert.match(metricsScript, /actualHoursPerMinute: 150/);
   assert.match(metricsScript, /actualHoursPerMinute: 120/);
   assert.match(metricsScript, /completedProjectCount: 0/);
   assert.match(portalPagesCss, /\.vr-hero \{[^}]*grid-template-columns:/);
-  assert.match(portalPagesCss, /\.financial-metric-grid \{[^}]*repeat\(3,/);
+  assert.match(portalPagesCss, /\.momentum-future \{[^}]*margin-top:/);
   assert.match(portalPagesCss, /\.privacy-columns \{[^}]*grid-template-columns: 1fr 1fr/);
   assert.match(homePage, /ai-value-label">hours<\/span>/);
   assert.match(homePage, /ai-value-label">capabilities<\/span>/);

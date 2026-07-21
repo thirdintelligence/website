@@ -25,38 +25,6 @@
       "label": "Client portal, AI film production, AI roadmap, and brand knowledge library"
     }
   },
-  "outcomes": [
-    {
-      "title": "Film 1 — Final Demo in production",
-      "description": "A 22-second film showing how bankruptcy automation works natively inside Spectrum, resolving the switching objection for potential partners.",
-      "status": "in-progress"
-    },
-    {
-      "title": "Client portal live",
-      "description": "A private, password-protected portal where bkWatch can see project progress, leave comments, review scenes, and track deliverables in real time.",
-      "status": "delivered"
-    },
-    {
-      "title": "AI roadmap delivered",
-      "description": "A practical, research-backed plan showing where bkWatch can add AI to their operations, marketing, and service — with clear value and effort guidance for each opportunity.",
-      "status": "delivered"
-    },
-    {
-      "title": "Brand knowledge library built",
-      "description": "A searchable library of bkWatch's brand, products, features, and communication guidelines — organized and accessible through the portal.",
-      "status": "delivered"
-    },
-    {
-      "title": "Monthly video series",
-      "description": "A 30-second video every month, building a library of content that shows bkWatch's value to potential partners and clients.",
-      "status": "planned"
-    },
-    {
-      "title": "AI workflow implementation",
-      "description": "Teaching and implementing AI-powered workflows to automate routine tasks starting in month two.",
-      "status": "planned"
-    }
-  ],
   "capabilities": [
     {
       "title": "Client Portal",
@@ -67,7 +35,7 @@
     {
       "title": "AI Film Production",
       "type": "knowledge",
-      "description": "AI-powered video production that creates professional films faster and at lower cost than traditional methods.",
+      "description": "AI-powered production for individual films and an ongoing monthly film series, creating a growing content library faster and at lower cost than traditional methods.",
       "status": "available"
     },
     {
@@ -81,12 +49,6 @@
       "type": "tool",
       "description": "An organized, searchable library of your brand, products, features, and communication guidelines.",
       "status": "delivered"
-    },
-    {
-      "title": "Monthly Video Series",
-      "type": "service",
-      "description": "Ongoing monthly video production to build a content library showing your value to partners and clients.",
-      "status": "planned"
     },
     {
       "title": "AI Workflow Training",

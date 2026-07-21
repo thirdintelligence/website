@@ -140,15 +140,6 @@ async function main() {
       hoursInvested: { hours: 614, descriptor: "hours", label: "614 total hours across Shaw projects — 324 billable and 290 partnership/R&D" },
       capabilitiesDelivered: { count: 5, descriptor: "capabilities", label: "Films, training, agent architecture, loop videos, and conference AV" },
     },
-    outcomes: [
-      { title: "Conference Video (Film 1)", description: "A fixed-bid 'Built to Evolve' conference video — 250 hours, $2,500.", status: "delivered" },
-      { title: "Logo Loop Videos + Conference Week", description: "Logo sequence loop video assets, conference AV, and live lighting — 35 hours, $2,100.", status: "delivered" },
-      { title: "Amplify V1 (Film 2)", description: "Full AI film production — research, storyboarding, stills, video generation, and editing — 119 hours, $7,140.", status: "delivered" },
-      { title: "Shaw Training Session", description: "Team training on AI-powered workflows — 7 hours, $420.", status: "delivered" },
-      { title: "Amplify V2 (Film 2)", description: "Enhanced version of Amplify with improved visuals and editing — 118 hours, $7,010.", status: "in-progress" },
-      { title: "AI Advisor Demo (Film 3)", description: "AI advisor demonstration film — 39 hours so far, $2,340 logged.", status: "in-progress" },
-      { title: "Insight Demo (Film 4)", description: "Insight platform demonstration film — 6 hours, $360 logged.", status: "in-progress" },
-    ],
     capabilities: [
       { title: "AI Film Production", type: "knowledge", description: "Full AI-powered video production pipeline — storyboarding, stills, video generation, and editing.", status: "delivered" },
       { title: "Conference AV + Live Production", type: "service", description: "Live conference AV support, lighting, and logo video assets.", status: "delivered" },
@@ -220,20 +211,11 @@ async function main() {
       hoursInvested: { hours: 20, descriptor: "hours", label: "20 hours on Film 1 — story, script, storyboard, and instructions" },
       capabilitiesDelivered: { count: 4, descriptor: "capabilities", label: "Client portal, AI film production, AI roadmap, and brand knowledge library" },
     },
-    outcomes: [
-      { title: "Film 1 — Final Demo in production", description: "A 22-second film showing how bankruptcy automation works natively inside Spectrum, resolving the switching objection for potential partners.", status: "in-progress" },
-      { title: "Client portal live", description: "A private, password-protected portal where bkWatch can see project progress, leave comments, review scenes, and track deliverables in real time.", status: "delivered" },
-      { title: "AI roadmap delivered", description: "A practical, research-backed plan showing where bkWatch can add AI to their operations, marketing, and service — with clear value and effort guidance for each opportunity.", status: "delivered" },
-      { title: "Brand knowledge library built", description: "A searchable library of bkWatch's brand, products, features, and communication guidelines — organized and accessible through the portal.", status: "delivered" },
-      { title: "Monthly video series", description: "A 30-second video every month, building a library of content that shows bkWatch's value to potential partners and clients.", status: "planned" },
-      { title: "AI workflow implementation", description: "Teaching and implementing AI-powered workflows to automate routine tasks starting in month two.", status: "planned" },
-    ],
     capabilities: [
       { title: "Client Portal", type: "tool", description: "A private, real-time workspace for project collaboration, comments, and progress tracking.", status: "delivered" },
-      { title: "AI Film Production", type: "knowledge", description: "AI-powered video production that creates professional films faster and at lower cost than traditional methods.", status: "available" },
+      { title: "AI Film Production", type: "knowledge", description: "AI-powered production for individual films and an ongoing monthly film series, creating a growing content library faster and at lower cost than traditional methods.", status: "available" },
       { title: "AI Roadmap", type: "knowledge", description: "Research-backed guidance on where and how to add AI to your operations, with clear value and effort assessment.", status: "delivered" },
       { title: "Brand Knowledge Library", type: "tool", description: "An organized, searchable library of your brand, products, features, and communication guidelines.", status: "delivered" },
-      { title: "Monthly Video Series", type: "service", description: "Ongoing monthly video production to build a content library showing your value to partners and clients.", status: "planned" },
       { title: "AI Workflow Training", type: "service", description: "Teaching your team to use AI-powered workflows for everyday tasks — writing, analysis, research, and reporting.", status: "planned" },
     ],
     narrative: {

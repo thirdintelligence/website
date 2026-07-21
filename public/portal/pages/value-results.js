@@ -1,5 +1,5 @@
 /* Value & Results — a reusable, privacy-safe record of compounding project
-   efficiency, financial context, delivery quality, and capabilities. */
+   efficiency, delivery quality, and capabilities. */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { motif, sourceNote, chip } from "../components/cards.js";
@@ -19,19 +19,6 @@ function metricCard(m, iconName) {
       <span class="metric-descriptor">${esc(m.descriptor || "")}</span>
     </div>
     <div class="metric-label">${esc(m.label)}</div>
-  </div>`;
-}
-
-function outcomeRow(o) {
-  const tone = STATUS_TONE[o.status] || "neutral";
-  const text = STATUS_TEXT[o.status] || o.status;
-  return `<div class="outcome-row">
-    <span class="outcome-rail ${tone}"></span>
-    <div class="outcome-body">
-      <div class="outcome-title">${esc(o.title)}</div>
-      <div class="outcome-desc">${esc(o.description)}</div>
-    </div>
-    <span class="chip tone-${tone}">${esc(text)}</span>
   </div>`;
 }
 
@@ -140,35 +127,6 @@ export function efficiencyHero(invoicing, clientName) {
   </div>`;
 }
 
-function financialSection(data) {
-  const fin = data.invoicing.financialSummary;
-  if (!fin) return "";
-  const completed = fin.completedProjects ?? data.invoicing.completedProjects?.length ?? 0;
-  const active = fin.activeProjects ?? data.invoicing.metrics?.projectsActive?.count ?? 0;
-  const partnership = fin.partnershipHours ?? Math.max(0, (fin.totalHours || 0) - (fin.billableHours || 0));
-  const rate = fin.effectiveRate > 0 ? `$${Number(fin.effectiveRate).toLocaleString("en-US", { maximumFractionDigits: 2 })}` : "—";
-  const metrics = [
-    [fin.formattedBilled || "$0", "billed"],
-    [fin.formattedPaid || "$0", "paid"],
-    [fin.formattedOutstanding || "$0", "outstanding"],
-    [fin.totalHours ?? 0, "hours"],
-    [fin.billableHours ?? 0, "billable hours"],
-    [partnership, "partnership / R&D hours"],
-    [rate, "effective rate / hour"],
-    [active, "active projects"],
-    [completed, "completed projects"]
-  ];
-  return `<section class="section">
-    <div class="section-head"><h2 class="section-title">Financial summary</h2></div>
-    <div class="card financial-summary-card">
-      <div class="financial-metric-grid">
-        ${metrics.map(([value, label]) => `<div class="financial-metric"><span class="ai-value-num">${esc(value)}</span><span class="ai-value-label">${esc(label)}</span></div>`).join("")}
-      </div>
-      ${fin.note ? `<p class="muted financial-note">${esc(fin.note)}</p>` : ""}
-    </div>
-  </section>`;
-}
-
 function learningPrivacySection(invoicing) {
   const privacy = invoicing.learningPrivacy;
   if (!privacy) return "";
@@ -185,11 +143,10 @@ function learningPrivacySection(invoicing) {
   </section>`;
 }
 
-function futureValueSection(invoicing) {
+function futureMomentum(invoicing) {
   const sections = invoicing.futureValueSections || [];
   if (!sections.length) return "";
-  return `<section class="section future-value-record">
-    <div class="section-head"><div><h2 class="section-title">Future value record</h2><p class="section-sub">Every future project adds verified evidence here. Placeholders remain visibly inactive until the underlying work is completed and approved.</p></div></div>
+  return `<div class="momentum-future">
     <div class="future-value-grid">
       ${sections.map((section) => `<article class="future-value-item">
         <div class="future-value-head"><span class="future-value-icon">${icon(section.icon || "chart")}</span>${chip(section.statusLabel || "Ready to track")}</div>
@@ -198,7 +155,7 @@ function futureValueSection(invoicing) {
         <div class="future-value-metrics">${(section.metrics || []).map((metric) => `<span>${esc(metric)}</span>`).join("")}</div>
       </article>`).join("")}
     </div>
-  </section>`;
+  </div>`;
 }
 
 export function render(data) {
@@ -219,7 +176,7 @@ export function render(data) {
       ${efficiencyHero(invoicing, portal.client.name)}
     </section>
 
-    <section class="section">
+    <section class="section momentum-section">
       <div class="section-head"><h2 class="section-title">Momentum</h2></div>
       <div class="metric-grid">
         ${metricCard(m.projectsActive, "film")}
@@ -227,15 +184,10 @@ export function render(data) {
         ${metricCard(m.hoursInvested, "clock")}
         ${metricCard(m.capabilitiesDelivered, "sparkles")}
       </div>
+      ${futureMomentum(invoicing)}
     </section>
 
-    ${financialSection(data)}
     ${learningPrivacySection(invoicing)}
-
-    <section class="section">
-      <div class="section-head"><h2 class="section-title">Outcomes</h2></div>
-      <div class="outcome-list">${invoicing.outcomes.map(outcomeRow).join("")}</div>
-    </section>
 
     <section class="section">
       <div class="section-head"><h2 class="section-title">Capabilities</h2></div>
@@ -251,8 +203,6 @@ export function render(data) {
         <div class="card vr-narrative-card">${icon("handshake")}<h3>Expanding scope</h3><p class="reading">${esc(nar.expanding)}</p></div>
       </div>
     </section>
-
-    ${futureValueSection(invoicing)}
 
     ${(invoicing.completedProjects && invoicing.completedProjects.length) ? `<section class="section">
       <div class="section-head"><h2 class="section-title">Completed projects</h2></div>

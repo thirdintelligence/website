@@ -165,14 +165,10 @@
 .metric-value { font-size: var(--fs-h2); font-weight: 700; font-family: var(--font-head); color: var(--accent); }
 .metric-descriptor { font-size: var(--fs-small); color: var(--text-secondary); font-weight: 500; }
 .metric-label { font-size: var(--fs-caption); color: var(--text-tertiary); line-height: 1.5; }
-.outcome-list, .cap-list { display: flex; flex-direction: column; gap: var(--space-2); }
-.outcome-row, .cap-row { display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-3); align-items: start; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); }
-.outcome-rail { width: 3px; height: 100%; min-height: 32px; border-radius: 999px; }
-.outcome-rail.ok { background: var(--green); }
-.outcome-rail.info { background: var(--accent); }
-.outcome-rail.neutral { background: var(--text-tertiary); }
-.outcome-title, .cap-title { font-weight: 600; font-size: var(--fs-small); }
-.outcome-desc, .cap-desc { font-size: var(--fs-caption); color: var(--text-secondary); margin-top: 2px; line-height: 1.5; }
+.cap-list { display: flex; flex-direction: column; gap: var(--space-2); }
+.cap-row { display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-3); align-items: start; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); }
+.cap-title { font-weight: 600; font-size: var(--fs-small); }
+.cap-desc { font-size: var(--fs-caption); color: var(--text-secondary); margin-top: 2px; line-height: 1.5; }
 .cap-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent) 8%, transparent); }
 .cap-icon .icon { width: 18px; height: 18px; }
 .cap-type { font-size: var(--fs-caption); color: var(--text-tertiary); margin-top: 4px; }
@@ -185,11 +181,7 @@
 .vr-narrative-card .icon { width: 24px; height: 24px; opacity: 0.7; }
 .vr-narrative-card h3 { font-size: var(--fs-h4); font-family: var(--font-head); }
 
-/* Financial proof, tenant-isolated learning, and future metric placeholders. */
-.financial-summary-card { padding: 0; }
-.financial-metric-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line-plain); }
-.financial-metric { min-width: 0; padding: var(--space-4) var(--space-5); background: var(--surface); display: flex; flex-direction: column; gap: 2px; }
-.financial-note { padding: var(--space-3) var(--space-5); border-top: 1px solid var(--line-plain); font-size: var(--fs-caption); }
+/* Tenant-isolated learning and future metric placeholders. */
 .learning-privacy-card { padding: var(--space-5) var(--space-6); }
 .privacy-lede { display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: start; max-width: 86ch; }
 .privacy-lede .icon { width: 26px; height: 26px; color: var(--accent); }
@@ -199,6 +191,7 @@
 .privacy-columns ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
 .privacy-columns li { display: flex; gap: var(--space-2); color: var(--text-secondary); font-size: var(--fs-small); line-height: 1.5; }
 .privacy-columns li .icon { width: 17px; height: 17px; color: var(--accent); flex: none; margin-top: 2px; }
+.momentum-future { margin-top: var(--space-4); }
 .future-value-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line-plain); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
 .future-value-item { min-width: 0; padding: var(--space-5); border-right: 1px solid var(--line-plain); border-bottom: 1px solid var(--line-plain); }
 .future-value-item:nth-child(2n) { border-right: 0; }
@@ -219,7 +212,6 @@
   .vr-hero { padding: var(--space-5); }
   .efficiency-readiness-meta { grid-template-columns: auto 1fr; }
   .efficiency-readiness-meta span:last-child { grid-column: 1 / -1; text-align: left; }
-  .financial-metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .privacy-columns, .future-value-grid { grid-template-columns: 1fr; }
   .future-value-item { border-right: 0; }
   .future-value-item:nth-last-child(2) { border-bottom: 1px solid var(--line-plain); }

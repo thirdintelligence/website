@@ -25,43 +25,6 @@
       "label": "Films, training, agent architecture, loop videos, and conference AV"
     }
   },
-  "outcomes": [
-    {
-      "title": "Conference Video (Film 1)",
-      "description": "A fixed-bid 'Built to Evolve' conference video — 250 hours, $2,500.",
-      "status": "delivered"
-    },
-    {
-      "title": "Logo Loop Videos + Conference Week",
-      "description": "Logo sequence loop video assets, conference AV, and live lighting — 35 hours, $2,100.",
-      "status": "delivered"
-    },
-    {
-      "title": "Amplify V1 (Film 2)",
-      "description": "Full AI film production — research, storyboarding, stills, video generation, and editing — 119 hours, $7,140.",
-      "status": "delivered"
-    },
-    {
-      "title": "Shaw Training Session",
-      "description": "Team training on AI-powered workflows — 7 hours, $420.",
-      "status": "delivered"
-    },
-    {
-      "title": "Amplify V2 (Film 2)",
-      "description": "Enhanced version of Amplify with improved visuals and editing — 118 hours, $7,010.",
-      "status": "in-progress"
-    },
-    {
-      "title": "AI Advisor Demo (Film 3)",
-      "description": "AI advisor demonstration film — 39 hours so far, $2,340 logged.",
-      "status": "in-progress"
-    },
-    {
-      "title": "Insight Demo (Film 4)",
-      "description": "Insight platform demonstration film — 6 hours, $360 logged.",
-      "status": "in-progress"
-    }
-  ],
   "capabilities": [
     {
       "title": "AI Film Production",
