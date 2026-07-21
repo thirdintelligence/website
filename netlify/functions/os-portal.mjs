@@ -91,23 +91,27 @@ async function osPage(csrfToken) {
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
 function kindLabel(t){return t==="blocker"?"Blocker":t==="project-request"?"Project request":t==="library-correction"?"Library":"Comment";}
 function row(a){var when=a.createdAt?new Date(a.createdAt).toLocaleString():"";var ctrls="";
- if(a.status==="completed"){ctrls='<button class="tp-btn ghost" data-op="reopen" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Reopen</button>';}
+ if(a.status==="archived"){ctrls='<button class="tp-btn ghost" data-op="unarchive" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Unarchive</button>';}
+ else if(a.status==="completed"){ctrls='<button class="tp-btn ghost" data-op="reopen" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Reopen</button><button class="tp-btn ghost" data-op="archive" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Archive</button>';}
  else{var done=a.executable?'<button class="tp-btn" data-op="complete" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Complete</button>':'<span class="tp-note">Create a new project to resolve</span>';
-  ctrls=done+'<span class="tp-prio"><button class="tp-btn icon" title="Higher priority" data-op="up" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'" data-p="'+(a.priority||0)+'">\u25B2</button><button class="tp-btn icon" title="Lower priority" data-op="down" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'" data-p="'+(a.priority||0)+'">\u25BC</button></span>';}
- return '<div class="tp-item'+(a.status==="completed"?" done":"")+'"><div class="tp-kind '+(a.type==="blocker"?"blk":"")+'">'+esc(kindLabel(a.type))+" · "+esc(a._t)+(a.status==="completed"?" · completed":"")+'</div><div class="tp-title">'+esc(a.title)+'</div>'+(a.detail?'<div class="tp-detail">'+esc(a.detail)+'</div>':'')+'<div class="tp-meta">'+esc(a.projectId||"general")+" · "+esc(a.context||"")+" · "+esc(when)+'</div><div class="tp-ctrls">'+ctrls+'</div></div>';}
+  ctrls=done+'<span class="tp-prio"><button class="tp-btn icon" title="Higher priority" data-op="up" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'" data-p="'+(a.priority||0)+'">\u25B2</button><button class="tp-btn icon" title="Lower priority" data-op="down" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'" data-p="'+(a.priority||0)+'">\u25BC</button></span><button class="tp-btn ghost" data-op="archive" data-id="'+esc(a.id)+'" data-t="'+esc(a._t)+'">Archive</button>';}
+ return '<div class="tp-item'+(a.status==="completed"?" done":"")+(a.status==="archived"?" arch":"")+'"><div class="tp-kind '+(a.type==="blocker"?"blk":"")+'">'+esc(kindLabel(a.type))+" · "+esc(a._t)+(a.status==="completed"?" · completed":a.status==="archived"?" · archived":"")+'</div><div class="tp-title">'+esc(a.title)+'</div>'+(a.detail?'<div class="tp-detail">'+esc(a.detail)+'</div>':'')+'<div class="tp-meta">'+esc(a.projectId||"general")+" · "+esc(a.context||"")+" · "+esc(when)+'</div><div class="tp-ctrls">'+ctrls+'</div></div>';}
 function load(){fetch("/os/api/portal-events",{credentials:"same-origin",headers:{accept:"application/json"}}).then(function(r){return r.ok?r.json():null;}).then(function(d){var p=document.getElementById("tp-portals");
  if(!d){listEl.innerHTML='<p class="tp-empty">Could not load client activity.</p>';if(p){p.textContent="Portals · error";p.className="tp-chip err";}return;}
  var all=[],failed=0;Object.keys(d.tenants||{}).forEach(function(t){(d.tenants[t].actions||[]).forEach(function(a){if(a.status!=="hidden"){a._t=t;all.push(a);}});failed+=((d.tenants[t].notifications||[]).filter(function(n){return n.status==="failed";})).length;});
- var open=all.filter(function(a){return a.status!=="completed";});open.sort(function(a,b){return (a.priority||0)-(b.priority||0)||String(b.createdAt).localeCompare(String(a.createdAt));});
+ var open=all.filter(function(a){return a.status!=="completed"&&a.status!=="archived";});open.sort(function(a,b){return (a.priority||0)-(b.priority||0)||String(b.createdAt).localeCompare(String(a.createdAt));});
  var done=all.filter(function(a){return a.status==="completed";}).slice(0,5);
+ var arch=all.filter(function(a){return a.status==="archived";}).sort(function(a,b){return String(b.createdAt).localeCompare(String(a.createdAt));});
  var okp=d.connection&&d.connection.portals==="ok"&&failed===0;if(p){p.textContent="Portals · "+(okp?"healthy":"attention")+" ("+open.length+" open)";p.className="tp-chip "+(okp?"on":"warn");}
  var html="";if(!open.length){html+='<p class="tp-empty">No open client items. You are all caught up.</p>';}else{html+=open.map(row).join("");}
  if(done.length){html+='<div class="tp-divider">Recently completed</div>'+done.map(row).join("");}
+ if(arch.length){html+='<div class="tp-divider">Archived ('+arch.length+')</div>'+arch.map(row).join("");}
  listEl.innerHTML=html;}).catch(function(){listEl.innerHTML='<p class="tp-empty">Could not load client activity.</p>';});}
 function send(b,body){b.disabled=true;var prev=b.textContent;b.textContent="…";fetch("/os/api/actions/"+encodeURIComponent(b.getAttribute("data-id")),{method:"PATCH",credentials:"same-origin",headers:{"content-type":"application/json","x-csrf-token":token},body:JSON.stringify(body)}).then(function(r){if(r.ok){load();}else{b.disabled=false;b.textContent=r.status===403?"Reload":prev;}}).catch(function(){b.disabled=false;b.textContent=prev;});}
 document.addEventListener("DOMContentLoaded",function(){listEl=document.getElementById("tp-list");
  listEl.addEventListener("click",function(e){var b=e.target.closest("[data-op]");if(!b)return;var op=b.getAttribute("data-op"),t=b.getAttribute("data-t");
   if(op==="complete")send(b,{tenant:t,op:"complete"});else if(op==="reopen")send(b,{tenant:t,op:"reopen"});
+  else if(op==="archive")send(b,{tenant:t,op:"archive"});else if(op==="unarchive")send(b,{tenant:t,op:"unarchive"});
   else if(op==="up")send(b,{tenant:t,priority:(parseInt(b.getAttribute("data-p"),10)||0)-1});else if(op==="down")send(b,{tenant:t,priority:(parseInt(b.getAttribute("data-p"),10)||0)+1});});
  load();setInterval(load,60000);buildPages();});
 var PAGE_OF={"Action Items":"home","Automations":"home","Live Email Feed":"home","Upcoming Meetings":"home","Add New Client":"home","Agent Command Center":"agent","Business Health":"departments","Client Portfolio":"departments","Q3 2026 OKRs":"departments","Departments":"departments","Active Priorities":"departments","Source of Truth":"departments","Archived":"archives"};
@@ -131,6 +135,7 @@ function buildPages(){var os=document.querySelector(".os");if(!os||os.__paged)re
 .tp-list{display:grid;gap:10px}
 .tp-item{background:#111820;border:1px solid rgba(255,255,255,.08);border-left:3px solid #2b66ae;border-radius:12px;padding:12px 14px}
 .tp-item.done{opacity:.66;border-left-color:#57c98a}
+.tp-item.arch{opacity:.5;border-left-color:#6b7785}
 .tp-kind{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#79c4f5}
 .tp-kind.blk{color:#ff9a8b}
 .tp-title{color:#fff;font-weight:600;margin:3px 0}
