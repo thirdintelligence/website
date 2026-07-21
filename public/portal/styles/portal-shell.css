@@ -65,13 +65,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn-icon { min-width: 40px; padding: 0; border-radius: var(--radius-pill); }
 .btn-icon.btn-sm { min-width: 32px; }
 
-.btn-primary {
-  color: #0a0f16; background: var(--accent-gradient);
+.btn.btn-primary {
+  color: #000000; background: var(--accent-gradient);
   border: none; box-shadow: 0 6px 18px rgba(43,102,174,.30);
 }
+.btn.btn-primary .icon { color: inherit; }
 /* On hover the bright gradient gives way to a dark surface with white text. */
-.btn-primary:hover { background: #0e141c; color: #ffffff; box-shadow: 0 10px 26px rgba(43,102,174,.42); }
-.btn-primary:hover .icon { color: #ffffff; }
+.btn.btn-primary:hover { background: #0e141c; color: #ffffff; box-shadow: 0 10px 26px rgba(43,102,174,.42); }
+.btn.btn-primary:hover .icon { color: #ffffff; }
 .btn-outline { border-color: var(--line-strong); color: var(--accent-solid); }
 .btn-outline:hover { background: var(--accent-tint); border-color: var(--accent-solid); }
 .btn-ghost { color: var(--text-secondary); }

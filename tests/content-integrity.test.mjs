@@ -80,7 +80,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260720-01"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-01"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -140,4 +140,16 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalScript, /derived: "Sourced count"/);
   assert.doesNotMatch(portalScript, /Derived from sourced counts/);
   assert.doesNotMatch(css, /filter:brightness/);
+});
+
+test("project hero and primary button presentation contracts are enforced", async () => {
+  const projectDetail = await readFile(new URL("../public/portal/pages/project-detail.js", import.meta.url), "utf8");
+  const portalPagesCss = await readFile(new URL("../public/portal/styles/portal-pages.css", import.meta.url), "utf8");
+  const portalShellCss = await readFile(new URL("../public/portal/styles/portal-shell.css", import.meta.url), "utf8");
+
+  assert.doesNotMatch(projectDetail, /next:\s*p\.nextMilestone/);
+  assert.match(portalPagesCss, /\.project-preview \.ip-next \{ display: none; \}/);
+  assert.match(portalPagesCss, /\.project-preview \.ip-figure \{[^}]*left: 50%;[^}]*top: 50%;[^}]*translate\(-50%, -63\.6667%\)/);
+  assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
+  assert.match(portalShellCss, /\.btn\.btn-primary:hover \{[\s\S]*?color: #ffffff;[\s\S]*?\}/);
 });

@@ -60,6 +60,32 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
       return { direction: getComputedStyle(el).flexDirection, previewWidth: preview.width, heroWidth: el.getBoundingClientRect().width, previewBottom: preview.bottom, factsTop: facts.top };
     });
     if (hero.direction !== "column" || hero.previewWidth < hero.heroWidth - 2 || hero.factsTop < hero.previewBottom) errors.push(`[${name}/${theme}] project preview/info are not a full-width single column`);
+    if (await page.locator(".project-preview .ip-next").count()) errors.push(`[${name}/${theme}] project hero still contains milestone text`);
+    const centered = await page.locator(".project-preview").evaluate((preview) => {
+      const frame = preview.getBoundingClientRect();
+      const image = preview.querySelector(".ip-figure");
+      const figure = image.getBoundingClientRect();
+      const canvas = document.createElement("canvas");
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      const context = canvas.getContext("2d", { willReadFrequently: true });
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+      let minY = canvas.height;
+      let maxY = -1;
+      for (let y = 0; y < canvas.height; y += 1) {
+        for (let x = 0; x < canvas.width; x += 1) {
+          if (pixels[(y * canvas.width + x) * 4 + 3] > 8) {
+            minY = Math.min(minY, y);
+            maxY = Math.max(maxY, y);
+          }
+        }
+      }
+      if (maxY < 0) return Number.POSITIVE_INFINITY;
+      const visibleCenter = figure.top + (((minY + maxY) / 2) / canvas.height) * figure.height;
+      return Math.abs((frame.top + frame.height / 2) - visibleCenter);
+    });
+    if (centered > 2) errors.push(`[${name}/${theme}] designer artwork is ${centered}px off vertical center`);
   }
   if (name === "library-branding") {
     const entry = await page.locator(".record-row").first().evaluate((row) => {
@@ -73,6 +99,16 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
   if (await designer.count()) {
     const animationName = await designer.evaluate((img) => getComputedStyle(img).animationName);
     if (animationName !== "none") errors.push(`[${name}/${theme}] designer artwork still has wrapper bounce animation: ${animationName}`);
+  }
+  const coloredButton = page.locator(".btn-primary").first();
+  if (await coloredButton.count()) {
+    const restingColor = await coloredButton.evaluate((button) => getComputedStyle(button).color);
+    if (restingColor !== "rgb(0, 0, 0)") errors.push(`[${name}/${theme}] colored button resting text is ${restingColor}, not black`);
+    await coloredButton.hover();
+    await page.waitForTimeout(300);
+    const hoverColor = await coloredButton.evaluate((button) => getComputedStyle(button).color);
+    if (hoverColor !== "rgb(255, 255, 255)") errors.push(`[${name}/${theme}] colored button hover text is ${hoverColor}, not white`);
+    await page.mouse.move(0, 0);
   }
 
   const label = `${name}-${theme}${tag ? "-" + tag : ""}`;
