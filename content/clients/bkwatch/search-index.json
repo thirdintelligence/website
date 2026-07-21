@@ -10,7 +10,7 @@
       "title": "Bankruptcy, handled inside Spectrum",
       "excerpt": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Active · Final Demo extreme QC passed",
+      "status": "Active — Final Demo passed quality review",
       "format": "project",
       "date": "2026-07-16",
       "route": "/bkwatch/projects/film1-shaw-bkwatch"
@@ -21,69 +21,69 @@
       "title": "Final Demo",
       "excerpt": "Real Spectrum becomes an intricate physical dashboard, reveals BankruptcyWatch working beneath it, resolves three handled outcomes, and returns to the same active lender workflow.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Selected / extreme QC passed",
+      "status": "Selected — passed quality review",
       "format": "film knowledge",
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
     },
     {
-      "id": "film1-shaw-bkwatch:final-demo:F01",
+      "id": "film1-shaw-bkwatch:final-demo:scene-1",
       "type": "scene",
-      "title": "F01 · Spectrum is already home",
+      "title": "Scene 1 — Spectrum is already home",
       "excerpt": "A simple over-the-shoulder push frames a woman working while approved real Spectrum fills more than 80 percent of the monitor and the lender floor remains active behind her.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Prompts ready · media not generated",
+      "status": "Instructions ready — video not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#F01"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:final-demo:F02",
+      "id": "film1-shaw-bkwatch:final-demo:scene-2",
       "type": "scene",
-      "title": "F02 · The filing arrives",
+      "title": "Scene 2 — The filing arrives",
       "excerpt": "The physical filing object lowers perfectly vertically, hovers between the specialist and monitor, and begins moving toward Spectrum after one keyboard input.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Prompts QC-passed · media not generated",
+      "status": "Instructions approved — video not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#F02"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:final-demo:F03",
+      "id": "film1-shaw-bkwatch:final-demo:scene-3",
       "type": "scene",
-      "title": "F03 · Spectrum becomes physical",
+      "title": "Scene 3 — Spectrum becomes physical",
       "excerpt": "The approved real UI gains depth as the camera orbits and sweeps into a city-like physical dashboard. The filing clicks into a prepared slot, one blue pulse crosses the recessed va",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Previs prompts QC-passed · exact UI assets required · media not generated",
+      "status": "Draft instructions approved — need software screenshots before video",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#F03"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#scene-3"
     },
     {
-      "id": "film1-shaw-bkwatch:final-demo:F04",
+      "id": "film1-shaw-bkwatch:final-demo:scene-4",
       "type": "scene",
-      "title": "F04 · Why the platform knows",
+      "title": "Scene 4 — Why the platform knows",
       "excerpt": "The Spectrum top layer rises as one rigid precision assembly, revealing an intricate black-and-blue BankruptcyWatch mechanism beneath it. One restrained pulse travels outward befor",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Previs prompts ready · logo/keyframes pending · media not generated",
+      "status": "Draft instructions ready — need logos and animation frames before video",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#F04"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#scene-4"
     },
     {
-      "id": "film1-shaw-bkwatch:final-demo:F05",
+      "id": "film1-shaw-bkwatch:final-demo:scene-5",
       "type": "scene",
-      "title": "F05 · Handled-state hero",
+      "title": "Scene 5 — Handled-state hero",
       "excerpt": "Status, Tasks, and Credit complete one at a time. Each check sends one green signal to a linked dashboard region; all three cards, paths, and targets remain illuminated as the came",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Previs prompts ready · function/color approval pending · media not generated",
+      "status": "Draft instructions ready — need feature and color approval before video",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#F05"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#scene-5"
     },
     {
-      "id": "film1-shaw-bkwatch:final-demo:F06",
+      "id": "film1-shaw-bkwatch:final-demo:scene-6",
       "type": "scene",
-      "title": "F06 · Same Spectrum, more capable",
+      "title": "Scene 6 — Same Spectrum, more capable",
       "excerpt": "The view returns to the original over-the-shoulder workplace. The specialist performs another task while meaningful approved state changes occur in Spectrum and the active floor co",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Prompts ready · exact working UI and logo lockup pending · media not generated",
+      "status": "Instructions ready — need final software screenshots and logos before video",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#F06"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo#scene-6"
     },
     {
       "id": "film1-shaw-bkwatch:already-inside-spectrum",
@@ -96,34 +96,34 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum"
     },
     {
-      "id": "film1-shaw-bkwatch:already-inside-spectrum:I1.1",
+      "id": "film1-shaw-bkwatch:already-inside-spectrum:study-1-scene-1",
       "type": "scene",
-      "title": "I1.1 · Home base",
+      "title": "Study 1, Scene 1 — Home base",
       "excerpt": "A stable Spectrum plate holds center while one filing approaches and a receiving point appears.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum#I1.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum#study-1-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:already-inside-spectrum:I1.2",
+      "id": "film1-shaw-bkwatch:already-inside-spectrum:study-1-scene-2",
       "type": "scene",
-      "title": "I1.2 · Native arrival",
+      "title": "Study 1, Scene 2 — Native arrival",
       "excerpt": "The filing travels through a direct native route and seats in the case area.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum#I1.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum#study-1-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:already-inside-spectrum:I1.3",
+      "id": "film1-shaw-bkwatch:already-inside-spectrum:study-1-scene-3",
       "type": "scene",
-      "title": "I1.3 · Handled",
+      "title": "Study 1, Scene 3 — Handled",
       "excerpt": "Status, task, and reporting regions settle in order.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum#I1.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/already-inside-spectrum#study-1-scene-3"
     },
     {
       "id": "film1-shaw-bkwatch:the-moment-it-lands",
@@ -136,34 +136,34 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands"
     },
     {
-      "id": "film1-shaw-bkwatch:the-moment-it-lands:I2.1",
+      "id": "film1-shaw-bkwatch:the-moment-it-lands:study-2-scene-1",
       "type": "scene",
-      "title": "I2.1 · Approach",
+      "title": "Study 2, Scene 1 — Approach",
       "excerpt": "A macro account field sits on a Spectrum-derived plane as a filing descends toward one receiving slot.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands#I2.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands#study-2-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:the-moment-it-lands:I2.2",
+      "id": "film1-shaw-bkwatch:the-moment-it-lands:study-2-scene-2",
       "type": "scene",
-      "title": "I2.2 · Impact",
+      "title": "Study 2, Scene 2 — Impact",
       "excerpt": "The filing lands edge-first; one blue seam opens and divides into three tracks.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands#I2.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands#study-2-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:the-moment-it-lands:I2.3",
+      "id": "film1-shaw-bkwatch:the-moment-it-lands:study-2-scene-3",
       "type": "scene",
-      "title": "I2.3 · Consequence",
+      "title": "Study 2, Scene 3 — Consequence",
       "excerpt": "Three physical tabs match-cut to three ordered Spectrum states.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands#I2.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-moment-it-lands#study-2-scene-3"
     },
     {
       "id": "film1-shaw-bkwatch:one-desk-no-detours",
@@ -176,34 +176,34 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours"
     },
     {
-      "id": "film1-shaw-bkwatch:one-desk-no-detours:I3.1",
+      "id": "film1-shaw-bkwatch:one-desk-no-detours:study-3-scene-1",
       "type": "scene",
-      "title": "I3.1 · Outside pull",
+      "title": "Study 3, Scene 1 — Outside pull",
       "excerpt": "A specialist and Spectrum remain central while three translucent document planes enter the desk perimeter.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours#I3.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours#study-3-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:one-desk-no-detours:I3.2",
+      "id": "film1-shaw-bkwatch:one-desk-no-detours:study-3-scene-2",
       "type": "scene",
-      "title": "I3.2 · Native fold",
+      "title": "Study 3, Scene 2 — Native fold",
       "excerpt": "The planes hinge into one blue-bound folio and dock at the monitor edge.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours#I3.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours#study-3-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:one-desk-no-detours:I3.3",
+      "id": "film1-shaw-bkwatch:one-desk-no-detours:study-3-scene-3",
       "type": "scene",
-      "title": "I3.3 · Same desk",
+      "title": "Study 3, Scene 3 — Same desk",
       "excerpt": "One hand input settles task and status inside Spectrum; no extra app or operator appears.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours#I3.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours#study-3-scene-3"
     },
     {
       "id": "film1-shaw-bkwatch:confidence-before-motion",
@@ -216,34 +216,34 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion"
     },
     {
-      "id": "film1-shaw-bkwatch:confidence-before-motion:I4.1",
+      "id": "film1-shaw-bkwatch:confidence-before-motion:study-4-scene-1",
       "type": "scene",
-      "title": "I4.1 · Acceptance",
+      "title": "Study 4, Scene 1 — Acceptance",
       "excerpt": "Focus racks from Spectrum to a flush precision iris; the filing seats and the blue ring closes.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion#I4.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion#study-4-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:confidence-before-motion:I4.2",
+      "id": "film1-shaw-bkwatch:confidence-before-motion:study-4-scene-2",
       "type": "scene",
-      "title": "I4.2 · Controlled handoff",
+      "title": "Study 4, Scene 2 — Controlled handoff",
       "excerpt": "The locked signal exits on one narrow rail and seats in Spectrum.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion#I4.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion#study-4-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:confidence-before-motion:I4.3",
+      "id": "film1-shaw-bkwatch:confidence-before-motion:study-4-scene-3",
       "type": "scene",
-      "title": "I4.3 · Delayed action",
+      "title": "Study 4, Scene 3 — Delayed action",
       "excerpt": "After one held beat, status, task, and reporting move in order.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion#I4.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/confidence-before-motion#study-4-scene-3"
     },
     {
       "id": "film1-shaw-bkwatch:built-beneath-the-surface",
@@ -256,34 +256,34 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface"
     },
     {
-      "id": "film1-shaw-bkwatch:built-beneath-the-surface:I5.1",
+      "id": "film1-shaw-bkwatch:built-beneath-the-surface:study-5-scene-1",
       "type": "scene",
-      "title": "I5.1 · Trusted surface",
+      "title": "Study 5, Scene 1 — Trusted surface",
       "excerpt": "Raking light reveals a tactile Spectrum relief; its top separates by millimeters to expose a blue mechanism.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface#I5.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface#study-5-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:built-beneath-the-surface:I5.2",
+      "id": "film1-shaw-bkwatch:built-beneath-the-surface:study-5-scene-2",
       "type": "scene",
-      "title": "I5.2 · Purpose-built route",
+      "title": "Study 5, Scene 2 — Purpose-built route",
       "excerpt": "The filing moves through a recessed channel below and raises one selected account tile flush.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface#I5.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface#study-5-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:built-beneath-the-surface:I5.3",
+      "id": "film1-shaw-bkwatch:built-beneath-the-surface:study-5-scene-3",
       "type": "scene",
-      "title": "I5.3 · Embossed proof",
+      "title": "Study 5, Scene 3 — Embossed proof",
       "excerpt": "From overhead, status, task, and reporting embosses rise into calm order.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface#I5.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/built-beneath-the-surface#study-5-scene-3"
     },
     {
       "id": "film1-shaw-bkwatch:the-workday-doesnt-break",
@@ -296,34 +296,34 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break"
     },
     {
-      "id": "film1-shaw-bkwatch:the-workday-doesnt-break:I6.1",
+      "id": "film1-shaw-bkwatch:the-workday-doesnt-break:study-6-scene-1",
       "type": "scene",
-      "title": "I6.1 · Rhythm",
+      "title": "Study 6, Scene 1 — Rhythm",
       "excerpt": "A side dolly follows the specialist, Spectrum, and one stripe of daylight as a filing reaches the monitor.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break#I6.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break#study-6-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:the-workday-doesnt-break:I6.2",
+      "id": "film1-shaw-bkwatch:the-workday-doesnt-break:study-6-scene-2",
       "type": "scene",
-      "title": "I6.2 · Native handoff",
+      "title": "Study 6, Scene 2 — Native handoff",
       "excerpt": "The filing seats and one task advances while the specialist completes one measured hand movement.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break#I6.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break#study-6-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:the-workday-doesnt-break:I6.3",
+      "id": "film1-shaw-bkwatch:the-workday-doesnt-break:study-6-scene-3",
       "type": "scene",
-      "title": "I6.3 · Continuity",
+      "title": "Study 6, Scene 3 — Continuity",
       "excerpt": "The camera widens as status and reporting settle; daylight and hand rhythm continue with one operator.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break#I6.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-workday-doesnt-break#study-6-scene-3"
     },
     {
       "id": "film1-shaw-bkwatch:the-update-writes-itself",
@@ -336,34 +336,34 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself"
     },
     {
-      "id": "film1-shaw-bkwatch:the-update-writes-itself:I7.1",
+      "id": "film1-shaw-bkwatch:the-update-writes-itself:study-7-scene-1",
       "type": "scene",
-      "title": "I7.1 · Correction",
+      "title": "Study 7, Scene 1 — Correction",
       "excerpt": "A text-free record sheet holds one misaligned gray field; a blue rule corrects its position.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself#I7.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself#study-7-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:the-update-writes-itself:I7.2",
+      "id": "film1-shaw-bkwatch:the-update-writes-itself:study-7-scene-2",
       "type": "scene",
-      "title": "I7.2 · Product reveal",
+      "title": "Study 7, Scene 2 — Product reveal",
       "excerpt": "A die-cut paper window opens to a handled Spectrum state and a blank proof field.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself#I7.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself#study-7-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:the-update-writes-itself:I7.3",
+      "id": "film1-shaw-bkwatch:the-update-writes-itself:study-7-scene-3",
       "type": "scene",
-      "title": "I7.3 · Proof spread",
+      "title": "Study 7, Scene 3 — Proof spread",
       "excerpt": "Product and proof field align into one editorial spread with three blue rules.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself#I7.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-update-writes-itself#study-7-scene-3"
     },
     {
       "id": "film1-shaw-bkwatch:the-handled-orbit",
@@ -376,40 +376,40 @@
       "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit"
     },
     {
-      "id": "film1-shaw-bkwatch:the-handled-orbit:I8.1",
+      "id": "film1-shaw-bkwatch:the-handled-orbit:study-8-scene-1",
       "type": "scene",
-      "title": "I8.1 · Continuous arrival",
+      "title": "Study 8, Scene 1 — Continuous arrival",
       "excerpt": "A white filing token orbits a Spectrum-derived plane while one completed blue marker remains visible.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit#I8.1"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit#study-8-scene-1"
     },
     {
-      "id": "film1-shaw-bkwatch:the-handled-orbit:I8.2",
+      "id": "film1-shaw-bkwatch:the-handled-orbit:study-8-scene-2",
       "type": "scene",
-      "title": "I8.2 · Native crossing",
+      "title": "Study 8, Scene 2 — Native crossing",
       "excerpt": "The token crosses the blue ingress arc and enters the central plane.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit#I8.2"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit#study-8-scene-2"
     },
     {
-      "id": "film1-shaw-bkwatch:the-handled-orbit:I8.3",
+      "id": "film1-shaw-bkwatch:the-handled-orbit:study-8-scene-3",
       "type": "scene",
-      "title": "I8.3 · Persistent handling",
+      "title": "Study 8, Scene 3 — Persistent handling",
       "excerpt": "Three states settle; the completed marker remains while the next token reaches its opening position.",
       "project": "Bankruptcy, handled inside Spectrum",
-      "status": "Not generated",
+      "status": "Not started",
       "format": "scene",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit#I8.3"
+      "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/the-handled-orbit#study-8-scene-3"
     },
     {
       "id": "brand-mission",
       "type": "library",
       "title": "Mission & positioning",
-      "excerpt": "Make bankruptcy operations easy through live, automated, API-first tools that reduce compliance risk and effort at scale.",
+      "excerpt": "Make bankruptcy operations easy through live, automated, tools built to connect with other software that reduce compliance risk and effort at scale.",
       "category": "branding",
       "status": "Confirmed",
       "format": "branding",

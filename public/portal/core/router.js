@@ -11,7 +11,8 @@ const ROUTES = [
   { name: "library", re: /^\/library\/?$/, keys: [] },
   { name: "libraryRecord", re: /^\/library\/([^/]+)\/([^/]+)\/?$/, keys: ["category", "recordId"] },
   { name: "libraryCategory", re: /^\/library\/([^/]+)\/?$/, keys: ["category"] },
-  { name: "aiRoadmap", re: /^\/ai-roadmap\/?$/, keys: [] }
+  { name: "aiRoadmap", re: /^\/ai-roadmap\/?$/, keys: [] },
+  { name: "valueResults", re: /^\/value-results\/?$/, keys: [] }
 ];
 
 /** Convert a stored absolute route ("/bkwatch/projects/x") to an in-app path. */

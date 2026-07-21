@@ -38,7 +38,13 @@ const P = {
   mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
   users: '<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5.8"/><path d="M21 20a6 6 0 0 0-4-5.6"/>',
   target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
-  dot: '<circle cx="12" cy="12" r="4"/>'
+  dot: '<circle cx="12" cy="12" r="4"/>',
+  chart: '<path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/>',
+  sparkles: '<path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5Z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8Z"/>',
+  rocket: '<path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2"/><path d="M9 11a6 6 0 0 1 6-6l3 3a6 6 0 0 1-6 6"/><path d="M12 8l4 4"/><path d="M9 11l-4 4 4 4 4-4"/>',
+  handshake: '<path d="m11 17 2 2a1 1 0 0 0 3-3"/><path d="m13 19 2 2a1 1 0 0 0 3-3"/><path d="M14 16 9 11"/><path d="m8 8 3-3 5 5-3 3"/><path d="M3 11l5-5 5 5"/><path d="M21 13l-5 5-5-5"/>',
+  graduationCap: '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 2 6 2s6-1 6-2v-5"/>',
+  clipboardCheck: '<rect x="8" y="4" width="8" height="4" rx="1"/><path d="M8 6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/>'
 };
 
 export function icon(name, cls = "icon") {

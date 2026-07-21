@@ -5,10 +5,10 @@
   "asOf": "2026-07-16",
   "researchAsOf": "2026-07-16",
   "executiveSummary": {
-    "currentState": "Current automation is primarily rules-based: API calls, predefined rules, custom scrapers, and regex parsing. Little to no generative or agentic AI is in production today.",
-    "topImprovement": "Add human-reviewed AI assistance to bankruptcy monitoring exception handling, where the confirmed rules-based pipeline already produces reviewable exceptions.",
-    "risks": "Product-accuracy, compliance review, and data-privacy boundaries must gate any generative step; no capability is presented as adopted before it is confirmed.",
-    "recommendation": "Third i evaluates the workflow first and the tool second. Begin with one bounded, high-value pilot with explicit human review and success criteria.",
+    "currentState": "Current automation is primarily rule-based: software connections, predefined rules, custom data collectors, and pattern matching. Little to no AI that creates content or AI that works autonomously is in production today.",
+    "topImprovement": "Add human-approved AI assistance to bankruptcy monitoring exception handling, where the confirmed rule-based process already produces reviewable exceptions.",
+    "risks": "Product accuracy, compliance review, and data privacy boundaries must be reviewed at a checkpoint before any AI that creates content step; no capability is presented as adopted before it is confirmed.",
+    "recommendation": "Third i evaluates the workflow first and the tool second. Begin with one limited scope, high-value trial with explicit human review and success criteria.",
     "positioning": "Rankings and new releases help identify candidates, but the recommendation is based on bkWatch's work, risk, cost, and adoption path.",
     "source": "BankruptcyWatch factual canon — AI Use Audit"
   },
@@ -51,21 +51,21 @@
     },
     {
       "id": "product-workflow",
-      "title": "Product & workflow automation"
+      "title": "Product & automated workflows"
     }
   ],
   "capabilities": [
     {
       "id": "ai-operations-1",
       "category": "operations",
-      "name": "Rules-based API monitoring baseline",
+      "name": "Automated monitoring with set rules",
       "status": "active",
-      "outcome": "Confirmed current automation baseline; this is not generative AI.",
-      "detail": "Confirmed current automation baseline; this is not generative AI.",
+      "outcome": "Confirmed current automation starting point; this is not AI that creates content.",
+      "detail": "Confirmed current automation starting point; this is not AI that creates content.",
       "value": "Medium",
       "effort": "Low",
       "evidence": "Internal-confirmed",
-      "recommendation": "Maintain and measure this working baseline; do not present it as generative AI.",
+      "recommendation": "Maintain and measure this working starting point; do not present it as AI that creates content.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -84,19 +84,19 @@
     {
       "id": "ai-operations-2",
       "category": "operations",
-      "name": "Agentic case routing",
+      "name": "AI that routes cases automatically",
       "status": "not-in-use",
       "outcome": "Opportunity only; no current adoption is recorded.",
       "detail": "Opportunity only; no current adoption is recorded.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "BankruptcyWatch factual canon — Agentic Case Workflows",
+      "source": "BankruptcyWatch factual canon — Autonomous Case Workflows",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -110,19 +110,19 @@
     {
       "id": "ai-operations-3",
       "category": "operations",
-      "name": "Exception triage copilot",
+      "name": "Assistant for handling unusual cases",
       "status": "not-in-use",
       "outcome": "Proposed service opportunity for cases that fall outside rigid rules.",
       "detail": "Proposed service opportunity for cases that fall outside rigid rules.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Derived Third i opportunity from current rules-based limitations",
+      "source": "Derived Third i opportunity from current rule-based limitations",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -169,7 +169,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -195,7 +195,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "recommendation": "Complete implementation behind explicit human review before expanding scope.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -221,7 +221,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -240,7 +240,7 @@
     {
       "id": "ai-acquisition-8",
       "category": "acquisition",
-      "name": "Lead scoring and prioritization",
+      "name": "Ranking potential leads and prioritization",
       "status": "needs-confirmation",
       "outcome": "Funnel data, scoring model, and adoption state require confirmation.",
       "detail": "Funnel data, scoring model, and adoption state require confirmation.",
@@ -252,7 +252,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "No client-safe acquisition baseline is recorded",
+      "source": "No client-safe acquisition starting point is recorded",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -268,12 +268,12 @@
       "category": "acquisition",
       "name": "Native-integration sales enablement",
       "status": "partial",
-      "outcome": "Film 1 and product-proof directions are in progress; public claims remain gated.",
-      "detail": "Film 1 and product-proof directions are in progress; public claims remain gated.",
+      "outcome": "Film 1 and product-proof directions are in progress; public claims remain reviewed at a checkpoint.",
+      "detail": "Film 1 and product-proof directions are in progress; public claims remain reviewed at a checkpoint.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "recommendation": "Complete implementation behind explicit human review before expanding scope.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -292,14 +292,14 @@
     {
       "id": "ai-service-10",
       "category": "service",
-      "name": "Case status explanation assistant",
+      "name": "Assistant that explains case status",
       "status": "not-in-use",
       "outcome": "Opportunity only; no current client-facing assistant is documented.",
       "detail": "Opportunity only; no current client-facing assistant is documented.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -318,14 +318,14 @@
     {
       "id": "ai-service-11",
       "category": "service",
-      "name": "Human-gated service response drafts",
+      "name": "Draft responses with human approval",
       "status": "not-in-use",
       "outcome": "Opportunity to draft clear responses while retaining specialist approval.",
       "detail": "Opportunity to draft clear responses while retaining specialist approval.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -344,10 +344,10 @@
     {
       "id": "ai-service-12",
       "category": "service",
-      "name": "Support request classification",
+      "name": "Sorting support requests",
       "status": "needs-confirmation",
-      "outcome": "Support tooling and ticket volume are not documented.",
-      "detail": "Support tooling and ticket volume are not documented.",
+      "outcome": "Support tooling and request volume are not documented.",
+      "detail": "Support tooling and request volume are not documented.",
       "value": "Unknown",
       "effort": "Unknown",
       "evidence": "Needs-confirmation",
@@ -396,19 +396,19 @@
     {
       "id": "ai-analytics-14",
       "category": "analytics",
-      "name": "Predictive case early warning",
+      "name": "Forecasting case early warning",
       "status": "not-in-use",
       "outcome": "Listed as a potential future capability, not current usage.",
       "detail": "Listed as a potential future capability, not current usage.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "BankruptcyWatch factual canon — Predictive Sentiment & Early Warning",
+      "source": "BankruptcyWatch factual canon — Forecasting Tone Analysis & Early Warning",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -422,14 +422,14 @@
     {
       "id": "ai-analytics-15",
       "category": "analytics",
-      "name": "Portfolio anomaly detection",
+      "name": "Portfolio unusual pattern detection",
       "status": "not-in-use",
       "outcome": "Opportunity only; no confirmed deployed model is recorded.",
       "detail": "Opportunity only; no confirmed deployed model is recorded.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -448,14 +448,14 @@
     {
       "id": "ai-compliance-16",
       "category": "compliance",
-      "name": "District-level compliance copilot",
+      "name": "District-level compliance assistant",
       "status": "not-in-use",
-      "outcome": "Proposed retrieval system across local rules for 94 districts.",
-      "detail": "Proposed retrieval system across local rules for 94 districts.",
+      "outcome": "Proposed knowledge retrieval system across local rules for 94 districts.",
+      "detail": "Proposed knowledge retrieval system across local rules for 94 districts.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -481,7 +481,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -502,12 +502,12 @@
       "category": "compliance",
       "name": "Claim citation and evidence checking",
       "status": "partial",
-      "outcome": "Film 1 uses manual source provenance and claim gates; automated checking is not deployed.",
-      "detail": "Film 1 uses manual source provenance and claim gates; automated checking is not deployed.",
+      "outcome": "Film 1 uses manual source provenance and claim checkpoints; automated checking is not deployed.",
+      "detail": "Film 1 uses manual source provenance and claim checkpoints; automated checking is not deployed.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "recommendation": "Complete implementation behind explicit human review before expanding scope.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -533,7 +533,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "recommendation": "Complete implementation behind explicit human review before expanding scope.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -559,7 +559,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -585,7 +585,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -611,7 +611,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -630,14 +630,14 @@
     {
       "id": "ai-web-23",
       "category": "web",
-      "name": "Portal status summarization",
+      "name": "Portal status summarizing",
       "status": "partial",
       "outcome": "This sourced portal organizes status manually; no autonomous updater is deployed.",
       "detail": "This sourced portal organizes status manually; no autonomous updater is deployed.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "recommendation": "Complete implementation behind explicit human review before expanding scope.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -656,14 +656,14 @@
     {
       "id": "ai-web-24",
       "category": "web",
-      "name": "Natural-language product discovery",
+      "name": "Plain-language product discovery",
       "status": "not-in-use",
       "outcome": "Opportunity only; no product assistant is confirmed.",
       "detail": "Opportunity only; no product assistant is confirmed.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -689,7 +689,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -715,7 +715,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
@@ -736,17 +736,17 @@
       "category": "communications",
       "name": "Approval-aware copy review",
       "status": "partial",
-      "outcome": "Film copy is manually gated by status and provenance; automated review is not deployed.",
-      "detail": "Film copy is manually gated by status and provenance; automated review is not deployed.",
+      "outcome": "Film copy is manually reviewed at a checkpoint by status and provenance; automated review is not deployed.",
+      "detail": "Film copy is manually reviewed at a checkpoint by status and provenance; automated review is not deployed.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Complete rollout behind explicit human review before expanding scope.",
+      "recommendation": "Complete implementation behind explicit human review before expanding scope.",
       "service": {
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 Working Memory and procedural HITL discipline",
+      "source": "Film1 Working Memory and procedural human review discipline",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -760,19 +760,19 @@
     {
       "id": "ai-product-workflow-28",
       "category": "product-workflow",
-      "name": "Multimodal bankruptcy document parsing",
+      "name": "AI that reads different bankruptcy document types",
       "status": "not-in-use",
       "outcome": "Proposed replacement or supplement for rigid parsing, with human validation required.",
       "detail": "Proposed replacement or supplement for rigid parsing, with human validation required.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "BankruptcyWatch factual canon — Intelligent Document Parsing",
+      "source": "BankruptcyWatch factual canon — AI That Understands Documents",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -786,19 +786,19 @@
     {
       "id": "ai-product-workflow-29",
       "category": "product-workflow",
-      "name": "Case-to-task orchestration agents",
+      "name": "Case-to-task autonomous workflows",
       "status": "not-in-use",
-      "outcome": "Potential agentic workflow; current automation remains rules-based.",
-      "detail": "Potential agentic workflow; current automation remains rules-based.",
+      "outcome": "Potential autonomous workflow; current automation remains rule-based.",
+      "detail": "Potential autonomous workflow; current automation remains rule-based.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
-      "recommendation": "Run a small bounded pilot with success criteria and privacy boundaries before adoption.",
+      "recommendation": "Run a small limited scope trial with success criteria and privacy boundaries before adoption.",
       "service": {
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "BankruptcyWatch factual canon — Agentic Case Workflows",
+      "source": "BankruptcyWatch factual canon — Autonomous Case Workflows",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -844,7 +844,7 @@
     },
     {
       "tier": 2,
-      "name": "Artificial Analysis (independent benchmarking)",
+      "name": "Artificial Analysis (independent comparison standards)",
       "url": "https://artificialanalysis.ai/methodology",
       "use": "Independently measured model intelligence, performance, and cost."
     },
@@ -852,7 +852,7 @@
       "tier": 2,
       "name": "Arena leaderboard",
       "url": "https://help.arena.ai/articles/7011479247-how-to-see-ai-rankings-in-arena-leaderboards-2-0-wip",
-      "use": "Human-preference rankings with confidence intervals."
+      "use": "Human-preference rankings with accuracy ratings."
     },
     {
       "tier": 3,

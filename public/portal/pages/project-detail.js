@@ -6,7 +6,7 @@ import { statusLabel, chip, motif, sourceNote } from "../components/cards.js";
 import { commentThread, addCommentButton, projectTimeline } from "../components/feed.js";
 
 export function render(data, params) {
-  const { projects, portal, live } = data;
+  const { projects, portal, live, invoicing } = data;
   const p = projects.projects.find((x) => x.slug === params.slug);
   if (!p) return { crumb: "Projects", title: "Not found", html: notFound() };
 
@@ -59,6 +59,15 @@ export function render(data, params) {
         </div>
       </div>
     </section>
+
+    ${(invoicing && p.status === "active") ? `<section class="detail-block"><div class="scope-panel">
+      <h3>Effort &amp; value</h3>
+      <div class="ai-value-strip" style="margin-top:8px">
+        <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours invested so far</span></div>
+        <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.capabilitiesDelivered.count}</span><span class="ai-value-label">capabilities supporting this work</span></div>
+        <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">→</span><span class="ai-value-label">see full value &amp; results</span></a>
+      </div>
+    </div></section>` : ""}
 
     ${p.draft ? `<div class="section">${draftNotice()}</div>` : ""}
 

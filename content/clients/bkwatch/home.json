@@ -28,7 +28,7 @@
     },
     {
       "label": "Next milestone",
-      "value": "Final Demo plan + asset/function lock",
+      "value": "Final Demo plan + asset and feature approval",
       "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
     }
   ],
@@ -61,10 +61,10 @@
       "projectId": "film1-shaw-bkwatch",
       "name": "Bankruptcy, handled inside Spectrum",
       "purpose": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
-      "phase": "Final Demo extreme QC passed",
-      "nextMilestone": "Third i locks the Final Demo plan; NEW FILING is generated with the rest of the film; Shaw provides sanitized Spectrum assets; exact composite keyframes are approved before generation.",
+      "phase": "Final Demo passed quality review",
+      "nextMilestone": "Third i locks the Final Demo plan; NEW FILING is generated with the rest of the film; Shaw provides cleaned Spectrum assets; exact combined visuals keyframes are approved before generation.",
       "openCount": 2,
-      "latestUpdate": "Final Demo extreme workflow and prompt QC passed; no media generated yet.",
+      "latestUpdate": "Final Demo workflow and instructions passed quality review; video not started yet.",
       "thumbnailState": "in-production",
       "route": "/bkwatch/projects/film1-shaw-bkwatch"
     }
@@ -72,7 +72,7 @@
   "activity": [
     {
       "type": "project-update",
-      "title": "D0 / project split",
+      "title": "Phase 1 — Brainstorming / project split",
       "detail": "Film 1 integration brief separated from future Film 2",
       "date": "2026-07-16",
       "projectId": "film1-shaw-bkwatch",
@@ -80,7 +80,7 @@
     },
     {
       "type": "project-update",
-      "title": "D1 / locked story",
+      "title": "Phase 2 — Demos (Review A: finalize demo) / locked story",
       "detail": "Original 45-word script retained",
       "date": "2026-07-16",
       "projectId": "film1-shaw-bkwatch",
@@ -96,16 +96,16 @@
     },
     {
       "type": "project-update",
-      "title": "D2 / Final Demo plan",
-      "detail": "Six scenes, 12 segments, and 122-project-prompt inventory ready",
+      "title": "Phase 3 — Story + Script (Review B: finalize story and script) / Final Demo plan",
+      "detail": "Six scenes, 12 segments, and 122-project-instruction inventory ready",
       "date": "2026-07-16",
       "projectId": "film1-shaw-bkwatch",
       "route": "/bkwatch/projects/film1-shaw-bkwatch"
     },
     {
       "type": "project-update",
-      "title": "Extreme workflow / QC audit",
-      "detail": "42 Final Demo prompts passed; no media generated",
+      "title": "Workflow / quality review audit",
+      "detail": "42 Final Demo instructions passed; video not started",
       "date": "2026-07-16",
       "projectId": "film1-shaw-bkwatch",
       "route": "/bkwatch/projects/film1-shaw-bkwatch"
@@ -126,14 +126,14 @@
     },
     {
       "type": "new-deliverable",
-      "title": "Twelve controlled motion segments",
+      "title": "Twelve animated sections",
       "date": "2026-07-16",
       "projectId": "film1-shaw-bkwatch",
       "route": "/bkwatch/projects/film1-shaw-bkwatch"
     },
     {
       "type": "new-deliverable",
-      "title": "Thirty Final Demo still/anchor prompts",
+      "title": "Thirty Final Demo reference images instructions",
       "date": "2026-07-16",
       "projectId": "film1-shaw-bkwatch",
       "route": "/bkwatch/projects/film1-shaw-bkwatch"
@@ -147,7 +147,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Lock live/showable functions and sanitized Spectrum assets, then produce a short role-specific walkthrough.",
+      "recommendation": "Lock live/showable functions and cleaned Spectrum assets, then produce a short role-specific walkthrough.",
       "link": "/bkwatch/projects/film1-shaw-bkwatch",
       "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
     },

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/invoicing.schema.json",
+  "title": "Value & Results",
+  "description": "Client-visible value, effort, and results data. Shows the Third i-client relationship compounding value over time: increasing value, decreasing time, continued hard work. Reusable across clients — supports completed projects with dollar amounts and in-progress projects with relative value.",
+  "type": "object",
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "metrics", "outcomes", "capabilities", "narrative", "source"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "metrics": {
+      "type": "object",
+      "description": "Momentum metrics showing the current state of the relationship.",
+      "required": ["projectsActive", "deliverablesCompleted", "hoursInvested", "capabilitiesDelivered"],
+      "properties": {
+        "projectsActive": {
+          "type": "object",
+          "required": ["count", "label"],
+          "properties": {
+            "count": { "type": "integer", "minimum": 0 },
+            "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English description (e.g., '1 film in production')." }
+          }
+        },
+        "deliverablesCompleted": {
+          "type": "object",
+          "required": ["count", "label"],
+          "properties": {
+            "count": { "type": "integer", "minimum": 0 },
+            "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English description of what's been delivered." }
+          }
+        },
+        "hoursInvested": {
+          "type": "object",
+          "required": ["hours", "label"],
+          "properties": {
+            "hours": { "type": "number", "minimum": 0, "description": "Total Third i hours invested in the relationship." },
+            "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English context (e.g., '20 hours on Film 1 Final Demo')." }
+          }
+        },
+        "capabilitiesDelivered": {
+          "type": "object",
+          "required": ["count", "label"],
+          "properties": {
+            "count": { "type": "integer", "minimum": 0 },
+            "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English description of capabilities delivered." }
+          }
+        }
+      }
+    },
+    "outcomes": {
+      "type": "array",
+      "description": "Concrete outcomes delivered — defined by the business impact they produce, not just activity.",
+      "items": {
+        "type": "object",
+        "required": ["title", "description", "status"],
+        "properties": {
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "description": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "What was achieved and why it matters to the client." },
+          "status": { "type": "string", "enum": ["delivered", "in-progress", "planned"], "description": "Whether this outcome is done, being worked on, or planned." },
+          "projectId": { "type": "string", "description": "Optional link to the project this outcome came from." }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "Capabilities Third i has delivered — tools built, knowledge transferred, and services enabled.",
+      "items": {
+        "type": "object",
+        "required": ["title", "type", "description"],
+        "properties": {
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "type": { "type": "string", "enum": ["tool", "knowledge", "service"], "description": "tool = something built and handed over; knowledge = expertise the client now has access to; service = ongoing service now available." },
+          "description": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "status": { "type": "string", "enum": ["delivered", "available", "planned"], "description": "delivered = done; available = ready to use; planned = coming soon." }
+        }
+      }
+    },
+    "narrative": {
+      "type": "object",
+      "description": "The value narrative — how the relationship compounds value over time.",
+      "required": ["summary", "faster", "smarter", "expanding"],
+      "properties": {
+        "summary": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "One-paragraph summary of the Third i-client value story." },
+        "faster": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "How Third i delivers more value in less time as the workflow learns." },
+        "smarter": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "How Third i's understanding deepens each project." },
+        "expanding": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "How Third i takes on more of the client's work over time." }
+      }
+    },
+    "completedProjects": {
+      "type": "array",
+      "description": "Completed projects with real dollar amounts and effort data. Empty for clients with no completed projects yet (e.g., bkWatch). Populated for clients with completed work (e.g., Shaw).",
+      "items": {
+        "type": "object",
+        "required": ["title", "completedAt", "hours", "amount", "outcome"],
+        "properties": {
+          "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "completedAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "hours": { "type": "number", "minimum": 0, "description": "Actual hours invested." },
+          "amount": { "type": "string", "description": "Dollar amount (e.g., '$5,000'). Shown only for completed projects." },
+          "outcome": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "What was delivered and the value it produced." }
+        }
+      }
+    },
+    "source": { "$ref": "common.schema.json#/$defs/source" }
+  }
+}

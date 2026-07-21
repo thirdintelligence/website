@@ -5,7 +5,7 @@ import { statStrip, actionItem, projectCard, band, motif, sourceNote } from "../
 import { activityFeed, commentThread, addCommentButton } from "../components/feed.js";
 
 export function render(data, _params) {
-  const { home, portal, projects, live } = data;
+  const { home, portal, projects, live, invoicing } = data;
   const rel = portal.relationship;
   const completed = (live.comments || []).filter((c) => c.status === "completed");
 
@@ -21,6 +21,16 @@ export function render(data, _params) {
     ${sourceNote(o.source)}
   </article>`;
 
+  // Value summary strip — shows momentum at a glance.
+  const valueStrip = invoicing ? `<section class="section">
+    <div class="ai-value-strip">
+      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.projectsActive.count}</span><span class="ai-value-label">${esc(invoicing.metrics.projectsActive.label)}</span></a>
+      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours invested</span></a>
+      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.capabilitiesDelivered.count}</span><span class="ai-value-label">capabilities delivered</span></a>
+      <a class="ai-value-stat" href="#/ai-roadmap"><span class="ai-value-num">12-month</span><span class="ai-value-label">partnership plan</span></a>
+    </div>
+  </section>` : "";
+
   const html = `<div class="page stagger">
     <section class="relationship">
       ${motif("rings")}
@@ -33,6 +43,8 @@ export function render(data, _params) {
         ${addCommentButton({ scope: "home", label: "General comment" }, "Add Comment", "btn-sm btn-outline add-comment")}
       </div>
     </section>
+
+    ${valueStrip}
 
     <section class="section">
       ${statStrip(home.stats)}
