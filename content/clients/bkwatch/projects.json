@@ -11,14 +11,14 @@
       "title": "Bankruptcy, handled inside Spectrum",
       "displayName": "Film1-ShawBkWatch",
       "status": "active",
-      "statusLabel": "Active — Final Demo passed quality review",
+      "statusLabel": "Active — Demo built, awaiting bkWatch review",
       "projectType": "Integration film · Shaw × bkWatch",
       "valueStatement": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
       "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
       "coreValue": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
-      "phase": "Phase 5 — Stills (Review C: final confirmations)",
-      "nextMilestone": "Third i finalizes the Final Demo plan; the New Filing scene is produced with the rest of the film; Shaw provides cleaned Spectrum screenshots; final combined visuals are approved before production.",
+      "phase": "Demo review — awaiting client feedback",
+      "nextMilestone": "bkWatch reviews the complete Final Demo (top-to-bottom) and provides feedback. Third i then incorporates revisions before final production.",
       "runtime": "22 seconds",
       "thumbnail": {
         "mediaState": "in-production",
@@ -35,36 +35,54 @@
       "storyboardNote": "Final Demo Script Plan — original 45 words preserved, Jul 16, 2026",
       "deliverables": [
         {
-          "title": "Finalized voiceover script",
-          "state": "In progress"
+          "title": "Brainstorm ideas",
+          "state": "done",
+          "detail": "Film 1 integration brief separated from future Film 2; creative directions explored and Final Demo selected."
         },
         {
-          "title": "Final Demo six-scene storyboard",
-          "state": "In progress"
+          "title": "Demo video(s)",
+          "state": "done",
+          "detail": "Final Demo built top-to-bottom for bkWatch to review — complete and awaiting client feedback."
         },
         {
-          "title": "Twelve animated sections",
-          "state": "In progress"
+          "title": "Storyboard + script",
+          "state": "done",
+          "detail": "Six-scene storyboard and finalized voiceover script ready."
         },
         {
-          "title": "Thirty reference image instructions",
-          "state": "In progress"
+          "title": "Prompts",
+          "state": "done",
+          "detail": "122-item instruction inventory and 42 Final Demo instructions passed quality review."
         },
         {
-          "title": "Twelve animation instructions",
-          "state": "In progress"
+          "title": "Voiceover",
+          "state": "done",
+          "detail": "Finalized voiceover script ready for recording."
         },
         {
-          "title": "Eight supporting study packages",
-          "state": "In progress"
+          "title": "Stills",
+          "state": "in-progress",
+          "detail": "Reference image instructions ready; stills generation pending client review of demo."
         },
         {
-          "title": "122-item instruction inventory",
-          "state": "In progress"
+          "title": "Videos",
+          "state": "not-started",
+          "detail": "Video production begins after stills are approved."
         },
         {
-          "title": "Approval checkpoints for claims, assets, and keyframes",
-          "state": "In progress"
+          "title": "Final versions",
+          "state": "not-started",
+          "detail": "Final edited versions produced after all approval checkpoints."
+        },
+        {
+          "title": "Review audits/edits throughout",
+          "state": "in-progress",
+          "detail": "Quality review audits conducted at each phase; client review of demo is the current checkpoint."
+        },
+        {
+          "title": "Improved client knowledge and workflows",
+          "state": "in-progress",
+          "detail": "Brand knowledge library, AI roadmap, and client portal delivered alongside the film."
         }
       ],
       "assets": [],

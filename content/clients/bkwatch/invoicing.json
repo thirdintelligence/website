@@ -6,7 +6,7 @@
   "metrics": {
     "projectsActive": {
       "count": 1,
-      "descriptor": "film in production",
+      "descriptor": "film",
       "label": "Film 1 — Final Demo showing bankruptcy automation inside Spectrum"
     },
     "deliverablesCompleted": {

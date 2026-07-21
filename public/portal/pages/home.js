@@ -24,7 +24,7 @@ export function render(data, _params) {
   // Value summary strip — shows momentum at a glance.
   const valueStrip = invoicing ? `<section class="section">
     <div class="ai-value-strip">
-      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.projectsActive.count}</span><span class="ai-value-label">${esc(invoicing.metrics.projectsActive.label)}</span></a>
+      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.projectsActive.count}</span><span class="ai-value-label">${esc(invoicing.metrics.projectsActive.descriptor)}</span></a>
       <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours invested</span></a>
       <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.capabilitiesDelivered.count}</span><span class="ai-value-label">capabilities delivered</span></a>
       <a class="ai-value-stat" href="#/ai-roadmap"><span class="ai-value-num">12-month</span><span class="ai-value-label">partnership plan</span></a>
@@ -39,16 +39,11 @@ export function render(data, _params) {
       <p class="r-summary">${esc(rel.summary)}</p>
       <div class="r-meta">
         <span><span class="k">Phase:</span> ${esc(rel.phase)}</span>
-        <span><span class="k">Last update:</span> ${fmtDate(rel.lastUpdate)}</span>
         ${addCommentButton({ scope: "home", label: "General comment" }, "Add Comment", "btn-sm btn-outline add-comment")}
       </div>
     </section>
 
     ${valueStrip}
-
-    <section class="section">
-      ${statStrip(home.stats)}
-    </section>
 
     <section class="section">
       <div class="section-head"><h2 class="section-title">Needs your attention</h2></div>

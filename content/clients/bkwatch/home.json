@@ -72,71 +72,51 @@
   "activity": [
     {
       "type": "project-update",
-      "title": "Phase 1 — Brainstorming / project split",
-      "detail": "Film 1 integration brief separated from future Film 2",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "Brainstorm ideas",
+      "detail": "Film 1 integration brief separated from future Film 2; Final Demo direction selected.",
+      "date": "2026-07-01"
     },
     {
       "type": "project-update",
-      "title": "Phase 2 — Demos (Review A: finalize demo) / locked story",
-      "detail": "Original 45-word script retained",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "Demo video(s) built",
+      "detail": "Final Demo built top-to-bottom for bkWatch to review — complete and awaiting client feedback.",
+      "date": "2026-07-10"
     },
     {
       "type": "project-update",
-      "title": "Direction meeting",
-      "detail": "bkWatch meeting complete; Final Demo selected for planning",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "Storyboard + script",
+      "detail": "Six-scene storyboard and finalized voiceover script ready.",
+      "date": "2026-07-10"
     },
     {
       "type": "project-update",
-      "title": "Phase 3 — Story + Script (Review B: finalize story and script) / Final Demo plan",
-      "detail": "Six scenes, 12 segments, and 122-project-instruction inventory ready",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "Prompts",
+      "detail": "122-item instruction inventory passed quality review.",
+      "date": "2026-07-12"
     },
     {
       "type": "project-update",
-      "title": "Workflow / quality review audit",
-      "detail": "42 Final Demo instructions passed; video not started",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "Review audit",
+      "detail": "Quality review passed; demo ready for client review.",
+      "date": "2026-07-16"
     },
     {
       "type": "new-deliverable",
-      "title": "Locked 45-word voiceover at 122.7 WPM",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "Client portal live",
+      "detail": "Private workspace for project collaboration, comments, and progress tracking.",
+      "date": "2026-07-16"
     },
     {
       "type": "new-deliverable",
-      "title": "Final Demo six-scene storyboard",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "AI roadmap delivered",
+      "detail": "Research-backed plan showing where bkWatch can add AI to their operations.",
+      "date": "2026-07-16"
     },
     {
       "type": "new-deliverable",
-      "title": "Twelve animated sections",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
-    },
-    {
-      "type": "new-deliverable",
-      "title": "Thirty Final Demo reference images instructions",
-      "date": "2026-07-16",
-      "projectId": "film1-shaw-bkwatch",
-      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+      "title": "Brand knowledge library built",
+      "detail": "Searchable library of brand, products, features, and communication guidelines.",
+      "date": "2026-07-16"
     }
   ],
   "opportunities": [

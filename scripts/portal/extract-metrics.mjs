@@ -187,7 +187,7 @@ async function main() {
     clientSafe: true,
     asOf,
     metrics: {
-      projectsActive: { count: 1, descriptor: "film in production", label: "Film 1 — Final Demo showing bankruptcy automation inside Spectrum" },
+      projectsActive: { count: 1, descriptor: "film", label: "Film 1 — Final Demo showing bankruptcy automation inside Spectrum" },
       deliverablesCompleted: { count: 0, descriptor: "delivered", label: "Film 1 in production — first deliverable coming soon" },
       hoursInvested: { hours: 20, descriptor: "hours invested", label: "20 hours invested in Film 1 — story, script, storyboard, and instructions" },
       capabilitiesDelivered: { count: 4, descriptor: "capabilities delivered", label: "Client portal, AI film production, AI roadmap, and brand knowledge library" },
