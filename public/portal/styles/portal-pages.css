@@ -347,6 +347,7 @@
 .sc-legend-swatch.recommended { border: 2px solid var(--warn); background: color-mix(in srgb, var(--warn) 15%, transparent); }
 .sc-row.sc-planned { border-left: 3px solid var(--ok); padding-left: var(--space-3); border-bottom: none; }
 .sc-row.sc-recommended { border-left: 3px solid var(--warn); padding-left: var(--space-3); border-bottom: none; }
+.sc-row:not(.sc-planned):not(.sc-recommended) { border-left: 3px solid var(--line-plain); padding-left: var(--space-3); }
 .sc-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: var(--radius-pill); margin-left: 8px; vertical-align: middle; }
 .sc-tag.planned { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
 .sc-tag.recommended { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }

@@ -24,7 +24,7 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 2", "description": "The next 30-second video, building on the visual system established in Film 1.", "milestone": false },
-        { "type": "ai-workflows", "title": "AI Agents & Workflows", "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.", "milestone": true, "icon": "worktree" }
+        { "type": "ai-workflows", "title": "AI Implementation", "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.", "milestone": true, "icon": "worktree" }
       ]
     },
     {
@@ -75,7 +75,7 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 8", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "ai-workflows", "title": "AI Agents & Workflows", "description": "Second round of AI workflow implementation — deeper automations, advanced agent training, and expanded genAI integrations.", "milestone": true, "icon": "worktree" }
+        { "type": "ai-workflows", "title": "AI Implementation", "description": "Second round of AI workflow implementation — deeper automations, advanced agent training, and expanded genAI integrations.", "milestone": true, "icon": "worktree" }
       ]
     },
     {
@@ -114,10 +114,10 @@
     }
   ],
   "milestones": [
-    { "month": 2, "title": "AI Agents & Workflows", "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.", "icon": "worktree" },
+    { "month": 2, "title": "AI Implementation", "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.", "icon": "worktree" },
     { "month": 4, "title": "Value Audit", "description": "Full review of client projects and AI agent workflows — research, reports, upgrading, and refining features. Free and unbillable.", "icon": "graph", "free": true },
     { "month": 6, "title": "Extend Partnership", "description": "Planning valuable services alongside main work and updating/renewing the contract. Free and unbillable.", "icon": "contract", "free": true },
-    { "month": 8, "title": "AI Agents & Workflows", "description": "Second round — deeper automations, advanced agent training, and expanded genAI integrations.", "icon": "worktree" },
+    { "month": 8, "title": "AI Implementation", "description": "Second round — deeper automations, advanced agent training, and expanded genAI integrations.", "icon": "worktree" },
     { "month": 10, "title": "Value Audit", "description": "Full year-in-review — auditing all projects, workflows, and delivered value. Free and unbillable.", "icon": "graph", "free": true },
     { "month": 12, "title": "Extend Partnership", "description": "Year-end contract renewal — planning year two services and updating the partnership agreement. Free and unbillable.", "icon": "contract", "free": true }
   ],
