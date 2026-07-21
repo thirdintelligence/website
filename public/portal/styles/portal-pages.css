@@ -87,8 +87,7 @@
 @media (max-width: 860px) { .ai-exec { grid-template-columns: 1fr; } }
 
 /* Hero summary — planned/recommended positioning with real results backing */
-.ai-hero-summary { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-5); align-items: start; }
-@media (max-width: 860px) { .ai-hero-summary { grid-template-columns: 1fr; } }
+.ai-hero-summary { display: flex; flex-direction: column; gap: var(--space-5); }
 .ai-hero-card { padding: var(--space-6); }
 .ai-hero-points { display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-5); }
 .ai-hero-point { display: flex; gap: var(--space-3); align-items: flex-start; }
@@ -379,11 +378,10 @@
   .comm-preview-row .card-action, .comm-prev-item .card-action { margin-left: 30px; }
 }
 
-/* ── Quicklinks page (Library) ──────────────────────────────────────────────── */
-.quicklink-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-4); }
-.quicklink-card { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
-.quicklink-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2); }
-.quicklink-title { font-size: var(--fs-h4); font-family: var(--font-head); }
-.quicklink-category { font-size: var(--fs-caption); color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
-.quicklink-when { margin-top: var(--space-2); padding-top: var(--space-3); border-top: 1px solid var(--line-plain); }
-.quicklink-when .muted { display: flex; align-items: center; gap: 6px; font-size: var(--fs-caption); margin-bottom: 4px; }
+/* ── Quicklinks card (Library) ──────────────────────────────────────────────── */
+.quicklinks-card { padding: var(--space-5) var(--space-6); }
+.quicklinks-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.quicklink-item { display: flex; flex-direction: column; gap: 4px; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); text-decoration: none; color: inherit; transition: border-color 0.2s var(--ease); }
+.quicklink-item:hover { border-color: color-mix(in srgb, var(--accent) 30%, var(--line-plain)); }
+.quicklink-item-title { font-weight: 600; font-size: var(--fs-small); }
+.quicklink-item-desc { font-size: var(--fs-caption); color: var(--text-tertiary); line-height: 1.5; }

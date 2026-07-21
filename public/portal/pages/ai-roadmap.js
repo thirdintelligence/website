@@ -215,13 +215,12 @@ export function render(data) {
         <div class="card ai-hero-side">
           <span class="eyebrow">Backed by</span>
           <div class="ai-backed-stats">
-            <div class="ai-backed-stat"><span class="ai-backed-num">614</span><span class="ai-backed-label">hours of accumulated learning</span></div>
-            <div class="ai-backed-stat"><span class="ai-backed-num">4</span><span class="ai-backed-label">completed films trained on</span></div>
-            <div class="ai-backed-stat"><span class="ai-backed-num">5</span><span class="ai-backed-label">independent research sources</span></div>
+            <div class="ai-backed-stat"><span class="ai-backed-num">614</span><span class="ai-backed-label">hours across all clients</span></div>
+            <div class="ai-backed-stat"><span class="ai-backed-num">4</span><span class="ai-backed-label">films completed — Shaw conference video, logo loop video, Amplify, and Amplify V2</span></div>
+            <div class="ai-backed-stat"><span class="ai-backed-num">1000s</span><span class="ai-backed-label">of sources researched and interpreted by R&amp;D agents</span></div>
           </div>
           <p class="reading" style="margin-top:12px">${esc(ex.positioning)}</p>
           <p class="muted" style="margin-top:10px">${icon("clock")} Research as of ${fmtDate(ai.researchAsOf)}. Reviewed at least monthly while a recommendation is active.</p>
-          <a class="btn btn-sm btn-outline" href="#/library/quicklinks">${icon("external")} View research sources</a>
         </div>
       </div>
     </section>
