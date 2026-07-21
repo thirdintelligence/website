@@ -4,11 +4,7 @@
    monthly deliverables, milestone expansions, and long-term value. */
 import { esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
-import { statusLabel, band, chip, motif, sourceNote } from "../components/cards.js";
-import { addCommentButton } from "../components/feed.js";
-
-const STATUS_TONE = { active: "ok", partial: "warn", "not-in-use": "neutral", "needs-confirmation": "warn", "recommended-experiment": "info" };
-const STATUS_TEXT = { active: "Active / confirmed", partial: "Partial / in progress", "not-in-use": "Not in use", "needs-confirmation": "Needs confirmation", "recommended-experiment": "Recommended experiment" };
+import { motif, sourceNote } from "../components/cards.js";
 
 /* Illustrated SVG scene for each month card in the infographic. Each type gets
    a custom mini-illustration (not a generic icon) to make the roadmap visually
@@ -98,35 +94,21 @@ function milestoneCallout(ms) {
   </div>`;
 }
 
-function cap(c) {
-  return `<article class="card cap" id="${esc(c.id)}">
-    ${motif("glow")}
-    <div class="cap-head">
-      <div><div class="cap-name">${esc(c.name)}</div></div>
-      ${statusLabel(STATUS_TEXT[c.status] || c.status, STATUS_TONE[c.status])}
-    </div>
-    <p class="reading">${esc(c.outcome)}</p>
-    <div class="cap-bands">${band("Value", c.value)}${band("Effort", c.effort)}<span class="band">Evidence <b>${esc(c.evidence)}</b></span></div>
-    <p class="cap-rec"><b>Recommendation:</b> ${esc(c.recommendation)}</p>
-    ${c.service && c.service.investment ? `<p class="muted">${icon("clock")} ${esc(c.service.investment)}</p>` : ""}
-    <div class="pc-meta">${addCommentButton({ scope: "ai-roadmap", recordId: c.id, label: c.name, route: "/bkwatch/ai-roadmap" })}</div>
-    ${sourceNote(c.source)}
-  </article>`;
-}
-
-/* ─── Service catalog (moved from Value & Results) — clean divider lists ────── */
+/* ─── Service catalog (planned AI roadmap of services) — clean divider lists ── */
 
 function scBillingBadge(billing) {
   if (billing === "free") return '<span class="sc-billing free">Free · unbillable</span>';
-  if (billing === "fallback") return '<span class="sc-billing fallback">Fallback option</span>';
-  if (billing === "billable") return '<span class="sc-billing billable">Billable</span>';
   return "";
 }
 
-/* A single clean service row — title + description, no per-item box. */
+/* A single clean service row — title + description, no per-item box. Highest-ROI
+   services are outlined: green = planned, yellow = recommended for the client. */
 function scRow(item) {
-  return `<div class="sc-row">
-    <span class="sc-row-title">${esc(item.title)}</span>
+  const statusClass = item.status === "planned" ? "sc-planned" : item.status === "recommended" ? "sc-recommended" : "";
+  const tag = item.status === "planned" ? '<span class="sc-tag planned">Planned</span>'
+    : item.status === "recommended" ? '<span class="sc-tag recommended">Recommended</span>' : "";
+  return `<div class="sc-row ${statusClass}">
+    <span class="sc-row-title">${esc(item.title)}${tag}</span>
     <span class="sc-row-desc">${esc(item.description)}</span>
   </div>`;
 }
@@ -142,7 +124,7 @@ function scHeader(catData) {
   </div>`;
 }
 
-/* Category A/B: header + one clean divider list of services. */
+/* Flat category: header + one clean divider list of services. */
 function scListSection(catData, catKey) {
   return `<section class="section sc-section" data-cat="${catKey}">
     ${scHeader(catData)}
@@ -150,36 +132,24 @@ function scListSection(catData, catKey) {
   </section>`;
 }
 
-/* Category C: header + labeled subcategory groups, each a clean divider list. */
-function scPartnershipSection(catData) {
+/* Subcategorized category (AI Implementation): header + labeled groups, each a
+   clean divider list with an optional group description. */
+function scSubcatSection(catData, catKey) {
   const subcats = (catData.subcategories || []).map((sub) => `<div class="sc-subcat">
     <h4 class="sc-subcat-title">${esc(sub.title)}</h4>
+    ${sub.description ? `<p class="sc-subcat-desc">${esc(sub.description)}</p>` : ""}
     <div class="sc-list">${(sub.items || []).map(scRow).join("")}</div>
   </div>`).join("");
-  return `<section class="section sc-section" data-cat="partnershipExtension">
+  return `<section class="section sc-section" data-cat="${catKey}">
     ${scHeader(catData)}
     ${subcats}
-  </section>`;
-}
-
-/* Category D: last-resort options, muted and set apart at the bottom. */
-function scLastResortSection(catData) {
-  return `<section class="section sc-section sc-lastresort" data-cat="lastResort">
-    ${scHeader(catData)}
-    <div class="sc-list">${(catData.items || []).map(scRow).join("")}</div>
   </section>`;
 }
 
 export function render(data) {
   const { aiRoadmap: ai, portal, roadmap, invoicing } = data;
   const ex = ai.executiveSummary;
-  const byCat = (id) => ai.capabilities.filter((c) => c.category === id);
   const sc = invoicing && invoicing.serviceCatalog;
-
-  // Value summary strip — reframes the page from technical assessment → value showcase.
-  const activeCount = ai.capabilities.filter((c) => c.status === "active").length;
-  const notInUseCount = ai.capabilities.filter((c) => c.status === "not-in-use").length;
-  const highValueCount = ai.capabilities.filter((c) => c.value === "High").length;
 
   const roadmapHtml = roadmap ? `<section class="section roadmap-section">
     <div class="section-head">
@@ -195,33 +165,24 @@ export function render(data) {
     </div>
   </section>` : "";
 
-  // Service catalog — expands on what each milestone type includes. Organized
-  // into billable services, free value audits, extension plans, and fallbacks.
+  // Service catalog — the planned roadmap of services Third i can work into the
+  // partnership. Highest-ROI services are outlined: green = planned, yellow =
+  // recommended for the client.
   const catalogHtml = sc ? `<section class="section sc-intro">
     <div class="section-head"><h2 class="section-title">Services &amp; capabilities</h2></div>
-    <p class="reading">Everything Third i can do for ${esc(portal.client.name)} — organized by how it fits the partnership. Billable services you can add to daily work, free value audits Third i invests in the relationship, and extension plans for the road ahead.</p>
+    <p class="reading">A planned roadmap of everything Third i can work into the ${esc(portal.client.name)} partnership for longer-lasting, more valuable collaboration. Highlighted services are the highest-ROI opportunities.</p>
+    <div class="sc-legend">
+      <span class="sc-legend-item"><span class="sc-legend-swatch planned"></span>Planned — services Third i is planning to add</span>
+      <span class="sc-legend-item"><span class="sc-legend-swatch recommended"></span>Recommended — high-ROI services worth considering</span>
+    </div>
   </section>
-  ${scListSection(sc.aiAgentsWorkflows, "aiAgentsWorkflows")}
+  ${scSubcatSection(sc.aiImplementation, "aiImplementation")}
   ${scListSection(sc.valueAudit, "valueAudit")}
-  ${scPartnershipSection(sc.partnershipExtension)}
-  ${scLastResortSection(sc.lastResort)}` : "";
+  ${scListSection(sc.partnershipExtension, "partnershipExtension")}` : "";
 
   const html = `<div class="page">
     <h1 class="page-title">AI Roadmap</h1>
-    <p class="page-lede">Practical, research-backed AI guidance for ${esc(portal.client.name)}. Third i evaluates the workflow first and the tool second.</p>
-
-    <section class="section">
-      <div class="ai-value-strip">
-        <div class="ai-value-stat"><span class="ai-value-num">${ai.capabilities.length}</span><span class="ai-value-label">capabilities assessed</span></div>
-        <div class="ai-value-stat"><span class="ai-value-num">${activeCount}</span><span class="ai-value-label">active today</span></div>
-        <div class="ai-value-stat"><span class="ai-value-num">${highValueCount}</span><span class="ai-value-label">high-value opportunities</span></div>
-        <div class="ai-value-stat"><span class="ai-value-num">${notInUseCount}</span><span class="ai-value-label">ready to explore</span></div>
-      </div>
-    </section>
-
-    ${roadmapHtml}
-
-    ${catalogHtml}
+    <p class="page-lede">A planned and recommended AI roadmap for ${esc(portal.client.name)} — backed by real results, independent research, and an ongoing partnership that gets smarter every month. Not just films, but AI worked into daily operations, marketing, and automation across the whole business.</p>
 
     <section class="section">
       <div class="ai-exec">
@@ -246,14 +207,9 @@ export function render(data) {
       </div>
     </section>
 
-    ${ai.categories.map((cat) => {
-      const caps = byCat(cat.id);
-      if (!caps.length) return "";
-      return `<section class="ai-cat">
-        <div class="ai-cat-head"><h2 class="section-title">${esc(cat.title)}</h2><span class="muted">${caps.length} capabilities</span></div>
-        <div class="cap-grid">${caps.map(cap).join("")}</div>
-      </section>`;
-    }).join("")}
+    ${roadmapHtml}
+
+    ${catalogHtml}
   </div>`;
 
   return { crumb: portal.client.shortName, title: "AI Roadmap", html };

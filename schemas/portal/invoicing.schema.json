@@ -109,12 +109,11 @@
     },
     "serviceCatalog": {
       "type": "object",
-      "description": "Structured service catalog organized into 4 categories: AI agents/workflows (billable), value audit (free), partnership extension (free), and last-resort options.",
+      "description": "Planned roadmap of services, shown on the AI Roadmap page. Organized into AI Implementation (subcategorized), Value Audit (free), and Partnership Extension (free). Items may be flagged 'planned' (green) or 'recommended' (yellow) by ROI.",
       "properties": {
-        "aiAgentsWorkflows": { "$ref": "invoicing.schema.json#/$defs/serviceCategory" },
+        "aiImplementation": { "$ref": "invoicing.schema.json#/$defs/serviceCategoryWithSubcats" },
         "valueAudit": { "$ref": "invoicing.schema.json#/$defs/serviceCategory" },
-        "partnershipExtension": { "$ref": "invoicing.schema.json#/$defs/serviceCategoryWithSubcats" },
-        "lastResort": { "$ref": "invoicing.schema.json#/$defs/serviceCategory" }
+        "partnershipExtension": { "$ref": "invoicing.schema.json#/$defs/serviceCategory" }
       }
     },
     "efficiencyTrend": {

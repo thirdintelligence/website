@@ -130,42 +130,66 @@
       "icon": "clock",
       "statusLabel": "Ready to track",
       "description": "Shows whether production becomes faster across completed projects.",
-      "metrics": ["Total hours", "Weeks to completion", "Hours per finished minute"]
+      "metrics": [
+        "Total hours",
+        "Weeks to completion",
+        "Hours per finished minute"
+      ]
     },
     {
       "title": "Deliverable quality",
       "icon": "checkCircle",
       "statusLabel": "Ready to track",
       "description": "Uses approval evidence instead of an invented quality score.",
-      "metrics": ["Approved deliverables", "Review rounds", "Rework hours"]
+      "metrics": [
+        "Approved deliverables",
+        "Review rounds",
+        "Rework hours"
+      ]
     },
     {
       "title": "Output volume",
       "icon": "layers",
       "statusLabel": "Ready to track",
       "description": "Records how much finished, client-approved work each project produces.",
-      "metrics": ["Deliverables", "Finished minutes", "Approved versions"]
+      "metrics": [
+        "Deliverables",
+        "Finished minutes",
+        "Approved versions"
+      ]
     },
     {
       "title": "Financial return",
       "icon": "chart",
       "statusLabel": "Ready to track",
       "description": "Adds comparable financial context after project scope and billing are confirmed.",
-      "metrics": ["Cost per deliverable", "Effective rate", "Value over baseline"]
+      "metrics": [
+        "Cost per deliverable",
+        "Effective rate",
+        "Value over baseline"
+      ]
     },
     {
       "title": "Compounding capability",
       "icon": "sparkles",
       "statusLabel": "Ready to track",
       "description": "Shows the reusable systems and client-specific capabilities added by each project.",
-      "metrics": ["Capabilities added", "Reusable components", "Next-project time saved"]
+      "metrics": [
+        "Capabilities added",
+        "Reusable components",
+        "Next-project time saved"
+      ]
     },
     {
       "title": "Project confidence",
       "icon": "target",
       "statusLabel": "Ready to track",
       "description": "Compares plans with completed results without exposing another client's records.",
-      "metrics": ["Expected vs. actual", "Milestone accuracy", "Decision turnaround"]
+      "metrics": [
+        "Expected vs. actual",
+        "Milestone accuracy",
+        "Decision turnaround"
+      ]
     }
   ],
   "financialSummary": {
@@ -185,71 +209,233 @@
   },
   "source": "Hours from Third i time tracking (20 hrs recorded manually); project efficiency activates only from tenant-owned completed work",
   "serviceCatalog": {
-    "aiAgentsWorkflows": {
-      "title": "AI Agents & Workflows",
+    "aiImplementation": {
+      "title": "AI Implementation",
       "icon": "worktree",
-      "billing": "billable",
-      "description": "AI daily use, workflows, automations, genAI integrations, and training. All recommended services that are easy to integrate into any company's daily work — including all asset generation.",
-      "items": [
+      "description": "Everything Third i can build and run inside bkWatch's daily operations — AI in daily use, training, full-service production across film, web, marketing, and automation, plus consulting and ongoing creative support. These are the services designed to be worked into the partnership over time for compounding value.",
+      "subcategories": [
         {
-          "title": "AI Daily Use Training",
-          "description": "Hands-on training for your team on using AI tools for everyday tasks — writing, analysis, research, and reporting."
+          "title": "Daily Use",
+          "description": "AI worked directly into everyday operations — the fastest path to measurable time savings.",
+          "items": [
+            {
+              "title": "Communication Workflows",
+              "description": "AI-assisted drafting, summarizing, and triage for email, support, and internal comms — faster responses with a consistent brand voice.",
+              "status": "recommended"
+            },
+            {
+              "title": "GenAI Workflows",
+              "description": "Repeatable generative-AI workflows for writing, research, and content creation, tailored to bkWatch's product and audience.",
+              "status": "planned"
+            },
+            {
+              "title": "AI Automations",
+              "description": "Automating routine tasks — data entry, document processing, scheduling, and report generation — so the team focuses on higher-value work.",
+              "status": "recommended"
+            },
+            {
+              "title": "Document Automation",
+              "description": "AI-generated and auto-filled documents — proposals, reports, and internal documentation from your templates and data."
+            },
+            {
+              "title": "Data Analysis & Reporting",
+              "description": "Automated analysis of business data with scheduled reports, dashboards, and plain-English insights."
+            },
+            {
+              "title": "Customer Support AI",
+              "description": "AI chatbots and response suggestions that speed up support while keeping answers accurate and on-brand."
+            }
+          ]
         },
         {
-          "title": "Workflow Automations",
-          "description": "Custom AI-powered workflows that automate repetitive tasks — data entry, document processing, email triage, and scheduling."
+          "title": "AI-use Training",
+          "description": "Hands-on training for every AI service Third i offers, so the team can run and extend the tools themselves.",
+          "items": [
+            {
+              "title": "AI Daily Use Training",
+              "description": "Practical training for the whole team on using AI for everyday tasks — writing, analysis, research, and reporting.",
+              "status": "planned"
+            },
+            {
+              "title": "Agentic Workflow Training",
+              "description": "Teaching the team to build and run autonomous AI workflows for their own recurring work."
+            },
+            {
+              "title": "Tool-Specific Training",
+              "description": "Focused sessions on the specific AI tools bkWatch adopts — prompts, best practices, and shortcuts."
+            },
+            {
+              "title": "Team AI Onboarding",
+              "description": "A structured program to bring new and existing team members up to speed on the AI stack."
+            },
+            {
+              "title": "AI Best Practices & Governance",
+              "description": "Guidance on safe, accurate, and compliant AI use — review processes, data handling, and quality control."
+            }
+          ]
         },
         {
-          "title": "GenAI Integrations",
-          "description": "Integrating generative AI into your existing tools and systems — CRM, helpdesk, document management, and internal portals."
+          "title": "Film & Video",
+          "description": "Ongoing AI-powered video production, building a content library that shows bkWatch's value.",
+          "items": [
+            {
+              "title": "Monthly Video Series",
+              "description": "A new 30-second video every month, compounding into a library of demo and brand content.",
+              "status": "recommended"
+            },
+            {
+              "title": "Demo Video Production",
+              "description": "Product demo films showing bkWatch's software in action — fast turnaround, lower cost than traditional production.",
+              "status": "recommended"
+            },
+            {
+              "title": "Conference & Event Videos",
+              "description": "Videos, AV support, and loop assets for conferences and trade shows."
+            },
+            {
+              "title": "Customer Story Films",
+              "description": "Interview-style films featuring customer success stories and testimonials."
+            },
+            {
+              "title": "Training Video Library",
+              "description": "Internal training videos for onboarding, product education, and process documentation."
+            }
+          ]
         },
         {
-          "title": "Social Media Asset Generation",
-          "description": "AI-generated social media posts, images, and short-form video content for LinkedIn, Twitter, and other platforms."
+          "title": "Web & Digital",
+          "description": "Websites, landing pages, and digital tools generated and maintained with AI.",
+          "items": [
+            {
+              "title": "Website Design & Development",
+              "description": "Full website builds, redesigns, and ongoing improvements to bkWatch's web presence."
+            },
+            {
+              "title": "Landing Page Generation",
+              "description": "AI-generated landing pages for campaigns, product launches, and lead capture.",
+              "status": "planned"
+            },
+            {
+              "title": "Web App Development",
+              "description": "Custom web applications and internal tools tailored to bkWatch's workflows."
+            },
+            {
+              "title": "SEO & Content Strategy",
+              "description": "AI-powered SEO research, content planning, and ongoing optimization."
+            },
+            {
+              "title": "Analytics & Dashboards",
+              "description": "Custom dashboards for tracking business metrics, campaign performance, and KPIs."
+            }
+          ]
         },
         {
-          "title": "Demo Video Production",
-          "description": "Product demo videos showing your software in action — AI-powered production for faster turnaround and lower cost."
+          "title": "Marketing & Brand",
+          "description": "AI-generated marketing assets and brand materials that scale content output.",
+          "items": [
+            {
+              "title": "Social Media Asset Generation",
+              "description": "AI-generated posts, images, and short-form video for LinkedIn and other platforms.",
+              "status": "recommended"
+            },
+            {
+              "title": "Marketing Copy Generation",
+              "description": "Landing pages, email campaigns, ad copy, and product descriptions in bkWatch's voice."
+            },
+            {
+              "title": "Email Campaign Automation",
+              "description": "Designed, written, and automated email sequences personalized per audience segment."
+            },
+            {
+              "title": "Brand Asset Library",
+              "description": "Ongoing generation of brand-consistent assets — templates, illustrations, and visual system extensions."
+            },
+            {
+              "title": "Content Marketing",
+              "description": "Blog posts, articles, and thought-leadership content produced on a regular cadence."
+            },
+            {
+              "title": "Social Media Management",
+              "description": "Full social media management with AI-generated content and scheduling."
+            },
+            {
+              "title": "Presentation Design",
+              "description": "Slide decks for conferences, investor meetings, and internal presentations."
+            },
+            {
+              "title": "Conference & Trade Show Materials",
+              "description": "Booth design, presentation materials, and handouts for events."
+            }
+          ]
         },
         {
-          "title": "Website Asset Generation",
-          "description": "Hero images, illustrations, icons, and visual assets for your website — generated and tailored to your brand."
+          "title": "AI & Automation Engineering",
+          "description": "Custom AI agents and integrations built into bkWatch's systems.",
+          "items": [
+            {
+              "title": "Custom AI Agent Development",
+              "description": "Purpose-built AI agents for specific workflows — research, drafting, review, and quality control.",
+              "status": "planned"
+            },
+            {
+              "title": "Workflow Automation Consulting",
+              "description": "Identifying and implementing the highest-impact automation opportunities across the business."
+            },
+            {
+              "title": "GenAI Integrations",
+              "description": "Integrating generative AI into existing tools — CRM, helpdesk, document management, and internal portals."
+            },
+            {
+              "title": "AI Tool Integration",
+              "description": "Connecting AI tools to bkWatch's existing systems and data sources."
+            },
+            {
+              "title": "Sales Enablement Materials",
+              "description": "AI-generated pitch decks, one-pagers, case studies, and sales scripts tailored to prospects."
+            },
+            {
+              "title": "AI Agent Architecture",
+              "description": "Designing the underlying agent architecture for reliability, accuracy, and performance."
+            }
+          ]
         },
         {
-          "title": "Marketing Copy Generation",
-          "description": "AI-generated marketing copy — landing pages, email campaigns, ad copy, and product descriptions tuned to your voice."
-        },
-        {
-          "title": "Email Campaign Automation",
-          "description": "Automated email sequences with AI-generated content, personalized per recipient segment."
-        },
-        {
-          "title": "Data Analysis & Reporting",
-          "description": "AI-powered analysis of your business data with automated reports, dashboards, and insights."
-        },
-        {
-          "title": "Document Automation",
-          "description": "AI-generated and auto-filled documents — proposals, contracts, reports, and internal documentation."
-        },
-        {
-          "title": "Customer Support AI",
-          "description": "AI-powered chatbots and response suggestions for your customer support team."
-        },
-        {
-          "title": "Sales Enablement Materials",
-          "description": "AI-generated pitch decks, one-pagers, case studies, and sales scripts tailored to your prospects."
-        },
-        {
-          "title": "Presentation Design",
-          "description": "AI-generated slide decks for conferences, investor meetings, and internal presentations."
-        },
-        {
-          "title": "Brand Asset Library",
-          "description": "Ongoing generation of brand-consistent assets — logos, color variations, templates, and visual system extensions."
-        },
-        {
-          "title": "AI Agent Architecture",
-          "description": "Custom AI agents built for your specific workflows — research agents, drafting agents, review agents, and quality control agents."
+          "title": "Consulting, Advisory & Ongoing Support",
+          "description": "Strategic guidance, partnership planning, and on-call creative support to get the most from AI and automation investments.",
+          "items": [
+            {
+              "title": "Technology Consulting",
+              "description": "Strategic guidance on technology decisions, vendor selection, and architecture."
+            },
+            {
+              "title": "Process Optimization",
+              "description": "Analyzing and improving business processes with AI and automation."
+            },
+            {
+              "title": "Change Management",
+              "description": "Helping the team adopt new tools and workflows successfully."
+            },
+            {
+              "title": "Vendor Evaluation",
+              "description": "Evaluating AI tools and vendors — what's worth buying vs. building in-house."
+            },
+            {
+              "title": "AI Strategy & Roadmap Updates",
+              "description": "Ongoing updates to this AI roadmap as new capabilities and opportunities emerge."
+            },
+            {
+              "title": "Contract Renewal Planning",
+              "description": "Planning the next phase of the partnership — scope, cadence, and priorities for the coming year."
+            },
+            {
+              "title": "Year-Two Service Planning",
+              "description": "Mapping which services to work into year two for the highest compounding value."
+            },
+            {
+              "title": "On-Call Creative Support",
+              "description": "Staying available as an on-call partner for future films, website updates, and creative projects between engagements."
+            }
+          ]
         }
       ]
     },
@@ -257,7 +443,7 @@
       "title": "Value Audit",
       "icon": "graph",
       "billing": "free",
-      "description": "Client projects and AI agent workflows audits, research, full reports, upgrading, adding and refining features. Free and unbillable — Third i's investment in the partnership.",
+      "description": "Client projects and AI agent workflow audits, research, full reports, upgrading, adding and refining features. Free and unbillable — Third i's ongoing investment in the partnership.",
       "items": [
         {
           "title": "Client Project Audits",
@@ -269,7 +455,7 @@
         },
         {
           "title": "Research Reports",
-          "description": "Deep-dive research into new AI capabilities, tools, and techniques relevant to your industry."
+          "description": "Deep-dive research into new AI capabilities, tools, and techniques relevant to bkWatch's industry."
         },
         {
           "title": "Full Value Assessments",
@@ -285,11 +471,11 @@
         },
         {
           "title": "R&D Exploration",
-          "description": "Exploring new AI tools, models, and techniques that could benefit your business — tested before recommendation."
+          "description": "Exploring new AI tools, models, and techniques that could benefit bkWatch — tested before recommendation."
         },
         {
           "title": "Third i Internal Work",
-          "description": "Internal development work that improves the workflow — pipeline upgrades, new capabilities, and infrastructure."
+          "description": "Internal development that improves the workflow — pipeline upgrades, new capabilities, and infrastructure."
         },
         {
           "title": "Quality Review Audits",
@@ -302,151 +488,22 @@
       ]
     },
     "partnershipExtension": {
-      "title": "Partnership Extension Plans",
+      "title": "Partnership Extension",
       "icon": "contract",
       "billing": "free",
-      "description": "Ways to continue the partnership at the 6 and 12 month marks — planning valuable services to complete alongside main work and updating/renewing the contract.",
-      "subcategories": [
-        {
-          "title": "Film & Video Services",
-          "items": [
-            {
-              "title": "Monthly Video Series",
-              "description": "Ongoing monthly video production building a content library."
-            },
-            {
-              "title": "Conference & Event Videos",
-              "description": "Live event coverage, AV support, and conference presentation videos."
-            },
-            {
-              "title": "Product Demo Films",
-              "description": "Ongoing demo film production as new features and products launch."
-            },
-            {
-              "title": "Customer Story Films",
-              "description": "Interview-style films featuring customer success stories."
-            },
-            {
-              "title": "Training Video Library",
-              "description": "Internal training videos for onboarding, product education, and process documentation."
-            }
-          ]
-        },
-        {
-          "title": "Web & Digital Services",
-          "items": [
-            {
-              "title": "Website Design & Development",
-              "description": "Full website builds, redesigns, and ongoing improvements."
-            },
-            {
-              "title": "Landing Page Generation",
-              "description": "AI-generated landing pages for campaigns, products, and lead capture."
-            },
-            {
-              "title": "Web App Development",
-              "description": "Custom web applications and internal tools."
-            },
-            {
-              "title": "SEO & Content Strategy",
-              "description": "AI-powered SEO research, content planning, and ongoing optimization."
-            },
-            {
-              "title": "Analytics & Dashboards",
-              "description": "Custom analytics dashboards for tracking business metrics and KPIs."
-            }
-          ]
-        },
-        {
-          "title": "Marketing & Brand Services",
-          "items": [
-            {
-              "title": "Brand Identity Refresh",
-              "description": "Updating and extending brand identity — visual system, voice, and guidelines."
-            },
-            {
-              "title": "Content Marketing",
-              "description": "Ongoing blog posts, articles, and thought leadership content."
-            },
-            {
-              "title": "Social Media Management",
-              "description": "Full social media management with AI-generated content and scheduling."
-            },
-            {
-              "title": "Email Marketing Campaigns",
-              "description": "Designed, written, and automated email campaigns."
-            },
-            {
-              "title": "Conference & Trade Show Materials",
-              "description": "Booth design, presentation materials, and handouts for events."
-            }
-          ]
-        },
-        {
-          "title": "AI & Automation Services",
-          "items": [
-            {
-              "title": "Custom AI Agent Development",
-              "description": "Building custom AI agents for specific business workflows."
-            },
-            {
-              "title": "Workflow Automation Consulting",
-              "description": "Identifying and implementing automation opportunities across the business."
-            },
-            {
-              "title": "AI Tool Integration",
-              "description": "Integrating AI tools into existing systems — CRM, ERP, helpdesk, and more."
-            },
-            {
-              "title": "Team AI Training Program",
-              "description": "Structured training program to bring your entire team up to speed on AI tools."
-            },
-            {
-              "title": "AI Strategy & Roadmap Updates",
-              "description": "Ongoing updates to the AI roadmap as new capabilities emerge."
-            }
-          ]
-        },
-        {
-          "title": "Consulting & Advisory",
-          "items": [
-            {
-              "title": "Technology Consulting",
-              "description": "Strategic guidance on technology decisions, vendor selection, and architecture."
-            },
-            {
-              "title": "Process Optimization",
-              "description": "Analyzing and improving business processes with AI and automation."
-            },
-            {
-              "title": "Change Management",
-              "description": "Helping your team adopt new tools and workflows successfully."
-            },
-            {
-              "title": "Vendor Evaluation",
-              "description": "Evaluating AI tools and vendors — what's worth buying vs. building in-house."
-            }
-          ]
-        }
-      ]
-    },
-    "lastResort": {
-      "title": "If We Don't Renew",
-      "icon": "alert",
-      "billing": "fallback",
-      "description": "Three options to maintain access to Third i's work and support if the contract is not renewed.",
+      "description": "Ways to maintain access to Third i's work and support if the partnership shifts to a lighter engagement.",
       "items": [
         {
-          "title": "Ongoing Support",
-          "description": "Hourly support for questions, fixes, and minor updates to delivered projects. Available as needed without a contract."
+          "title": "Ongoing Support for Past Work",
+          "description": "Continued support, fixes, and minor updates to everything Third i has already delivered — available as needed."
         },
         {
-          "title": "Freelancing",
-          "description": "Project-based freelance work for specific needs — one-off videos, assets, or updates. Scoped per project."
+          "title": "Project-Based Freelancing",
+          "description": "Scoped freelance work for specific one-off needs — videos, assets, or updates — without a full contract."
         },
         {
           "title": "Permanent Portal & Asset Access",
-          "description": "Continued access to the client portal and all delivered assets. Your brand knowledge library, project files, and communications remain available."
+          "description": "Continued access to the client portal and all delivered assets — brand knowledge library, project files, and communications remain available."
         }
       ]
     }

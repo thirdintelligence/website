@@ -5,12 +5,12 @@
   "asOf": "2026-07-16",
   "researchAsOf": "2026-07-16",
   "executiveSummary": {
-    "currentState": "Current automation is primarily rule-based: software connections, predefined rules, custom data collectors, and pattern matching. Little to no AI that creates content or AI that works autonomously is in production today.",
-    "topImprovement": "Add human-approved AI assistance to bankruptcy monitoring exception handling, where the confirmed rule-based process already produces reviewable exceptions.",
-    "risks": "Product accuracy, compliance review, and data privacy boundaries must be reviewed at a checkpoint before any AI that creates content step; no capability is presented as adopted before it is confirmed.",
-    "recommendation": "Third i evaluates the workflow first and the tool second. Begin with one limited scope, high-value trial with explicit human review and success criteria.",
-    "positioning": "Rankings and new releases help identify candidates, but the recommendation is based on bkWatch's work, risk, cost, and adoption path.",
-    "source": "BankruptcyWatch factual canon — AI Use Audit"
+    "currentState": "bkWatch's current automation is rule-based — software connections, predefined rules, custom data collectors, and pattern matching. Third i has already delivered a client portal, an AI roadmap, a brand knowledge library, and Film 1 is in production. The foundation is in place; the next step is working AI into daily operations across the whole business.",
+    "topImprovement": "Begin with human-approved AI assistance in bankruptcy monitoring exception handling, where the confirmed rule-based process already produces reviewable exceptions — then expand into communication workflows, marketing asset generation, and ongoing film production.",
+    "risks": "Product accuracy, compliance review, and data privacy boundaries must be reviewed at a checkpoint before any AI that creates content goes live. No capability is presented as adopted before it is confirmed.",
+    "recommendation": "Third i evaluates the workflow first and the tool second. This roadmap is built on real results — 614 hours and 4 completed films of accumulated learning — plus independent research from vendor documentation, Artificial Analysis, Arena leaderboards, and peer-reviewed sources. The plan is to start with one limited-scope, high-value trial with explicit human review, then work AI into more of bkWatch's operations each month for a continuously improving partnership.",
+    "positioning": "This is a planned and recommended AI roadmap — not just films, but an ongoing AI use partnership that grows in value each month. Rankings and new releases help identify candidates, but every recommendation is based on bkWatch's actual work, risk, cost, and adoption path. Third i's research is reviewed at least monthly while a recommendation is active.",
+    "source": "BankruptcyWatch factual canon — AI Use Audit; Third i production data (614 hours, 4 completed films); independent research from vendor docs, Artificial Analysis, Arena, and peer-reviewed sources"
   },
   "categories": [
     {
