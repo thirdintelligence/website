@@ -52,6 +52,13 @@ const SCENE_SVG = {
     <path d="M60 18v6M60 56v6M38 40h6M78 40h6M44 24l4 4M72 52l4 4M76 24l-4 4M48 52l-4 4" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
     <path d="M52 36h16M52 40h16M52 44h12" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
   </svg>`,
+  partnership: () => `<svg class="roadmap-scene" viewBox="0 0 120 80" fill="none" aria-hidden="true">
+    <rect x="25" y="15" width="70" height="50" rx="3" stroke="var(--accent)" stroke-width="1.5"/>
+    <rect x="25" y="15" width="70" height="50" rx="3" fill="var(--accent)" opacity="0.06"/>
+    <path d="M35 28h30M35 35h40M35 42h35M35 49h25" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+    <path d="M70 58l3 3 6-6" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="70" cy="58" r="8" fill="var(--accent)" opacity="0.1" stroke="var(--accent)" stroke-width="1"/>
+  </svg>`,
   other: () => `<svg class="roadmap-scene" viewBox="0 0 120 80" fill="none" aria-hidden="true">
     <circle cx="60" cy="40" r="18" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
     <circle cx="60" cy="40" r="3" fill="var(--accent)" opacity="0.6"/>
@@ -76,10 +83,13 @@ function monthCard(month, cadence) {
 }
 
 function milestoneCallout(ms) {
+  const iconName = ms.icon || "dot";
+  const freeBadge = ms.free ? '<span class="milestone-free">Free</span>' : "";
   return `<div class="milestone-callout">
+    <span class="milestone-icon">${icon(iconName)}</span>
     <span class="milestone-month">Month ${ms.month}</span>
     <div class="milestone-content">
-      <div class="milestone-title">${esc(ms.title)}</div>
+      <div class="milestone-title">${esc(ms.title)} ${freeBadge}</div>
       <div class="milestone-desc">${esc(ms.description)}</div>
     </div>
   </div>`;

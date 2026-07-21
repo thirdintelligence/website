@@ -44,7 +44,10 @@ const P = {
   rocket: '<path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2"/><path d="M9 11a6 6 0 0 1 6-6l3 3a6 6 0 0 1-6 6"/><path d="M12 8l4 4"/><path d="M9 11l-4 4 4 4 4-4"/>',
   handshake: '<path d="m11 17 2 2a1 1 0 0 0 3-3"/><path d="m13 19 2 2a1 1 0 0 0 3-3"/><path d="M14 16 9 11"/><path d="m8 8 3-3 5 5-3 3"/><path d="M3 11l5-5 5 5"/><path d="M21 13l-5 5-5-5"/>',
   graduationCap: '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 2 6 2s6-1 6-2v-5"/>',
-  clipboardCheck: '<rect x="8" y="4" width="8" height="4" rx="1"/><path d="M8 6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/>'
+  clipboardCheck: '<rect x="8" y="4" width="8" height="4" rx="1"/><path d="M8 6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/>',
+  worktree: '<circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8"/><path d="M6 12h6a4 4 0 0 0 4-4"/>',
+  graph: '<path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="0.5"/><rect x="12" y="8" width="3" height="10" rx="0.5"/><rect x="17" y="5" width="3" height="13" rx="0.5"/>',
+  contract: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/><path d="M15 18l2 2 4-4"/>'
 };
 
 export function icon(name, cls = "icon") {

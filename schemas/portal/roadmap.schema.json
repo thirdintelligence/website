@@ -55,12 +55,14 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "enum": ["film", "ai-workflows", "value-audit", "expansion", "other"],
+                  "enum": ["film", "ai-workflows", "value-audit", "expansion", "partnership", "other"],
                   "description": "The kind of work this item represents. Drives the SVG icon shown in the infographic."
                 },
                 "title": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Short title shown on the infographic card." },
                 "description": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "One-sentence plain-English explanation of what this item delivers." },
-                "milestone": { "type": "boolean", "default": false, "description": "True if this is a milestone expansion (Month 2, 4, 6+), not a recurring deliverable." }
+                "milestone": { "type": "boolean", "default": false, "description": "True if this is a milestone expansion (Month 2, 4, 6+), not a recurring deliverable." },
+                "icon": { "type": "string", "description": "Icon name for milestone callouts (e.g., 'worktree', 'graph', 'contract')." },
+                "free": { "type": "boolean", "description": "True if this milestone is free/unbillable (value audits, partnership extensions)." }
               }
             }
           }
@@ -76,7 +78,9 @@
         "properties": {
           "month": { "type": "integer", "minimum": 1, "maximum": 12 },
           "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
-          "description": { "$ref": "common.schema.json#/$defs/nonEmptyText" }
+          "description": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+          "icon": { "type": "string", "description": "Icon name for the milestone callout." },
+          "free": { "type": "boolean", "description": "True if this milestone is free/unbillable." }
         }
       }
     },

@@ -4,7 +4,7 @@
   "title": "Value & Results",
   "description": "Client-visible value, effort, and results data. Shows the Third i-client relationship compounding value over time: increasing value, decreasing time, continued hard work. Reusable across clients — supports completed projects with dollar amounts and in-progress projects with relative value.",
   "type": "object",
-  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "metrics", "outcomes", "capabilities", "narrative", "source"],
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "metrics", "narrative", "source"],
   "properties": {
     "schemaVersion": { "type": "string", "const": "2.0.0" },
     "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
@@ -20,6 +20,7 @@
           "required": ["count", "label"],
           "properties": {
             "count": { "type": "integer", "minimum": 0 },
+            "descriptor": { "type": "string", "description": "Short label next to the number (e.g., 'film')." },
             "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English description (e.g., '1 film in production')." }
           }
         },
@@ -28,6 +29,7 @@
           "required": ["count", "label"],
           "properties": {
             "count": { "type": "integer", "minimum": 0 },
+            "descriptor": { "type": "string", "description": "Short label next to the number." },
             "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English description of what's been delivered." }
           }
         },
@@ -36,6 +38,7 @@
           "required": ["hours", "label"],
           "properties": {
             "hours": { "type": "number", "minimum": 0, "description": "Total Third i hours invested in the relationship." },
+            "descriptor": { "type": "string", "description": "Short label next to the number." },
             "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English context (e.g., '20 hours on Film 1 Final Demo')." }
           }
         },
@@ -44,6 +47,7 @@
           "required": ["count", "label"],
           "properties": {
             "count": { "type": "integer", "minimum": 0 },
+            "descriptor": { "type": "string", "description": "Short label next to the number." },
             "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English description of capabilities delivered." }
           }
         }
@@ -103,6 +107,111 @@
         }
       }
     },
+    "serviceCatalog": {
+      "type": "object",
+      "description": "Structured service catalog organized into 4 categories: AI agents/workflows (billable), value audit (free), partnership extension (free), and last-resort options.",
+      "properties": {
+        "aiAgentsWorkflows": { "$ref": "invoicing.schema.json#/$defs/serviceCategory" },
+        "valueAudit": { "$ref": "invoicing.schema.json#/$defs/serviceCategory" },
+        "partnershipExtension": { "$ref": "invoicing.schema.json#/$defs/serviceCategoryWithSubcats" },
+        "lastResort": { "$ref": "invoicing.schema.json#/$defs/serviceCategory" }
+      }
+    },
+    "efficiencyTrend": {
+      "type": "array",
+      "description": "Hours per project over time, showing how the workflow gets faster.",
+      "items": {
+        "type": "object",
+        "required": ["project", "hours"],
+        "properties": {
+          "project": { "type": "string" },
+          "hours": { "type": "number" },
+          "amount": { "type": "number" },
+          "formattedAmount": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "crossClientTraining": {
+      "type": "object",
+      "description": "Data showing how the workflow is trained on prior client work.",
+      "properties": {
+        "hoursLearnedFrom": { "type": "number" },
+        "filmsLearnedFrom": { "type": "number" },
+        "description": { "type": "string" },
+        "trend": { "type": "array" }
+      }
+    },
+    "financialSummary": {
+      "type": "object",
+      "description": "Real financial data from the spreadsheet.",
+      "properties": {
+        "totalBilled": { "type": "number" },
+        "totalPaid": { "type": "number" },
+        "outstanding": { "type": "number" },
+        "totalHours": { "type": "number" },
+        "billableHours": { "type": "number" },
+        "effectiveRate": { "type": "number" },
+        "formattedBilled": { "type": "string" },
+        "formattedPaid": { "type": "string" },
+        "formattedOutstanding": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
     "source": { "$ref": "common.schema.json#/$defs/source" }
+  },
+  "$defs": {
+    "serviceCategory": {
+      "type": "object",
+      "required": ["title", "items"],
+      "properties": {
+        "title": { "type": "string" },
+        "icon": { "type": "string" },
+        "billing": { "type": "string", "enum": ["billable", "free", "fallback"] },
+        "description": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "description"],
+            "properties": {
+              "title": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "serviceCategoryWithSubcats": {
+      "type": "object",
+      "required": ["title", "subcategories"],
+      "properties": {
+        "title": { "type": "string" },
+        "icon": { "type": "string" },
+        "billing": { "type": "string" },
+        "description": { "type": "string" },
+        "subcategories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "items"],
+            "properties": {
+              "title": { "type": "string" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["title", "description"],
+                  "properties": {
+                    "title": { "type": "string" },
+                    "description": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

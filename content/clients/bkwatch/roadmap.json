@@ -2,7 +2,7 @@
   "schemaVersion": "2.0.0",
   "tenant": "bkwatch",
   "clientSafe": true,
-  "asOf": "2026-07-16",
+  "asOf": "2026-07-21",
   "startMonth": "2026-07",
   "cadence": {
     "deliverable": "30-second video",
@@ -24,7 +24,7 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 2", "description": "The next 30-second video, building on the visual system established in Film 1.", "milestone": false },
-        { "type": "ai-workflows", "title": "AI Workflows & Agents", "description": "Teaching and implementing AI-powered workflows and agents to automate routine tasks.", "milestone": true }
+        { "type": "ai-workflows", "title": "AI Agents & Workflows", "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.", "milestone": true, "icon": "worktree" }
       ]
     },
     {
@@ -41,7 +41,7 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 4", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "value-audit", "title": "Value Audit & Improvement Plan", "description": "A full review of what Third i has delivered so far, with a plan to increase value and efficiency going forward.", "milestone": true }
+        { "type": "value-audit", "title": "Value Audit", "description": "Full review of client projects and AI agent workflows — research, reports, upgrading, adding and refining features. Free and unbillable.", "milestone": true, "icon": "graph", "free": true }
       ]
     },
     {
@@ -58,7 +58,7 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 6", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "expansion", "title": "Expanded Partnership", "description": "New service areas: client and partner integrations, website assets, presentations, and conference materials.", "milestone": true }
+        { "type": "partnership", "title": "Extend Partnership", "description": "Planning valuable services to complete alongside main work and updating/renewing the contract for the next phase. Free and unbillable.", "milestone": true, "icon": "contract", "free": true }
       ]
     },
     {
@@ -66,8 +66,7 @@
       "label": "January 2027",
       "status": "upcoming",
       "items": [
-        { "type": "film", "title": "Film 7", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "expansion", "title": "On-Call Creative Support", "description": "Available as an on-call partner for future film needs, website improvements, and creative projects.", "milestone": false }
+        { "type": "film", "title": "Film 7", "description": "The next 30-second video in the monthly series.", "milestone": false }
       ]
     },
     {
@@ -76,7 +75,7 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 8", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "expansion", "title": "Daily-Use AI Workflows", "description": "Custom AI workflows for everyday tasks — writing, analysis, research, and reporting.", "milestone": false }
+        { "type": "ai-workflows", "title": "AI Agents & Workflows", "description": "Second round of AI workflow implementation — deeper automations, advanced agent training, and expanded genAI integrations.", "milestone": true, "icon": "worktree" }
       ]
     },
     {
@@ -84,8 +83,7 @@
       "label": "March 2027",
       "status": "upcoming",
       "items": [
-        { "type": "film", "title": "Film 9", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "expansion", "title": "Agentic Workflow Training", "description": "Teaching the team how to use autonomous AI workflows for their own work.", "milestone": false }
+        { "type": "film", "title": "Film 9", "description": "The next 30-second video in the monthly series.", "milestone": false }
       ]
     },
     {
@@ -93,7 +91,8 @@
       "label": "April 2027",
       "status": "upcoming",
       "items": [
-        { "type": "film", "title": "Film 10", "description": "The next 30-second video in the monthly series.", "milestone": false }
+        { "type": "film", "title": "Film 10", "description": "The next 30-second video in the monthly series.", "milestone": false },
+        { "type": "value-audit", "title": "Value Audit", "description": "Full year-in-review — auditing all projects, workflows, and delivered value. Research, reports, and feature upgrades. Free and unbillable.", "milestone": true, "icon": "graph", "free": true }
       ]
     },
     {
@@ -110,15 +109,17 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 12", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "value-audit", "title": "Year-End Review & Next-Year Plan", "description": "A full year-in-review showing value delivered, efficiency gained, and the plan for year two.", "milestone": true }
+        { "type": "partnership", "title": "Extend Partnership", "description": "Year-end contract renewal — planning valuable services for year two and updating the partnership agreement. Free and unbillable.", "milestone": true, "icon": "contract", "free": true }
       ]
     }
   ],
   "milestones": [
-    { "month": 2, "title": "AI Workflows & Agents", "description": "Teaching and implementing AI-powered workflows to automate routine tasks." },
-    { "month": 4, "title": "Value Audit & Improvement Plan", "description": "Full review of value delivered, with a plan to increase efficiency going forward." },
-    { "month": 6, "title": "Expanded Partnership", "description": "New service areas: integrations, website assets, presentations, and conference materials." },
-    { "month": 12, "title": "Year-End Review", "description": "A full year-in-review and the plan for year two." }
+    { "month": 2, "title": "AI Agents & Workflows", "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.", "icon": "worktree" },
+    { "month": 4, "title": "Value Audit", "description": "Full review of client projects and AI agent workflows — research, reports, upgrading, and refining features. Free and unbillable.", "icon": "graph", "free": true },
+    { "month": 6, "title": "Extend Partnership", "description": "Planning valuable services alongside main work and updating/renewing the contract. Free and unbillable.", "icon": "contract", "free": true },
+    { "month": 8, "title": "AI Agents & Workflows", "description": "Second round — deeper automations, advanced agent training, and expanded genAI integrations.", "icon": "worktree" },
+    { "month": 10, "title": "Value Audit", "description": "Full year-in-review — auditing all projects, workflows, and delivered value. Free and unbillable.", "icon": "graph", "free": true },
+    { "month": 12, "title": "Extend Partnership", "description": "Year-end contract renewal — planning year two services and updating the partnership agreement. Free and unbillable.", "icon": "contract", "free": true }
   ],
   "source": "Third i partnership plan — tailored to bkWatch based on Film 1 work history"
 }

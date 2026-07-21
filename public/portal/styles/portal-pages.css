@@ -243,3 +243,38 @@
 .rmilestone { display: flex; align-items: center; gap: 6px; font-size: var(--fs-caption); }
 .rmilestone-month { font-weight: 700; color: var(--accent); }
 .rmilestone-title { color: var(--text-secondary); }
+
+/* ── Service catalog (Value & Results) ─────────────────────────────────────── */
+.sc-section { margin-top: var(--space-6); }
+.sc-head { display: flex; align-items: flex-start; gap: var(--space-4); margin-bottom: var(--space-5); }
+.sc-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent) 10%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.sc-icon .icon { width: 22px; height: 22px; color: var(--accent); }
+.sc-head > div { flex: 1; }
+.sc-head .section-title { margin-bottom: 4px; }
+.sc-desc { font-size: var(--fs-small); color: var(--text-secondary); line-height: 1.5; }
+.sc-billing { font-size: var(--fs-caption); font-weight: 600; padding: 4px 10px; border-radius: var(--radius-pill); white-space: nowrap; flex-shrink: 0; }
+.sc-billing.billable { background: color-mix(in srgb, var(--green) 15%, transparent); color: var(--green); }
+.sc-billing.free { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
+.sc-billing.fallback { background: var(--surface-elevated); color: var(--text-tertiary); }
+
+.sc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-3); }
+.sc-grid-sm { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.sc-item { padding: var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); transition: border-color 0.2s var(--ease); }
+.sc-item:hover { border-color: color-mix(in srgb, var(--accent) 30%, var(--line-plain)); }
+.sc-item-title { font-weight: 600; font-size: var(--fs-small); margin-bottom: 4px; }
+.sc-item-desc { font-size: var(--fs-caption); color: var(--text-tertiary); line-height: 1.5; }
+
+.sc-subcat { margin-bottom: var(--space-5); }
+.sc-subcat-title { font-size: var(--fs-h4); font-family: var(--font-head); margin-bottom: var(--space-3); padding-bottom: 8px; border-bottom: 1px solid var(--line-plain); }
+
+.sc-lastresort { opacity: 0.85; border-top: 1px dashed var(--line-plain); padding-top: var(--space-6); margin-top: var(--space-8); }
+.sc-lastresort .sc-icon { background: color-mix(in srgb, var(--text-tertiary) 10%, transparent); }
+.sc-lastresort .sc-icon .icon { color: var(--text-tertiary); }
+.sc-item-lastresort { background: var(--surface-elevated); border-style: dashed; }
+
+/* ── Milestone callouts (AI Roadmap) ───────────────────────────────────────── */
+.milestone-callout { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); }
+.milestone-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent) 10%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.milestone-icon .icon { width: 18px; height: 18px; color: var(--accent); }
+.milestone-month { font-weight: 700; font-family: var(--font-mono); font-size: var(--fs-small); color: var(--accent); white-space: nowrap; }
+.milestone-free { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); margin-left: 6px; }
