@@ -9,6 +9,7 @@ const ROUTES = [
   { name: "idea", re: /^\/projects\/([^/]+)\/ideas\/([^/]+)\/?$/, keys: ["slug", "ideaSlug"] },
   { name: "project", re: /^\/projects\/([^/]+)\/?$/, keys: ["slug"] },
   { name: "library", re: /^\/library\/?$/, keys: [] },
+  { name: "libraryComms", re: /^\/library\/communication\/(comments|emails|meetings)\/?$/, keys: ["subpage"] },
   { name: "libraryRecord", re: /^\/library\/([^/]+)\/([^/]+)\/?$/, keys: ["category", "recordId"] },
   { name: "libraryCategory", re: /^\/library\/([^/]+)\/?$/, keys: ["category"] },
   { name: "aiRoadmap", re: /^\/ai-roadmap\/?$/, keys: [] },

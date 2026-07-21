@@ -5,7 +5,7 @@ import { statStrip, actionItem, projectCard, band, motif, sourceNote } from "../
 import { activityFeed, commentThread, addCommentButton } from "../components/feed.js";
 
 export function render(data, _params) {
-  const { home, portal, projects, live, invoicing } = data;
+  const { home, portal, projects, live, invoicing, communications, roadmap } = data;
   const rel = portal.relationship;
   const completed = (live.comments || []).filter((c) => c.status === "completed");
 
@@ -65,6 +65,10 @@ export function render(data, _params) {
       </div>
     </section>
 
+    ${communicationsPreview(communications)}
+
+    ${roadmapPreview(roadmap)}
+
     <section class="section">
       <div class="section-head"><h2 class="section-title">Recently completed</h2></div>
       ${completed.length
@@ -85,4 +89,69 @@ export function render(data, _params) {
   </div>`;
 
   return { crumb: portal.client.shortName, title: "Home", html };
+}
+
+/* Communications preview — shows recent emails + meetings on the home page,
+   separate from comments. Clicking any item navigates to the full page. */
+function communicationsPreview(communications) {
+  if (!communications) return "";
+  const emails = (communications.emails || []).slice(0, 3);
+  const meetings = (communications.meetings || []).slice(0, 3);
+  if (!emails.length && !meetings.length) return "";
+
+  const emailItems = emails.map((e) => `<a class="comm-prev-item" href="#/library/communication/emails">
+    ${icon("mail")}
+    <div class="comm-prev-body">
+      <div class="comm-prev-title">${esc(e.subject)}</div>
+      <div class="comm-prev-meta">${esc(e.from?.replace(/<.*>/, "").trim() || "")} · ${esc(e.dateLabel || "")}</div>
+    </div>
+  </a>`).join("");
+
+  const meetingItems = meetings.map((m) => `<a class="comm-prev-item" href="#/library/communication/meetings">
+    ${icon("users")}
+    <div class="comm-prev-body">
+      <div class="comm-prev-title">${esc(m.summary)}</div>
+      <div class="comm-prev-meta">${esc(m.startLabel || "")} ${m.upcoming ? "· Upcoming" : ""}</div>
+    </div>
+  </a>`).join("");
+
+  return `<section class="section">
+    <div class="section-head"><h2 class="section-title">Recent communications</h2>
+      <a class="btn btn-sm btn-ghost" href="#/library/communication">View all ${icon("arrowRight")}</a></div>
+    <div class="comm-prev-grid">
+      ${emails.length ? `<div class="comm-prev-col"><div class="comm-prev-col-head">${icon("mail")} Emails (${communications.emails.length})</div>${emailItems}</div>` : ""}
+      ${meetings.length ? `<div class="comm-prev-col"><div class="comm-prev-col-head">${icon("users")} Meetings (${communications.meetings.length})</div>${meetingItems}</div>` : ""}
+    </div>
+  </section>`;
+}
+
+/* Roadmap preview — condensed 12-month infographic on the home page, clickable
+   to the full AI Roadmap page. Shows the partnership plan at a glance. */
+function roadmapPreview(roadmap) {
+  if (!roadmap || !roadmap.months) return "";
+  const months = roadmap.months.slice(0, 6); // Show first 6 months as preview
+  const milestoneMonths = roadmap.months.filter((m) => m.items.some((i) => i.milestone)).map((m) => m.month);
+
+  const monthDots = months.map((m) => {
+    const hasMilestone = m.items.some((i) => i.milestone);
+    const statusClass = m.status === "done" ? "done" : m.status === "current" ? "current" : "upcoming";
+    return `<div class="rdot ${statusClass} ${hasMilestone ? "milestone" : ""}" title="${esc(m.label)}">
+      <span class="rdot-label">${esc(m.label.split(" ")[0])}</span>
+    </div>`;
+  }).join("");
+
+  const milestones = (roadmap.milestones || []).slice(0, 3).map((ms) => 
+    `<div class="rmilestone"><span class="rmilestone-month">M${ms.month}</span><span class="rmilestone-title">${esc(ms.title)}</span></div>`
+  ).join("");
+
+  return `<section class="section">
+    <div class="section-head"><h2 class="section-title">Partnership roadmap</h2>
+      <a class="btn btn-sm btn-ghost" href="#/ai-roadmap">Full roadmap ${icon("arrowRight")}</a></div>
+    <a class="card roadmap-prev-card" href="#/ai-roadmap">
+      ${motif("rings")}
+      <div class="roadmap-prev-lede">${esc(roadmap.cadence.deliverable)} per month · 12-month partnership plan</div>
+      <div class="roadmap-prev-timeline">${monthDots}<span class="rdot more"><span class="rdot-label">+6</span></span></div>
+      ${milestones ? `<div class="roadmap-prev-milestones">${milestones}</div>` : ""}
+    </a>
+  </section>`;
 }

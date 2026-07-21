@@ -56,12 +56,12 @@ export async function loadPortalData() {
   // Live: manifests are embedded in the authenticated HTML (client-confidential,
   // never served as public static files). Preview: fetched from the local content dir.
   const embedded = readJsonScript("portal-data");
-  let portal, home, projects, library, aiRoadmap, roadmap, invoicing, search;
+  let portal, home, projects, library, aiRoadmap, roadmap, invoicing, communications, search;
   if (embedded) {
-    ({ portal, home, projects, library, aiRoadmap, roadmap, invoicing, search } = embedded);
+    ({ portal, home, projects, library, aiRoadmap, roadmap, invoicing, communications, search } = embedded);
   } else {
     const b = cfg.contentBase;
-    [portal, home, projects, library, aiRoadmap, roadmap, invoicing, search] = await Promise.all([
+    [portal, home, projects, library, aiRoadmap, roadmap, invoicing, communications, search] = await Promise.all([
       getJSON(b + "portal.json"),
       getJSON(b + "home.json"),
       getJSON(b + "projects.json"),
@@ -69,6 +69,7 @@ export async function loadPortalData() {
       getJSON(b + "ai-roadmap.json"),
       getJSON(b + "roadmap.json"),
       getJSON(b + "invoicing.json"),
+      getJSON(b + "communications.json"),
       getJSON(b + "search-index.json")
     ]);
   }
@@ -84,5 +85,5 @@ export async function loadPortalData() {
     try { live = await getJSON(cfg.sampleLive); } catch { /* optional */ }
   }
 
-  return { cfg, portal, home, projects, library, aiRoadmap, roadmap, invoicing, search, live };
+  return { cfg, portal, home, projects, library, aiRoadmap, roadmap, invoicing, communications, search, live };
 }

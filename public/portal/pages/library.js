@@ -1,4 +1,6 @@
-/* Library (plan 07): client-facing knowledge database with real memory mapping. */
+/* Library (plan 07): client-facing knowledge database with real memory mapping.
+   Communication category now shows real emails + meetings pulled from the OS
+   snapshot, with Comments, Emails, and Meetings as separate sub-pages. */
 import { esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { statusLabel, chip, motif, sourceNote } from "../components/cards.js";
@@ -7,22 +9,32 @@ import { commentThread, addCommentButton } from "../components/feed.js";
 const CAT_ICON = { branding: "bookmark", products: "layers", features: "target", "integrations-partners": "users", "film-knowledge": "film", communication: "comment", "other-knowledge": "library" };
 
 export function render(data, params) {
-  const { library, portal, live } = data;
+  // Communication sub-page route (comments / emails / meetings)
+  if (params && params.subpage) return renderCommsSubPage(data, params);
   if (params && params.category) return renderCategory(data, params);
+
+  const { library, portal, live, communications } = data;
 
   const counts = {};
   for (const r of library.records) counts[r.category] = (counts[r.category] || 0) + 1;
+  // Add communication counts from real data
+  if (communications) {
+    counts.communication = (communications.emails?.length || 0) + (communications.meetings?.length || 0) + (live.comments?.length || 0);
+  }
 
   const formats = [...new Set(library.records.map((r) => r.format))];
 
-  const dir = library.categories.map((c) => `
-    <a class="card card-feature lib-cat card-link" href="#/library/${c.id}">
+  const dir = library.categories.map((c) => {
+    const count = counts[c.id] || 0;
+    const countLabel = c.id === "communication" ? `${count} items` : `${count} records`;
+    return `<a class="card card-feature lib-cat card-link" href="#/library/${c.id}">
       ${motif("grid")}
-      <div class="pc-meta">${icon(CAT_ICON[c.id] || "library")}<span class="lc-count">${counts[c.id] || 0} records</span></div>
+      <div class="pc-meta">${icon(CAT_ICON[c.id] || "library")}<span class="lc-count">${countLabel}</span></div>
       <h3 class="pc-title">${esc(c.title)}</h3>
       <p class="pc-value">${esc(c.description || "")}</p>
-      ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => chip(s.title)).join("")}</div>` : ""}
-    </a>`).join("");
+      ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => `<a class="chip" href="#/library/communication/${s.id}" onclick="event.stopPropagation()">${esc(s.title)}</a>`).join("")}</div>` : ""}
+    </a>`;
+  }).join("");
 
   const html = `<div class="page filter-page">
     <h1 class="page-title">Library</h1>
@@ -70,28 +82,77 @@ function recordRow(r) {
   </a>`;
 }
 
+/* Communication category overview — shows links to Comments, Emails, Meetings
+   sub-pages with counts and recent previews. */
 function renderCategory(data, params) {
-  const { library, portal, live } = data;
+  const { library, portal, live, communications } = data;
   const cat = library.categories.find((c) => c.id === params.category);
   if (!cat) return { crumb: "Library", title: "Not found", html: `<div class="page"><div class="empty-state">${icon("alert")}<p>Category not found.</p><a class="btn btn-outline" href="#/library">Back to Library</a></div></div>` };
-  const records = library.records.filter((r) => r.category === cat.id);
 
-  // Communication is a special, chronology-oriented category.
   const isComms = cat.id === "communication";
   let body;
+
   if (isComms) {
-    const commentCtx = { scope: "library", category: "communication" };
+    const emailCount = communications?.emails?.length || 0;
+    const meetingCount = communications?.meetings?.length || 0;
+    const commentCount = live?.comments?.length || 0;
+
+    // Preview: 2 most recent emails
+    const recentEmails = (communications?.emails || []).slice(0, 2);
+    const emailPreview = recentEmails.length ? recentEmails.map(emailPreviewRow).join("") : `<div class="empty-state compact">${icon("mail")}<p>No emails yet.</p></div>`;
+
+    // Preview: 2 most recent meetings
+    const recentMeetings = (communications?.meetings || []).slice(0, 2);
+    const meetingPreview = recentMeetings.length ? recentMeetings.map(meetingPreviewRow).join("") : `<div class="empty-state compact">${icon("users")}<p>No meetings yet.</p></div>`;
+
+    // Preview: 2 most recent comments
+    const recentComments = (live?.comments || []).slice(0, 2);
+    const commentPreview = recentComments.length ? recentComments.map((c) => `<div class="comm-preview-row"><span class="comm-rail"></span><div><div class="comm-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div><div class="comm-meta">${esc(c.author || "Client")} · ${esc(c.createdAt?.split("T")[0] || "")}</div></div></div>`).join("") : `<div class="empty-state compact">${icon("comment")}<p>No comments yet.</p></div>`;
+
     body = `
-      <div class="detail-block"><h2>Comments</h2>
-        ${commentThread(live.comments) || `<div class="empty-state">${icon("comment")}<p>Client-visible comments will appear here as a chronology.</p></div>`}
+      <div class="comms-overview">
+        <a class="card card-link comms-sub-card" href="#/library/communication/comments">
+          ${icon("comment")}
+          <div class="comms-sub-info">
+            <h3>Comments</h3>
+            <p class="muted">${commentCount} comment${commentCount !== 1 ? "s" : ""}</p>
+          </div>
+          ${icon("arrowRight")}
+        </a>
+        <a class="card card-link comms-sub-card" href="#/library/communication/emails">
+          ${icon("mail")}
+          <div class="comms-sub-info">
+            <h3>Emails</h3>
+            <p class="muted">${emailCount} email${emailCount !== 1 ? "s" : ""}</p>
+          </div>
+          ${icon("arrowRight")}
+        </a>
+        <a class="card card-link comms-sub-card" href="#/library/communication/meetings">
+          ${icon("users")}
+          <div class="comms-sub-info">
+            <h3>Meetings</h3>
+            <p class="muted">${meetingCount} meeting${meetingCount !== 1 ? "s" : ""}</p>
+          </div>
+          ${icon("arrowRight")}
+        </a>
       </div>
-      <div class="detail-block"><h2>Emails</h2>
-        <div class="empty-state">${icon("mail")}<p>No client-visible email summaries yet. Approved summaries (participants, date, decisions, actions) will appear here — raw email bodies require explicit approval.</p></div>
-      </div>
-      <div class="detail-block"><h2>Meetings</h2>
-        <div class="empty-state">${icon("users")}<p>No client-visible meeting summaries yet. Approved summaries (attendees, decisions, actions) will appear here; private notes stay internal.</p></div>
+
+      <div class="comms-previews">
+        <div class="detail-block">
+          <div class="section-head"><h2>Recent comments</h2><a class="btn btn-sm btn-ghost" href="#/library/communication/comments">View all ${icon("arrowRight")}</a></div>
+          ${commentPreview}
+        </div>
+        <div class="detail-block">
+          <div class="section-head"><h2>Recent emails</h2><a class="btn btn-sm btn-ghost" href="#/library/communication/emails">View all ${icon("arrowRight")}</a></div>
+          ${emailPreview}
+        </div>
+        <div class="detail-block">
+          <div class="section-head"><h2>Recent meetings</h2><a class="btn btn-sm btn-ghost" href="#/library/communication/meetings">View all ${icon("arrowRight")}</a></div>
+          ${meetingPreview}
+        </div>
       </div>`;
   } else {
+    const records = library.records.filter((r) => r.category === cat.id);
     body = `<div class="record-list">${records.length ? records.map((r) => recordRow(r)).join("") : `<div class="empty-state">${icon("library")}<p>No records in this category yet.</p></div>`}</div>`;
   }
 
@@ -99,9 +160,103 @@ function renderCategory(data, params) {
     <a class="btn btn-sm btn-ghost" href="#/library">${icon("chevronLeft")} Library</a>
     <h1 class="page-title" style="margin-top:12px">${esc(cat.title)}</h1>
     <p class="page-lede">${esc(cat.description || "")}</p>
-    ${cat.subcategories && cat.subcategories.length ? `<div class="lc-subs" style="margin-bottom:24px">${cat.subcategories.map((s) => chip(s.title)).join("")}</div>` : ""}
+    ${cat.subcategories && cat.subcategories.length ? `<div class="lc-subs" style="margin-bottom:24px">${cat.subcategories.map((s) => `<a class="chip" href="#/library/communication/${s.id}">${esc(s.title)}</a>`).join("")}</div>` : ""}
     <section class="section">${body}</section>
   </div>`;
 
   return { crumb: "Library", title: cat.title, html };
+}
+
+/* Communication sub-page: Comments, Emails, or Meetings full list. */
+function renderCommsSubPage(data, params) {
+  const { portal, live, communications } = data;
+  const sub = params.subpage;
+  const titles = { comments: "Comments", emails: "Emails", meetings: "Meetings" };
+  const title = titles[sub] || "Communication";
+
+  let body = "";
+
+  if (sub === "comments") {
+    body = commentThread(live?.comments || []) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
+  } else if (sub === "emails") {
+    const emails = communications?.emails || [];
+    body = emails.length ? `<div class="email-list">${emails.map(emailFullRow).join("")}</div>` : `<div class="empty-state">${icon("mail")}<p>No emails yet. Emails related to ${esc(portal.client.name)} will appear here, synced from Gmail.</p></div>`;
+  } else if (sub === "meetings") {
+    const meetings = communications?.meetings || [];
+    const upcoming = meetings.filter((m) => m.upcoming);
+    const past = meetings.filter((m) => !m.upcoming);
+    body = `
+      ${upcoming.length ? `<div class="detail-block"><h2>Upcoming</h2><div class="meeting-list">${upcoming.map(meetingFullRow).join("")}</div></div>` : ""}
+      ${past.length ? `<div class="detail-block"><h2>Past meetings</h2><div class="meeting-list">${past.map(meetingFullRow).join("")}</div></div>` : ""}
+      ${!meetings.length ? `<div class="empty-state">${icon("users")}<p>No meetings yet. Meetings related to ${esc(portal.client.name)} will appear here, synced from Google Calendar.</p></div>` : ""}`;
+  }
+
+  const html = `<div class="page">
+    <a class="btn btn-sm btn-ghost" href="#/library/communication">${icon("chevronLeft")} Communication</a>
+    <h1 class="page-title" style="margin-top:12px">${esc(title)}</h1>
+    <p class="page-lede">${sub === "emails" ? "Emails related to " + esc(portal.client.name) + ", synced from Gmail." : sub === "meetings" ? "Meetings related to " + esc(portal.client.name) + ", synced from Google Calendar." : "All comments left on projects, scenes, and library records."}</p>
+    <section class="section">${body}</section>
+    ${communications ? sourceNote(communications.source) : ""}
+  </div>`;
+
+  return { crumb: "Library · Communication", title, html };
+}
+
+/* Email rendering — preview (compact) and full (expandable). */
+function emailPreviewRow(e) {
+  return `<a class="comm-preview-row" href="#/library/communication/emails">
+    ${icon("mail")}
+    <div>
+      <div class="comm-title">${esc(e.subject)}</div>
+      <div class="comm-meta">${esc(e.from?.replace(/<.*>/, "").trim() || "")} · ${esc(e.dateLabel || "")}</div>
+    </div>
+  </a>`;
+}
+
+function emailFullRow(e) {
+  const fromName = e.from?.replace(/<.*>/, "").trim() || e.from || "";
+  const toShort = (e.to || "").split(",").map((s) => s.replace(/<.*>/, "").trim()).join(", ");
+  return `<details class="email-card">
+    <summary class="email-summary">
+      <div class="email-head">
+        <span class="email-from">${esc(fromName)}</span>
+        <span class="email-date">${esc(e.dateLabel || "")}</span>
+      </div>
+      <div class="email-subject">${esc(e.subject)}</div>
+      <div class="email-snippet">${esc(e.snippet)}</div>
+    </summary>
+    <div class="email-body">
+      <dl class="kv">
+        <dt>From</dt><dd>${esc(e.from || "")}</dd>
+        <dt>To</dt><dd>${esc(toShort)}</dd>
+        <dt>Date</dt><dd>${esc(e.date || "")}</dd>
+      </dl>
+      <div class="email-preview-text">${esc(e.preview)}</div>
+    </div>
+  </details>`;
+}
+
+/* Meeting rendering — preview (compact) and full. */
+function meetingPreviewRow(m) {
+  return `<a class="comm-preview-row" href="#/library/communication/meetings">
+    ${icon("users")}
+    <div>
+      <div class="comm-title">${esc(m.summary)}</div>
+      <div class="comm-meta">${esc(m.startLabel || "")} ${m.upcoming ? "· Upcoming" : ""}</div>
+    </div>
+  </a>`;
+}
+
+function meetingFullRow(m) {
+  const attendees = (m.attendees || "").split(",").map((s) => s.trim()).filter(Boolean);
+  return `<div class="meeting-card${m.upcoming ? " upcoming" : ""}">
+    <div class="meeting-head">
+      <div class="meeting-title">${esc(m.summary)}</div>
+      ${m.upcoming ? '<span class="chip tone-info">Upcoming</span>' : ""}
+    </div>
+    <div class="meeting-time">${esc(m.startLabel || "")} — ${esc(m.endLabel || "")}</div>
+    ${attendees.length ? `<div class="meeting-attendees">${icon("users")} ${attendees.map((a) => esc(a)).join(", ")}</div>` : ""}
+    ${m.location ? `<div class="meeting-location">${icon("external")} ${esc(m.location)}</div>` : ""}
+    ${m.htmlLink ? `<a class="btn btn-sm btn-outline" href="${esc(m.htmlLink)}" target="_blank" rel="noopener">${icon("external")} Google Calendar</a>` : ""}
+  </div>`;
 }

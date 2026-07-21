@@ -12,7 +12,7 @@ const NAV = [
   { name: "valueResults", label: "Value & Results", icon: "chart", path: "/value-results" }
 ];
 /* Route-name → active nav-name mapping (detail routes light up their parent). */
-const ACTIVE = { home: "home", projects: "projects", project: "projects", idea: "projects", library: "library", libraryCategory: "library", libraryRecord: "library", aiRoadmap: "aiRoadmap", valueResults: "valueResults" };
+const ACTIVE = { home: "home", projects: "projects", project: "projects", idea: "projects", library: "library", libraryCategory: "library", libraryComms: "library", libraryRecord: "library", aiRoadmap: "aiRoadmap", valueResults: "valueResults" };
 
 export function renderShell(root, data) {
   const { portal } = data;
