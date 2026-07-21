@@ -7,9 +7,9 @@ const SIDEBAR_KEY = "thirdi-portal-sidebar";
 const NAV = [
   { name: "home", label: "Home", icon: "home", path: "/" },
   { name: "projects", label: "Projects", icon: "projects", path: "/projects" },
-  { name: "library", label: "Library", icon: "library", path: "/library" },
+  { name: "valueResults", label: "Value & Results", icon: "chart", path: "/value-results" },
   { name: "aiRoadmap", label: "AI Roadmap", icon: "ai", path: "/ai-roadmap" },
-  { name: "valueResults", label: "Value & Results", icon: "chart", path: "/value-results" }
+  { name: "library", label: "Library", icon: "library", path: "/library" }
 ];
 /* Route-name → active nav-name mapping (detail routes light up their parent). */
 const ACTIVE = { home: "home", projects: "projects", project: "projects", idea: "projects", library: "library", libraryCategory: "library", libraryComms: "library", libraryRecord: "library", aiRoadmap: "aiRoadmap", valueResults: "valueResults" };

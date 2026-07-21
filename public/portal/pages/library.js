@@ -32,7 +32,7 @@ export function render(data, params) {
       <div class="pc-meta">${icon(CAT_ICON[c.id] || "library")}<span class="lc-count">${countLabel}</span></div>
       <h3 class="pc-title">${esc(c.title)}</h3>
       <p class="pc-value">${esc(c.description || "")}</p>
-      ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => `<a class="chip" href="#/library/communication/${s.id}" onclick="event.stopPropagation()">${esc(s.title)}</a>`).join("")}</div>` : ""}
+      ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => `<span class="chip" data-href="#/library/communication/${s.id}" onclick="location.hash='#/library/communication/${s.id}'">${esc(s.title)}</span>`).join("")}</div>` : ""}
     </a>`;
   }).join("");
 
@@ -142,7 +142,7 @@ function renderCategory(data, params) {
     <a class="btn btn-sm btn-ghost" href="#/library">${icon("chevronLeft")} Library</a>
     <h1 class="page-title" style="margin-top:12px">${esc(cat.title)}</h1>
     <p class="page-lede">${esc(cat.description || "")}</p>
-    ${cat.subcategories && cat.subcategories.length ? `<div class="lc-subs" style="margin-bottom:24px">${cat.subcategories.map((s) => `<a class="chip" href="#/library/communication/${s.id}">${esc(s.title)}</a>`).join("")}</div>` : ""}
+    ${cat.subcategories && cat.subcategories.length ? `<div class="lc-subs" style="margin-bottom:24px">${cat.subcategories.map((s) => `<span class="chip" onclick="location.hash='#/library/communication/${s.id}'">${esc(s.title)}</span>`).join("")}</div>` : ""}
     <section class="section">${body}</section>
   </div>`;
 

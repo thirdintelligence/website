@@ -18,7 +18,7 @@ const SCENE_SVG = {
     <rect x="10" y="12" width="100" height="56" rx="4" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
     <rect x="10" y="12" width="100" height="56" rx="4" fill="var(--accent)" opacity="0.06"/>
     <circle cx="60" cy="40" r="14" stroke="var(--accent)" stroke-width="1.5"/>
-    <path d="M55 35v10l8-5Z" fill="var(--accent)" opacity="0.7"/>
+    <path d="M56 35v10l8-5Z" fill="var(--accent)" opacity="0.7"/>
     <rect x="14" y="16" width="4" height="4" rx="1" fill="var(--accent)" opacity="0.4"/>
     <rect x="102" y="16" width="4" height="4" rx="1" fill="var(--accent)" opacity="0.4"/>
     <rect x="14" y="60" width="4" height="4" rx="1" fill="var(--accent)" opacity="0.4"/>
