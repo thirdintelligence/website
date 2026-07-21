@@ -101,7 +101,7 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
       const style = getComputedStyle(button.querySelector(".control-content"));
       return { offset: (box.top + box.height / 2) - (content.top + content.height / 2), transform: style.transform };
     });
-    if (Math.abs(createButtonAlignment.offset - 1) > .1 || !/matrix\(1, 0, 0, 1, 0, -1\)/.test(createButtonAlignment.transform)) errors.push(`[${name}/${theme}] Create Project button contents are not optically centered 1px upward`);
+    if (Math.abs(createButtonAlignment.offset - 2) > .1 || !/matrix\(1, 0, 0, 1, 0, -2\)/.test(createButtonAlignment.transform)) errors.push(`[${name}/${theme}] Create Project button contents are not optically centered 2px upward`);
   }
   if (name === "project-detail") {
     const hero = await page.locator(".project-hero").evaluate((el) => {
@@ -133,9 +133,9 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
       const cardStyle = getComputedStyle(card);
       const rowStyle = getComputedStyle(row);
       const expectedTop = cardBox.top + parseFloat(cardStyle.borderTopWidth) + parseFloat(cardStyle.paddingTop);
-      return { offset: Math.abs(rowBox.top - expectedTop), marginTop: parseFloat(rowStyle.marginTop) };
+      return { offset: rowBox.top - expectedTop, marginTop: parseFloat(rowStyle.marginTop), transform: rowStyle.transform };
     }));
-    if (!badgeRows.length || badgeRows.some((row) => row.offset > 1 || row.marginTop !== 0)) errors.push(`[${name}/${theme}] Creative Direction badge rows are still pushed down inside their cards`);
+    if (!badgeRows.length || badgeRows.some((row) => Math.abs(row.offset + 8) > .1 || row.marginTop !== 0 || !/matrix\(1, 0, 0, 1, 0, -8\)/.test(row.transform))) errors.push(`[${name}/${theme}] Creative Direction badge rows are not raised 8px into their title space`);
     const badgeAlignment = await page.locator(".creative-direction-badges > .status, .creative-direction-badges > .chip").evaluateAll((badges) => badges.map((badge) => {
       const box = badge.getBoundingClientRect();
       const content = badge.querySelector(".control-content").getBoundingClientRect();

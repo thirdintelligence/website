@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-06"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-07"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -177,7 +177,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.equal(projectDetail.match(/\$\{scope\}/g)?.length, 1);
   assert.match(projectsPage, /id="new-project-btn"[\s\S]*?<span class="control-content">/);
   assert.match(cardComponents, /opticalCenter \? `<span class="control-content">/);
-  assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; \}/);
+  assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; transform: translateY\(-8px\); \}/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \.status,[\s\S]*?\.creative-direction-badges \.chip \{[^}]*height: 24px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalComponentsCss, /\.in-production \{ --ip-composition-shift: 11\.2067%;[^}]*\}/);
   assert.match(portalComponentsCss, /\.in-production \.ip-figure \{[^}]*top: calc\(50% - var\(--ip-composition-shift\)\);[^}]*transform: translate\(-50%, -50%\);/);
@@ -185,6 +185,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.doesNotMatch(portalComponentsCss, /\.ip-next/);
   assert.match(portalPagesCss, /\.project-preview \.ip-badge \{ font-size: var\(--fs-small\); \}/);
   assert.match(portalPagesCss, /\.comparison-criteria \{ padding-block: var\(--space-2\); \}/);
+  assert.match(portalPagesCss, /#new-project-btn \.control-content \{ transform: translateY\(-2px\); \}/);
   assert.match(portalShellCss, /\.control-content \{[^}]*display: inline-flex;[^}]*align-items: center;[^}]*transform: translateY\(-1px\);/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
   assert.match(portalShellCss, /\.btn\.btn-primary:hover \{[\s\S]*?color: #ffffff;[\s\S]*?\}/);
