@@ -44,7 +44,9 @@ export function projectCard(p, hrefStr) {
   const count = p.comment?.count || 0;
   return `<a class="card card-feature project-card card-link" href="${hrefStr}">
     ${motif("grid")}
-    ${mediaFrame({ mediaState: p.thumbnail?.mediaState || "ungenerated", label: p.thumbnail?.label, draft: p.draft })}
+    <div class="pc-media">
+      ${mediaFrame({ mediaState: p.thumbnail?.mediaState || "ungenerated", label: p.thumbnail?.label, draft: p.draft })}
+    </div>
     <div class="pc-body">
       <div class="pc-meta">${statusLabel(p.statusLabel || p.status)}${chip(p.projectType)}</div>
       <h3 class="pc-title">${esc(p.title)}</h3>

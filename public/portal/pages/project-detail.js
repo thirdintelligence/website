@@ -41,7 +41,7 @@ export function render(data, params) {
 
   const html = `<div class="page">
     <section class="project-hero">
-      <div class="scene-media">${mediaFrame({ mediaState: p.thumbnail?.mediaState || "ungenerated", label: p.thumbnail?.label, next: p.nextMilestone })}</div>
+      <div class="project-preview scene-media">${mediaFrame({ mediaState: p.thumbnail?.mediaState || "ungenerated", label: p.thumbnail?.label, next: p.nextMilestone, ratio: "16 / 9" })}</div>
       <div class="hero-facts">
         <div class="hero-metaline">${statusLabel(p.statusLabel || p.status)}${chip(p.projectType)}${p.runtime ? chip(p.runtime, "clock") : ""}</div>
         <h1>${esc(p.title)}</h1>

@@ -1,7 +1,6 @@
 /* ============================================================================
    Motion. Purposeful only. Everything here is disabled under reduced motion.
    ============================================================================ */
-@keyframes ip-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
@@ -22,5 +21,4 @@
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
-  .in-production .ip-figure { animation: none; }
 }

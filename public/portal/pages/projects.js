@@ -32,14 +32,14 @@ export function render(data) {
 
     <section class="section" id="projects-active">
       <div class="section-head"><h2 class="section-title">Featured active work</h2></div>
-      <div class="grid grid-2">
+      <div class="project-list">
         ${active.length ? active.map((p) => `<div class="proj-item" data-status="${esc(p.status)}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("") : `<div class="empty-state">${icon("projects")}<p>No active projects. The next agreed relationship milestone will appear here.</p></div>`}
       </div>
     </section>
 
     ${history.length ? `<section class="section" id="projects-history">
       <div class="section-head"><h2 class="section-title">Completed &amp; archived</h2></div>
-      <div class="grid grid-2">${history.map((p) => `<div class="proj-item" data-status="${esc(p.status)}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("")}</div>
+      <div class="project-list">${history.map((p) => `<div class="proj-item" data-status="${esc(p.status)}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("")}</div>
     </section>` : ""}
   </div>`;
 

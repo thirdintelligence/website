@@ -115,12 +115,21 @@
 @media (max-width: 860px) { .cols-2 { grid-template-columns: 1fr; } }
 
 /* ── Project card ───────────────────────────────────────────────────────────── */
-.project-card { padding: 0; overflow: hidden; }
-.project-card .thumb { border-radius: 0; }
-.project-card .pc-body { padding: var(--space-4) var(--space-5) var(--space-5); position: relative; z-index: 1; }
+.project-list { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
+.project-card {
+  display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr);
+  min-height: 220px; padding: 0; overflow: hidden;
+}
+.project-card .pc-media { min-width: 0; height: 100%; }
+.project-card .thumb { width: 100%; height: 100%; min-height: 220px; aspect-ratio: auto !important; border-radius: 0; }
+.project-card .pc-body { display: flex; flex-direction: column; justify-content: center; padding: var(--space-5); position: relative; z-index: 1; }
 .pc-title { font-size: var(--fs-h3); margin-bottom: 4px; }
 .pc-value { color: var(--text-secondary); font-size: var(--fs-small); }
 .pc-meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: var(--space-3); }
+@media (max-width: 680px) {
+  .project-card { grid-template-columns: 1fr; }
+  .project-card .thumb { height: auto; min-height: 0; aspect-ratio: 16 / 9 !important; }
+}
 
 /* ── Media frame / thumbnails ───────────────────────────────────────────────── */
 .thumb { position: relative; aspect-ratio: 16 / 9; background: var(--ink-800); overflow: hidden; border-radius: var(--radius-sm); }
@@ -150,7 +159,6 @@
 .in-production .ip-figure {
   position: absolute; inset: 0; margin: auto; height: 82%; aspect-ratio: 1 / 1; max-width: 82%;
   object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
-  animation: ip-float 6s var(--ease) infinite;
 }
 .in-production .ip-cap { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; }
 .in-production .ip-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--surface) 78%, transparent); border: 1px solid var(--line-strong); font-size: var(--fs-caption); font-weight: 600; color: var(--accent-solid); }

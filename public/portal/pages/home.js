@@ -48,7 +48,7 @@ export function render(data, _params) {
     <section class="section">
       <div class="section-head"><h2 class="section-title">Active work</h2>
         <a class="btn btn-sm btn-ghost" href="#/projects">All projects ${icon("arrowRight")}</a></div>
-      <div class="grid grid-2">
+      <div class="project-list">
         ${projects.projects.filter((p) => p.status === "active").map((p) => projectCard(p, `#/projects/${p.slug}`)).join("")}
       </div>
     </section>

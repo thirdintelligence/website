@@ -19,9 +19,11 @@
 .relationship .r-meta .k { color: var(--text-tertiary); }
 
 /* ── Project detail hierarchy ───────────────────────────────────────────────── */
-.project-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-6); align-items: start; }
-@media (max-width: 860px) { .project-hero { grid-template-columns: 1fr; } }
-.project-hero .thumb { aspect-ratio: 16 / 10; }
+.project-hero { display: flex; flex-direction: column; gap: var(--space-5); }
+.project-preview { width: 100%; }
+.project-preview .thumb { width: 100%; aspect-ratio: 16 / 9; }
+.project-preview video,
+.project-preview .media-asset { display: block; width: 100%; height: 100%; object-fit: contain; }
 .hero-facts { display: flex; flex-direction: column; gap: var(--space-3); }
 .hero-facts h1 { font-size: var(--fs-h1); }
 .hero-metaline { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
@@ -65,8 +67,8 @@
 .record-list { display: flex; flex-direction: column; gap: var(--space-2); }
 .record-row { display: grid; grid-template-columns: 1fr auto; gap: var(--space-3); align-items: center; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); transition: border-color var(--dur) var(--ease); }
 .record-row:hover { border-color: var(--line-strong); text-decoration: none; }
-.record-row .rr-title { font-weight: 600; }
-.record-row .rr-summary { color: var(--text-secondary); font-size: var(--fs-small); margin-top: 2px; }
+.record-row .rr-title { display: block; font-weight: 600; }
+.record-row .rr-summary { display: block; color: var(--text-secondary); font-size: var(--fs-small); margin-top: var(--space-1); line-height: 1.5; }
 .record-facts { list-style: disc; padding-left: 20px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px; }
 
 /* ── AI Roadmap ─────────────────────────────────────────────────────────────── */
