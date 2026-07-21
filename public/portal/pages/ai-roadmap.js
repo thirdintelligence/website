@@ -114,10 +114,67 @@ function cap(c) {
   </article>`;
 }
 
+/* ─── Service catalog (moved from Value & Results) — clean divider lists ────── */
+
+function scBillingBadge(billing) {
+  if (billing === "free") return '<span class="sc-billing free">Free · unbillable</span>';
+  if (billing === "fallback") return '<span class="sc-billing fallback">Fallback option</span>';
+  if (billing === "billable") return '<span class="sc-billing billable">Billable</span>';
+  return "";
+}
+
+/* A single clean service row — title + description, no per-item box. */
+function scRow(item) {
+  return `<div class="sc-row">
+    <span class="sc-row-title">${esc(item.title)}</span>
+    <span class="sc-row-desc">${esc(item.description)}</span>
+  </div>`;
+}
+
+/* Category header — icon, title + billing badge, description. */
+function scHeader(catData) {
+  return `<div class="sc-head">
+    <span class="sc-icon">${icon(catData.icon || "dot")}</span>
+    <div class="sc-head-text">
+      <div class="sc-head-top"><h3 class="section-title">${esc(catData.title)}</h3>${scBillingBadge(catData.billing)}</div>
+      <p class="sc-desc">${esc(catData.description)}</p>
+    </div>
+  </div>`;
+}
+
+/* Category A/B: header + one clean divider list of services. */
+function scListSection(catData, catKey) {
+  return `<section class="section sc-section" data-cat="${catKey}">
+    ${scHeader(catData)}
+    <div class="sc-list">${(catData.items || []).map(scRow).join("")}</div>
+  </section>`;
+}
+
+/* Category C: header + labeled subcategory groups, each a clean divider list. */
+function scPartnershipSection(catData) {
+  const subcats = (catData.subcategories || []).map((sub) => `<div class="sc-subcat">
+    <h4 class="sc-subcat-title">${esc(sub.title)}</h4>
+    <div class="sc-list">${(sub.items || []).map(scRow).join("")}</div>
+  </div>`).join("");
+  return `<section class="section sc-section" data-cat="partnershipExtension">
+    ${scHeader(catData)}
+    ${subcats}
+  </section>`;
+}
+
+/* Category D: last-resort options, muted and set apart at the bottom. */
+function scLastResortSection(catData) {
+  return `<section class="section sc-section sc-lastresort" data-cat="lastResort">
+    ${scHeader(catData)}
+    <div class="sc-list">${(catData.items || []).map(scRow).join("")}</div>
+  </section>`;
+}
+
 export function render(data) {
-  const { aiRoadmap: ai, portal, roadmap } = data;
+  const { aiRoadmap: ai, portal, roadmap, invoicing } = data;
   const ex = ai.executiveSummary;
   const byCat = (id) => ai.capabilities.filter((c) => c.category === id);
+  const sc = invoicing && invoicing.serviceCatalog;
 
   // Value summary strip — reframes the page from technical assessment → value showcase.
   const activeCount = ai.capabilities.filter((c) => c.status === "active").length;
@@ -138,6 +195,17 @@ export function render(data) {
     </div>
   </section>` : "";
 
+  // Service catalog — expands on what each milestone type includes. Organized
+  // into billable services, free value audits, extension plans, and fallbacks.
+  const catalogHtml = sc ? `<section class="section sc-intro">
+    <div class="section-head"><h2 class="section-title">Services &amp; capabilities</h2></div>
+    <p class="reading">Everything Third i can do for ${esc(portal.client.name)} — organized by how it fits the partnership. Billable services you can add to daily work, free value audits Third i invests in the relationship, and extension plans for the road ahead.</p>
+  </section>
+  ${scListSection(sc.aiAgentsWorkflows, "aiAgentsWorkflows")}
+  ${scListSection(sc.valueAudit, "valueAudit")}
+  ${scPartnershipSection(sc.partnershipExtension)}
+  ${scLastResortSection(sc.lastResort)}` : "";
+
   const html = `<div class="page">
     <h1 class="page-title">AI Roadmap</h1>
     <p class="page-lede">Practical, research-backed AI guidance for ${esc(portal.client.name)}. Third i evaluates the workflow first and the tool second.</p>
@@ -152,6 +220,8 @@ export function render(data) {
     </section>
 
     ${roadmapHtml}
+
+    ${catalogHtml}
 
     <section class="section">
       <div class="ai-exec">

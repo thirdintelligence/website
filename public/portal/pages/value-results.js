@@ -1,15 +1,18 @@
 /* Value & Results — shows the Third i-client relationship compounding value
-   over time: momentum metrics, real financial data, efficiency trends, and a
-   structured service catalog organized into 4 categories:
-   A. AI Agents & Workflows (billable)
-   B. Value Audit (free/unbillable)
-   C. Partnership Extension Plans (free/unbillable)
-   D. If We Don't Renew (last-resort options) */
+   over time: momentum metrics, outcomes, capabilities delivered, real
+   financial data from the spreadsheet, efficiency trends, and the value
+   narrative (faster + smarter + expanding). */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { motif, sourceNote } from "../components/cards.js";
 
-/* ─── Momentum cards ─────────────────────────────────────────────────────── */
+const STATUS_TONE = { delivered: "ok", "in-progress": "info", planned: "neutral", available: "info" };
+const STATUS_TEXT = { delivered: "Delivered", "in-progress": "In progress", planned: "Planned", available: "Available" };
+const CAP_TYPE_ICON = { tool: "layers", knowledge: "graduationCap", service: "handshake" };
+const CAP_TYPE_LABEL = { tool: "Tool built", knowledge: "Knowledge transferred", service: "Service enabled" };
+
+/* Momentum card — shows the number with a short descriptor next to it,
+   plus the longer label below. */
 function metricCard(m, iconName) {
   const value = typeof m.count === "number" ? m.count : m.hours || "—";
   const descriptor = m.descriptor || "";
@@ -23,7 +26,47 @@ function metricCard(m, iconName) {
   </div>`;
 }
 
-/* ─── Efficiency trend bars ───────────────────────────────────────────────── */
+function outcomeRow(o) {
+  const tone = STATUS_TONE[o.status] || "neutral";
+  const text = STATUS_TEXT[o.status] || o.status;
+  return `<div class="outcome-row">
+    <span class="outcome-rail ${tone}"></span>
+    <div class="outcome-body">
+      <div class="outcome-title">${esc(o.title)}</div>
+      <div class="outcome-desc">${esc(o.description)}</div>
+    </div>
+    <span class="chip tone-${tone}">${esc(text)}</span>
+  </div>`;
+}
+
+function capabilityRow(c) {
+  const tone = STATUS_TONE[c.status] || "neutral";
+  const text = STATUS_TEXT[c.status] || c.status;
+  const iconName = CAP_TYPE_ICON[c.type] || "dot";
+  const typeLabel = CAP_TYPE_LABEL[c.type] || c.type;
+  return `<div class="cap-row">
+    <span class="cap-icon">${icon(iconName)}</span>
+    <div class="cap-body">
+      <div class="cap-title">${esc(c.title)}</div>
+      <div class="cap-desc">${esc(c.description)}</div>
+      <div class="cap-type">${esc(typeLabel)}</div>
+    </div>
+    <span class="chip tone-${tone}">${esc(text)}</span>
+  </div>`;
+}
+
+function completedRow(p) {
+  return `<tr>
+    <td><strong>${esc(p.title)}</strong></td>
+    <td>${esc(p.completedAt)}</td>
+    <td>${p.hours} hrs</td>
+    <td>${esc(p.amount)}</td>
+    <td>${esc(p.outcome)}</td>
+  </tr>`;
+}
+
+/* Efficiency trend bar — horizontal bar chart showing hours per project,
+   visually demonstrating how production gets faster over time. */
 function efficiencyBar(item, maxHours) {
   const pct = maxHours > 0 ? Math.round((item.hours / maxHours) * 100) : 0;
   return `<div class="eff-bar-row">
@@ -36,6 +79,8 @@ function efficiencyBar(item, maxHours) {
   </div>`;
 }
 
+/* Cross-client training section — shows how the workflow is trained on
+   prior client work, making bkWatch's films faster from the start. */
 function crossClientSection(data) {
   const cc = data.invoicing.crossClientTraining;
   if (!cc) return "";
@@ -55,6 +100,23 @@ function crossClientSection(data) {
   </section>`;
 }
 
+/* Efficiency trend section — for clients with completed projects (Shaw). */
+function efficiencySection(data) {
+  const trend = data.invoicing.efficiencyTrend;
+  if (!trend || !trend.length) return "";
+  const maxHours = Math.max(...trend.map((t) => t.hours));
+  return `<section class="section">
+    <div class="section-head"><h2 class="section-title">Efficiency trend</h2></div>
+    <div class="card" style="padding:var(--space-5) var(--space-6)">
+      <p class="reading" style="margin-bottom:var(--space-4)">Hours per project over time — showing how the workflow gets faster as it learns ${esc(data.portal.client.name)}'s brand and visual system.</p>
+      <div class="eff-trend">
+        ${trend.map((item) => efficiencyBar(item, maxHours)).join("")}
+      </div>
+    </div>
+  </section>`;
+}
+
+/* Financial summary section — real dollar amounts from the spreadsheet. */
 function financialSection(data) {
   const fin = data.invoicing.financialSummary;
   if (!fin) return "";
@@ -72,70 +134,14 @@ function financialSection(data) {
   </section>`;
 }
 
-/* ─── Service catalog sections ────────────────────────────────────────────── */
-
-/* Billing badge shown next to a category title. */
-function billingBadge(billing) {
-  if (billing === "free") return '<span class="sc-billing free">Free · unbillable</span>';
-  if (billing === "fallback") return '<span class="sc-billing fallback">Fallback option</span>';
-  if (billing === "billable") return '<span class="sc-billing billable">Billable</span>';
-  return "";
-}
-
-/* A single clean service row — title + description, no box. Rows are separated
-   by hairline dividers inside a multi-column list, avoiding "card soup". */
-function serviceRow(item) {
-  return `<div class="sc-row">
-    <span class="sc-row-title">${esc(item.title)}</span>
-    <span class="sc-row-desc">${esc(item.description)}</span>
-  </div>`;
-}
-
-/* Category header — icon, title + billing badge, description. */
-function catHeader(cat) {
-  return `<div class="sc-head">
-    <span class="sc-icon">${icon(cat.icon || "dot")}</span>
-    <div class="sc-head-text">
-      <div class="sc-head-top"><h2 class="section-title">${esc(cat.title)}</h2>${billingBadge(cat.billing)}</div>
-      <p class="sc-desc">${esc(cat.description)}</p>
-    </div>
-  </div>`;
-}
-
-/* Category A/B: header + one clean divider list of services. */
-function serviceListSection(cat, catKey) {
-  return `<section class="section sc-section" data-cat="${catKey}">
-    ${catHeader(cat)}
-    <div class="sc-list">${(cat.items || []).map(serviceRow).join("")}</div>
-  </section>`;
-}
-
-/* Category C: header + labeled subcategory groups, each a clean divider list. */
-function partnershipExtensionSection(cat) {
-  const subcats = (cat.subcategories || []).map((sub) => `<div class="sc-subcat">
-    <h3 class="sc-subcat-title">${esc(sub.title)}</h3>
-    <div class="sc-list">${(sub.items || []).map(serviceRow).join("")}</div>
-  </div>`).join("");
-  return `<section class="section sc-section" data-cat="partnershipExtension">
-    ${catHeader(cat)}
-    ${subcats}
-  </section>`;
-}
-
-/* Category D: last-resort options, muted and set apart at the bottom. */
-function lastResortSection(cat) {
-  return `<section class="section sc-section sc-lastresort" data-cat="lastResort">
-    ${catHeader(cat)}
-    <div class="sc-list">${(cat.items || []).map(serviceRow).join("")}</div>
-  </section>`;
-}
-
 export function render(data) {
-  const { invoicing, portal } = data;
+  const { invoicing, portal, aiRoadmap } = data;
   if (!invoicing) return { crumb: portal.client.shortName, title: "Value & Results", html: '<div class="page"><div class="empty-state">Value data not available.</div></div>' };
   const m = invoicing.metrics;
   const nar = invoicing.narrative;
-  const sc = invoicing.serviceCatalog;
+
+  // Pull active capabilities from AI Roadmap as a cross-reference.
+  const activeAiCaps = aiRoadmap ? aiRoadmap.capabilities.filter((c) => c.status === "active") : [];
 
   const html = `<div class="page">
     <section class="vr-hero">
@@ -157,7 +163,24 @@ export function render(data) {
 
     ${financialSection(data)}
 
+    ${efficiencySection(data)}
+
     ${crossClientSection(data)}
+
+    <section class="section">
+      <div class="section-head"><h2 class="section-title">Outcomes</h2></div>
+      <div class="outcome-list">
+        ${invoicing.outcomes.map(outcomeRow).join("")}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2 class="section-title">Capabilities delivered</h2></div>
+      <div class="cap-list">
+        ${invoicing.capabilities.map(capabilityRow).join("")}
+      </div>
+      ${activeAiCaps.length ? `<p class="muted" style="margin-top:12px">${icon("ai")} ${activeAiCaps.length} AI capabilities confirmed in your <a href="#/ai-roadmap">AI Roadmap</a>.</p>` : ""}
+    </section>
 
     <section class="section vr-narrative">
       <div class="section-head"><h2 class="section-title">How the relationship grows</h2></div>
@@ -180,15 +203,15 @@ export function render(data) {
       </div>
     </section>
 
-    ${sc ? `<section class="section sc-intro">
-      <div class="section-head"><h2 class="section-title">Services &amp; capabilities</h2></div>
-      <p class="reading">Everything Third i can do for ${esc(portal.client.name)} — organized by how it fits the partnership. Billable services you can add to daily work, free value audits Third i invests in the relationship, and extension plans for the road ahead.</p>
-    </section>` : ""}
-
-    ${sc ? serviceListSection(sc.aiAgentsWorkflows, "aiAgentsWorkflows") : ""}
-    ${sc ? serviceListSection(sc.valueAudit, "valueAudit") : ""}
-    ${sc ? partnershipExtensionSection(sc.partnershipExtension) : ""}
-    ${sc ? lastResortSection(sc.lastResort) : ""}
+    ${(invoicing.completedProjects && invoicing.completedProjects.length) ? `<section class="section">
+      <div class="section-head"><h2 class="section-title">Completed projects</h2></div>
+      <div style="overflow:auto"><table class="ptable">
+        <thead><tr><th>Project</th><th>Completed</th><th>Hours</th><th>Investment</th><th>Outcome</th></tr></thead>
+        <tbody>${invoicing.completedProjects.map(completedRow).join("")}</tbody>
+      </table></div>
+    </section>` : `<section class="section">
+      <div class="empty-state">${icon("film")}<p>No completed projects yet — Film 1 is in production. Completed projects with investment details will appear here.</p></div>
+    </section>`}
 
     ${sourceNote(invoicing.source)}
   </div>`;
