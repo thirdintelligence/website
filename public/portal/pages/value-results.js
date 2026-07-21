@@ -74,75 +74,59 @@ function financialSection(data) {
 
 /* ─── Service catalog sections ────────────────────────────────────────────── */
 
-/* Category A/B: flat list of services with a billing badge. */
-function serviceListSection(cat, catKey) {
-  const items = cat.items || [];
-  const billingBadge = cat.billing === "free"
-    ? '<span class="sc-billing free">Free — unbillable</span>'
-    : cat.billing === "fallback"
-    ? '<span class="sc-billing fallback">Fallback option</span>'
-    : '<span class="sc-billing billable">Billable</span>';
+/* Billing badge shown next to a category title. */
+function billingBadge(billing) {
+  if (billing === "free") return '<span class="sc-billing free">Free · unbillable</span>';
+  if (billing === "fallback") return '<span class="sc-billing fallback">Fallback option</span>';
+  if (billing === "billable") return '<span class="sc-billing billable">Billable</span>';
+  return "";
+}
 
-  const itemRows = items.map((item) => `<div class="sc-item">
-    <div class="sc-item-title">${esc(item.title)}</div>
-    <div class="sc-item-desc">${esc(item.description)}</div>
-  </div>`).join("");
+/* A single clean service row — title + description, no box. Rows are separated
+   by hairline dividers inside a multi-column list, avoiding "card soup". */
+function serviceRow(item) {
+  return `<div class="sc-row">
+    <span class="sc-row-title">${esc(item.title)}</span>
+    <span class="sc-row-desc">${esc(item.description)}</span>
+  </div>`;
+}
 
-  return `<section class="section sc-section" data-cat="${catKey}">
-    <div class="sc-head">
-      <span class="sc-icon">${icon(cat.icon || "dot")}</span>
-      <div>
-        <h2 class="section-title">${esc(cat.title)}</h2>
-        <p class="sc-desc">${esc(cat.description)}</p>
-      </div>
-      ${billingBadge}
+/* Category header — icon, title + billing badge, description. */
+function catHeader(cat) {
+  return `<div class="sc-head">
+    <span class="sc-icon">${icon(cat.icon || "dot")}</span>
+    <div class="sc-head-text">
+      <div class="sc-head-top"><h2 class="section-title">${esc(cat.title)}</h2>${billingBadge(cat.billing)}</div>
+      <p class="sc-desc">${esc(cat.description)}</p>
     </div>
-    <div class="sc-grid">${itemRows}</div>
+  </div>`;
+}
+
+/* Category A/B: header + one clean divider list of services. */
+function serviceListSection(cat, catKey) {
+  return `<section class="section sc-section" data-cat="${catKey}">
+    ${catHeader(cat)}
+    <div class="sc-list">${(cat.items || []).map(serviceRow).join("")}</div>
   </section>`;
 }
 
-/* Category C: subcategories with nested service lists. */
+/* Category C: header + labeled subcategory groups, each a clean divider list. */
 function partnershipExtensionSection(cat) {
-  const subcats = (cat.subcategories || []).map((sub) => {
-    const itemRows = (sub.items || []).map((item) => `<div class="sc-item">
-      <div class="sc-item-title">${esc(item.title)}</div>
-      <div class="sc-item-desc">${esc(item.description)}</div>
-    </div>`).join("");
-    return `<div class="sc-subcat">
-      <h3 class="sc-subcat-title">${esc(sub.title)}</h3>
-      <div class="sc-grid sc-grid-sm">${itemRows}</div>
-    </div>`;
-  }).join("");
-
+  const subcats = (cat.subcategories || []).map((sub) => `<div class="sc-subcat">
+    <h3 class="sc-subcat-title">${esc(sub.title)}</h3>
+    <div class="sc-list">${(sub.items || []).map(serviceRow).join("")}</div>
+  </div>`).join("");
   return `<section class="section sc-section" data-cat="partnershipExtension">
-    <div class="sc-head">
-      <span class="sc-icon">${icon(cat.icon || "contract")}</span>
-      <div>
-        <h2 class="section-title">${esc(cat.title)}</h2>
-        <p class="sc-desc">${esc(cat.description)}</p>
-      </div>
-      <span class="sc-billing free">Free — unbillable</span>
-    </div>
+    ${catHeader(cat)}
     ${subcats}
   </section>`;
 }
 
-/* Category D: last-resort options, styled differently (muted, at bottom). */
+/* Category D: last-resort options, muted and set apart at the bottom. */
 function lastResortSection(cat) {
-  const items = (cat.items || []).map((item) => `<div class="sc-item sc-item-lastresort">
-    <div class="sc-item-title">${esc(item.title)}</div>
-    <div class="sc-item-desc">${esc(item.description)}</div>
-  </div>`).join("");
-
   return `<section class="section sc-section sc-lastresort" data-cat="lastResort">
-    <div class="sc-head">
-      <span class="sc-icon">${icon(cat.icon || "alert")}</span>
-      <div>
-        <h2 class="section-title">${esc(cat.title)}</h2>
-        <p class="sc-desc">${esc(cat.description)}</p>
-      </div>
-    </div>
-    <div class="sc-grid sc-grid-sm">${items}</div>
+    ${catHeader(cat)}
+    <div class="sc-list">${(cat.items || []).map(serviceRow).join("")}</div>
   </section>`;
 }
 
@@ -195,6 +179,11 @@ export function render(data) {
         </div>
       </div>
     </section>
+
+    ${sc ? `<section class="section sc-intro">
+      <div class="section-head"><h2 class="section-title">Services &amp; capabilities</h2></div>
+      <p class="reading">Everything Third i can do for ${esc(portal.client.name)} — organized by how it fits the partnership. Billable services you can add to daily work, free value audits Third i invests in the relationship, and extension plans for the road ahead.</p>
+    </section>` : ""}
 
     ${sc ? serviceListSection(sc.aiAgentsWorkflows, "aiAgentsWorkflows") : ""}
     ${sc ? serviceListSection(sc.valueAudit, "valueAudit") : ""}

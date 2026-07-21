@@ -87,9 +87,12 @@ function milestoneCallout(ms) {
   const freeBadge = ms.free ? '<span class="milestone-free">Free</span>' : "";
   return `<div class="milestone-callout">
     <span class="milestone-icon">${icon(iconName)}</span>
-    <span class="milestone-month">Month ${ms.month}</span>
-    <div class="milestone-content">
-      <div class="milestone-title">${esc(ms.title)} ${freeBadge}</div>
+    <div class="milestone-body">
+      <div class="milestone-top">
+        <span class="milestone-title">${esc(ms.title)}</span>
+        ${freeBadge}
+      </div>
+      <span class="milestone-month">Month ${ms.month}</span>
       <div class="milestone-desc">${esc(ms.description)}</div>
     </div>
   </div>`;
