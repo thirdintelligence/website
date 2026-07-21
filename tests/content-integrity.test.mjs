@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-07"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-08"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -185,6 +185,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.doesNotMatch(portalComponentsCss, /\.ip-next/);
   assert.match(portalPagesCss, /\.project-preview \.ip-badge \{ font-size: var\(--fs-small\); \}/);
   assert.match(portalPagesCss, /\.comparison-criteria \{ padding-block: var\(--space-2\); \}/);
+  assert.match(portalPagesCss, /#new-project-btn \{ position: relative; top: -8px; \}/);
   assert.match(portalPagesCss, /#new-project-btn \.control-content \{ transform: translateY\(-2px\); \}/);
   assert.match(portalShellCss, /\.control-content \{[^}]*display: inline-flex;[^}]*align-items: center;[^}]*transform: translateY\(-1px\);/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);

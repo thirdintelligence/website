@@ -97,10 +97,19 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     if (viewport.width > 680 && layout.split(" ").length < 2) errors.push(`[${name}/${theme}] project card is not horizontal`);
     const createButtonAlignment = await page.locator("#new-project-btn").evaluate((button) => {
       const box = button.getBoundingClientRect();
+      const head = button.closest(".page-head-row").getBoundingClientRect();
       const content = button.querySelector(".control-content").getBoundingClientRect();
+      const buttonStyle = getComputedStyle(button);
       const style = getComputedStyle(button.querySelector(".control-content"));
-      return { offset: (box.top + box.height / 2) - (content.top + content.height / 2), transform: style.transform };
+      return {
+        offset: (box.top + box.height / 2) - (content.top + content.height / 2),
+        topOffset: box.top - head.top,
+        position: buttonStyle.position,
+        top: parseFloat(buttonStyle.top),
+        transform: style.transform
+      };
     });
+    if (createButtonAlignment.position !== "relative" || createButtonAlignment.top !== -8 || (viewport.width > 680 && Math.abs(createButtonAlignment.topOffset + 8) > .1)) errors.push(`[${name}/${theme}] Create Project button is not positioned 8px above the Projects header line`);
     if (Math.abs(createButtonAlignment.offset - 2) > .1 || !/matrix\(1, 0, 0, 1, 0, -2\)/.test(createButtonAlignment.transform)) errors.push(`[${name}/${theme}] Create Project button contents are not optically centered 2px upward`);
   }
   if (name === "project-detail") {

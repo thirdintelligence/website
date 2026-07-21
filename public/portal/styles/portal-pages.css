@@ -6,6 +6,7 @@
 .page-title { margin-bottom: var(--space-2); font-size: var(--fs-h1); }
 .page-lede { color: var(--text-secondary); max-width: var(--reading-max); margin-bottom: var(--space-7); }
 .page-head-row { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+#new-project-btn { position: relative; top: -8px; }
 #new-project-btn .control-content { transform: translateY(-2px); }
 
 /* ── Home · relationship header ─────────────────────────────────────────────── */
