@@ -33,6 +33,33 @@ await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch();
 const errors = [];
 
+async function visibleArtworkCenterOffset(frameLocator) {
+  return frameLocator.evaluate((frame) => {
+    const bounds = frame.getBoundingClientRect();
+    const image = frame.querySelector(".ip-figure");
+    const figure = image.getBoundingClientRect();
+    const canvas = document.createElement("canvas");
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+    let minY = canvas.height;
+    let maxY = -1;
+    for (let y = 0; y < canvas.height; y += 1) {
+      for (let x = 0; x < canvas.width; x += 1) {
+        if (pixels[(y * canvas.width + x) * 4 + 3] > 8) {
+          minY = Math.min(minY, y);
+          maxY = Math.max(maxY, y);
+        }
+      }
+    }
+    if (maxY < 0) return Number.POSITIVE_INFINITY;
+    const visibleCenter = figure.top + (((minY + maxY) / 2) / canvas.height) * figure.height;
+    return Math.abs((bounds.top + bounds.height / 2) - visibleCenter);
+  });
+}
+
 for (const [name, route, theme, viewport, tag] of SHOTS) {
   const ctx = await browser.newContext({ viewport, deviceScaleFactor: 2 });
   await ctx.addInitScript((t) => { try { localStorage.setItem("thirdi-portal-theme", t); } catch {} }, theme);
@@ -52,6 +79,8 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
   if (name === "projects") {
     const layout = await page.locator(".project-card").first().evaluate((card) => getComputedStyle(card).gridTemplateColumns);
     if (viewport.width > 680 && layout.split(" ").length < 2) errors.push(`[${name}/${theme}] project card is not horizontal`);
+    const centered = await visibleArtworkCenterOffset(page.locator(".project-card .in-production").first());
+    if (centered > 2) errors.push(`[${name}/${theme}] project thumbnail designer artwork is ${centered}px off vertical center`);
   }
   if (name === "project-detail") {
     const hero = await page.locator(".project-hero").evaluate((el) => {
@@ -61,38 +90,23 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     });
     if (hero.direction !== "column" || hero.previewWidth < hero.heroWidth - 2 || hero.factsTop < hero.previewBottom) errors.push(`[${name}/${theme}] project preview/info are not a full-width single column`);
     if (await page.locator(".project-preview .ip-next").count()) errors.push(`[${name}/${theme}] project hero still contains milestone text`);
-    const centered = await page.locator(".project-preview").evaluate((preview) => {
-      const frame = preview.getBoundingClientRect();
-      const image = preview.querySelector(".ip-figure");
-      const figure = image.getBoundingClientRect();
-      const canvas = document.createElement("canvas");
-      canvas.width = image.naturalWidth;
-      canvas.height = image.naturalHeight;
-      const context = canvas.getContext("2d", { willReadFrequently: true });
-      context.drawImage(image, 0, 0, canvas.width, canvas.height);
-      const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-      let minY = canvas.height;
-      let maxY = -1;
-      for (let y = 0; y < canvas.height; y += 1) {
-        for (let x = 0; x < canvas.width; x += 1) {
-          if (pixels[(y * canvas.width + x) * 4 + 3] > 8) {
-            minY = Math.min(minY, y);
-            maxY = Math.max(maxY, y);
-          }
-        }
-      }
-      if (maxY < 0) return Number.POSITIVE_INFINITY;
-      const visibleCenter = figure.top + (((minY + maxY) / 2) / canvas.height) * figure.height;
-      return Math.abs((frame.top + frame.height / 2) - visibleCenter);
-    });
-    if (centered > 2) errors.push(`[${name}/${theme}] designer artwork is ${centered}px off vertical center`);
-    const titleAlignment = await page.locator(".creative-direction-title").evaluateAll((titles) => titles.map((title) => {
-      const slot = title.getBoundingClientRect();
-      const content = title.querySelector("span").getBoundingClientRect();
-      const style = getComputedStyle(title);
-      return { offset: Math.abs((slot.top + slot.height / 2) - (content.top + content.height / 2)), display: style.display, alignItems: style.alignItems };
+    const centered = await visibleArtworkCenterOffset(page.locator(".project-preview .in-production"));
+    if (centered > 2) errors.push(`[${name}/${theme}] project hero designer artwork is ${centered}px off vertical center`);
+    const badgeAlignment = await page.locator(".creative-direction-badges > .status, .creative-direction-badges > .chip").evaluateAll((badges) => badges.map((badge) => {
+      const box = badge.getBoundingClientRect();
+      const textNode = [...badge.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+      const range = document.createRange();
+      range.selectNodeContents(textNode);
+      const text = range.getBoundingClientRect();
+      const style = getComputedStyle(badge);
+      return {
+        offset: Math.abs((box.top + box.height / 2) - (text.top + text.height / 2)),
+        height: box.height,
+        alignItems: style.alignItems,
+        justifyContent: style.justifyContent
+      };
     }));
-    if (!titleAlignment.length || titleAlignment.some((title) => title.offset > 1 || title.display !== "flex" || title.alignItems !== "center")) errors.push(`[${name}/${theme}] Creative Direction titles are not vertically centered in their title slots`);
+    if (!badgeAlignment.length || badgeAlignment.some((badge) => badge.offset > 1 || badge.height !== 24 || badge.alignItems !== "center" || badge.justifyContent !== "center")) errors.push(`[${name}/${theme}] Creative Direction status/number text is not vertically centered in its pill`);
     const comparisonHeaders = await page.locator(".ptable th").allTextContents();
     const comparisonCellCounts = await page.locator(".ptable tbody tr").evaluateAll((rows) => rows.map((row) => row.querySelectorAll("td").length));
     if (comparisonHeaders.some((header) => /recommendation/i.test(header)) || comparisonHeaders.length !== 4 || comparisonCellCounts.some((count) => count !== 4)) errors.push(`[${name}/${theme}] Compare Directions still contains a recommendation field`);

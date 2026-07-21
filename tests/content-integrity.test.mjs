@@ -23,6 +23,7 @@ test("Film 1 current state is internally consistent", () => {
   assert.equal(manifest.film.ideas.reduce((sum, idea) => sum + idea.scenes.length, 0), 30);
   assert.equal(manifest.film.ideas[0].scenes.length, 6);
   assert.equal(manifest.film.ideas.slice(1).every((idea) => idea.scenes.length === 3), true);
+  assert.equal(manifest.film.ideas.slice(1).every((idea) => idea.runtime === "15 seconds"), true);
   assert.equal(manifest.film.ideas.every((idea) => idea.scenes.map((scene) => scene.script).join(" ") === manifest.film.script), true);
   assert.equal(manifest.film.approvedMedia, 0);
   assert.equal(manifest.film.ideas[0].recommendation, "Selected production candidate");
@@ -85,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-02"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-03"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -154,13 +155,16 @@ test("project hero and primary button presentation contracts are enforced", asyn
   const portalShellCss = await readFile(new URL("../public/portal/styles/portal-shell.css", import.meta.url), "utf8");
 
   assert.doesNotMatch(projectDetail, /next:\s*p\.nextMilestone/);
-  assert.match(projectDetail, /creative-direction-title/);
+  assert.doesNotMatch(projectDetail, /creative-direction-title/);
   assert.match(projectDetail, /comparisonCriteria\.filter\(\(criterion\) => !\/recommendation\/i\.test\(criterion\)\)/);
   assert.doesNotMatch(projectDetail, /<th>Recommendation<\/th>/);
   assert.doesNotMatch(projectDetail, /esc\(i\.recommendation/);
-  assert.match(portalComponentsCss, /\.creative-direction-title \{[^}]*min-height: 2\.5em;[^}]*display: flex;[^}]*align-items: center;/);
+  assert.match(projectDetail, /pc-meta creative-direction-badges/);
+  assert.match(portalComponentsCss, /\.creative-direction-badges \.status,[\s\S]*?\.creative-direction-badges \.chip \{[^}]*height: 24px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalPagesCss, /\.project-preview \.ip-next \{ display: none; \}/);
-  assert.match(portalPagesCss, /\.project-preview \.ip-figure \{[^}]*left: 50%;[^}]*top: 50%;[^}]*translate\(-50%, -63\.6667%\)/);
+  assert.match(portalPagesCss, /\.project-card \.in-production,[\s\S]*?\.project-preview \.in-production \{ --ip-composition-shift: 11\.2067%; \}/);
+  assert.match(portalPagesCss, /\.project-card \.ip-figure,[\s\S]*?top: calc\(50% - var\(--ip-composition-shift\)\);[\s\S]*?translate\(-50%, -50%\)/);
+  assert.match(portalPagesCss, /\.project-card \.ip-cap,[\s\S]*?bottom: calc\(12px \+ var\(--ip-composition-shift\)\)/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
   assert.match(portalShellCss, /\.btn\.btn-primary:hover \{[\s\S]*?color: #ffffff;[\s\S]*?\}/);
 });

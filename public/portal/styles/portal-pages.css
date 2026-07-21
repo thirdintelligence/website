@@ -22,7 +22,15 @@
 .project-hero { display: flex; flex-direction: column; gap: var(--space-5); }
 .project-preview { width: 100%; }
 .project-preview .thumb { width: 100%; aspect-ratio: 16 / 9; }
-.project-preview .ip-figure { inset: auto; left: 50%; top: 50%; margin: 0; transform: translate(-50%, -63.6667%); }
+.project-card .in-production,
+.project-preview .in-production { --ip-composition-shift: 11.2067%; }
+.project-card .ip-figure,
+.project-preview .ip-figure {
+  inset: auto; left: 50%; top: calc(50% - var(--ip-composition-shift));
+  margin: 0; transform: translate(-50%, -50%);
+}
+.project-card .ip-cap,
+.project-preview .ip-cap { bottom: calc(12px + var(--ip-composition-shift)); }
 .project-preview .ip-next { display: none; }
 .project-preview video,
 .project-preview .media-asset { display: block; width: 100%; height: 100%; object-fit: contain; }
