@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-13"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-14"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -210,7 +210,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(cardComponents, /cardAction\("Open project"\)/);
   assert.match(projectDetail, /cardAction\("Open direction"\)/);
   assert.match(projectDetail, /project-value-strip/);
-  assert.match(projectDetail, /label: "hours invested"/);
+  assert.match(projectDetail, /label: "hours"/);
   assert.match(projectDetail, /label: "weeks active"/);
   assert.match(projectDetail, /label: "deliverables ready"/);
   assert.match(projectDetail, /label: "Final Demo scenes"/);
@@ -226,4 +226,31 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(portalComponentsCss, /\.card-action \{[\s\S]*?background: var\(--accent-gradient\); color: #000;/);
   assert.match(portalComponentsCss, /\.card-link:hover \.card-action \{ background: var\(--ink-900\); color: #fff; \}/);
   assert.match(portalPagesCss, /\.project-value-strip \{[^}]*grid-template-columns: repeat\(4,/);
+});
+
+test("Value & Results gates efficiency evidence and preserves tenant privacy", async () => {
+  const valuePage = await readFile(new URL("../public/portal/pages/value-results.js", import.meta.url), "utf8");
+  const homePage = await readFile(new URL("../public/portal/pages/home.js", import.meta.url), "utf8");
+  const projectDetail = await readFile(new URL("../public/portal/pages/project-detail.js", import.meta.url), "utf8");
+  const portalPagesCss = await readFile(new URL("../public/portal/styles/portal-pages.css", import.meta.url), "utf8");
+  const metricsScript = await readFile(new URL("../scripts/portal/extract-metrics.mjs", import.meta.url), "utf8");
+
+  assert.match(valuePage, /completed >= threshold && projects\.length >= threshold/);
+  assert.match(valuePage, /class="efficiency-readiness"/);
+  assert.match(valuePage, /class="efficiency-chart"/);
+  assert.match(valuePage, /Only verified actual efficiency is labeled/);
+  assert.match(valuePage, /financial-metric-grid/);
+  assert.match(valuePage, /partnership \/ R&D hours/);
+  assert.match(valuePage, /future-value-item/);
+  assert.match(valuePage, /What stays private/);
+  assert.doesNotMatch(valuePage, /crossClientSection|crossClientTraining|614 hours|Shaw Conference|Amplify/);
+  assert.match(metricsScript, /actualHoursPerMinute: 150/);
+  assert.match(metricsScript, /actualHoursPerMinute: 120/);
+  assert.match(metricsScript, /completedProjectCount: 0/);
+  assert.match(portalPagesCss, /\.vr-hero \{[^}]*grid-template-columns:/);
+  assert.match(portalPagesCss, /\.financial-metric-grid \{[^}]*repeat\(3,/);
+  assert.match(portalPagesCss, /\.privacy-columns \{[^}]*grid-template-columns: 1fr 1fr/);
+  assert.match(homePage, /ai-value-label">hours<\/span>/);
+  assert.match(homePage, /ai-value-label">capabilities<\/span>/);
+  assert.match(projectDetail, /label: "hours"/);
 });

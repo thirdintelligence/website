@@ -10,18 +10,18 @@
       "label": "Film 1 — Final Demo showing bankruptcy automation inside Spectrum"
     },
     "deliverablesCompleted": {
-      "count": 0,
-      "descriptor": "delivered",
-      "label": "Film 1 in production — first deliverable coming soon"
+      "count": 5,
+      "descriptor": "deliverables",
+      "label": "5 of 10 Film 1 deliverables are ready"
     },
     "hoursInvested": {
       "hours": 20,
-      "descriptor": "hours invested",
-      "label": "20 hours invested in Film 1 — story, script, storyboard, and instructions"
+      "descriptor": "hours",
+      "label": "20 hours on Film 1 — story, script, storyboard, and instructions"
     },
     "capabilitiesDelivered": {
       "count": 4,
-      "descriptor": "capabilities delivered",
+      "descriptor": "capabilities",
       "label": "Client portal, AI film production, AI roadmap, and brand knowledge library"
     }
   },
@@ -96,58 +96,94 @@
     }
   ],
   "narrative": {
-    "summary": "Third i started with one film project for bkWatch and has already delivered a client portal, an AI roadmap, and a brand knowledge library alongside the film. The AI film workflow is trained on 614 hours of prior client work — so bkWatch's films benefit from the start from a mature, battle-tested production pipeline.",
-    "faster": "bkWatch's Film 1 benefits from 614 hours of accumulated learning on prior client films. The workflow already knows how to storyboard, generate stills, produce video, and edit efficiently — techniques that took 250 hours on the first film ever produced now take a fraction of the time. Each bkWatch film will get even faster as the workflow learns bkWatch's specific brand and product details.",
-    "smarter": "The AI film workflow is trained on multiple completed films — conference videos, product demos, and brand stories. That means bkWatch's films start from a higher baseline: the AI already understands visual storytelling, brand consistency, and audience engagement. The brand knowledge library ensures every film is increasingly tailored to bkWatch's specific positioning and product details.",
-    "expanding": "What started as one film is growing into a full partnership: monthly videos, AI workflow training, brand assets, and on-call creative support. By month six, Third i becomes an expanded partner — not just a film producer, but a creative and AI collaborator across the business."
+    "summary": "Third i is building Film 1 alongside a private client portal, AI roadmap, and brand knowledge library. The production system carries forward reusable methods and quality checks from prior work while every client's files, prompts, knowledge, and generated assets remain isolated.",
+    "faster": "Each completed bkWatch film will establish a verified baseline for total hours, weeks to completion, and hours per finished minute. After two completed projects, this page will compare expected and actual efficiency and show how both improve over time.",
+    "smarter": "Reusable production methods and quality-control patterns improve with completed work, but no other client's source files, prompts, private knowledge, credentials, or generated assets enter bkWatch's workspace. bkWatch work is guided by bkWatch's approved materials and feedback.",
+    "expanding": "Every future project adds a clearer record of delivery speed, approved quality, deliverable volume, financial context, and reusable capabilities. The placeholders below become verified metrics as work is completed."
   },
   "completedProjects": [],
   "efficiencyTrend": [],
-  "crossClientTraining": {
-    "hoursLearnedFrom": 614,
-    "filmsLearnedFrom": 4,
-    "description": "The AI film workflow is trained on 614 hours and 4 completed films from prior client work. bkWatch's films start from this accumulated knowledge — not from zero.",
-    "trend": [
-      {
-        "project": "First film ever (Shaw Conference)",
-        "hours": 250,
-        "note": "Full pipeline built from scratch"
-      },
-      {
-        "project": "Second film (Shaw Amplify V1)",
-        "hours": 119,
-        "note": "52% faster — workflow learned the visual system"
-      },
-      {
-        "project": "Third film (Shaw Amplify V2)",
-        "hours": 118,
-        "note": "Refined and improved, same efficiency"
-      },
-      {
-        "project": "Fourth film (Shaw AI Advisor)",
-        "hours": 39,
-        "note": "84% faster than Film 1 — deeply trained on brand"
-      },
-      {
-        "project": "Fifth film (Shaw Insight Demo)",
-        "hours": 6,
-        "note": "97% faster — workflow fully trained, rapid production"
-      }
+  "efficiencyModel": {
+    "minCompletedProjects": 2,
+    "completedProjectCount": 0,
+    "unit": "hours per finished minute",
+    "futureLabel": "Future bkWatch films",
+    "projects": []
+  },
+  "learningPrivacy": {
+    "title": "Built on prior work. Isolated by client.",
+    "description": "Third i improves reusable production methods through completed work without pooling client workspaces. General craft and quality-control improvements carry forward; client-specific material never crosses into another client's portal or production package.",
+    "carriesForward": [
+      "Reusable production methods and tooling",
+      "General film craft and quality-control patterns",
+      "Workflow improvements that reduce avoidable setup and rework"
+    ],
+    "staysPrivate": [
+      "Client source files and generated assets",
+      "Prompts, credentials, and private brand knowledge",
+      "Client-specific feedback, strategy, and project records"
     ]
   },
+  "futureValueSections": [
+    {
+      "title": "Delivery speed",
+      "icon": "clock",
+      "statusLabel": "Ready to track",
+      "description": "Shows whether production becomes faster across completed projects.",
+      "metrics": ["Total hours", "Weeks to completion", "Hours per finished minute"]
+    },
+    {
+      "title": "Deliverable quality",
+      "icon": "checkCircle",
+      "statusLabel": "Ready to track",
+      "description": "Uses approval evidence instead of an invented quality score.",
+      "metrics": ["Approved deliverables", "Review rounds", "Rework hours"]
+    },
+    {
+      "title": "Output volume",
+      "icon": "layers",
+      "statusLabel": "Ready to track",
+      "description": "Records how much finished, client-approved work each project produces.",
+      "metrics": ["Deliverables", "Finished minutes", "Approved versions"]
+    },
+    {
+      "title": "Financial return",
+      "icon": "chart",
+      "statusLabel": "Ready to track",
+      "description": "Adds comparable financial context after project scope and billing are confirmed.",
+      "metrics": ["Cost per deliverable", "Effective rate", "Value over baseline"]
+    },
+    {
+      "title": "Compounding capability",
+      "icon": "sparkles",
+      "statusLabel": "Ready to track",
+      "description": "Shows the reusable systems and client-specific capabilities added by each project.",
+      "metrics": ["Capabilities added", "Reusable components", "Next-project time saved"]
+    },
+    {
+      "title": "Project confidence",
+      "icon": "target",
+      "statusLabel": "Ready to track",
+      "description": "Compares plans with completed results without exposing another client's records.",
+      "metrics": ["Expected vs. actual", "Milestone accuracy", "Decision turnaround"]
+    }
+  ],
   "financialSummary": {
     "totalBilled": 0,
     "totalPaid": 0,
     "outstanding": 0,
     "totalHours": 20,
     "billableHours": 0,
+    "partnershipHours": 20,
+    "activeProjects": 1,
+    "completedProjects": 0,
     "effectiveRate": 0,
     "formattedBilled": "$0",
     "formattedPaid": "$0",
     "formattedOutstanding": "$0",
-    "note": "bkWatch is in the pipeline phase — no invoices yet. 20 hours invested in Film 1 production."
+    "note": "bkWatch is in the pipeline phase — no invoices yet. 20 hours are recorded on Film 1 production."
   },
-  "source": "Hours from Third i time tracking (20 hrs logged manually); cross-client efficiency data from Google Sheets via extract-metrics.mjs",
+  "source": "Hours from Third i time tracking (20 hrs recorded manually); project efficiency activates only from tenant-owned completed work",
   "serviceCatalog": {
     "aiAgentsWorkflows": {
       "title": "AI Agents & Workflows",

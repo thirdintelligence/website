@@ -120,7 +120,7 @@ function renderProjectValue(p, invoicing, asOf) {
   const ready = deliverables.filter((d) => /done|complete|ready|approved/i.test(d.state)).length;
   const selectedIdea = p.film?.ideas?.find((idea) => idea.recommended) || p.film?.ideas?.[0];
   const metrics = [
-    hours != null ? { value: hours, label: "hours invested" } : null,
+    hours != null ? { value: hours, label: "hours" } : null,
     weeks != null ? { value: weeks, label: "weeks active" } : null,
     deliverables.length ? { value: `${ready}/${deliverables.length}`, label: "deliverables ready" } : null,
     selectedIdea?.sceneCount ? { value: selectedIdea.sceneCount, label: "Final Demo scenes" } : null

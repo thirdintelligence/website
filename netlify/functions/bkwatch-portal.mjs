@@ -14,7 +14,7 @@ const TENANT = "bkwatch";
 const COOKIE_NAME = "thirdi_bkwatch_session";
 const CSRF_COOKIE_NAME = "thirdi_bkwatch_csrf";
 const SESSION_SECONDS = 60 * 60 * 24 * 30;
-const ASSET_RELEASE = "20260721-13";
+const ASSET_RELEASE = "20260721-14";
 const manifestDir = fileURLToPath(new URL("../../content/clients/bkwatch/", import.meta.url));
 // v2 tenant manifests → the keys the frontend expects (see core/data.js).
 const MANIFEST_FILES = { portal: "portal.json", home: "home.json", projects: "projects.json", library: "library.json", aiRoadmap: "ai-roadmap.json", roadmap: "roadmap.json", invoicing: "invoicing.json", communications: "communications.json", search: "search-index.json" };

@@ -71,6 +71,18 @@ test("project blockers are comment records and effort/value metrics are confirme
   assert.equal(home.stats.find((stat) => stat.label === "Open blocker comments").value, 2);
 });
 
+test("Value & Results uses privacy-safe tenant evidence and future metric placeholders", async () => {
+  const invoicing = await read("invoicing.json");
+  assert.equal(invoicing.efficiencyModel.minCompletedProjects, 2);
+  assert.equal(invoicing.efficiencyModel.completedProjectCount, 0);
+  assert.deepEqual(invoicing.efficiencyModel.projects, []);
+  assert.equal(invoicing.futureValueSections.length, 6);
+  assert.equal(invoicing.financialSummary.partnershipHours, 20);
+  assert.equal(invoicing.financialSummary.activeProjects, 1);
+  assert.equal(invoicing.financialSummary.completedProjects, 0);
+  assert.doesNotMatch(JSON.stringify(invoicing), /Shaw Systems|Amplify|614 hours|250 hours/i);
+});
+
 test("only the finalized idea uses the in-production placeholder", async () => {
   const projects = await read("projects.json");
   const film = projects.projects.find((p) => p.type === "film");

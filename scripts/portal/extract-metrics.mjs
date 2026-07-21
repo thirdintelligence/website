@@ -71,6 +71,15 @@ function fmtMoney(n) {
   return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 }
 
+const FUTURE_VALUE_SECTIONS = [
+  { title: "Delivery speed", icon: "clock", statusLabel: "Ready to track", description: "Shows whether production becomes faster across completed projects.", metrics: ["Total hours", "Weeks to completion", "Hours per finished minute"] },
+  { title: "Deliverable quality", icon: "checkCircle", statusLabel: "Ready to track", description: "Uses approval evidence instead of an invented quality score.", metrics: ["Approved deliverables", "Review rounds", "Rework hours"] },
+  { title: "Output volume", icon: "layers", statusLabel: "Ready to track", description: "Records how much finished, client-approved work each project produces.", metrics: ["Deliverables", "Finished minutes", "Approved versions"] },
+  { title: "Financial return", icon: "chart", statusLabel: "Ready to track", description: "Adds comparable financial context after project scope and billing are confirmed.", metrics: ["Cost per deliverable", "Effective rate", "Value over baseline"] },
+  { title: "Compounding capability", icon: "sparkles", statusLabel: "Ready to track", description: "Shows the reusable systems and client-specific capabilities added by each project.", metrics: ["Capabilities added", "Reusable components", "Next-project time saved"] },
+  { title: "Project confidence", icon: "target", statusLabel: "Ready to track", description: "Compares plans with completed results without exposing another client's records.", metrics: ["Expected vs. actual", "Milestone accuracy", "Decision turnaround"] },
+];
+
 /* Calculate efficiency trend from tracking rows — shows how hours per
    deliverable decrease over time as the workflow learns. */
 function calcEfficiencyTrend(trackingRows, clientMatch) {
@@ -117,7 +126,6 @@ async function main() {
 
   // ── Shaw Systems ──────────────────────────────────────────────────────────
   const shawProjects = projectBreakdown.filter((p) => p.client === "Shaw Systems");
-  const shawEfficiency = calcEfficiencyTrend(trackingRows, "Shaw Systems");
   const shawCompleted = shawProjects.filter((p) => p.status === "Delivered" || p.status === "Complete");
   const shawInProgress = shawProjects.filter((p) => p.status === "In Production");
 
@@ -128,8 +136,8 @@ async function main() {
     asOf,
     metrics: {
       projectsActive: { count: shawInProgress.length, descriptor: "active projects", label: `${shawInProgress.length} films in production — Amplify V2, AI Advisor Demo, and Insight Demo` },
-      deliverablesCompleted: { count: shawCompleted.length, descriptor: "delivered", label: `${shawCompleted.length} projects delivered — conference video, logo loops, Amplify V1, and training` },
-      hoursInvested: { hours: 614, descriptor: "hours invested", label: "614 total hours across all Shaw projects — 324 billable, 290 goodwill/R&D" },
+      deliverablesCompleted: { count: shawCompleted.length, descriptor: "deliverables", label: `${shawCompleted.length} completed Shaw deliverables` },
+      hoursInvested: { hours: 614, descriptor: "hours", label: "614 total hours across Shaw projects — 324 billable and 290 partnership/R&D" },
       capabilitiesDelivered: { count: 5, descriptor: "capabilities", label: "Films, training, agent architecture, loop videos, and conference AV" },
     },
     outcomes: [
@@ -149,25 +157,45 @@ async function main() {
       { title: "Loop Video Assets", type: "tool", description: "Reusable logo sequence loop videos for conferences and digital displays.", status: "delivered" },
     ],
     narrative: {
-      summary: "Third i has delivered 4 completed projects for Shaw Systems and has 3 more in production. 614 hours invested, $21,870 billed, $17,910 paid. The workflow has learned Shaw's brand, audience, and product details — each new film builds on the last, getting faster and more tailored.",
-      faster: "Film 1 took 250 hours. Film 2 V1 took 119 hours — less than half. Film 3 is at 39 hours and Film 4 at 6 hours. The workflow learns Shaw's visual system, brand guidelines, and product details with every project, dramatically reducing setup and production time.",
-      smarter: "Each film is increasingly tailored to Shaw's knowledge base. The AI is trained on previous films, brand guidelines, and product details — so it generates on-target content faster with fewer revision rounds. Agent architecture work (40 hours goodwill) is building custom workflows specific to Shaw's operations.",
-      expanding: "What started as one conference video has grown into a full creative partnership: 4 films delivered, 3 in production, team training, agent architecture, and loop video assets. Third i is now Shaw's ongoing creative and AI collaborator, not just a film producer.",
+      summary: "Third i's Shaw production system improves with each completed film. The Value & Results hero compares the expected efficiency trajectory with verified actual results while financial, delivery, and quality evidence accumulate below.",
+      faster: "Shaw Systems Film 1 established a baseline of 150 production hours per finished minute. Shaw Systems Film 2 improved to 120 hours per finished minute. Future Shaw films are in development and are expected to require less time.",
+      smarter: "Each Shaw project can reuse Shaw-approved brand knowledge, production methods, and quality checks. Other clients' source files, prompts, private knowledge, credentials, and generated assets remain isolated and never enter Shaw's workspace.",
+      expanding: "Future projects will add verified evidence for total hours, weeks to completion, approved deliverables, review efficiency, financial context, and reusable capabilities without relying on invented quality scores.",
     },
     completedProjects: shawCompleted.map((p) => ({
       title: p.project,
       completedAt: p.period,
       hours: p.hours,
-      amount: p.formattedAmount,
+      amount: fmtMoney(p.revenue),
       outcome: p.status,
     })),
-    efficiencyTrend: shawEfficiency,
+    efficiencyTrend: [],
+    efficiencyModel: {
+      minCompletedProjects: 2,
+      completedProjectCount: 2,
+      unit: "hours per finished minute",
+      futureLabel: "Future Shaw films",
+      projects: [
+        { label: "Shaw Systems Film 1", status: "completed", actualHoursPerMinute: 150 },
+        { label: "Shaw Systems Film 2", status: "completed", actualHoursPerMinute: 120 },
+      ],
+    },
+    learningPrivacy: {
+      title: "Built on Shaw work. Isolated to Shaw.",
+      description: "Third i can reuse Shaw-approved production methods and brand knowledge across Shaw projects. No other client's files, prompts, private knowledge, credentials, or generated assets enter this workspace.",
+      carriesForward: ["Shaw-approved production methods and tooling", "Shaw brand knowledge and project feedback", "Quality-control patterns verified on completed Shaw work"],
+      staysPrivate: ["Every other client's source files and generated assets", "Other-client prompts, credentials, and private knowledge", "Other-client feedback, strategy, and project records"],
+    },
+    futureValueSections: FUTURE_VALUE_SECTIONS,
     financialSummary: {
       totalBilled: 21870,
       totalPaid: 17910,
       outstanding: 3960,
       totalHours: 614,
       billableHours: 324,
+      partnershipHours: 290,
+      activeProjects: shawInProgress.length,
+      completedProjects: shawCompleted.length,
       effectiveRate: 67.50,
       formattedBilled: "$21,870",
       formattedPaid: "$17,910",
@@ -179,8 +207,8 @@ async function main() {
   // ── bkWatch ───────────────────────────────────────────────────────────────
   // bkWatch has 0 hours in the spreadsheet (pipeline status). The 20 hours
   // mentioned by the user are real but haven't been logged yet. We preserve
-  // the manually-entered data and enrich it with the cross-client efficiency
-  // story (trained on Shaw's 614 hours of work).
+  // the manually-entered data. Cross-client source files, prompts, private
+  // knowledge, and assets never enter this tenant's value evidence.
   const bkwatchInvoicing = {
     schemaVersion: "2.0.0",
     tenant: "bkwatch",
@@ -188,9 +216,9 @@ async function main() {
     asOf,
     metrics: {
       projectsActive: { count: 1, descriptor: "film", label: "Film 1 — Final Demo showing bankruptcy automation inside Spectrum" },
-      deliverablesCompleted: { count: 0, descriptor: "delivered", label: "Film 1 in production — first deliverable coming soon" },
-      hoursInvested: { hours: 20, descriptor: "hours invested", label: "20 hours invested in Film 1 — story, script, storyboard, and instructions" },
-      capabilitiesDelivered: { count: 4, descriptor: "capabilities delivered", label: "Client portal, AI film production, AI roadmap, and brand knowledge library" },
+      deliverablesCompleted: { count: 5, descriptor: "deliverables", label: "5 of 10 Film 1 deliverables are ready" },
+      hoursInvested: { hours: 20, descriptor: "hours", label: "20 hours on Film 1 — story, script, storyboard, and instructions" },
+      capabilitiesDelivered: { count: 4, descriptor: "capabilities", label: "Client portal, AI film production, AI roadmap, and brand knowledge library" },
     },
     outcomes: [
       { title: "Film 1 — Final Demo in production", description: "A 22-second film showing how bankruptcy automation works natively inside Spectrum, resolving the switching objection for potential partners.", status: "in-progress" },
@@ -209,38 +237,43 @@ async function main() {
       { title: "AI Workflow Training", type: "service", description: "Teaching your team to use AI-powered workflows for everyday tasks — writing, analysis, research, and reporting.", status: "planned" },
     ],
     narrative: {
-      summary: "Third i started with one film project for bkWatch and has already delivered a client portal, an AI roadmap, and a brand knowledge library alongside the film. The AI film workflow is trained on 614 hours of prior client work — so bkWatch's films benefit from the start from a mature, battle-tested production pipeline.",
-      faster: "bkWatch's Film 1 benefits from 614 hours of accumulated learning on prior client films. The workflow already knows how to storyboard, generate stills, produce video, and edit efficiently — techniques that took 250 hours on the first film ever produced now take a fraction of the time. Each bkWatch film will get even faster as the workflow learns bkWatch's specific brand and product details.",
-      smarter: "The AI film workflow is trained on multiple completed films — conference videos, product demos, and brand stories. That means bkWatch's films start from a higher baseline: the AI already understands visual storytelling, brand consistency, and audience engagement. The brand knowledge library ensures every film is increasingly tailored to bkWatch's specific positioning and product details.",
-      expanding: "What started as one film is growing into a full partnership: monthly videos, AI workflow training, brand assets, and on-call creative support. By month six, Third i becomes an expanded partner — not just a film producer, but a creative and AI collaborator across the business.",
+      summary: "Third i is building Film 1 alongside a private client portal, AI roadmap, and brand knowledge library. The production system carries forward reusable methods and quality checks from prior work while every client's files, prompts, knowledge, and generated assets remain isolated.",
+      faster: "Each completed bkWatch film will establish a verified baseline for total hours, weeks to completion, and hours per finished minute. After two completed projects, this page will compare expected and actual efficiency and show how both improve over time.",
+      smarter: "Reusable production methods and quality-control patterns improve with completed work, but no other client's source files, prompts, private knowledge, credentials, or generated assets enter bkWatch's workspace. bkWatch work is guided by bkWatch's approved materials and feedback.",
+      expanding: "Every future project adds a clearer record of delivery speed, approved quality, deliverable volume, financial context, and reusable capabilities. The placeholders below become verified metrics as work is completed.",
     },
     completedProjects: [],
     efficiencyTrend: [], // bkWatch has no completed projects yet
-    crossClientTraining: {
-      hoursLearnedFrom: 614,
-      filmsLearnedFrom: 4,
-      description: "The AI film workflow is trained on 614 hours and 4 completed films from prior client work. bkWatch's films start from this accumulated knowledge — not from zero.",
-      trend: [
-        { project: "First film ever (Shaw Conference)", hours: 250, note: "Full pipeline built from scratch" },
-        { project: "Second film (Shaw Amplify V1)", hours: 119, note: "52% faster — workflow learned the visual system" },
-        { project: "Third film (Shaw Amplify V2)", hours: 118, note: "Refined and improved, same efficiency" },
-        { project: "Fourth film (Shaw AI Advisor)", hours: 39, note: "84% faster than Film 1 — deeply trained on brand" },
-        { project: "Fifth film (Shaw Insight Demo)", hours: 6, note: "97% faster — workflow fully trained, rapid production" },
-      ],
+    efficiencyModel: {
+      minCompletedProjects: 2,
+      completedProjectCount: 0,
+      unit: "hours per finished minute",
+      futureLabel: "Future bkWatch films",
+      projects: [],
     },
+    learningPrivacy: {
+      title: "Built on prior work. Isolated by client.",
+      description: "Third i improves reusable production methods through completed work without pooling client workspaces. General craft and quality-control improvements carry forward; client-specific material never crosses into another client's portal or production package.",
+      carriesForward: ["Reusable production methods and tooling", "General film craft and quality-control patterns", "Workflow improvements that reduce avoidable setup and rework"],
+      staysPrivate: ["Client source files and generated assets", "Prompts, credentials, and private brand knowledge", "Client-specific feedback, strategy, and project records"],
+    },
+    futureValueSections: FUTURE_VALUE_SECTIONS,
     financialSummary: {
       totalBilled: 0,
       totalPaid: 0,
       outstanding: 0,
       totalHours: 20,
       billableHours: 0,
+      partnershipHours: 20,
+      activeProjects: 1,
+      completedProjects: 0,
       effectiveRate: 0,
       formattedBilled: "$0",
       formattedPaid: "$0",
       formattedOutstanding: "$0",
-      note: "bkWatch is in the pipeline phase — no invoices yet. 20 hours invested in Film 1 production.",
+      note: "bkWatch is in the pipeline phase — no invoices yet. 20 hours are recorded on Film 1 production.",
     },
-    source: "Hours from Third i time tracking (20 hrs logged manually); cross-client efficiency data from Google Sheets via extract-metrics.mjs",
+    source: "Hours from Third i time tracking (20 hrs recorded manually); project efficiency activates only from tenant-owned completed work",
   };
 
   // Write both files

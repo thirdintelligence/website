@@ -11,13 +11,13 @@
     },
     "deliverablesCompleted": {
       "count": 5,
-      "descriptor": "delivered",
-      "label": "5 projects delivered — conference video, logo loops, Amplify V1, and training"
+      "descriptor": "deliverables",
+      "label": "5 completed Shaw deliverables"
     },
     "hoursInvested": {
       "hours": 614,
-      "descriptor": "hours invested",
-      "label": "614 total hours across all Shaw projects — 324 billable, 290 goodwill/R&D"
+      "descriptor": "hours",
+      "label": "614 total hours across Shaw projects — 324 billable and 290 partnership/R&D"
     },
     "capabilitiesDelivered": {
       "count": 5,
@@ -95,97 +95,123 @@
     }
   ],
   "narrative": {
-    "summary": "Third i has delivered 4 completed projects for Shaw Systems and has 3 more in production. 614 hours invested, $21,870 billed, $17,910 paid. The workflow has learned Shaw's brand, audience, and product details — each new film builds on the last, getting faster and more tailored.",
-    "faster": "Film 1 took 250 hours. Film 2 V1 took 119 hours — less than half. Film 3 is at 39 hours and Film 4 at 6 hours. The workflow learns Shaw's visual system, brand guidelines, and product details with every project, dramatically reducing setup and production time.",
-    "smarter": "Each film is increasingly tailored to Shaw's knowledge base. The AI is trained on previous films, brand guidelines, and product details — so it generates on-target content faster with fewer revision rounds. Agent architecture work (40 hours goodwill) is building custom workflows specific to Shaw's operations.",
-    "expanding": "What started as one conference video has grown into a full creative partnership: 4 films delivered, 3 in production, team training, agent architecture, and loop video assets. Third i is now Shaw's ongoing creative and AI collaborator, not just a film producer."
+    "summary": "Third i's Shaw production system improves with each completed film. The Value & Results hero compares the expected efficiency trajectory with verified actual results while financial, delivery, and quality evidence accumulate below.",
+    "faster": "Shaw Systems Film 1 established a baseline of 150 production hours per finished minute. Shaw Systems Film 2 improved to 120 hours per finished minute. Future Shaw films are in development and are expected to require less time.",
+    "smarter": "Each Shaw project can reuse Shaw-approved brand knowledge, production methods, and quality checks. Other clients' source files, prompts, private knowledge, credentials, and generated assets remain isolated and never enter Shaw's workspace.",
+    "expanding": "Future projects will add verified evidence for total hours, weeks to completion, approved deliverables, review efficiency, financial context, and reusable capabilities without relying on invented quality scores."
   },
   "completedProjects": [
     {
       "title": "AI Conference Video (Film 1)",
       "completedAt": "April",
       "hours": 250,
+      "amount": "$2,500",
       "outcome": "Delivered"
     },
     {
       "title": "Logo Loop Video + Conference Week",
       "completedAt": "April",
       "hours": 35,
+      "amount": "$2,100",
       "outcome": "Delivered"
     },
     {
       "title": "Amplify V1 (Film 2)",
       "completedAt": "May-Jun 2026",
       "hours": 119,
+      "amount": "$7,140",
       "outcome": "Complete"
     },
     {
       "title": "Training",
       "completedAt": "June",
       "hours": 7,
+      "amount": "$420",
       "outcome": "Complete"
     },
     {
       "title": "Agent Upgrades (unbillable)",
       "completedAt": "May",
       "hours": 40,
+      "amount": "$0",
       "outcome": "Complete"
     }
   ],
-  "efficiencyTrend": [
+  "efficiencyTrend": [],
+  "efficiencyModel": {
+    "minCompletedProjects": 2,
+    "completedProjectCount": 2,
+    "unit": "hours per finished minute",
+    "futureLabel": "Future Shaw films",
+    "projects": [
+      {
+        "label": "Shaw Systems Film 1",
+        "status": "completed",
+        "actualHoursPerMinute": 150
+      },
+      {
+        "label": "Shaw Systems Film 2",
+        "status": "completed",
+        "actualHoursPerMinute": 120
+      }
+    ]
+  },
+  "learningPrivacy": {
+    "title": "Built on Shaw work. Isolated to Shaw.",
+    "description": "Third i can reuse Shaw-approved production methods and brand knowledge across Shaw projects. No other client's files, prompts, private knowledge, credentials, or generated assets enter this workspace.",
+    "carriesForward": [
+      "Shaw-approved production methods and tooling",
+      "Shaw brand knowledge and project feedback",
+      "Quality-control patterns verified on completed Shaw work"
+    ],
+    "staysPrivate": [
+      "Every other client's source files and generated assets",
+      "Other-client prompts, credentials, and private knowledge",
+      "Other-client feedback, strategy, and project records"
+    ]
+  },
+  "futureValueSections": [
     {
-      "project": "Conference Video Edits",
-      "hours": 30,
-      "amount": 0,
-      "formattedAmount": "$0"
+      "title": "Delivery speed",
+      "icon": "clock",
+      "statusLabel": "Ready to track",
+      "description": "Shows whether production becomes faster across completed projects.",
+      "metrics": ["Total hours", "Weeks to completion", "Hours per finished minute"]
     },
     {
-      "project": "AI Advisor Demo (Film 3)",
-      "hours": 39,
-      "amount": 2340,
-      "formattedAmount": "$2,340"
+      "title": "Deliverable quality",
+      "icon": "checkCircle",
+      "statusLabel": "Ready to track",
+      "description": "Uses approval evidence instead of an invented quality score.",
+      "metrics": ["Approved deliverables", "Review rounds", "Rework hours"]
     },
     {
-      "project": "Insight Demo (Film 4)",
-      "hours": 6,
-      "amount": 360,
-      "formattedAmount": "$360"
+      "title": "Output volume",
+      "icon": "layers",
+      "statusLabel": "Ready to track",
+      "description": "Records how much finished, Shaw-approved work each project produces.",
+      "metrics": ["Deliverables", "Finished minutes", "Approved versions"]
     },
     {
-      "project": "Loop Videos + Conference Week",
-      "hours": 35,
-      "amount": 2100,
-      "formattedAmount": "$2,100"
+      "title": "Financial return",
+      "icon": "chart",
+      "statusLabel": "Ready to track",
+      "description": "Adds comparable financial context after project scope and billing are confirmed.",
+      "metrics": ["Cost per deliverable", "Effective rate", "Value over baseline"]
     },
     {
-      "project": "Amplify (Film 2)",
-      "hours": 119,
-      "amount": 7140,
-      "formattedAmount": "$7,140"
+      "title": "Compounding capability",
+      "icon": "sparkles",
+      "statusLabel": "Ready to track",
+      "description": "Shows the reusable systems and Shaw-specific capabilities added by each project.",
+      "metrics": ["Capabilities added", "Reusable components", "Next-project time saved"]
     },
     {
-      "project": "Shaw Agent Upgrades",
-      "hours": 40,
-      "amount": 0,
-      "formattedAmount": "$0"
-    },
-    {
-      "project": "Amplify V2 (Film 2)",
-      "hours": 118,
-      "amount": 7010,
-      "formattedAmount": "$7,010"
-    },
-    {
-      "project": "Training",
-      "hours": 7,
-      "amount": 420,
-      "formattedAmount": "$420"
-    },
-    {
-      "project": "AI Conference Video (Film 1)",
-      "hours": 220,
-      "amount": 2500,
-      "formattedAmount": "$2,500"
+      "title": "Project confidence",
+      "icon": "target",
+      "statusLabel": "Ready to track",
+      "description": "Compares plans with completed results using Shaw-owned records only.",
+      "metrics": ["Expected vs. actual", "Milestone accuracy", "Decision turnaround"]
     }
   ],
   "financialSummary": {
@@ -194,6 +220,9 @@
     "outstanding": 3960,
     "totalHours": 614,
     "billableHours": 324,
+    "partnershipHours": 290,
+    "activeProjects": 3,
+    "completedProjects": 5,
     "effectiveRate": 67.5,
     "formattedBilled": "$21,870",
     "formattedPaid": "$17,910",

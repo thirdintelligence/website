@@ -17,6 +17,7 @@ const ROUTES = [
   ["library-branding", "/library/branding"],
   ["library-record", "/library/branding/brand-mission"],
   ["library-communication", "/library/communication"],
+  ["value-results", "/value-results"],
   ["ai-roadmap", "/ai-roadmap"]
 ];
 /* [name, theme, viewport] capture matrix. */
@@ -24,7 +25,9 @@ const SHOTS = [
   ...ROUTES.map(([n, r]) => [n, r, "dark", { width: 1440, height: 900 }]),
   ["home", "/", "light", { width: 1440, height: 900 }],
   ["project-detail", "/projects/film1-shaw-bkwatch", "light", { width: 1440, height: 900 }],
+  ["value-results", "/value-results", "light", { width: 1440, height: 900 }],
   ["ai-roadmap", "/ai-roadmap", "light", { width: 1440, height: 900 }],
+  ["shaw-value-results", "/value-results", "dark", { width: 1440, height: 900 }],
   ["home", "/", "dark", { width: 390, height: 844 }, "mobile"],
   ["projects", "/projects", "dark", { width: 390, height: 844 }, "mobile"]
 ];
@@ -75,6 +78,16 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
 
   await page.goto(BASE + "#" + route, { waitUntil: "networkidle" });
   await page.waitForSelector(".portal-app .page", { timeout: 8000 }).catch(() => errors.push(`[${name}/${theme}] page did not render`));
+  if (name === "shaw-value-results") {
+    await page.evaluate(async () => {
+      const [invoicing, pageModule] = await Promise.all([
+        fetch("/content/clients/shaw/invoicing.json").then((response) => response.json()),
+        import("/public/portal/pages/value-results.js")
+      ]);
+      const view = pageModule.render({ invoicing, portal: { client: { name: "Shaw Systems", shortName: "Shaw" } }, aiRoadmap: null });
+      document.querySelector("#main").innerHTML = view.html;
+    });
+  }
   await page.waitForTimeout(900); // let staggered reveal + fonts settle
 
   const brokenImages = await page.locator("img").evaluateAll((imgs) => imgs
@@ -199,7 +212,7 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
       label: stat.querySelector(".ai-value-label")?.textContent.trim()
     })));
     const expectedMetrics = [
-      { value: "20", label: "hours invested" },
+      { value: "20", label: "hours" },
       { value: "3", label: "weeks active" },
       { value: "5/10", label: "deliverables ready" },
       { value: "6", label: "Final Demo scenes" }
@@ -214,6 +227,25 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     const sceneBadgeFontSizes = await page.locator(".scene-media .ip-badge").evaluateAll((badges) => badges.map((badge) => parseFloat(getComputedStyle(badge).fontSize)));
     if (!sceneBadgeFontSizes.length || sceneBadgeFontSizes.some((size) => size > 13)) errors.push(`[${name}/${theme}] scene In production labels no longer use the standard preview size`);
     if (await page.locator(".scene-media > .pc-meta .status").count()) errors.push(`[${name}/${theme}] scene preview areas still contain secondary status text`);
+  }
+  if (name === "value-results") {
+    const readiness = page.locator(".efficiency-readiness");
+    if (await readiness.count() !== 1 || await page.locator(".efficiency-chart").count()) errors.push(`[${name}/${theme}] bkWatch must show the gated efficiency readiness state, not a live graph`);
+    const gate = await readiness.evaluate((el) => ({ completed: el.dataset.completedProjects, required: el.dataset.requiredProjects }));
+    if (gate.completed !== "0" || gate.required !== "2") errors.push(`[${name}/${theme}] efficiency gate is not set to 0 of 2 completed projects`);
+    const momentumLabels = await page.locator(".metric-descriptor").allTextContents();
+    if (!momentumLabels.includes("deliverables") || !momentumLabels.includes("hours") || !momentumLabels.includes("capabilities") || momentumLabels.some((label) => /invested|delivered/i.test(label))) errors.push(`[${name}/${theme}] momentum labels were not normalized`);
+    if (await page.locator(".financial-metric").count() < 9) errors.push(`[${name}/${theme}] financial summary does not fill the banner with the full metric set`);
+    if (await page.locator(".future-value-item").count() !== 6) errors.push(`[${name}/${theme}] future value record does not include all six placeholder sections`);
+    const privacyText = await page.locator(".learning-privacy").innerText();
+    if (!/stays private/i.test(privacyText) || /Shaw Systems|Amplify|614 hours|250 hours/i.test(privacyText)) errors.push(`[${name}/${theme}] learning proof is missing its privacy boundary or exposes cross-client details`);
+  }
+  if (name === "shaw-value-results") {
+    if (await page.locator(".efficiency-chart").count() !== 1 || await page.locator(".efficiency-readiness").count()) errors.push(`[${name}/${theme}] Shaw must activate the live graph after two completed projects`);
+    const labels = await page.locator(".actual-point text").allTextContents();
+    if (labels.join("|") !== "150 h/min|120 h/min") errors.push(`[${name}/${theme}] Shaw graph includes unapproved or missing actual efficiency values: ${labels.join("|")}`);
+    const trajectories = await page.locator(".eff-line").evaluateAll((lines) => Object.fromEntries(lines.map((line) => [line.classList.contains("actual") ? "actual" : "expected", line.getAttribute("points").split(" ").map((point) => point.split(",").map(Number))])));
+    if (!(trajectories.actual[1][1] < trajectories.actual[0][1] && trajectories.expected[1][1] < trajectories.expected[0][1] && trajectories.expected[0][1] > trajectories.actual[0][1])) errors.push(`[${name}/${theme}] expected and actual Shaw trajectories do not show compounding efficiency`);
   }
   if (name === "projects" || name === "library") {
     const filterSpacing = await page.locator(".filter-page").evaluate((root) => {
