@@ -97,57 +97,39 @@ function renderCategory(data, params) {
     const meetingCount = communications?.meetings?.length || 0;
     const commentCount = live?.comments?.length || 0;
 
-    // Preview: 2 most recent emails
-    const recentEmails = (communications?.emails || []).slice(0, 2);
+    // Preview: 5 most recent emails
+    const recentEmails = (communications?.emails || []).slice(0, 5);
     const emailPreview = recentEmails.length ? recentEmails.map(emailPreviewRow).join("") : `<div class="empty-state compact">${icon("mail")}<p>No emails yet.</p></div>`;
 
-    // Preview: 2 most recent meetings
-    const recentMeetings = (communications?.meetings || []).slice(0, 2);
+    // Preview: 5 most recent meetings
+    const recentMeetings = (communications?.meetings || []).slice(0, 5);
     const meetingPreview = recentMeetings.length ? recentMeetings.map(meetingPreviewRow).join("") : `<div class="empty-state compact">${icon("users")}<p>No meetings yet.</p></div>`;
 
-    // Preview: 2 most recent comments
-    const recentComments = (live?.comments || []).slice(0, 2);
+    // Preview: 5 most recent comments
+    const recentComments = (live?.comments || []).slice(0, 5);
     const commentPreview = recentComments.length ? recentComments.map((c) => `<div class="comm-preview-row"><span class="comm-rail"></span><div><div class="comm-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div><div class="comm-meta">${esc(c.author || "Client")} · ${esc(c.createdAt?.split("T")[0] || "")}</div></div></div>`).join("") : `<div class="empty-state compact">${icon("comment")}<p>No comments yet.</p></div>`;
 
     body = `
-      <div class="comms-overview">
-        <a class="card card-link comms-sub-card" href="#/library/communication/comments">
-          ${icon("comment")}
-          <div class="comms-sub-info">
-            <h3>Comments</h3>
-            <p class="muted">${commentCount} comment${commentCount !== 1 ? "s" : ""}</p>
+      <div class="comms-sections">
+        <div class="card comms-section-card">
+          <div class="section-head">
+            <h2 class="section-title">${icon("comment")} Comments (${commentCount})</h2>
+            <a class="btn btn-sm btn-ghost" href="#/library/communication/comments">View all ${icon("arrowRight")}</a>
           </div>
-          ${icon("arrowRight")}
-        </a>
-        <a class="card card-link comms-sub-card" href="#/library/communication/emails">
-          ${icon("mail")}
-          <div class="comms-sub-info">
-            <h3>Emails</h3>
-            <p class="muted">${emailCount} email${emailCount !== 1 ? "s" : ""}</p>
-          </div>
-          ${icon("arrowRight")}
-        </a>
-        <a class="card card-link comms-sub-card" href="#/library/communication/meetings">
-          ${icon("users")}
-          <div class="comms-sub-info">
-            <h3>Meetings</h3>
-            <p class="muted">${meetingCount} meeting${meetingCount !== 1 ? "s" : ""}</p>
-          </div>
-          ${icon("arrowRight")}
-        </a>
-      </div>
-
-      <div class="comms-previews">
-        <div class="detail-block">
-          <div class="section-head"><h2>Recent comments</h2><a class="btn btn-sm btn-ghost" href="#/library/communication/comments">View all ${icon("arrowRight")}</a></div>
           ${commentPreview}
         </div>
-        <div class="detail-block">
-          <div class="section-head"><h2>Recent emails</h2><a class="btn btn-sm btn-ghost" href="#/library/communication/emails">View all ${icon("arrowRight")}</a></div>
+        <div class="card comms-section-card">
+          <div class="section-head">
+            <h2 class="section-title">${icon("mail")} Emails (${emailCount})</h2>
+            <a class="btn btn-sm btn-ghost" href="#/library/communication/emails">View all ${icon("arrowRight")}</a>
+          </div>
           ${emailPreview}
         </div>
-        <div class="detail-block">
-          <div class="section-head"><h2>Recent meetings</h2><a class="btn btn-sm btn-ghost" href="#/library/communication/meetings">View all ${icon("arrowRight")}</a></div>
+        <div class="card comms-section-card">
+          <div class="section-head">
+            <h2 class="section-title">${icon("users")} Meetings (${meetingCount})</h2>
+            <a class="btn btn-sm btn-ghost" href="#/library/communication/meetings">View all ${icon("arrowRight")}</a>
+          </div>
           ${meetingPreview}
         </div>
       </div>`;
