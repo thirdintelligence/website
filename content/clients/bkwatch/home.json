@@ -28,7 +28,7 @@
     },
     {
       "label": "Next milestone",
-      "value": "Final Demo plan + asset/permission lock",
+      "value": "Final Demo plan + asset/function lock",
       "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
     }
   ],
@@ -62,7 +62,7 @@
       "name": "Bankruptcy, handled inside Spectrum",
       "purpose": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "phase": "Final Demo extreme QC passed",
-      "nextMilestone": "Justin approves the Final Demo plan; NEW FILING is used in post; Shaw provides sanitized Spectrum assets and written usage permission; exact composite keyframes are approved before generation.",
+      "nextMilestone": "Third i locks the Final Demo plan; NEW FILING is generated with the rest of the film; Shaw provides sanitized Spectrum assets; exact composite keyframes are approved before generation.",
       "openCount": 2,
       "latestUpdate": "Final Demo extreme workflow and prompt QC passed; no media generated yet.",
       "thumbnailState": "in-production",
@@ -147,7 +147,7 @@
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
-      "recommendation": "Lock live/showable functions and Spectrum asset permission, then produce a short role-specific walkthrough.",
+      "recommendation": "Lock live/showable functions and sanitized Spectrum assets, then produce a short role-specific walkthrough.",
       "link": "/bkwatch/projects/film1-shaw-bkwatch",
       "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
     },

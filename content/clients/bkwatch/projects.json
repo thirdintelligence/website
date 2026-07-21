@@ -18,7 +18,7 @@
       "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
       "coreValue": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "phase": "Final Demo extreme QC passed",
-      "nextMilestone": "Justin approves the Final Demo plan; NEW FILING is used in post; Shaw provides sanitized Spectrum assets and written usage permission; exact composite keyframes are approved before generation.",
+      "nextMilestone": "Third i locks the Final Demo plan; NEW FILING is generated with the rest of the film; Shaw provides sanitized Spectrum assets; exact composite keyframes are approved before generation.",
       "runtime": "22 seconds",
       "thumbnail": {
         "mediaState": "in-production",
@@ -63,7 +63,7 @@
           "state": "In progress"
         },
         {
-          "title": "Claim, asset, permission, and keyframe gates",
+          "title": "Claim, asset, and keyframe gates",
           "state": "In progress"
         }
       ],
@@ -97,7 +97,7 @@
         {
           "state": "current",
           "title": "HITL / asset and function lock",
-          "detail": "UI assets, written permission, functions, green, logos, composites, and keyframes awaiting approval"
+          "detail": "UI assets, functions, green, logos, composites, and keyframes awaiting approval"
         },
         {
           "state": "pending",
@@ -126,7 +126,7 @@
         "priceStatement": "Scope required",
         "assumptions": [
           "Final Demo plan approved",
-          "Spectrum assets + written permission supplied",
+          "Sanitized Spectrum assets supplied",
           "Live/showable functions confirmed"
         ],
         "note": "The current demo establishes the visual system and proves direction. A complete film adds refinement passes, product-accuracy review, motion continuity, sound, and final QC. Third i presents the confirmed effort range and pricing model before production begins.",
@@ -142,14 +142,13 @@
           "Product accuracy",
           "Emotional impact",
           "Production complexity",
-          "Distinctiveness",
-          "Current recommendation"
+          "Distinctiveness"
         ],
         "recommendation": "Final Demo is the selected production candidate. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain supporting studies.",
         "approvals": [
-          "Justin approves the 22-second Final Demo plan and corrected internal segment allocation.",
-          "Use NEW FILING as the post-produced file label.",
-          "Shaw supplies exact sanitized Spectrum start/working captures and masks with written permission to crop, track, animate, simplify, stylize, texture-map, extrude, display, and distribute them for the bkWatch film.",
+          "Third i locks the 22-second Final Demo plan and corrected internal segment allocation.",
+          "Generate NEW FILING with the filing object as part of the same production pass.",
+          "Shaw approval for Spectrum UI use is secured; use exact sanitized Spectrum start/working captures and masks for the bkWatch film.",
           "One internal legacy screenshot containing visible customer/account information is rejected and must not enter the production package.",
           "Jessica/Dylan and Shaw confirm live/showable Status, Tasks, Credit behavior, real-time wording, CTA, and factual claims.",
           "Handled-state green, final Shaw + BankruptcyWatch lockup, UI composite frames, and all start/final keyframe pairs receive approval.",
@@ -166,7 +165,7 @@
             "runtime": "22 seconds",
             "sceneCount": 6,
             "demoState": "Six scenes, 12 controlled segments, 30 still/anchor prompts, and 12 motion prompts passed workflow, prompt, claim, privacy, and continuity QC; media not generated",
-            "approval": "Awaiting Justin plan/segment approval plus Spectrum assets, permission, function, color, logo, composite, and keyframe gates",
+            "approval": "Awaiting Third i plan/segment lock plus Spectrum assets, function, color, logo, composite, and keyframe gates",
             "strength": "Best balance of real product proof, human credibility, native-integration clarity, and premium cinematic impact",
             "complexity": "High / controlled hybrid",
             "distinctiveness": "Real UI to physical system to internal mechanism to real UI",
@@ -201,7 +200,7 @@
                 "time": "Seconds 3–5",
                 "duration": "3 seconds",
                 "description": "The physical filing object lowers perfectly vertically, hovers between the specialist and monitor, and begins moving toward Spectrum after one keyboard input.",
-                "direction": "Allocate F2.1 to 2–4 seconds for descent, deceleration, and hover; allocate F2.2 to 4–5 seconds for the key input and departure. Add the exact file-like label NEW FILING in post.",
+                "direction": "Allocate F2.1 to 2–4 seconds for descent, deceleration, and hover; allocate F2.2 to 4–5 seconds for the key input and departure. Generate the file-like NEW FILING label with the filing object during the same production pass.",
                 "transition": "Follow the filing toward the prepared receiving region as the view returns to the monitor.",
                 "purpose": "Give bankruptcy urgency a precise physical event without fear-based imagery.",
                 "status": "Prompts QC-passed · media not generated",

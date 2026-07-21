@@ -53,7 +53,7 @@ const HOME_OPPORTUNITIES = [
     value: "High",
     effort: "Medium",
     evidence: "Internal-confirmed",
-    recommendation: "Lock live/showable functions and Spectrum asset permission, then produce a short role-specific walkthrough.",
+    recommendation: "Lock live/showable functions and sanitized Spectrum assets, then produce a short role-specific walkthrough.",
     link: "/bkwatch/projects/film1-shaw-bkwatch",
     source: "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
   },
@@ -158,7 +158,7 @@ function buildHome(v1, projects) {
     { label: "Open blockers", value: openBlockers, source: v1.currentWork.source },
     { label: "Deliverables ready for review", value: (v1.currentWork.deliverables || []).length, source: v1.currentWork.source },
     { label: "Approved generated media", value: v1.film.approvedMedia, unit: "stills or clips", state: "not-started", source: "Film1 Working Memory — media generation has not started" },
-    { label: "Next milestone", value: "Final Demo plan + asset/permission lock", source: v1.currentWork.source }
+    { label: "Next milestone", value: "Final Demo plan + asset/function lock", source: v1.currentWork.source }
   ];
 
   // Blockers may be plain strings (legacy) or { title, detail } objects. The
@@ -278,7 +278,7 @@ function buildProjects(v1) {
       demoEffort: "Confirmed hours pending",
       effortRange: "Scope required",
       priceStatement: "Scope required",
-      assumptions: ["Final Demo plan approved", "Spectrum assets + written permission supplied", "Live/showable functions confirmed"],
+      assumptions: ["Final Demo plan approved", "Sanitized Spectrum assets supplied", "Live/showable functions confirmed"],
       note: "The current demo establishes the visual system and proves direction. A complete film adds refinement passes, product-accuracy review, motion continuity, sound, and final QC. Third i presents the confirmed effort range and pricing model before production begins.",
       source: "Third i pricing approach — outcome/scope-led; currency shown only when confirmed"
     },

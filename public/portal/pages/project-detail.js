@@ -14,25 +14,25 @@ export function render(data, params) {
   const film = p.film;
 
   const ideaCards = film ? film.ideas.map((idea) => `
-    <a class="card card-feature card-link" href="#/projects/${p.slug}/ideas/${idea.slug}">
+    <a class="card card-feature card-link creative-direction-card" href="#/projects/${p.slug}/ideas/${idea.slug}">
       ${motif("grid")}
       <div class="pc-meta">${idea.recommended ? statusLabel("Recommended", "ok") : statusLabel(idea.status)}<span class="chip">${esc(idea.number)}</span></div>
-      <h3 class="pc-title">${esc(idea.title)}</h3>
+      <h3 class="pc-title creative-direction-title"><span>${esc(idea.title)}</span></h3>
       <p class="pc-value">${esc(idea.concept)}</p>
       <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
     </a>`).join("") : "";
 
+  const comparisonCriteria = film ? film.comparisonCriteria.filter((criterion) => !/recommendation/i.test(criterion)) : [];
   const comparison = film ? `
     <div class="detail-block">
       <h2>Compare directions</h2>
-      <p class="reading muted">Criteria: ${film.comparisonCriteria.map((c) => chip(c)).join(" ")}</p>
+      <p class="reading muted">Criteria: ${comparisonCriteria.map((c) => chip(c)).join(" ")}</p>
       <div style="overflow:auto"><table class="ptable">
-        <thead><tr><th>Direction</th><th>Strength</th><th>Complexity</th><th>Distinctiveness</th><th>Recommendation</th></tr></thead>
+        <thead><tr><th>Direction</th><th>Strength</th><th>Complexity</th><th>Distinctiveness</th></tr></thead>
         <tbody>
-          ${film.ideas.map((i) => `<tr class="${i.recommended ? "is-recommended" : ""}">
+          ${film.ideas.map((i) => `<tr>
             <td><strong>${esc(i.title)}</strong></td><td>${esc(i.strength || "—")}</td>
-            <td>${esc(i.complexity || "—")}</td><td>${esc(i.distinctiveness || "—")}</td>
-            <td>${esc(i.recommendation || "—")}</td></tr>`).join("")}
+            <td>${esc(i.complexity || "—")}</td><td>${esc(i.distinctiveness || "—")}</td></tr>`).join("")}
         </tbody>
       </table></div>
     </div>` : "";

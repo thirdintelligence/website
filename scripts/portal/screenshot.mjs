@@ -86,6 +86,16 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
       return Math.abs((frame.top + frame.height / 2) - visibleCenter);
     });
     if (centered > 2) errors.push(`[${name}/${theme}] designer artwork is ${centered}px off vertical center`);
+    const titleAlignment = await page.locator(".creative-direction-title").evaluateAll((titles) => titles.map((title) => {
+      const slot = title.getBoundingClientRect();
+      const content = title.querySelector("span").getBoundingClientRect();
+      const style = getComputedStyle(title);
+      return { offset: Math.abs((slot.top + slot.height / 2) - (content.top + content.height / 2)), display: style.display, alignItems: style.alignItems };
+    }));
+    if (!titleAlignment.length || titleAlignment.some((title) => title.offset > 1 || title.display !== "flex" || title.alignItems !== "center")) errors.push(`[${name}/${theme}] Creative Direction titles are not vertically centered in their title slots`);
+    const comparisonHeaders = await page.locator(".ptable th").allTextContents();
+    const comparisonCellCounts = await page.locator(".ptable tbody tr").evaluateAll((rows) => rows.map((row) => row.querySelectorAll("td").length));
+    if (comparisonHeaders.some((header) => /recommendation/i.test(header)) || comparisonHeaders.length !== 4 || comparisonCellCounts.some((count) => count !== 4)) errors.push(`[${name}/${theme}] Compare Directions still contains a recommendation field`);
   }
   if (name === "library-branding") {
     const entry = await page.locator(".record-row").first().evaluate((row) => {

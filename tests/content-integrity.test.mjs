@@ -27,7 +27,12 @@ test("Film 1 current state is internally consistent", () => {
   assert.equal(manifest.film.approvedMedia, 0);
   assert.equal(manifest.film.ideas[0].recommendation, "Selected production candidate");
   assert.deepEqual(manifest.film.ideas[0].scenes.map((scene) => scene.time), ["Seconds 0–2", "Seconds 3–5", "Seconds 6–10", "Seconds 11–14", "Seconds 15–18", "Seconds 19–22"]);
-  assert.match(manifest.film.ideas[0].scenes[1].direction, /NEW FILING/);
+  assert.match(manifest.film.ideas[0].scenes[1].direction, /Generate the file-like NEW FILING label.*same production pass/);
+  assert.equal(manifest.film.comparisonCriteria.some((criterion) => /recommendation/i.test(criterion)), false);
+  assert.match(manifest.film.approvals.join(" "), /Shaw approval for Spectrum UI use is secured/);
+  assert.doesNotMatch(manifestText, /\bJustin\b/);
+  assert.doesNotMatch(manifestText, /NEW FILING[^"\n]*(?:in post|post-produced)/i);
+  assert.doesNotMatch(manifestText, /written (?:usage |cross-client video )?permissions?/i);
   assert.doesNotMatch(manifestText, /NEW CLAIM/);
   assert.equal(manifest.metrics.find((metric) => metric.label === "Generation plan").value, "122");
   assert.match(manifest.metrics.find((metric) => metric.label === "Locked voiceover").unit, /122\.7 WPM/);
@@ -80,7 +85,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-01"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-02"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -144,10 +149,16 @@ test("public homepage contact and canonical route are wired", async () => {
 
 test("project hero and primary button presentation contracts are enforced", async () => {
   const projectDetail = await readFile(new URL("../public/portal/pages/project-detail.js", import.meta.url), "utf8");
+  const portalComponentsCss = await readFile(new URL("../public/portal/styles/portal-components.css", import.meta.url), "utf8");
   const portalPagesCss = await readFile(new URL("../public/portal/styles/portal-pages.css", import.meta.url), "utf8");
   const portalShellCss = await readFile(new URL("../public/portal/styles/portal-shell.css", import.meta.url), "utf8");
 
   assert.doesNotMatch(projectDetail, /next:\s*p\.nextMilestone/);
+  assert.match(projectDetail, /creative-direction-title/);
+  assert.match(projectDetail, /comparisonCriteria\.filter\(\(criterion\) => !\/recommendation\/i\.test\(criterion\)\)/);
+  assert.doesNotMatch(projectDetail, /<th>Recommendation<\/th>/);
+  assert.doesNotMatch(projectDetail, /esc\(i\.recommendation/);
+  assert.match(portalComponentsCss, /\.creative-direction-title \{[^}]*min-height: 2\.5em;[^}]*display: flex;[^}]*align-items: center;/);
   assert.match(portalPagesCss, /\.project-preview \.ip-next \{ display: none; \}/);
   assert.match(portalPagesCss, /\.project-preview \.ip-figure \{[^}]*left: 50%;[^}]*top: 50%;[^}]*translate\(-50%, -63\.6667%\)/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
