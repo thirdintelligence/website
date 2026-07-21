@@ -98,17 +98,21 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     const createButtonAlignment = await page.locator("#new-project-btn").evaluate((button) => {
       const box = button.getBoundingClientRect();
       const head = button.closest(".page-head-row").getBoundingClientRect();
+      const action = button.closest(".new-project-action");
+      const actionBox = action.getBoundingClientRect();
       const content = button.querySelector(".control-content").getBoundingClientRect();
-      const buttonStyle = getComputedStyle(button);
+      const actionStyle = getComputedStyle(action);
       const style = getComputedStyle(button.querySelector(".control-content"));
       return {
         offset: (box.top + box.height / 2) - (content.top + content.height / 2),
         topOffset: box.top - head.top,
-        marginTop: parseFloat(buttonStyle.marginTop),
+        outerTop: box.top - actionBox.top,
+        outerBottom: actionBox.bottom - box.bottom,
+        actionMarginTop: parseFloat(actionStyle.marginTop),
         transform: style.transform
       };
     });
-    if (createButtonAlignment.marginTop !== -16 || (viewport.width > 680 && Math.abs(createButtonAlignment.topOffset + 16) > .1)) errors.push(`[${name}/${theme}] Create Project button is not positioned 16px above the Projects header line`);
+    if (createButtonAlignment.actionMarginTop !== -20 || Math.abs(createButtonAlignment.outerTop - 4) > .1 || Math.abs(createButtonAlignment.outerBottom - 4) > .1 || (viewport.width > 680 && Math.abs(createButtonAlignment.topOffset + 16) > .1)) errors.push(`[${name}/${theme}] Create Project button does not retain its raised position with 4px outer padding`);
     if (Math.abs(createButtonAlignment.offset - 2) > .1 || !/matrix\(1, 0, 0, 1, 0, -2\)/.test(createButtonAlignment.transform)) errors.push(`[${name}/${theme}] Create Project button contents are not optically centered 2px upward`);
   }
   if (name === "project-detail") {

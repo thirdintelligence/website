@@ -25,7 +25,7 @@ export function render(data) {
         <h1 class="page-title">Projects</h1>
         <p class="page-lede">Active, completed, paused, and archived work for ${esc(portal.client.name)}. Open a project for its creative presentation, assets, and outcomes.</p>
       </div>
-      <button class="btn btn-primary" id="new-project-btn" type="button" data-new-project="1"><span class="control-content">${icon("plus")}<span>Create a New Project</span></span></button>
+      <div class="new-project-action"><button class="btn btn-primary" id="new-project-btn" type="button" data-new-project="1"><span class="control-content">${icon("plus")}<span>Create a New Project</span></span></button></div>
     </div>
 
     ${filters}

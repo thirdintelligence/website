@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-09"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-10"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -177,6 +177,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.ok(scriptPosition >= 0 && scriptPosition < scopePosition && scopePosition < creativeDirectionsPosition);
   assert.equal(projectDetail.match(/\$\{scope\}/g)?.length, 1);
   assert.match(projectsPage, /id="new-project-btn"[\s\S]*?<span class="control-content">/);
+  assert.match(projectsPage, /<div class="new-project-action"><button/);
   assert.match(projectsPage, /<div class="page filter-page">/);
   assert.match(libraryPage, /<div class="page filter-page">/);
   assert.match(cardComponents, /opticalCenter \? `<span class="control-content">/);
@@ -191,7 +192,8 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(portalPagesCss, /\.filter-page \.page-lede \{ margin-bottom: var\(--space-2\); \}/);
   assert.match(portalPagesCss, /\.filter-page \.filters \{ margin-bottom: 0; \}/);
   assert.match(portalPagesCss, /\.filter-page \.filters \+ \.section \{ margin-top: var\(--space-2\); \}/);
-  assert.match(portalPagesCss, /#new-project-btn \{ margin-top: -16px; \}/);
+  assert.match(portalPagesCss, /\.new-project-action \{ margin-top: -20px; padding-block: var\(--space-1\); \}/);
+  assert.match(portalPagesCss, /#new-project-btn \{ margin: 0; \}/);
   assert.match(portalPagesCss, /#new-project-btn \.control-content \{ transform: translateY\(-2px\); \}/);
   assert.match(portalShellCss, /\.control-content \{[^}]*display: inline-flex;[^}]*align-items: center;[^}]*transform: translateY\(-1px\);/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
