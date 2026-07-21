@@ -112,6 +112,8 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
   if (name === "projects") {
     const layout = await page.locator(".project-card").first().evaluate((card) => getComputedStyle(card).gridTemplateColumns);
     if (viewport.width > 680 && layout.split(" ").length < 2) errors.push(`[${name}/${theme}] project card is not horizontal`);
+    const projectCardBadgeFontSizes = await page.locator(".project-card .ip-badge").evaluateAll((badges) => badges.map((badge) => parseFloat(getComputedStyle(badge).fontSize)));
+    if (!projectCardBadgeFontSizes.length || projectCardBadgeFontSizes.some((size) => size > 13)) errors.push(`[${name}/${theme}] project thumbnail In production labels no longer use the standard preview size`);
     const createButtonAlignment = await page.locator("#new-project-btn").evaluate((button) => {
       const box = button.getBoundingClientRect();
       const head = button.closest(".page-head-row").getBoundingClientRect();
@@ -140,7 +142,7 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     });
     if (hero.direction !== "column" || hero.previewWidth < hero.heroWidth - 2 || hero.factsTop < hero.previewBottom) errors.push(`[${name}/${theme}] project preview/info are not a full-width single column`);
     const heroBadgeFontSize = await page.locator(".project-preview .ip-badge").evaluate((badge) => parseFloat(getComputedStyle(badge).fontSize));
-    if (heroBadgeFontSize < 13.5) errors.push(`[${name}/${theme}] project hero In production label is not larger than the standard preview label`);
+    if (Math.abs(heroBadgeFontSize - 16) > .1) errors.push(`[${name}/${theme}] project hero In production label is not the hero-only 16px size`);
     const projectHierarchy = await page.locator(".page").evaluate((root) => {
       const blocks = [...root.querySelectorAll(":scope > .detail-block")];
       const script = blocks.find((block) => block.querySelector(":scope > .section-head h2")?.textContent.trim() === "Script");
