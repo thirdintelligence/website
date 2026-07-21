@@ -126,8 +126,10 @@
 .metric-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-4); }
 .metric-card { display: flex; flex-direction: column; gap: 8px; padding: var(--space-5); text-align: center; align-items: center; }
 .metric-card .icon { width: 28px; height: 28px; opacity: 0.6; }
+.metric-value-row { display: flex; align-items: baseline; gap: 6px; }
 .metric-value { font-size: var(--fs-h2); font-weight: 700; font-family: var(--font-head); color: var(--accent); }
-.metric-label { font-size: var(--fs-small); color: var(--text-secondary); line-height: 1.5; }
+.metric-descriptor { font-size: var(--fs-small); color: var(--text-secondary); font-weight: 500; }
+.metric-label { font-size: var(--fs-caption); color: var(--text-tertiary); line-height: 1.5; }
 .outcome-list, .cap-list { display: flex; flex-direction: column; gap: var(--space-2); }
 .outcome-row, .cap-row { display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-3); align-items: start; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); }
 .outcome-rail { width: 3px; height: 100%; min-height: 32px; border-radius: 999px; }
@@ -147,6 +149,21 @@
 .vr-narrative-card { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); }
 .vr-narrative-card .icon { width: 24px; height: 24px; opacity: 0.7; }
 .vr-narrative-card h3 { font-size: var(--fs-h4); font-family: var(--font-head); }
+
+/* ── Efficiency trend bars ──────────────────────────────────────────────────── */
+.eff-trend { display: flex; flex-direction: column; gap: var(--space-4); }
+.eff-bar-row { display: flex; flex-direction: column; gap: 4px; }
+.eff-bar-label { font-size: var(--fs-small); font-weight: 600; line-height: 1.4; }
+.eff-bar-track { position: relative; height: 28px; background: var(--surface-elevated); border-radius: var(--radius-sm); overflow: hidden; display: flex; align-items: center; }
+.eff-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 70%, var(--green))); border-radius: var(--radius-sm); transition: width 0.6s var(--ease); min-width: 4px; }
+.eff-bar-hours { position: absolute; right: 10px; font-size: var(--fs-caption); font-weight: 700; color: var(--text); text-shadow: 0 0 4px var(--surface); }
+.eff-bar-note { font-size: var(--fs-caption); color: var(--text-tertiary); line-height: 1.4; }
+
+/* ── Cross-client training stats ────────────────────────────────────────────── */
+.cross-client-stats { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+.cross-client-stat { display: flex; flex-direction: column; gap: 2px; }
+.cross-client-num { font-size: var(--fs-h3); font-weight: 700; font-family: var(--font-head); color: var(--accent); }
+.cross-client-label { font-size: var(--fs-caption); color: var(--text-tertiary); line-height: 1.4; }
 
 /* ── Communications (library + home preview) ───────────────────────────────── */
 .comms-sections { display: flex; flex-direction: column; gap: var(--space-5); }

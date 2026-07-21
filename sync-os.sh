@@ -44,3 +44,11 @@ if [ -f "$WEB_ROOT/scripts/portal/extract-communications.mjs" ]; then
     echo "Extracted client communications from snapshot" || \
     echo "WARNING: Failed to extract client communications"
 fi
+
+# Extract real metrics (hours, amounts, efficiency trends) from the spreadsheet
+# data in the snapshot into per-client invoicing.json files.
+if [ -f "$WEB_ROOT/scripts/portal/extract-metrics.mjs" ]; then
+  node "$WEB_ROOT/scripts/portal/extract-metrics.mjs" 2>/dev/null && \
+    echo "Extracted real metrics from spreadsheet" || \
+    echo "WARNING: Failed to extract metrics"
+fi

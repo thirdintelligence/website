@@ -1,7 +1,7 @@
-/* Value & Results (plan: invoicing page) — shows the Third i-client
-   relationship compounding value over time: momentum metrics, outcomes,
-   capabilities delivered, and the value narrative (faster + smarter +
-   expanding). Pulls from invoicing.json + surfaces AI Roadmap capabilities. */
+/* Value & Results — shows the Third i-client relationship compounding value
+   over time: momentum metrics, outcomes, capabilities delivered, real
+   financial data from the spreadsheet, efficiency trends, and the value
+   narrative (faster + smarter + expanding). */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { motif, sourceNote } from "../components/cards.js";
@@ -11,10 +11,17 @@ const STATUS_TEXT = { delivered: "Delivered", "in-progress": "In progress", plan
 const CAP_TYPE_ICON = { tool: "layers", knowledge: "graduationCap", service: "handshake" };
 const CAP_TYPE_LABEL = { tool: "Tool built", knowledge: "Knowledge transferred", service: "Service enabled" };
 
+/* Momentum card — shows the number with a short descriptor next to it,
+   plus the longer label below. */
 function metricCard(m, iconName) {
+  const value = typeof m.count === "number" ? m.count : m.hours || "—";
+  const descriptor = m.descriptor || "";
   return `<div class="card metric-card">
     ${icon(iconName)}
-    <div class="metric-value">${typeof m.count === "number" ? m.count : m.hours || "—"}</div>
+    <div class="metric-value-row">
+      <span class="metric-value">${value}</span>
+      <span class="metric-descriptor">${esc(descriptor)}</span>
+    </div>
     <div class="metric-label">${esc(m.label)}</div>
   </div>`;
 }
@@ -58,6 +65,75 @@ function completedRow(p) {
   </tr>`;
 }
 
+/* Efficiency trend bar — horizontal bar chart showing hours per project,
+   visually demonstrating how production gets faster over time. */
+function efficiencyBar(item, maxHours) {
+  const pct = maxHours > 0 ? Math.round((item.hours / maxHours) * 100) : 0;
+  return `<div class="eff-bar-row">
+    <div class="eff-bar-label">${esc(item.project)}</div>
+    <div class="eff-bar-track">
+      <div class="eff-bar-fill" style="width:${pct}%"></div>
+      <span class="eff-bar-hours">${item.hours} hrs</span>
+    </div>
+    ${item.note ? `<div class="eff-bar-note">${esc(item.note)}</div>` : ""}
+  </div>`;
+}
+
+/* Cross-client training section — shows how the workflow is trained on
+   prior client work, making bkWatch's films faster from the start. */
+function crossClientSection(data) {
+  const cc = data.invoicing.crossClientTraining;
+  if (!cc) return "";
+  return `<section class="section">
+    <div class="section-head"><h2 class="section-title">Trained on prior work</h2></div>
+    <div class="card" style="padding:var(--space-5) var(--space-6)">
+      <p class="reading" style="margin-bottom:var(--space-4)">${esc(cc.description)}</p>
+      <div class="cross-client-stats">
+        <div class="cross-client-stat"><span class="cross-client-num">${cc.hoursLearnedFrom}</span><span class="cross-client-label">hours of accumulated learning</span></div>
+        <div class="cross-client-stat"><span class="cross-client-num">${cc.filmsLearnedFrom}</span><span class="cross-client-label">completed films trained on</span></div>
+      </div>
+      <div class="eff-trend" style="margin-top:var(--space-5)">
+        ${cc.trend.map((item) => efficiencyBar(item, 250)).join("")}
+      </div>
+      <p class="muted" style="margin-top:var(--space-4)">Each film builds on the last. The workflow learns the visual system, brand guidelines, and production techniques — so ${esc(data.portal.client.name)}'s films start from a higher baseline, not from zero.</p>
+    </div>
+  </section>`;
+}
+
+/* Efficiency trend section — for clients with completed projects (Shaw). */
+function efficiencySection(data) {
+  const trend = data.invoicing.efficiencyTrend;
+  if (!trend || !trend.length) return "";
+  const maxHours = Math.max(...trend.map((t) => t.hours));
+  return `<section class="section">
+    <div class="section-head"><h2 class="section-title">Efficiency trend</h2></div>
+    <div class="card" style="padding:var(--space-5) var(--space-6)">
+      <p class="reading" style="margin-bottom:var(--space-4)">Hours per project over time — showing how the workflow gets faster as it learns ${esc(data.portal.client.name)}'s brand and visual system.</p>
+      <div class="eff-trend">
+        ${trend.map((item) => efficiencyBar(item, maxHours)).join("")}
+      </div>
+    </div>
+  </section>`;
+}
+
+/* Financial summary section — real dollar amounts from the spreadsheet. */
+function financialSection(data) {
+  const fin = data.invoicing.financialSummary;
+  if (!fin) return "";
+  const note = fin.note ? `<p class="muted" style="margin-top:var(--space-3)">${esc(fin.note)}</p>` : "";
+  return `<section class="section">
+    <div class="section-head"><h2 class="section-title">Financial summary</h2></div>
+    <div class="ai-value-strip">
+      <div class="ai-value-stat"><span class="ai-value-num">${esc(fin.formattedBilled)}</span><span class="ai-value-label">total billed</span></div>
+      <div class="ai-value-stat"><span class="ai-value-num">${esc(fin.formattedPaid)}</span><span class="ai-value-label">total paid</span></div>
+      ${fin.outstanding > 0 ? `<div class="ai-value-stat"><span class="ai-value-num">${esc(fin.formattedOutstanding)}</span><span class="ai-value-label">outstanding</span></div>` : ""}
+      <div class="ai-value-stat"><span class="ai-value-num">${fin.totalHours}</span><span class="ai-value-label">total hours</span></div>
+      ${fin.effectiveRate > 0 ? `<div class="ai-value-stat"><span class="ai-value-num">$${fin.effectiveRate}</span><span class="ai-value-label">effective rate/hr</span></div>` : ""}
+    </div>
+    ${note}
+  </section>`;
+}
+
 export function render(data) {
   const { invoicing, portal, aiRoadmap } = data;
   if (!invoicing) return { crumb: portal.client.shortName, title: "Value & Results", html: '<div class="page"><div class="empty-state">Value data not available.</div></div>' };
@@ -84,6 +160,12 @@ export function render(data) {
         ${metricCard(m.capabilitiesDelivered, "sparkles")}
       </div>
     </section>
+
+    ${financialSection(data)}
+
+    ${efficiencySection(data)}
+
+    ${crossClientSection(data)}
 
     <section class="section">
       <div class="section-head"><h2 class="section-title">Outcomes</h2></div>
