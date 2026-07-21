@@ -10,6 +10,7 @@ const ROUTES = [
   { name: "project", re: /^\/projects\/([^/]+)\/?$/, keys: ["slug"] },
   { name: "library", re: /^\/library\/?$/, keys: [] },
   { name: "libraryComms", re: /^\/library\/communication\/(comments|emails|meetings)\/?$/, keys: ["subpage"] },
+  { name: "libraryQuicklinks", re: /^\/library\/quicklinks\/?$/, keys: [], params: { quicklinks: true } },
   { name: "libraryRecord", re: /^\/library\/([^/]+)\/([^/]+)\/?$/, keys: ["category", "recordId"] },
   { name: "libraryCategory", re: /^\/library\/([^/]+)\/?$/, keys: ["category"] },
   { name: "aiRoadmap", re: /^\/ai-roadmap\/?$/, keys: [] },
@@ -43,7 +44,7 @@ export function match(path) {
   for (const r of ROUTES) {
     const m = r.re.exec(path);
     if (m) {
-      const params = {};
+      const params = { ...(r.params || {}) };
       r.keys.forEach((k, i) => (params[k] = decodeURIComponent(m[i + 1])));
       return { name: r.name, params };
     }

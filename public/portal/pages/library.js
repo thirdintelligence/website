@@ -9,11 +9,13 @@ import { commentThread, commentsWithProjectBlockers, addCommentButton } from "..
 const CAT_ICON = { branding: "bookmark", products: "layers", features: "target", "integrations-partners": "users", "film-knowledge": "film", communication: "comment", "other-knowledge": "library" };
 
 export function render(data, params) {
+  // Quicklinks page route
+  if (params && params.quicklinks) return renderQuicklinks(data);
   // Communication sub-page route (comments / emails / meetings)
   if (params && params.subpage) return renderCommsSubPage(data, params);
   if (params && params.category) return renderCategory(data, params);
 
-  const { library, portal, live, communications } = data;
+  const { library, portal, live, communications, quicklinks } = data;
 
   const counts = {};
   for (const r of library.records) counts[r.category] = (counts[r.category] || 0) + 1;
@@ -37,6 +39,16 @@ export function render(data, params) {
     </a>`;
   }).join("");
 
+  // Quicklinks card — links to the dedicated quicklinks page
+  const quicklinksCount = quicklinks?.links?.length || 0;
+  const quicklinksCard = `<a class="card card-feature lib-cat card-link" href="#/library/quicklinks">
+    ${motif("grid")}
+    <div class="pc-meta">${icon("external")}<span class="lc-count">${quicklinksCount} links</span></div>
+    <h3 class="pc-title">Research Quicklinks</h3>
+    <p class="pc-value">Living links to the independent research sources behind Third i's AI roadmaps — what each source is and when to use it.</p>
+    ${cardAction("View quicklinks")}
+  </a>`;
+
   const html = `<div class="page filter-page">
     <h1 class="page-title">Library</h1>
     <p class="page-lede">Everything Third i has learned and built for ${esc(portal.client.name)} — brand, products, features, integrations, film knowledge, and communication. Each record keeps its source.</p>
@@ -48,7 +60,7 @@ export function render(data, params) {
       <button class="btn btn-sm btn-ghost" id="lf-clear" type="button">Clear</button>
     </div>
 
-    <section class="section"><div class="lib-dir">${dir}</div></section>
+    <section class="section"><div class="lib-dir">${dir}${quicklinksCard}</div></section>
 
     <section class="section">
       <div class="section-head"><h2 class="section-title">All records</h2></div>
@@ -244,4 +256,37 @@ function meetingFullRow(m) {
     ${m.location ? `<div class="meeting-location">${icon("external")} ${esc(m.location)}</div>` : ""}
     ${m.htmlLink ? `<a class="btn btn-sm btn-outline" href="${esc(m.htmlLink)}" target="_blank" rel="noopener">${icon("external")} Google Calendar</a>` : ""}
   </div>`;
+}
+
+/* Quicklinks page — living research links with explanations. */
+function renderQuicklinks(data) {
+  const { quicklinks, portal } = data;
+  if (!quicklinks) return { crumb: "Library", title: "Research Quicklinks", html: `<div class="page"><div class="empty-state">${icon("external")}<p>Quicklinks not available.</p><a class="btn btn-outline" href="#/library">Back to Library</a></div></div>` };
+
+  const tierLabel = (t) => t === 1 ? "Primary source" : t === 2 ? "Independent benchmark" : t === 3 ? "Academic research" : "Discovery tool";
+  const tierTone = (t) => t === 1 ? "tone-ok" : t === 2 ? "tone-info" : t === 3 ? "tone-neutral" : "tone-warn";
+
+  const links = quicklinks.links.map((l) => `<div class="card quicklink-card">
+    <div class="quicklink-head">
+      <h3 class="quicklink-title">${esc(l.title)}</h3>
+      ${chip(tierLabel(l.tier))}
+    </div>
+    <span class="quicklink-category">${esc(l.category)}</span>
+    <p class="reading">${esc(l.description)}</p>
+    <div class="quicklink-when">
+      <span class="muted">${icon("target")} When to use</span>
+      <p class="reading">${esc(l.whenToUse)}</p>
+    </div>
+    ${l.url ? `<a class="btn btn-sm btn-outline" href="${esc(l.url)}" target="_blank" rel="noopener">${icon("external")} Visit source</a>` : `<span class="muted">${icon("book")} Referenced directly from vendor publications</span>`}
+  </div>`).join("");
+
+  const html = `<div class="page">
+    <a class="btn btn-sm btn-ghost" href="#/library">${icon("chevronLeft")} Library</a>
+    <h1 class="page-title" style="margin-top:12px">${esc(quicklinks.title)}</h1>
+    <p class="page-lede">${esc(quicklinks.description)}</p>
+    <section class="section"><div class="quicklink-grid">${links}</div></section>
+    ${sourceNote(quicklinks.source)}
+  </div>`;
+
+  return { crumb: "Library", title: quicklinks.title, html };
 }

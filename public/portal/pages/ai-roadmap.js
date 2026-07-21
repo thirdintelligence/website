@@ -191,24 +191,37 @@ export function render(data) {
     <p class="page-lede">A planned and recommended AI roadmap for ${esc(portal.client.name)} — backed by real results, independent research, and an ongoing partnership that gets smarter every month. Not just films, but AI worked into daily operations, marketing, and automation across the whole business.</p>
 
     <section class="section">
-      <div class="ai-exec">
-        <div class="card">
+      <div class="ai-hero-summary">
+        <div class="card ai-hero-card">
           ${motif("rings")}
-          <span class="eyebrow">Executive summary</span>
-          <h2 class="section-title" style="margin:8px 0 12px">Where ${esc(portal.client.shortName)} is today</h2>
+          <span class="eyebrow">Planned AI roadmap</span>
+          <h2 class="section-title" style="margin:8px 0 14px">Where ${esc(portal.client.shortName)} stands today</h2>
           <p class="reading">${esc(ex.currentState)}</p>
-          <dl class="kv" style="margin-top:16px">
-            <dt>Top improvement</dt><dd>${esc(ex.topImprovement)}</dd>
-            ${ex.risks ? `<dt>Risks</dt><dd>${esc(ex.risks)}</dd>` : ""}
-            <dt>Recommendation</dt><dd>${esc(ex.recommendation)}</dd>
-          </dl>
-          ${sourceNote(ex.source)}
+          <div class="ai-hero-points">
+            <div class="ai-hero-point">
+              <span class="ai-hero-point-icon">${icon("target")}</span>
+              <div><span class="ai-hero-point-label">Top improvement</span><p class="reading">${esc(ex.topImprovement)}</p></div>
+            </div>
+            <div class="ai-hero-point">
+              <span class="ai-hero-point-icon">${icon("rocket")}</span>
+              <div><span class="ai-hero-point-label">Recommendation</span><p class="reading">${esc(ex.recommendation)}</p></div>
+            </div>
+            ${ex.risks ? `<div class="ai-hero-point">
+              <span class="ai-hero-point-icon">${icon("alert")}</span>
+              <div><span class="ai-hero-point-label">Risk checkpoints</span><p class="reading">${esc(ex.risks)}</p></div>
+            </div>` : ""}
+          </div>
         </div>
-        <div class="card">
-          <span class="eyebrow">Positioning</span>
-          <p class="reading" style="margin-top:8px">${esc(ex.positioning)}</p>
-          <p class="muted" style="margin-top:12px">${icon("clock")} Research as of ${fmtDate(ai.researchAsOf)}. Rankings reviewed at least monthly while a recommendation is active.</p>
-          <div class="source-legend">${ai.sources.map((s) => `<span>${icon("external")} ${esc(s.name)}</span>`).join("")}</div>
+        <div class="card ai-hero-side">
+          <span class="eyebrow">Backed by</span>
+          <div class="ai-backed-stats">
+            <div class="ai-backed-stat"><span class="ai-backed-num">614</span><span class="ai-backed-label">hours of accumulated learning</span></div>
+            <div class="ai-backed-stat"><span class="ai-backed-num">4</span><span class="ai-backed-label">completed films trained on</span></div>
+            <div class="ai-backed-stat"><span class="ai-backed-num">5</span><span class="ai-backed-label">independent research sources</span></div>
+          </div>
+          <p class="reading" style="margin-top:12px">${esc(ex.positioning)}</p>
+          <p class="muted" style="margin-top:10px">${icon("clock")} Research as of ${fmtDate(ai.researchAsOf)}. Reviewed at least monthly while a recommendation is active.</p>
+          <a class="btn btn-sm btn-outline" href="#/library/quicklinks">${icon("external")} View research sources</a>
         </div>
       </div>
     </section>

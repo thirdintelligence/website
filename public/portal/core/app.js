@@ -18,7 +18,7 @@ import * as valueResults from "../pages/value-results.js";
 
 const PAGES = {
   home, projects, project: projectDetail, idea: filmPresentation,
-  library, libraryCategory: library, libraryComms: library, libraryRecord, aiRoadmap, valueResults
+  library, libraryCategory: library, libraryComms: library, libraryQuicklinks: library, libraryRecord, aiRoadmap, valueResults
 };
 
 let DATA = null;
