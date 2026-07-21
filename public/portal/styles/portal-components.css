@@ -126,6 +126,7 @@
 .pc-title { font-size: var(--fs-h3); margin-bottom: 4px; }
 .pc-value { color: var(--text-secondary); font-size: var(--fs-small); }
 .pc-meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: var(--space-3); }
+.creative-direction-badges { margin-top: 0; }
 .creative-direction-badges .status,
 .creative-direction-badges .chip {
   height: 24px; padding-block: 0; line-height: 1;

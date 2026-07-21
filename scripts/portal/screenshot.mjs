@@ -92,6 +92,16 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     if (await page.locator(".project-preview .ip-next").count()) errors.push(`[${name}/${theme}] project hero still contains milestone text`);
     const centered = await visibleArtworkCenterOffset(page.locator(".project-preview .in-production"));
     if (centered > 2) errors.push(`[${name}/${theme}] project hero designer artwork is ${centered}px off vertical center`);
+    const badgeRows = await page.locator(".creative-direction-card").evaluateAll((cards) => cards.map((card) => {
+      const row = card.querySelector(".creative-direction-badges");
+      const cardBox = card.getBoundingClientRect();
+      const rowBox = row.getBoundingClientRect();
+      const cardStyle = getComputedStyle(card);
+      const rowStyle = getComputedStyle(row);
+      const expectedTop = cardBox.top + parseFloat(cardStyle.borderTopWidth) + parseFloat(cardStyle.paddingTop);
+      return { offset: Math.abs(rowBox.top - expectedTop), marginTop: parseFloat(rowStyle.marginTop) };
+    }));
+    if (!badgeRows.length || badgeRows.some((row) => row.offset > 1 || row.marginTop !== 0)) errors.push(`[${name}/${theme}] Creative Direction badge rows are still pushed down inside their cards`);
     const badgeAlignment = await page.locator(".creative-direction-badges > .status, .creative-direction-badges > .chip").evaluateAll((badges) => badges.map((badge) => {
       const box = badge.getBoundingClientRect();
       const textNode = [...badge.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
