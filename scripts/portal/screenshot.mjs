@@ -33,10 +33,11 @@ await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch();
 const errors = [];
 
-async function visibleArtworkCenterOffset(frameLocator) {
-  return frameLocator.evaluate((frame) => {
+async function productionFrameMetrics(frameLocator) {
+  return frameLocator.evaluateAll((frames) => frames.map((frame) => {
     const bounds = frame.getBoundingClientRect();
     const image = frame.querySelector(".ip-figure");
+    if (!image || !image.complete || !image.naturalWidth) return { offset: Number.POSITIVE_INFINITY, caption: "", badgeFontSize: 0 };
     const figure = image.getBoundingClientRect();
     const canvas = document.createElement("canvas");
     canvas.width = image.naturalWidth;
@@ -54,10 +55,15 @@ async function visibleArtworkCenterOffset(frameLocator) {
         }
       }
     }
-    if (maxY < 0) return Number.POSITIVE_INFINITY;
+    if (maxY < 0) return { offset: Number.POSITIVE_INFINITY, caption: "", badgeFontSize: 0 };
     const visibleCenter = figure.top + (((minY + maxY) / 2) / canvas.height) * figure.height;
-    return Math.abs((bounds.top + bounds.height / 2) - visibleCenter);
-  });
+    const badge = frame.querySelector(".ip-badge");
+    return {
+      offset: Math.abs((bounds.top + bounds.height / 2) - visibleCenter),
+      caption: frame.querySelector(".ip-cap")?.innerText.trim() || "",
+      badgeFontSize: badge ? parseFloat(getComputedStyle(badge).fontSize) : 0
+    };
+  }));
 }
 
 for (const [name, route, theme, viewport, tag] of SHOTS) {
@@ -76,11 +82,19 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     .map((img) => img.getAttribute("src")));
   if (brokenImages.length) errors.push(`[${name}/${theme}] broken images: ${brokenImages.join(", ")}`);
 
+  const productionFrames = page.locator(".in-production");
+  if (await productionFrames.count()) {
+    const frameMetrics = await productionFrameMetrics(productionFrames);
+    const offCenterFrames = frameMetrics.filter((frame) => frame.offset > 2);
+    if (offCenterFrames.length) errors.push(`[${name}/${theme}] ${offCenterFrames.length} in-production designer artwork frame(s) are more than 2px off vertical center`);
+    const secondaryCaptions = frameMetrics.map((frame) => frame.caption).filter((caption) => caption !== "In production");
+    if (secondaryCaptions.length) errors.push(`[${name}/${theme}] in-production previews still contain secondary text: ${secondaryCaptions.join(" | ")}`);
+    if (await page.locator(".in-production .ip-next").count()) errors.push(`[${name}/${theme}] legacy in-production secondary text remains in the DOM`);
+  }
+
   if (name === "projects") {
     const layout = await page.locator(".project-card").first().evaluate((card) => getComputedStyle(card).gridTemplateColumns);
     if (viewport.width > 680 && layout.split(" ").length < 2) errors.push(`[${name}/${theme}] project card is not horizontal`);
-    const centered = await visibleArtworkCenterOffset(page.locator(".project-card .in-production").first());
-    if (centered > 2) errors.push(`[${name}/${theme}] project thumbnail designer artwork is ${centered}px off vertical center`);
     const createButtonAlignment = await page.locator("#new-project-btn").evaluate((button) => {
       const box = button.getBoundingClientRect();
       const content = button.querySelector(".control-content").getBoundingClientRect();
@@ -96,9 +110,22 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
       return { direction: getComputedStyle(el).flexDirection, previewWidth: preview.width, heroWidth: el.getBoundingClientRect().width, previewBottom: preview.bottom, factsTop: facts.top };
     });
     if (hero.direction !== "column" || hero.previewWidth < hero.heroWidth - 2 || hero.factsTop < hero.previewBottom) errors.push(`[${name}/${theme}] project preview/info are not a full-width single column`);
-    if (await page.locator(".project-preview .ip-next").count()) errors.push(`[${name}/${theme}] project hero still contains milestone text`);
-    const centered = await visibleArtworkCenterOffset(page.locator(".project-preview .in-production"));
-    if (centered > 2) errors.push(`[${name}/${theme}] project hero designer artwork is ${centered}px off vertical center`);
+    const heroBadgeFontSize = await page.locator(".project-preview .ip-badge").evaluate((badge) => parseFloat(getComputedStyle(badge).fontSize));
+    if (heroBadgeFontSize < 13.5) errors.push(`[${name}/${theme}] project hero In production label is not larger than the standard preview label`);
+    const projectHierarchy = await page.locator(".page").evaluate((root) => {
+      const blocks = [...root.querySelectorAll(":scope > .detail-block")];
+      const script = blocks.find((block) => block.querySelector(":scope > .section-head h2")?.textContent.trim() === "Script");
+      const scope = blocks.find((block) => block.querySelector(":scope > .scope-panel"));
+      const creative = blocks.find((block) => block.querySelector(":scope > .section-head h2")?.textContent.trim() === "Creative directions");
+      if (!script || !scope || !creative) return null;
+      return { directlyAfterScript: scope.previousElementSibling === script, directlyBeforeCreative: scope.nextElementSibling === creative };
+    });
+    if (!projectHierarchy?.directlyAfterScript || !projectHierarchy?.directlyBeforeCreative) errors.push(`[${name}/${theme}] Scope & investment is not directly between Script and Creative directions`);
+    const criteriaPadding = await page.locator(".comparison-criteria").evaluate((row) => {
+      const style = getComputedStyle(row);
+      return { top: parseFloat(style.paddingTop), bottom: parseFloat(style.paddingBottom) };
+    });
+    if (criteriaPadding.top < 8 || criteriaPadding.bottom < 8) errors.push(`[${name}/${theme}] Creative Directions criteria row needs at least 8px vertical padding`);
     const badgeRows = await page.locator(".creative-direction-card").evaluateAll((cards) => cards.map((card) => {
       const row = card.querySelector(".creative-direction-badges");
       const cardBox = card.getBoundingClientRect();
@@ -126,6 +153,11 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     const comparisonHeaders = await page.locator(".ptable th").allTextContents();
     const comparisonCellCounts = await page.locator(".ptable tbody tr").evaluateAll((rows) => rows.map((row) => row.querySelectorAll("td").length));
     if (comparisonHeaders.some((header) => /recommendation/i.test(header)) || comparisonHeaders.length !== 4 || comparisonCellCounts.some((count) => count !== 4)) errors.push(`[${name}/${theme}] Compare Directions still contains a recommendation field`);
+  }
+  if (name === "film-presentation") {
+    const sceneBadgeFontSizes = await page.locator(".scene-media .ip-badge").evaluateAll((badges) => badges.map((badge) => parseFloat(getComputedStyle(badge).fontSize)));
+    if (!sceneBadgeFontSizes.length || sceneBadgeFontSizes.some((size) => size > 13)) errors.push(`[${name}/${theme}] scene In production labels no longer use the standard preview size`);
+    if (await page.locator(".scene-media > .pc-meta .status").count()) errors.push(`[${name}/${theme}] scene preview areas still contain secondary status text`);
   }
   if (name === "library-branding") {
     const entry = await page.locator(".record-row").first().evaluate((row) => {

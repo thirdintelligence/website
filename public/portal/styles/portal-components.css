@@ -153,8 +153,10 @@
 .thumb-play .icon { width: 22px; height: 22px; color: var(--accent-solid); margin-left: 3px; }
 .thumb-label { position: absolute; left: 12px; bottom: 12px; }
 
-/* In-production placeholder: grid + animated designer.svg (locked proportions) */
-.in-production { position: relative; display: grid; place-items: center; }
+/* In-production placeholder: grid + optically centered designer.svg. The SVG's
+   visible artwork sits low inside its square canvas, so image and caption share
+   the same measured upward correction wherever this component is rendered. */
+.in-production { --ip-composition-shift: 11.2067%; position: relative; display: grid; place-items: center; }
 .in-production .ip-grid::before {
   content: ""; position: absolute; inset: 0;
   background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -163,12 +165,12 @@
   mask-image: radial-gradient(80% 80% at 50% 45%, #000, transparent 78%);
 }
 .in-production .ip-figure {
-  position: absolute; inset: 0; margin: auto; height: 82%; aspect-ratio: 1 / 1; max-width: 82%;
+  position: absolute; inset: auto; left: 50%; top: calc(50% - var(--ip-composition-shift));
+  margin: 0; height: 82%; aspect-ratio: 1 / 1; max-width: 82%; transform: translate(-50%, -50%);
   object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
 }
-.in-production .ip-cap { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; }
+.in-production .ip-cap { position: absolute; left: 0; right: 0; bottom: calc(12px + var(--ip-composition-shift)); text-align: center; }
 .in-production .ip-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--surface) 78%, transparent); border: 1px solid var(--line-strong); font-size: var(--fs-caption); font-weight: 600; color: var(--accent-solid); }
-.in-production .ip-next { display: block; margin-top: 6px; font-size: var(--fs-caption); color: var(--text-tertiary); }
 
 /* ── Draft notice (prominent, respectful) ───────────────────────────────────── */
 .draft-notice {

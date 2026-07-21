@@ -26,7 +26,7 @@ export function render(data, params) {
   const comparison = film ? `
     <div class="detail-block">
       <h2>Compare directions</h2>
-      <p class="reading muted">Criteria: ${comparisonCriteria.map((c) => chip(c)).join(" ")}</p>
+      <p class="reading muted comparison-criteria">Criteria: ${comparisonCriteria.map((c) => chip(c)).join(" ")}</p>
       <div style="overflow:auto"><table class="ptable">
         <thead><tr><th>Direction</th><th>Strength</th><th>Complexity</th><th>Distinctiveness</th></tr></thead>
         <tbody>
@@ -78,6 +78,8 @@ export function render(data, params) {
       ${sourceNote(p.storyboardNote)}
     </section>` : ""}
 
+    ${scope}
+
     ${film ? `<section class="detail-block">
       <div class="section-head"><h2>Creative directions</h2><span class="muted">${film.ideas.length} directions</span></div>
       <p class="reading muted">Each direction is a complete proposed film. Open one for its full scene-by-scene storyboard and script.</p>
@@ -102,8 +104,6 @@ export function render(data, params) {
     </section>` : ""}
 
     ${(p.reports && p.reports.length) ? `<section class="detail-block"><h2>Reports &amp; outcomes</h2>${p.reports.map((r) => `<div class="card"><h3 class="pc-title">${esc(r.title)}</h3><p class="reading">${esc(r.body)}</p>${sourceNote(r.source)}</div>`).join("")}</section>` : ""}
-
-    ${scope}
 
     ${sourceNote(p.source)}
   </div>`;

@@ -21,8 +21,8 @@ export function render(data, params) {
 
   const sceneBlock = (s) => `<div class="scene-block" id="${esc(s.id)}">
     <div class="scene-media">
-      ${mediaFrame({ mediaState: s.mediaState, next: s.status, ratio: "16 / 9" })}
-      <div class="pc-meta" style="margin-top:10px">${statusLabel(s.status)}${addCommentButton({ scope: "scene", projectId: p.id, sceneId: s.id, label: "Scene " + s.id, route: `/bkwatch/projects/${p.slug}/ideas/${idea.slug}` }, "Comment on scene")}</div>
+      ${mediaFrame({ mediaState: s.mediaState, ratio: "16 / 9" })}
+      <div class="pc-meta" style="margin-top:10px">${addCommentButton({ scope: "scene", projectId: p.id, sceneId: s.id, label: "Scene " + s.id, route: `/bkwatch/projects/${p.slug}/ideas/${idea.slug}` }, "Comment on scene")}</div>
     </div>
     <div class="scene-copy">
       <div class="scene-id">${esc(s.id)} · ${esc(s.time || "")}</div>

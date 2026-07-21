@@ -22,16 +22,7 @@
 .project-hero { display: flex; flex-direction: column; gap: var(--space-5); }
 .project-preview { width: 100%; }
 .project-preview .thumb { width: 100%; aspect-ratio: 16 / 9; }
-.project-card .in-production,
-.project-preview .in-production { --ip-composition-shift: 11.2067%; }
-.project-card .ip-figure,
-.project-preview .ip-figure {
-  inset: auto; left: 50%; top: calc(50% - var(--ip-composition-shift));
-  margin: 0; transform: translate(-50%, -50%);
-}
-.project-card .ip-cap,
-.project-preview .ip-cap { bottom: calc(12px + var(--ip-composition-shift)); }
-.project-preview .ip-next { display: none; }
+.project-preview .ip-badge { font-size: var(--fs-small); }
 .project-preview video,
 .project-preview .media-asset { display: block; width: 100%; height: 100%; object-fit: contain; }
 .hero-facts { display: flex; flex-direction: column; gap: var(--space-3); }
@@ -40,6 +31,7 @@
 
 .detail-block { margin-top: var(--space-7); }
 .detail-block > h2 { font-size: var(--fs-h2); margin-bottom: var(--space-3); }
+.comparison-criteria { padding-block: var(--space-2); }
 
 /* ── Film presentation: scene-by-scene ──────────────────────────────────────── */
 .idea-block { margin-top: var(--space-6); }
