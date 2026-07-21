@@ -81,7 +81,7 @@ async function osPage(csrfToken) {
   // nonce'd inline script satisfy the OS CSP. csrf matches the cookie set below.
   const dash = `<section id="tp-dash" aria-label="Client portal action queue">
     <div class="tp-bar">
-      <div class="tp-lead"><span class="tp-eyebrow">Client portal</span><span class="tp-h2">Action queue</span></div>
+      <div class="tp-lead"><span class="tp-eyebrow">Client portal</span><span class="tp-h2">Open comments</span></div>
       <div class="tp-strip"><span class="tp-chip on">Sheets</span><span class="tp-chip on">Gmail</span><span class="tp-chip on">Calendar</span><span class="tp-chip pending" id="tp-portals">Portals · checking</span></div>
     </div>
     <div id="tp-list" class="tp-list"><p class="tp-empty">Loading client activity…</p></div>
@@ -109,7 +109,12 @@ document.addEventListener("DOMContentLoaded",function(){listEl=document.getEleme
  listEl.addEventListener("click",function(e){var b=e.target.closest("[data-op]");if(!b)return;var op=b.getAttribute("data-op"),t=b.getAttribute("data-t");
   if(op==="complete")send(b,{tenant:t,op:"complete"});else if(op==="reopen")send(b,{tenant:t,op:"reopen"});
   else if(op==="up")send(b,{tenant:t,priority:(parseInt(b.getAttribute("data-p"),10)||0)-1});else if(op==="down")send(b,{tenant:t,priority:(parseInt(b.getAttribute("data-p"),10)||0)+1});});
- load();setInterval(load,60000);});})();</script>`;
+ load();setInterval(load,60000);buildPages();});
+var PAGE_OF={"Action Items":"home","Automations":"home","Live Email Feed":"home","Upcoming Meetings":"home","Add New Client":"home","Agent Command Center":"agent","Business Health":"departments","Client Portfolio":"departments","Q3 2026 OKRs":"departments","Departments":"departments","Active Priorities":"departments","Source of Truth":"departments","Archived":"archives"};
+var PAGES=[["home","Home"],["departments","Departments"],["agent","Agent Command Center"],["archives","Archives"]];
+function setPage(p){try{localStorage.setItem("os.page",p);}catch(e){}var os=document.querySelector(".os");if(!os)return;Array.prototype.forEach.call(os.querySelectorAll("[data-ospage]"),function(n){n.style.display=(n.getAttribute("data-ospage")==="all"||n.getAttribute("data-ospage")===p)?"":"none";});var d=document.getElementById("tp-dash");if(d)d.style.display=(p==="home")?"":"none";Array.prototype.forEach.call(document.querySelectorAll(".os-nav-btn"),function(b){b.classList.toggle("active",b.getAttribute("data-page")===p);});window.scrollTo(0,0);}
+function buildPages(){var os=document.querySelector(".os");if(!os||os.__paged)return;os.__paged=1;var assign="home";Array.prototype.slice.call(os.children).forEach(function(node){if(node.tagName==="HEADER"){node.setAttribute("data-ospage","all");return;}if(node.matches&&node.matches("h2.section-label")){assign=PAGE_OF[(node.textContent||"").trim()]||"home";}node.setAttribute("data-ospage",assign);});var dash=document.getElementById("tp-dash");var aH2=Array.prototype.filter.call(os.querySelectorAll("h2.section-label"),function(h){return (h.textContent||"").trim()==="Action Items";})[0];if(dash){dash.setAttribute("data-ospage","home");if(aH2)os.insertBefore(dash,aH2);}var nav=document.createElement("nav");nav.id="os-nav";nav.setAttribute("data-ospage","all");nav.innerHTML=PAGES.map(function(p){return '<button class="os-nav-btn" type="button" data-page="'+p[0]+'">'+p[1]+'</button>';}).join("");var header=os.querySelector("header.header");if(header){header.insertAdjacentElement("afterend",nav);}else{os.insertBefore(nav,os.firstChild);}nav.addEventListener("click",function(e){var b=e.target.closest(".os-nav-btn");if(b)setPage(b.getAttribute("data-page"));});var saved="home";try{saved=localStorage.getItem("os.page")||"home";}catch(e){}if(!PAGES.some(function(p){return p[0]===saved;}))saved="home";setPage(saved);}
+})();</script>`;
 
   const css = `<style nonce="${nonce}">.os-owner-logout{position:fixed;z-index:99998;right:18px;bottom:18px;margin:0}.os-owner-logout button{border:1px solid rgba(255,255,255,.2);border-radius:999px;background:#1a1a1a;color:#fff;padding:9px 14px;font:600 12px/1 Inter,sans-serif;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.25)}.os-owner-logout button:hover{border-color:#fff}
 #tp-dash{max-width:1180px;margin:16px auto 0;padding:18px 22px;background:#0d1218;border:1px solid rgba(121,196,245,.18);border-radius:16px;font-family:Inter,ui-sans-serif,-apple-system,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.35)}
@@ -139,7 +144,11 @@ document.addEventListener("DOMContentLoaded",function(){listEl=document.getEleme
 .tp-prio{display:inline-flex;gap:4px;margin-left:auto}
 .tp-note{color:#9fb0bd;font-size:12px}
 .tp-divider{color:#8397a5;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin:8px 2px 2px;font-weight:700}
-.tp-empty{color:#9fb0bd;margin:6px 0}</style>`;
+.tp-empty{color:#9fb0bd;margin:6px 0}
+#os-nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0}
+.os-nav-btn{background:#141b23;color:#c7d3dc;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:9px 17px;cursor:pointer;font:600 13px/1 Inter,ui-sans-serif,sans-serif}
+.os-nav-btn:hover{border-color:rgba(121,196,245,.5);color:#fff}
+.os-nav-btn.active{background:#2b66ae;border-color:#2b66ae;color:#fff}</style>`;
 
   const html = source
     .replace(/<div id="passGate"[\s\S]*?<\/script>/, "")
