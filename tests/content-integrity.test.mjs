@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-04"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-05"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -149,7 +149,9 @@ test("public homepage contact and canonical route are wired", async () => {
 });
 
 test("project hero and primary button presentation contracts are enforced", async () => {
+  const cardComponents = await readFile(new URL("../public/portal/components/cards.js", import.meta.url), "utf8");
   const projectDetail = await readFile(new URL("../public/portal/pages/project-detail.js", import.meta.url), "utf8");
+  const projectsPage = await readFile(new URL("../public/portal/pages/projects.js", import.meta.url), "utf8");
   const portalComponentsCss = await readFile(new URL("../public/portal/styles/portal-components.css", import.meta.url), "utf8");
   const portalPagesCss = await readFile(new URL("../public/portal/styles/portal-pages.css", import.meta.url), "utf8");
   const portalShellCss = await readFile(new URL("../public/portal/styles/portal-shell.css", import.meta.url), "utf8");
@@ -160,12 +162,17 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.doesNotMatch(projectDetail, /<th>Recommendation<\/th>/);
   assert.doesNotMatch(projectDetail, /esc\(i\.recommendation/);
   assert.match(projectDetail, /pc-meta creative-direction-badges/);
+  assert.match(projectDetail, /statusLabel\("Recommended", "ok", true\)/);
+  assert.match(projectDetail, /<span class="chip"><span class="control-content">/);
+  assert.match(projectsPage, /id="new-project-btn"[\s\S]*?<span class="control-content">/);
+  assert.match(cardComponents, /opticalCenter \? `<span class="control-content">/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; \}/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \.status,[\s\S]*?\.creative-direction-badges \.chip \{[^}]*height: 24px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalPagesCss, /\.project-preview \.ip-next \{ display: none; \}/);
   assert.match(portalPagesCss, /\.project-card \.in-production,[\s\S]*?\.project-preview \.in-production \{ --ip-composition-shift: 11\.2067%; \}/);
   assert.match(portalPagesCss, /\.project-card \.ip-figure,[\s\S]*?top: calc\(50% - var\(--ip-composition-shift\)\);[\s\S]*?translate\(-50%, -50%\)/);
   assert.match(portalPagesCss, /\.project-card \.ip-cap,[\s\S]*?bottom: calc\(12px \+ var\(--ip-composition-shift\)\)/);
+  assert.match(portalShellCss, /\.control-content \{[^}]*display: inline-flex;[^}]*align-items: center;[^}]*transform: translateY\(-1px\);/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
   assert.match(portalShellCss, /\.btn\.btn-primary:hover \{[\s\S]*?color: #ffffff;[\s\S]*?\}/);
 });

@@ -81,6 +81,13 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     if (viewport.width > 680 && layout.split(" ").length < 2) errors.push(`[${name}/${theme}] project card is not horizontal`);
     const centered = await visibleArtworkCenterOffset(page.locator(".project-card .in-production").first());
     if (centered > 2) errors.push(`[${name}/${theme}] project thumbnail designer artwork is ${centered}px off vertical center`);
+    const createButtonAlignment = await page.locator("#new-project-btn").evaluate((button) => {
+      const box = button.getBoundingClientRect();
+      const content = button.querySelector(".control-content").getBoundingClientRect();
+      const style = getComputedStyle(button.querySelector(".control-content"));
+      return { offset: (box.top + box.height / 2) - (content.top + content.height / 2), transform: style.transform };
+    });
+    if (Math.abs(createButtonAlignment.offset - 1) > .1 || !/matrix\(1, 0, 0, 1, 0, -1\)/.test(createButtonAlignment.transform)) errors.push(`[${name}/${theme}] Create Project button contents are not optically centered 1px upward`);
   }
   if (name === "project-detail") {
     const hero = await page.locator(".project-hero").evaluate((el) => {
@@ -104,19 +111,18 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     if (!badgeRows.length || badgeRows.some((row) => row.offset > 1 || row.marginTop !== 0)) errors.push(`[${name}/${theme}] Creative Direction badge rows are still pushed down inside their cards`);
     const badgeAlignment = await page.locator(".creative-direction-badges > .status, .creative-direction-badges > .chip").evaluateAll((badges) => badges.map((badge) => {
       const box = badge.getBoundingClientRect();
-      const textNode = [...badge.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
-      const range = document.createRange();
-      range.selectNodeContents(textNode);
-      const text = range.getBoundingClientRect();
+      const content = badge.querySelector(".control-content").getBoundingClientRect();
       const style = getComputedStyle(badge);
+      const contentStyle = getComputedStyle(badge.querySelector(".control-content"));
       return {
-        offset: Math.abs((box.top + box.height / 2) - (text.top + text.height / 2)),
+        offset: (box.top + box.height / 2) - (content.top + content.height / 2),
         height: box.height,
         alignItems: style.alignItems,
-        justifyContent: style.justifyContent
+        justifyContent: style.justifyContent,
+        transform: contentStyle.transform
       };
     }));
-    if (!badgeAlignment.length || badgeAlignment.some((badge) => badge.offset > 1 || badge.height !== 24 || badge.alignItems !== "center" || badge.justifyContent !== "center")) errors.push(`[${name}/${theme}] Creative Direction status/number text is not vertically centered in its pill`);
+    if (!badgeAlignment.length || badgeAlignment.some((badge) => Math.abs(badge.offset - 1) > .1 || badge.height !== 24 || badge.alignItems !== "center" || badge.justifyContent !== "center" || !/matrix\(1, 0, 0, 1, 0, -1\)/.test(badge.transform))) errors.push(`[${name}/${theme}] Creative Direction status/number contents are not optically centered 1px upward`);
     const comparisonHeaders = await page.locator(".ptable th").allTextContents();
     const comparisonCellCounts = await page.locator(".ptable tbody tr").evaluateAll((rows) => rows.map((row) => row.querySelectorAll("td").length));
     if (comparisonHeaders.some((header) => /recommendation/i.test(header)) || comparisonHeaders.length !== 4 || comparisonCellCounts.some((count) => count !== 4)) errors.push(`[${name}/${theme}] Compare Directions still contains a recommendation field`);

@@ -13,9 +13,10 @@ export function toneFor(text = "") {
   return { cls: "status-neutral", icon: "dot" };
 }
 
-export function statusLabel(text, tone) {
+export function statusLabel(text, tone, opticalCenter = false) {
   const t = tone ? { cls: `status-${tone}`, icon: tone === "ok" ? "check" : tone === "risk" ? "alert" : tone === "warn" ? "clock" : "dot" } : toneFor(text);
-  return `<span class="status ${t.cls}">${icon(t.icon)}${esc(text)}</span>`;
+  const content = `${icon(t.icon)}${esc(text)}`;
+  return `<span class="status ${t.cls}">${opticalCenter ? `<span class="control-content">${content}</span>` : content}</span>`;
 }
 
 export const chip = (text, ic) => `<span class="chip">${ic ? icon(ic) : ""}${esc(text)}</span>`;

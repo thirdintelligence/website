@@ -26,6 +26,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Base icon size — context rules (.btn .icon, .status .icon, …) override this. */
 .icon { display: inline-block; width: 20px; height: 20px; flex: none; vertical-align: middle; }
+.control-content {
+  display: inline-flex; align-items: center; justify-content: center; gap: inherit;
+  transform: translateY(-1px);
+}
 
 /* Utility: gradient accent text with a solid, accessible fallback color already set. */
 .grad-text {

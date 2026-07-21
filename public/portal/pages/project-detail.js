@@ -16,7 +16,7 @@ export function render(data, params) {
   const ideaCards = film ? film.ideas.map((idea) => `
     <a class="card card-feature card-link creative-direction-card" href="#/projects/${p.slug}/ideas/${idea.slug}">
       ${motif("grid")}
-      <div class="pc-meta creative-direction-badges">${idea.recommended ? statusLabel("Recommended", "ok") : statusLabel(idea.status)}<span class="chip">${esc(idea.number)}</span></div>
+      <div class="pc-meta creative-direction-badges">${idea.recommended ? statusLabel("Recommended", "ok", true) : statusLabel(idea.status, undefined, true)}<span class="chip"><span class="control-content">${esc(idea.number)}</span></span></div>
       <h3 class="pc-title">${esc(idea.title)}</h3>
       <p class="pc-value">${esc(idea.concept)}</p>
       <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
