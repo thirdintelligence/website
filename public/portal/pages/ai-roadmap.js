@@ -101,6 +101,12 @@ function scBillingBadge(billing) {
   return "";
 }
 
+/* Sort items: planned first, then recommended, then the rest. */
+function sortItems(items) {
+  const rank = (i) => i.status === "planned" ? 0 : i.status === "recommended" ? 1 : 2;
+  return [...items].sort((a, b) => rank(a) - rank(b));
+}
+
 /* A single clean service row — title + description, no per-item box. Highest-ROI
    services are outlined: green = planned, yellow = recommended for the client. */
 function scRow(item) {
@@ -124,21 +130,21 @@ function scHeader(catData) {
   </div>`;
 }
 
-/* Flat category: header + one clean divider list of services. */
+/* Flat category: header + one clean divider list of services (sorted). */
 function scListSection(catData, catKey) {
   return `<section class="section sc-section" data-cat="${catKey}">
     ${scHeader(catData)}
-    <div class="sc-list">${(catData.items || []).map(scRow).join("")}</div>
+    <div class="sc-list">${sortItems(catData.items || []).map(scRow).join("")}</div>
   </section>`;
 }
 
 /* Subcategorized category (AI Implementation): header + labeled groups, each a
-   clean divider list with an optional group description. */
+   clean divider list with an optional group description. Items sorted by status. */
 function scSubcatSection(catData, catKey) {
   const subcats = (catData.subcategories || []).map((sub) => `<div class="sc-subcat">
     <h4 class="sc-subcat-title">${esc(sub.title)}</h4>
     ${sub.description ? `<p class="sc-subcat-desc">${esc(sub.description)}</p>` : ""}
-    <div class="sc-list">${(sub.items || []).map(scRow).join("")}</div>
+    <div class="sc-list">${sortItems(sub.items || []).map(scRow).join("")}</div>
   </div>`).join("");
   return `<section class="section sc-section" data-cat="${catKey}">
     ${scHeader(catData)}

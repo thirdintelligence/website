@@ -328,13 +328,13 @@
 .sc-legend { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-3); }
 .sc-legend-item { display: flex; align-items: center; gap: 8px; font-size: var(--fs-caption); color: var(--text-secondary); }
 .sc-legend-swatch { width: 14px; height: 14px; border-radius: 4px; flex-shrink: 0; }
-.sc-legend-swatch.planned { border: 2px solid var(--green); background: color-mix(in srgb, var(--green) 15%, transparent); }
-.sc-legend-swatch.recommended { border: 2px solid var(--yellow); background: color-mix(in srgb, var(--yellow) 15%, transparent); }
-.sc-row.sc-planned { border-left: 3px solid var(--green); padding-left: var(--space-3); border-bottom-color: color-mix(in srgb, var(--green) 25%, var(--line-plain)); }
-.sc-row.sc-recommended { border-left: 3px solid var(--yellow); padding-left: var(--space-3); border-bottom-color: color-mix(in srgb, var(--yellow) 25%, var(--line-plain)); }
+.sc-legend-swatch.planned { border: 2px solid var(--ok); background: color-mix(in srgb, var(--ok) 15%, transparent); }
+.sc-legend-swatch.recommended { border: 2px solid var(--warn); background: color-mix(in srgb, var(--warn) 15%, transparent); }
+.sc-row.sc-planned { border-left: 3px solid var(--ok); padding-left: var(--space-3); border-bottom: none; }
+.sc-row.sc-recommended { border-left: 3px solid var(--warn); padding-left: var(--space-3); border-bottom: none; }
 .sc-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: var(--radius-pill); margin-left: 8px; vertical-align: middle; }
-.sc-tag.planned { background: color-mix(in srgb, var(--green) 18%, transparent); color: var(--green); }
-.sc-tag.recommended { background: color-mix(in srgb, var(--yellow) 18%, transparent); color: var(--yellow); }
+.sc-tag.planned { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+.sc-tag.recommended { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
 
 .sc-lastresort { margin-top: var(--space-8); opacity: 0.9; }
 .sc-lastresort .sc-head { border-bottom-color: color-mix(in srgb, var(--text-tertiary) 30%, transparent); }
