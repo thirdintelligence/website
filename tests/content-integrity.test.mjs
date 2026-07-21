@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-10"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-11"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -181,6 +181,8 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(projectsPage, /<div class="page filter-page">/);
   assert.match(libraryPage, /<div class="page filter-page">/);
   assert.match(cardComponents, /opticalCenter \? `<span class="control-content">/);
+  assert.match(cardComponents, /pc-meta project-card-badges[^\n]*statusLabel\(p\.statusLabel \|\| p\.status, undefined, true\)[^\n]*<span class="chip"><span class="control-content">\$\{esc\(p\.projectType\)\}/);
+  assert.match(portalComponentsCss, /\.project-card-badges \.status,[\s\S]*?\.project-card-badges \.chip \{[^}]*height: 28px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; transform: translateY\(-8px\); \}/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \.status,[\s\S]*?\.creative-direction-badges \.chip \{[^}]*height: 24px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalComponentsCss, /\.in-production \{ --ip-composition-shift: 11\.2067%;[^}]*\}/);

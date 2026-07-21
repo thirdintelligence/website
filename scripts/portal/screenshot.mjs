@@ -92,6 +92,23 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     if (await page.locator(".in-production .ip-next").count()) errors.push(`[${name}/${theme}] legacy in-production secondary text remains in the DOM`);
   }
 
+  if (name === "home" || name === "projects") {
+    const projectBadgeAlignment = await page.locator(".project-card-badges > .status, .project-card-badges > .chip").evaluateAll((badges) => badges.map((badge) => {
+      const box = badge.getBoundingClientRect();
+      const content = badge.querySelector(".control-content")?.getBoundingClientRect();
+      const style = getComputedStyle(badge);
+      const contentStyle = badge.querySelector(".control-content") ? getComputedStyle(badge.querySelector(".control-content")) : null;
+      return {
+        offset: content ? (box.top + box.height / 2) - (content.top + content.height / 2) : Number.POSITIVE_INFINITY,
+        height: box.height,
+        alignItems: style.alignItems,
+        justifyContent: style.justifyContent,
+        transform: contentStyle?.transform || ""
+      };
+    }));
+    if (!projectBadgeAlignment.length || projectBadgeAlignment.some((badge) => Math.abs(badge.offset - 1) > .1 || badge.height !== 28 || badge.alignItems !== "center" || badge.justifyContent !== "center" || !/matrix\(1, 0, 0, 1, 0, -1\)/.test(badge.transform))) errors.push(`[${name}/${theme}] project-card status/type contents are not optically centered 1px upward`);
+  }
+
   if (name === "projects") {
     const layout = await page.locator(".project-card").first().evaluate((card) => getComputedStyle(card).gridTemplateColumns);
     if (viewport.width > 680 && layout.split(" ").length < 2) errors.push(`[${name}/${theme}] project card is not horizontal`);

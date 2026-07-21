@@ -49,7 +49,7 @@ export function projectCard(p, hrefStr) {
       ${mediaFrame({ mediaState: p.thumbnail?.mediaState || "ungenerated", label: p.thumbnail?.label, draft: p.draft })}
     </div>
     <div class="pc-body">
-      <div class="pc-meta">${statusLabel(p.statusLabel || p.status)}${chip(p.projectType)}</div>
+      <div class="pc-meta project-card-badges">${statusLabel(p.statusLabel || p.status, undefined, true)}<span class="chip"><span class="control-content">${esc(p.projectType)}</span></span></div>
       <h3 class="pc-title">${esc(p.title)}</h3>
       <p class="pc-value">${esc(p.valueStatement)}</p>
       <div class="pc-meta">
