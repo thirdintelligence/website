@@ -10,7 +10,7 @@
       "source": "Derived from client-safe project manifest"
     },
     {
-      "label": "Open blockers",
+      "label": "Open blocker comments",
       "value": 2,
       "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
     },
@@ -35,7 +35,8 @@
   "needsAttention": [
     {
       "id": "na-blocker-1",
-      "kind": "blocker",
+      "kind": "comment",
+      "blocker": true,
       "title": "Final Demo plan approval",
       "detail": "Approve the 22-second Final Demo plan and its corrected segment allocation — including confirmation that the live/showable Status, Tasks, and Credit behavior can be demonstrated — before any media is generated.",
       "projectId": "film1-shaw-bkwatch",
@@ -46,7 +47,8 @@
     },
     {
       "id": "na-blocker-2",
-      "kind": "blocker",
+      "kind": "comment",
+      "blocker": true,
       "title": "Final CTA and logo hierarchy",
       "detail": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene.",
       "projectId": "film1-shaw-bkwatch",

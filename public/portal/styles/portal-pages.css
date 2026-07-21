@@ -59,12 +59,13 @@
 
 .idea-index { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .idea-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: var(--radius-pill); border: 1px solid var(--line); background: var(--surface); font-size: var(--fs-small); }
+.idea-pill:hover { text-decoration: none; }
 .idea-pill.is-recommended { border-color: transparent; background: var(--client-gradient-soft); color: var(--accent-solid); font-weight: 600; }
 .idea-nav { display: flex; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--line-plain); }
 
 /* ── Scope / investment panel ───────────────────────────────────────────────── */
-.scope-panel { border: 1px solid var(--line-strong); border-radius: var(--radius); padding: var(--space-5); background: var(--client-gradient-soft); }
-.scope-panel h3 { font-size: var(--fs-h4); margin-bottom: var(--space-2); }
+.scope-panel, .value-panel { border: 1px solid var(--line-strong); border-radius: var(--radius); padding: var(--space-5); background: var(--client-gradient-soft); }
+.scope-panel h3, .value-panel h3 { font-size: var(--fs-h4); margin-bottom: var(--space-2); }
 .scope-required { font-family: var(--font-head); font-weight: 600; color: var(--accent-solid); }
 
 /* ── Library directory ──────────────────────────────────────────────────────── */
@@ -72,11 +73,13 @@
 .lib-cat { display: flex; flex-direction: column; gap: 8px; }
 .lib-cat .lc-count { font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--text-tertiary); }
 .lib-cat .lc-subs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.lib-cat .card-action { margin-top: auto; }
 .record-list { display: flex; flex-direction: column; gap: var(--space-2); }
 .record-row { display: grid; grid-template-columns: 1fr auto; gap: var(--space-3); align-items: center; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); transition: border-color var(--dur) var(--ease); }
 .record-row:hover { border-color: var(--line-strong); text-decoration: none; }
 .record-row .rr-title { display: block; font-weight: 600; }
 .record-row .rr-summary { display: block; color: var(--text-secondary); font-size: var(--fs-small); margin-top: var(--space-1); line-height: 1.5; }
+.record-row-actions { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); }
 .record-facts { list-style: disc; padding-left: 20px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px; }
 
 /* ── AI Roadmap ─────────────────────────────────────────────────────────────── */
@@ -96,9 +99,13 @@
 /* ── Value strip (shared: Home + AI Roadmap + Project detail) ───────────────── */
 .ai-value-strip { display: flex; flex-wrap: wrap; gap: var(--space-3); padding: var(--space-4) var(--space-5); border: 1px solid var(--line-plain); border-radius: var(--radius-md); background: var(--surface); }
 .ai-value-stat { display: flex; flex-direction: column; gap: 2px; min-width: 120px; text-decoration: none; color: inherit; }
-.ai-value-stat:hover { opacity: 0.8; }
 .ai-value-num { font-size: var(--fs-h3); font-weight: 700; font-family: var(--font-head); color: var(--accent); }
 .ai-value-label { font-size: var(--fs-caption); color: var(--text-tertiary); line-height: 1.4; }
+.ai-value-actions { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); margin-left: auto; flex-wrap: wrap; }
+.project-value-strip { display: grid; grid-template-columns: repeat(4, minmax(100px, 1fr)) auto; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }
+.project-value-strip .ai-value-stat { min-width: 0; }
+.creative-direction-card { display: flex; flex-direction: column; }
+.creative-direction-card .card-action { margin-top: auto; }
 
 /* ── Partnership roadmap infographic ────────────────────────────────────────── */
 .roadmap-section { margin-top: var(--space-6); }
@@ -174,9 +181,11 @@
 .comms-sub-info { flex: 1; }
 .comms-sub-info h3 { font-size: var(--fs-h4); font-family: var(--font-head); }
 .comms-previews { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-5); }
-.comm-preview-row { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); text-decoration: none; color: inherit; transition: border-color var(--dur) var(--ease); margin-bottom: 8px; }
+.comm-preview-row { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); text-decoration: none; color: inherit; transition: border-color var(--dur) var(--ease); margin-bottom: 8px; }
 .comm-preview-row:hover { border-color: var(--line-strong); }
 .comm-preview-row .icon { width: 18px; height: 18px; opacity: 0.5; flex-shrink: 0; margin-top: 2px; }
+.comm-preview-row > div { flex: 1; min-width: 0; }
+.comm-preview-row .card-action { flex: none; }
 .comm-title { font-weight: 600; font-size: var(--fs-small); line-height: 1.4; }
 .comm-meta { font-size: var(--fs-caption); color: var(--text-tertiary); margin-top: 2px; }
 .comm-rail { width: 3px; height: 32px; border-radius: 999px; background: var(--accent); flex-shrink: 0; }
@@ -213,16 +222,18 @@
 .comm-prev-col { display: flex; flex-direction: column; gap: 8px; }
 .comm-prev-col-head { font-size: var(--fs-caption); font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px; }
 .comm-prev-col-head .icon { width: 14px; height: 14px; }
-.comm-prev-item { display: flex; align-items: flex-start; gap: var(--space-3); padding: 10px var(--space-3); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); text-decoration: none; color: inherit; transition: border-color var(--dur) var(--ease); }
+.comm-prev-item { display: flex; align-items: center; gap: var(--space-3); padding: 10px var(--space-3); border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); text-decoration: none; color: inherit; transition: border-color var(--dur) var(--ease); }
 .comm-prev-item:hover { border-color: var(--line-strong); }
 .comm-prev-item .icon { width: 16px; height: 16px; opacity: 0.5; flex-shrink: 0; margin-top: 2px; }
 .comm-prev-body { flex: 1; min-width: 0; }
+.comm-prev-item .card-action { flex: none; }
 .comm-prev-title { font-size: var(--fs-small); font-weight: 600; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .comm-prev-meta { font-size: var(--fs-caption); color: var(--text-tertiary); margin-top: 2px; }
 
 /* Home page roadmap preview */
 .roadmap-prev-card { display: block; text-decoration: none; color: inherit; padding: var(--space-5) var(--space-6); }
 .roadmap-prev-card:hover { border-color: var(--line-strong); }
+.roadmap-prev-card .card-action { margin-top: var(--space-4); }
 .roadmap-prev-lede { font-size: var(--fs-small); color: var(--text-secondary); margin-bottom: var(--space-4); }
 .roadmap-prev-timeline { display: flex; align-items: center; gap: 0; margin-bottom: var(--space-4); flex-wrap: wrap; }
 .rdot { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--line-plain); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; margin: 0 6px; }
@@ -282,4 +293,10 @@
 @media (max-width: 720px) {
   .milestone-callouts { grid-template-columns: 1fr; }
   .sc-list { grid-template-columns: 1fr; }
+  .project-value-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-value-strip .ai-value-actions { grid-column: 1 / -1; margin-left: 0; justify-content: flex-start; }
+  .record-row { grid-template-columns: 1fr; }
+  .record-row-actions { justify-content: space-between; }
+  .comm-preview-row, .comm-prev-item { align-items: flex-start; flex-wrap: wrap; }
+  .comm-preview-row .card-action, .comm-prev-item .card-action { margin-left: 30px; }
 }

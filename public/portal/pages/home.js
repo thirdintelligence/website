@@ -1,7 +1,7 @@
 /* Home / Today — the relationship control surface (plan 04). */
 import { h, esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
-import { statStrip, actionItem, projectCard, band, motif, sourceNote } from "../components/cards.js";
+import { statStrip, actionItem, projectCard, band, motif, sourceNote, cardAction } from "../components/cards.js";
 import { activityFeed, commentThread, addCommentButton } from "../components/feed.js";
 
 export function render(data, _params) {
@@ -24,10 +24,14 @@ export function render(data, _params) {
   // Value summary strip — shows momentum at a glance.
   const valueStrip = invoicing ? `<section class="section">
     <div class="ai-value-strip">
-      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.projectsActive.count}</span><span class="ai-value-label">${esc(invoicing.metrics.projectsActive.descriptor)}</span></a>
-      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours invested</span></a>
-      <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">${invoicing.metrics.capabilitiesDelivered.count}</span><span class="ai-value-label">capabilities delivered</span></a>
-      <a class="ai-value-stat" href="#/ai-roadmap"><span class="ai-value-num">12-month</span><span class="ai-value-label">partnership plan</span></a>
+      <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.projectsActive.count}</span><span class="ai-value-label">${esc(invoicing.metrics.projectsActive.descriptor)}</span></div>
+      <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours invested</span></div>
+      <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.capabilitiesDelivered.count}</span><span class="ai-value-label">capabilities delivered</span></div>
+      <div class="ai-value-stat"><span class="ai-value-num">12-month</span><span class="ai-value-label">partnership plan</span></div>
+      <div class="ai-value-actions">
+        <a class="btn btn-sm btn-outline" href="#/value-results">View results ${icon("arrowRight")}</a>
+        <a class="btn btn-sm btn-outline" href="#/ai-roadmap">View roadmap ${icon("arrowRight")}</a>
+      </div>
     </div>
   </section>` : "";
 
@@ -94,20 +98,22 @@ function communicationsPreview(communications) {
   const meetings = (communications.meetings || []).slice(0, 3);
   if (!emails.length && !meetings.length) return "";
 
-  const emailItems = emails.map((e) => `<a class="comm-prev-item" href="#/library/communication/emails">
+  const emailItems = emails.map((e) => `<a class="comm-prev-item card-link" href="#/library/communication/emails">
     ${icon("mail")}
     <div class="comm-prev-body">
       <div class="comm-prev-title">${esc(e.subject)}</div>
       <div class="comm-prev-meta">${esc(e.from?.replace(/<.*>/, "").trim() || "")} · ${esc(e.dateLabel || "")}</div>
     </div>
+    ${cardAction("View emails")}
   </a>`).join("");
 
-  const meetingItems = meetings.map((m) => `<a class="comm-prev-item" href="#/library/communication/meetings">
+  const meetingItems = meetings.map((m) => `<a class="comm-prev-item card-link" href="#/library/communication/meetings">
     ${icon("users")}
     <div class="comm-prev-body">
       <div class="comm-prev-title">${esc(m.summary)}</div>
       <div class="comm-prev-meta">${esc(m.startLabel || "")} ${m.upcoming ? "· Upcoming" : ""}</div>
     </div>
+    ${cardAction("View meetings")}
   </a>`).join("");
 
   return `<section class="section">
@@ -142,11 +148,12 @@ function roadmapPreview(roadmap) {
   return `<section class="section">
     <div class="section-head"><h2 class="section-title">Partnership roadmap</h2>
       <a class="btn btn-sm btn-ghost" href="#/ai-roadmap">Full roadmap ${icon("arrowRight")}</a></div>
-    <a class="card roadmap-prev-card" href="#/ai-roadmap">
+    <a class="card roadmap-prev-card card-link" href="#/ai-roadmap">
       ${motif("rings")}
       <div class="roadmap-prev-lede">${esc(roadmap.cadence.deliverable)} per month · 12-month partnership plan</div>
       <div class="roadmap-prev-timeline">${monthDots}<span class="rdot more"><span class="rdot-label">+6</span></span></div>
       ${milestones ? `<div class="roadmap-prev-milestones">${milestones}</div>` : ""}
+      ${cardAction("Open roadmap")}
     </a>
   </section>`;
 }

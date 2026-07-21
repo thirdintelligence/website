@@ -51,6 +51,26 @@ test("migration preserves film parity (9 ideas, 30 scenes)", async () => {
   assert.equal(scenes, 30);
 });
 
+test("project blockers are comment records and effort/value metrics are confirmed", async () => {
+  const projects = await read("projects.json");
+  const film = projects.projects.find((p) => p.type === "film");
+  assert.equal(film.startedAt, "2026-07-01");
+  assert.equal(film.hoursInvested, 20);
+  assert.equal(film.deliverables.length, 10);
+  assert.equal(film.deliverables.filter((d) => d.state === "done").length, 5);
+  for (const blocker of film.blockers) {
+    assert.equal(blocker.kind, "comment");
+    assert.equal(blocker.blocker, true);
+    assert.ok(blocker.title);
+  }
+
+  const home = await read("home.json");
+  const blockers = home.needsAttention.filter((item) => item.blocker);
+  assert.equal(blockers.length, 2);
+  for (const blocker of blockers) assert.equal(blocker.kind, "comment");
+  assert.equal(home.stats.find((stat) => stat.label === "Open blocker comments").value, 2);
+});
+
 test("only the finalized idea uses the in-production placeholder", async () => {
   const projects = await read("projects.json");
   const film = projects.projects.find((p) => p.type === "film");

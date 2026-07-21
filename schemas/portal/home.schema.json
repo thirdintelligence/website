@@ -36,6 +36,7 @@
         "properties": {
           "id": { "$ref": "common.schema.json#/$defs/id" },
           "kind": { "type": "string", "enum": ["blocker", "comment", "decision", "milestone", "general"] },
+          "blocker": { "type": "boolean" },
           "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
           "detail": { "type": "string" },
           "projectId": { "type": "string" },

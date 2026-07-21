@@ -155,7 +155,7 @@ function buildHome(v1, projects) {
 
   const stats = [
     { label: "Active projects", value: projects.filter((p) => p.status === "active").length, source: "Derived from client-safe project manifest" },
-    { label: "Open blockers", value: openBlockers, source: v1.currentWork.source },
+    { label: "Open blocker comments", value: openBlockers, source: v1.currentWork.source },
     { label: "Deliverables ready for review", value: (v1.currentWork.deliverables || []).length, source: v1.currentWork.source },
     { label: "Approved generated media", value: v1.film.approvedMedia, unit: "stills or clips", state: "not-started", source: "Film1 Working Memory — media generation has not started" },
     { label: "Next milestone", value: "Final Demo plan + asset/function lock", source: v1.currentWork.source }
@@ -168,7 +168,8 @@ function buildHome(v1, projects) {
     const detail = typeof b === "object" ? b.detail : undefined;
     return {
       id: `na-blocker-${i + 1}`,
-      kind: "blocker",
+      kind: "comment",
+      blocker: true,
       title,
       ...(detail ? { detail } : {}),
       projectId: film.id,
@@ -249,6 +250,10 @@ function buildProjects(v1) {
     displayName: f.name,
     status: "active",
     statusLabel: "Active · Final Demo extreme QC passed",
+    // Confirmed relationship metrics: invoicing summary as of 2026-07-21 and
+    // first Film 1 activity recorded on 2026-07-01.
+    startedAt: "2026-07-01",
+    hoursInvested: 20,
     projectType: "Integration film · Shaw × bkWatch",
     valueStatement: f.coreMessage,
     objective: f.objective,
@@ -270,7 +275,12 @@ function buildProjects(v1) {
     deliverables: (v1.currentWork.deliverables || []).map((d) => ({ title: d, state: "In progress" })),
     assets: [],
     timeline: f.timeline,
-    blockers: (v1.currentWork.blockers || []).map((b) => (typeof b === "string" ? b : b.title)),
+    blockers: (v1.currentWork.blockers || []).map((b) => ({
+      kind: "comment",
+      blocker: true,
+      title: typeof b === "string" ? b : b.title,
+      ...((typeof b === "object" && (b.description || b.detail)) ? { description: b.description || b.detail } : {})
+    })),
     related: ["spectrum-integration", "monitoring"],
     scope: {
       ownerApproved: false,

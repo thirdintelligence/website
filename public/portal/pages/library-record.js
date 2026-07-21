@@ -1,7 +1,7 @@
 /* Library record detail (plan 07). Any record accepts comments (Q12). */
 import { esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
-import { statusLabel, chip } from "../components/cards.js";
+import { statusLabel, chip, cardAction } from "../components/cards.js";
 import { commentThread, addCommentButton } from "../components/feed.js";
 
 export function render(data, params) {
@@ -30,12 +30,12 @@ export function render(data, params) {
 
     <dl class="kv" style="margin-top:24px">
       <dt>Category</dt><dd>${esc(cat ? cat.title : r.category)}</dd>
-      ${r.projectId && r.projectId !== "general" ? `<dt>Project</dt><dd><a href="#/projects/${esc(r.projectId)}">${esc(r.projectId)}</a></dd>` : `<dt>Scope</dt><dd>General</dd>`}
+      ${r.projectId && r.projectId !== "general" ? `<dt>Project</dt><dd><a class="btn btn-sm btn-outline" href="#/projects/${esc(r.projectId)}">Open project ${icon("arrowRight")}</a></dd>` : `<dt>Scope</dt><dd>General</dd>`}
       ${r.lastReviewedAt ? `<dt>Last reviewed</dt><dd>${fmtDate(r.lastReviewedAt)}</dd>` : ""}
       <dt>Sources</dt><dd>${r.sourceRefs.map((s) => esc(s)).join("<br>")}</dd>
     </dl>
 
-    ${related.length ? `<section class="detail-block"><h2>Related</h2><div class="record-list">${related.map((x) => `<a class="record-row" href="#/library/${x.category}/${x.id}"><span><span class="rr-title">${esc(x.title)}</span><span class="rr-summary">${esc(x.summary)}</span></span><span>${statusLabel(x.status)}</span></a>`).join("")}</div></section>` : ""}
+    ${related.length ? `<section class="detail-block"><h2>Related</h2><div class="record-list">${related.map((x) => `<a class="record-row card-link" href="#/library/${x.category}/${x.id}"><span><span class="rr-title">${esc(x.title)}</span><span class="rr-summary">${esc(x.summary)}</span></span><span class="record-row-actions">${statusLabel(x.status)}${cardAction("View record")}</span></a>`).join("")}</div></section>` : ""}
 
     <section class="detail-block">
       <div class="section-head"><h2>Comments</h2>${addCommentButton(ctx)}</div>

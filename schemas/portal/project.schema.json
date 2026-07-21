@@ -35,6 +35,18 @@
         "assetId": { "type": "string" }
       }
     },
+    "blockerComment": {
+      "type": "object",
+      "description": "A curated blocker is always represented as a read-only comment in the client portal.",
+      "additionalProperties": false,
+      "required": ["kind", "blocker", "title"],
+      "properties": {
+        "kind": { "type": "string", "const": "comment" },
+        "blocker": { "type": "boolean", "const": true },
+        "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "description": { "type": "string" }
+      }
+    },
     "report": {
       "type": "object",
       "additionalProperties": false,
@@ -83,6 +95,8 @@
         "displayName": { "type": "string" },
         "status": { "type": "string", "enum": ["active", "completed", "paused", "archived", "proposed"] },
         "statusLabel": { "type": "string" },
+        "startedAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "hoursInvested": { "type": "number", "minimum": 0 },
         "projectType": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
         "valueStatement": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
         "objective": { "type": "string" },
@@ -102,7 +116,7 @@
         "deliverables": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/deliverable" } },
         "assets": { "type": "array", "items": { "$ref": "asset.schema.json#/$defs/asset" } },
         "timeline": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/timelineItem" } },
-        "blockers": { "type": "array", "items": { "type": "string" } },
+        "blockers": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/blockerComment" } },
         "reports": { "type": "array", "items": { "$ref": "project.schema.json#/$defs/report" } },
         "related": { "type": "array", "items": { "type": "string" } },
         "scope": { "$ref": "project.schema.json#/$defs/scope" },

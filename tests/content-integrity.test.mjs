@@ -86,7 +86,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-12"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260721-13"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -158,6 +158,10 @@ test("project hero and primary button presentation contracts are enforced", asyn
   const portalComponentsCss = await readFile(new URL("../public/portal/styles/portal-components.css", import.meta.url), "utf8");
   const portalPagesCss = await readFile(new URL("../public/portal/styles/portal-pages.css", import.meta.url), "utf8");
   const portalShellCss = await readFile(new URL("../public/portal/styles/portal-shell.css", import.meta.url), "utf8");
+  const feedComponents = await readFile(new URL("../public/portal/components/feed.js", import.meta.url), "utf8");
+  const homePage = await readFile(new URL("../public/portal/pages/home.js", import.meta.url), "utf8");
+  const libraryRecord = await readFile(new URL("../public/portal/pages/library-record.js", import.meta.url), "utf8");
+  const search = await readFile(new URL("../public/portal/core/search.js", import.meta.url), "utf8");
 
   assert.doesNotMatch(projectDetail, /next:\s*p\.nextMilestone/);
   assert.doesNotMatch(mediaComponents, /ip-next|next\s*=/);
@@ -201,4 +205,25 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(portalShellCss, /\.control-content \{[^}]*display: inline-flex;[^}]*align-items: center;[^}]*transform: translateY\(-1px\);/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
   assert.match(portalShellCss, /\.btn\.btn-primary:hover \{[\s\S]*?color: #ffffff;[\s\S]*?\}/);
+  assert.match(portalShellCss, /\.btn:hover \{[^}]*text-decoration: none;/);
+  assert.match(cardComponents, /export const cardAction/);
+  assert.match(cardComponents, /cardAction\("Open project"\)/);
+  assert.match(projectDetail, /cardAction\("Open direction"\)/);
+  assert.match(projectDetail, /project-value-strip/);
+  assert.match(projectDetail, /label: "hours invested"/);
+  assert.match(projectDetail, /label: "weeks active"/);
+  assert.match(projectDetail, /label: "deliverables ready"/);
+  assert.match(projectDetail, /label: "Final Demo scenes"/);
+  assert.doesNotMatch(projectDetail, /<h2>Open blockers<\/h2>/);
+  assert.match(projectDetail, /commentsWithProjectBlockers/);
+  assert.match(libraryPage, /commentsWithProjectBlockers/);
+  assert.match(feedComponents, /kind: "comment",[\s\S]*blocker: true/);
+  assert.match(feedComponents, /c\.readonly \? ""/);
+  assert.match(homePage, /cardAction\("Open roadmap"\)/);
+  assert.match(libraryRecord, /cardAction\("View record"\)/);
+  assert.match(search, /View result/);
+  assert.match(portalComponentsCss, /\.card-link \{[^}]*color: inherit;[^}]*text-decoration: none;/);
+  assert.match(portalComponentsCss, /\.card-action \{[\s\S]*?background: var\(--accent-gradient\); color: #000;/);
+  assert.match(portalComponentsCss, /\.card-link:hover \.card-action \{ background: var\(--ink-900\); color: #fff; \}/);
+  assert.match(portalPagesCss, /\.project-value-strip \{[^}]*grid-template-columns: repeat\(4,/);
 });

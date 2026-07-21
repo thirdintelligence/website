@@ -12,6 +12,8 @@
       "displayName": "Film1-ShawBkWatch",
       "status": "active",
       "statusLabel": "Active — Demo built, awaiting bkWatch review",
+      "startedAt": "2026-07-01",
+      "hoursInvested": 20,
       "projectType": "Integration film · Shaw × bkWatch",
       "valueStatement": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
@@ -129,8 +131,18 @@
         }
       ],
       "blockers": [
-        "Final Demo plan approval",
-        "Final CTA and logo hierarchy"
+        {
+          "kind": "comment",
+          "blocker": true,
+          "title": "Final Demo plan approval",
+          "description": "Approve the 22-second Final Demo plan and its corrected segment allocation, including confirmation that the live and showable Status, Tasks, and Credit behavior can be demonstrated, before any media is generated."
+        },
+        {
+          "kind": "comment",
+          "blocker": true,
+          "title": "Final CTA and logo hierarchy",
+          "description": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene."
+        }
       ],
       "related": [
         "spectrum-integration",

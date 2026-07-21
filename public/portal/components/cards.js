@@ -21,6 +21,7 @@ export function statusLabel(text, tone, opticalCenter = false) {
 
 export const chip = (text, ic) => `<span class="chip">${ic ? icon(ic) : ""}${esc(text)}</span>`;
 export const sourceNote = (src) => src ? `<p class="source-note">Source: ${esc(src)}</p>` : "";
+export const cardAction = (label = "Open") => `<span class="card-action"><span class="control-content">${esc(label)}${icon("arrowRight")}</span></span>`;
 
 export function motif(kind = "grid") {
   return `<div class="motif motif-${kind}" aria-hidden="true"></div>`;
@@ -42,7 +43,7 @@ export function statStrip(stats) {
 }
 
 export function projectCard(p, hrefStr) {
-  const count = p.comment?.count || 0;
+  const count = (p.comment?.count || 0) + (p.blockers?.length || 0);
   return `<a class="card card-feature project-card card-link" href="${hrefStr}">
     ${motif("grid")}
     <div class="pc-media">
@@ -56,21 +57,23 @@ export function projectCard(p, hrefStr) {
         ${p.nextMilestone ? `<span class="muted">${icon("arrowRight")} ${esc(p.nextMilestone)}</span>` : ""}
         ${count ? `<span class="muted">${icon("comment")} ${count}</span>` : ""}
       </div>
+      ${cardAction("Open project")}
     </div>
   </a>`;
 }
 
 export function actionItem(item) {
-  const tone = toneFor(item.kind === "blocker" ? "blocker" : item.status);
+  const isBlocker = item.blocker === true || item.kind === "blocker";
+  const tone = toneFor(isBlocker ? "blocker" : item.status);
   return `<div class="action-item">
-    <span class="action-rail ${item.kind === "blocker" ? "blocker" : ""}"></span>
+    <span class="action-rail ${isBlocker ? "blocker" : ""}"></span>
     <div class="action-body">
       <div class="action-title">${esc(item.title)}</div>
       ${item.detail ? `<div class="action-detail">${esc(item.detail)}</div>` : ""}
       <div class="action-meta">
-        ${statusLabel(item.kind === "blocker" ? "Blocker" : (item.status || "Open"), item.kind === "blocker" ? "risk" : undefined)}
+        ${statusLabel(isBlocker ? "Blocker comment" : (item.status || "Open"), isBlocker ? "risk" : undefined)}
         ${item.projectLabel ? `<span>${esc(item.projectLabel)}</span>` : ""}
-        ${item.route ? `<a href="${item.route.startsWith("#") ? item.route : "#" + item.route.replace(/^\/bkwatch/, "")}">Open ${icon("arrowRight")}</a>` : ""}
+        ${item.route ? `<a class="btn btn-sm btn-outline action-open" href="${item.route.startsWith("#") ? item.route : "#" + item.route.replace(/^\/bkwatch/, "")}">Open project ${icon("arrowRight")}</a>` : ""}
       </div>
     </div>
   </div>`;

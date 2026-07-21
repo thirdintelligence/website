@@ -82,6 +82,16 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     .map((img) => img.getAttribute("src")));
   if (brokenImages.length) errors.push(`[${name}/${theme}] broken images: ${brokenImages.join(", ")}`);
 
+  const destinationCards = page.locator(".card-link");
+  if (await destinationCards.count()) {
+    const missingActions = await destinationCards.evaluateAll((cards) => cards.filter((card) => !card.querySelector(".card-action")).length);
+    if (missingActions) errors.push(`[${name}/${theme}] ${missingActions} clickable card/row destination(s) have no explicit action button`);
+    await destinationCards.first().hover();
+    const hoverDecoration = await destinationCards.first().evaluate((card) => getComputedStyle(card).textDecorationLine);
+    if (hoverDecoration !== "none") errors.push(`[${name}/${theme}] clickable card text is underlined on hover`);
+    await page.mouse.move(0, 0);
+  }
+
   const productionFrames = page.locator(".in-production");
   if (await productionFrames.count()) {
     const frameMetrics = await productionFrameMetrics(productionFrames);
@@ -184,6 +194,21 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     const comparisonHeaders = await page.locator(".ptable th").allTextContents();
     const comparisonCellCounts = await page.locator(".ptable tbody tr").evaluateAll((rows) => rows.map((row) => row.querySelectorAll("td").length));
     if (comparisonHeaders.some((header) => /recommendation/i.test(header)) || comparisonHeaders.length !== 4 || comparisonCellCounts.some((count) => count !== 4)) errors.push(`[${name}/${theme}] Compare Directions still contains a recommendation field`);
+    const valueMetrics = await page.locator(".project-value-strip .ai-value-stat").evaluateAll((stats) => stats.map((stat) => ({
+      value: stat.querySelector(".ai-value-num")?.textContent.trim(),
+      label: stat.querySelector(".ai-value-label")?.textContent.trim()
+    })));
+    const expectedMetrics = [
+      { value: "20", label: "hours invested" },
+      { value: "3", label: "weeks active" },
+      { value: "5/10", label: "deliverables ready" },
+      { value: "6", label: "Final Demo scenes" }
+    ];
+    if (JSON.stringify(valueMetrics) !== JSON.stringify(expectedMetrics)) errors.push(`[${name}/${theme}] Effort & value banner metrics are incomplete or out of order: ${JSON.stringify(valueMetrics)}`);
+    if (await page.locator(".project-value-strip .ai-value-actions .btn").count() !== 1) errors.push(`[${name}/${theme}] Effort & value banner is missing its destination button`);
+    if (await page.locator(".comment.is-blocker").count() < 2) errors.push(`[${name}/${theme}] curated blockers are not presented in the comment thread`);
+    const standaloneBlockers = await page.getByRole("heading", { name: "Open blockers", exact: true }).count();
+    if (standaloneBlockers) errors.push(`[${name}/${theme}] blockers still render as a separate non-comment section`);
   }
   if (name === "film-presentation") {
     const sceneBadgeFontSizes = await page.locator(".scene-media .ip-badge").evaluateAll((badges) => badges.map((badge) => parseFloat(getComputedStyle(badge).fontSize)));

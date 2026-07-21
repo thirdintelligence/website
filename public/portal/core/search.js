@@ -50,11 +50,11 @@ function attach(input, panel, entries, shortName, onNavigate) {
       (e.title + " " + (e.excerpt || "") + " " + (e.keywords || "") + " " + (e.category || "") + " " + (e.project || "")).toLowerCase().includes(q)
     ).slice(0, 12);
     panel.innerHTML = results.length
-      ? results.map((r) => `<a class="record-row" href="${toHash(r.route)}" style="margin-bottom:6px">
+      ? results.map((r) => `<a class="record-row card-link" href="${toHash(r.route)}" style="margin-bottom:6px">
           <span><span class="rr-title">${esc(r.title)}</span>
             <span class="rr-summary">${esc(r.excerpt || "")}</span>
             <span class="feed-date">${esc(r.type)}${r.project ? " · " + esc(r.project) : ""}${r.category ? " · " + esc(r.category) : ""}${r.date ? " · " + fmtDate(r.date) : ""}</span></span>
-          <span>${icon("arrowRight")}</span></a>`).join("")
+          <span class="card-action"><span class="control-content">View result${icon("arrowRight")}</span></span></a>`).join("")
       : `<div class="empty-state" style="padding:24px">${icon("search")}<p>No matches in ${esc(shortName)}.</p></div>`;
     panel.hidden = false;
   };

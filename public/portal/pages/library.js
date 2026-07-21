@@ -3,8 +3,8 @@
    snapshot, with Comments, Emails, and Meetings as separate sub-pages. */
 import { esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
-import { statusLabel, chip, motif, sourceNote } from "../components/cards.js";
-import { commentThread, addCommentButton } from "../components/feed.js";
+import { statusLabel, chip, motif, sourceNote, cardAction } from "../components/cards.js";
+import { commentThread, commentsWithProjectBlockers, addCommentButton } from "../components/feed.js";
 
 const CAT_ICON = { branding: "bookmark", products: "layers", features: "target", "integrations-partners": "users", "film-knowledge": "film", communication: "comment", "other-knowledge": "library" };
 
@@ -32,7 +32,8 @@ export function render(data, params) {
       <div class="pc-meta">${icon(CAT_ICON[c.id] || "library")}<span class="lc-count">${countLabel}</span></div>
       <h3 class="pc-title">${esc(c.title)}</h3>
       <p class="pc-value">${esc(c.description || "")}</p>
-      ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => `<span class="chip" data-href="#/library/communication/${s.id}" onclick="location.hash='#/library/communication/${s.id}'">${esc(s.title)}</span>`).join("")}</div>` : ""}
+      ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => chip(s.title)).join("")}</div>` : ""}
+      ${cardAction("Open category")}
     </a>`;
   }).join("");
 
@@ -76,9 +77,9 @@ export function render(data, params) {
 }
 
 function recordRow(r) {
-  return `<a class="record-row" href="#/library/${r.category}/${r.id}" data-format="${esc(r.format)}" data-cat="${esc(r.category)}">
+  return `<a class="record-row card-link" href="#/library/${r.category}/${r.id}" data-format="${esc(r.format)}" data-cat="${esc(r.category)}">
     <span><span class="rr-title">${esc(r.title)}</span><span class="rr-summary">${esc(r.summary)}</span></span>
-    <span>${statusLabel(r.status)}</span>
+    <span class="record-row-actions">${statusLabel(r.status)}${cardAction("View record")}</span>
   </a>`;
 }
 
@@ -142,7 +143,7 @@ function renderCategory(data, params) {
     <a class="btn btn-sm btn-ghost" href="#/library">${icon("chevronLeft")} Library</a>
     <h1 class="page-title" style="margin-top:12px">${esc(cat.title)}</h1>
     <p class="page-lede">${esc(cat.description || "")}</p>
-    ${cat.subcategories && cat.subcategories.length ? `<div class="lc-subs" style="margin-bottom:24px">${cat.subcategories.map((s) => `<span class="chip" onclick="location.hash='#/library/communication/${s.id}'">${esc(s.title)}</span>`).join("")}</div>` : ""}
+    ${cat.subcategories && cat.subcategories.length ? `<div class="lc-subs" style="margin-bottom:24px">${cat.subcategories.map((s) => `<a class="btn btn-sm btn-outline" href="#/library/communication/${s.id}">${esc(s.title)} ${icon("arrowRight")}</a>`).join("")}</div>` : ""}
     <section class="section">${body}</section>
   </div>`;
 
@@ -159,7 +160,7 @@ function renderCommsSubPage(data, params) {
   let body = "";
 
   if (sub === "comments") {
-    body = commentThread(live?.comments || []) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
+    body = commentThread(commentsWithProjectBlockers(live?.comments || [], data.projects?.projects || [])) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
   } else if (sub === "emails") {
     const emails = communications?.emails || [];
     body = emails.length ? `<div class="email-list">${emails.map(emailFullRow).join("")}</div>` : `<div class="empty-state">${icon("mail")}<p>No emails yet. Emails related to ${esc(portal.client.name)} will appear here, synced from Gmail.</p></div>`;
@@ -186,12 +187,13 @@ function renderCommsSubPage(data, params) {
 
 /* Email rendering — preview (compact) and full (expandable). */
 function emailPreviewRow(e) {
-  return `<a class="comm-preview-row" href="#/library/communication/emails">
+  return `<a class="comm-preview-row card-link" href="#/library/communication/emails">
     ${icon("mail")}
     <div>
       <div class="comm-title">${esc(e.subject)}</div>
       <div class="comm-meta">${esc(e.from?.replace(/<.*>/, "").trim() || "")} · ${esc(e.dateLabel || "")}</div>
     </div>
+    ${cardAction("View emails")}
   </a>`;
 }
 
@@ -220,12 +222,13 @@ function emailFullRow(e) {
 
 /* Meeting rendering — preview (compact) and full. */
 function meetingPreviewRow(m) {
-  return `<a class="comm-preview-row" href="#/library/communication/meetings">
+  return `<a class="comm-preview-row card-link" href="#/library/communication/meetings">
     ${icon("users")}
     <div>
       <div class="comm-title">${esc(m.summary)}</div>
       <div class="comm-meta">${esc(m.startLabel || "")} ${m.upcoming ? "· Upcoming" : ""}</div>
     </div>
+    ${cardAction("View meetings")}
   </a>`;
 }
 

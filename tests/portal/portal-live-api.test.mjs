@@ -59,6 +59,8 @@ test("comment create → durable record + OS action + queued notification + audi
 
 test("blocker comment produces a blocker action", async () => {
   const { comment } = await (await postComment({ title: "Confirm live Status field", blocker: true })).json();
+  assert.equal(comment.kind, "comment");
+  assert.equal(comment.blocker, true);
   const actions = await listActions(await getStore(), "bkwatch");
   assert.equal(actions[0].type, "blocker");
   assert.equal(actions[0].subjectId, comment.id);

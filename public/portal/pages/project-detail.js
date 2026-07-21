@@ -2,8 +2,8 @@
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { mediaFrame, draftNotice, versionHistory } from "../components/media.js";
-import { statusLabel, chip, motif, sourceNote } from "../components/cards.js";
-import { commentThread, addCommentButton, projectTimeline } from "../components/feed.js";
+import { statusLabel, chip, motif, sourceNote, cardAction } from "../components/cards.js";
+import { commentThread, commentsWithProjectBlockers, addCommentButton, projectTimeline } from "../components/feed.js";
 
 export function render(data, params) {
   const { projects, portal, live, invoicing } = data;
@@ -12,6 +12,7 @@ export function render(data, params) {
 
   const ctx = { scope: "project", projectId: p.id, label: p.title, route: `/bkwatch/projects/${p.slug}` };
   const film = p.film;
+  const projectComments = commentsWithProjectBlockers(live.comments, [p]);
 
   const ideaCards = film ? film.ideas.map((idea) => `
     <a class="card card-feature card-link creative-direction-card" href="#/projects/${p.slug}/ideas/${idea.slug}">
@@ -20,6 +21,7 @@ export function render(data, params) {
       <h3 class="pc-title">${esc(idea.title)}</h3>
       <p class="pc-value">${esc(idea.concept)}</p>
       <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
+      ${cardAction("Open direction")}
     </a>`).join("") : "";
 
   const comparisonCriteria = film ? film.comparisonCriteria.filter((criterion) => !/recommendation/i.test(criterion)) : [];
@@ -60,20 +62,13 @@ export function render(data, params) {
       </div>
     </section>
 
-    ${(invoicing && p.status === "active") ? `<section class="detail-block"><div class="scope-panel">
-      <h3>Effort &amp; value</h3>
-      <div class="ai-value-strip" style="margin-top:8px">
-        <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours invested so far</span></div>
-        <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.capabilitiesDelivered.count}</span><span class="ai-value-label">capabilities supporting this work</span></div>
-        <a class="ai-value-stat" href="#/value-results"><span class="ai-value-num">→</span><span class="ai-value-label">see full value &amp; results</span></a>
-      </div>
-    </div></section>` : ""}
+    ${(invoicing && p.status === "active") ? renderProjectValue(p, invoicing, projects.asOf) : ""}
 
     ${p.draft ? `<div class="section">${draftNotice()}</div>` : ""}
 
     <section class="detail-block">
       <div class="section-head"><h2>Current actions &amp; comments</h2>${addCommentButton(ctx)}</div>
-      ${commentThread(live.comments, { projectId: p.id }) || `<div class="empty-state">${icon("comment")}<p>No open comments on this project. Use Add Comment to leave feedback anywhere.</p></div>`}
+      ${commentThread(projectComments, { projectId: p.id }) || `<div class="empty-state">${icon("comment")}<p>No open comments on this project. Use Add Comment to leave feedback anywhere.</p></div>`}
     </section>
 
     ${(p.messaging && p.messaging.length) ? `<section class="detail-block">
@@ -107,17 +102,36 @@ export function render(data, params) {
       <h2>Timeline &amp; milestones</h2>${projectTimeline(p.timeline)}
     </section>` : ""}
 
-    ${(p.blockers && p.blockers.length) ? `<section class="detail-block">
-      <h2>Open blockers</h2>
-      <div>${p.blockers.map((b) => `<div class="action-item"><span class="action-rail blocker"></span><div class="action-body"><div class="action-title">${esc(b)}</div><div class="action-meta">${statusLabel("Awaiting input", "warn")}</div></div></div>`).join("")}</div>
-    </section>` : ""}
-
     ${(p.reports && p.reports.length) ? `<section class="detail-block"><h2>Reports &amp; outcomes</h2>${p.reports.map((r) => `<div class="card"><h3 class="pc-title">${esc(r.title)}</h3><p class="reading">${esc(r.body)}</p>${sourceNote(r.source)}</div>`).join("")}</section>` : ""}
 
     ${sourceNote(p.source)}
   </div>`;
 
   return { crumb: "Projects", title: p.title, action: `<button class="btn btn-sm btn-ghost" type="button">${icon("maximize")} Presentation</button>`, html };
+}
+
+function renderProjectValue(p, invoicing, asOf) {
+  const activeProjects = invoicing.metrics?.projectsActive?.count || 0;
+  const hours = p.hoursInvested ?? (activeProjects === 1 ? invoicing.metrics?.hoursInvested?.hours : null);
+  const start = p.startedAt ? Date.parse(`${p.startedAt}T00:00:00Z`) : NaN;
+  const end = Date.parse(`${invoicing.asOf || asOf}T00:00:00Z`);
+  const weeks = Number.isFinite(start) && Number.isFinite(end) ? Math.max(1, Math.ceil((end - start + 86400000) / 604800000)) : null;
+  const deliverables = p.deliverables || [];
+  const ready = deliverables.filter((d) => /done|complete|ready|approved/i.test(d.state)).length;
+  const selectedIdea = p.film?.ideas?.find((idea) => idea.recommended) || p.film?.ideas?.[0];
+  const metrics = [
+    hours != null ? { value: hours, label: "hours invested" } : null,
+    weeks != null ? { value: weeks, label: "weeks active" } : null,
+    deliverables.length ? { value: `${ready}/${deliverables.length}`, label: "deliverables ready" } : null,
+    selectedIdea?.sceneCount ? { value: selectedIdea.sceneCount, label: "Final Demo scenes" } : null
+  ].filter(Boolean);
+  return `<section class="detail-block"><div class="value-panel">
+    <h3>Effort &amp; value</h3>
+    <div class="ai-value-strip project-value-strip">
+      ${metrics.map((m) => `<div class="ai-value-stat"><span class="ai-value-num">${esc(m.value)}</span><span class="ai-value-label">${esc(m.label)}</span></div>`).join("")}
+      <div class="ai-value-actions"><a class="btn btn-sm btn-outline" href="#/value-results">View Value &amp; Results ${icon("arrowRight")}</a></div>
+    </div>
+  </div></section>`;
 }
 
 function renderScope(s) {
