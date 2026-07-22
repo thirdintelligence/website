@@ -18,13 +18,15 @@ export function draftNotice() {
 
 export const draftTag = () => `<span class="draft-tag">${icon("alert")} Draft</span>`;
 
-/** In-production placeholder — only for finalized-idea scenes awaiting generation. */
-export function inProduction({ ratio = "16 / 9" } = {}) {
+/** Production placeholder — only for a selected demo or an approved storyboard
+ * that has actually entered production. The caller supplies the precise phase
+ * label so demo production is never confused with full-film production. */
+export function inProduction({ ratio = "16 / 9", label = "In production" } = {}) {
   return `<div class="thumb in-production" style="aspect-ratio:${ratio}">
     <div class="ip-grid" aria-hidden="true"></div>
     <span class="ip-figure" data-designer-svg="${DESIGNER_SVG}" aria-hidden="true"></span>
     <div class="ip-cap">
-      <span class="ip-badge">${icon("clock")} In production</span>
+      <span class="ip-badge">${icon("clock")} ${esc(label)}</span>
     </div>
   </div>`;
 }
@@ -42,7 +44,7 @@ export function ungeneratedThumb({ label = "No media generated yet", ratio = "16
  * mediaState drives the honest presentation; no media is invented.
  */
 export function mediaFrame({ mediaState = "ungenerated", label, ratio = "16 / 9", draft = false } = {}) {
-  if (mediaState === "in-production") return inProduction({ ratio });
+  if (mediaState === "in-production") return inProduction({ ratio, label });
   // approved/draft real media would render here once assets exist; until then the
   // neutral grid is the truthful state.
   const frame = ungeneratedThumb({ label: label || (mediaState === "prompts-ready" ? "Prompts ready · media not generated" : "No media generated yet"), ratio });

@@ -18,7 +18,7 @@ test("bkWatch value page gates its live graph and exposes no Shaw production evi
   assert.doesNotMatch(html, /Shaw Systems|Amplify|614 hours|250 hours/i);
   assert.match(html, /Built on prior work\. Isolated by client\./);
   assert.equal((html.match(/class="future-value-item"/g) || []).length, 6);
-  assert.equal((html.match(/class="cap-row"/g) || []).length, 19);
+  assert.equal((html.match(/class="cap-row"/g) || []).length, 18);
   assert.doesNotMatch(html, /Financial summary|financial-metric|>Outcomes<|outcome-list|Future value record/);
 
   const momentumStart = html.indexOf('<section class="section momentum-section">');
@@ -31,7 +31,7 @@ test("bkWatch value page gates its live graph and exposes no Shaw production evi
   assert.equal(invoicing.metrics.hoursInvested.descriptor, "hours");
   assert.equal(invoicing.metrics.capabilitiesDelivered.descriptor, "capabilities");
   assert.equal(invoicing.outcomes, undefined);
-  assert.equal(invoicing.capabilities.some((capability) => capability.title === "Monthly Video Series"), true);
+  assert.equal(invoicing.capabilities.some((capability) => capability.title === "Monthly Video Series"), false);
   assert.match(invoicing.capabilities.find((capability) => capability.title === "AI Film Production").description, /ongoing monthly film series/i);
 });
 

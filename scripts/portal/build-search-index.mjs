@@ -28,9 +28,12 @@ for (const p of projects.projects) {
   push({ id: p.id, type: "project", title: p.title, excerpt: clip(p.valueStatement), project: p.title, status: p.statusLabel || p.status, format: "project", date: projects.asOf, route: `${base}/projects/${p.slug}` });
   if (p.film) {
     for (const idea of p.film.ideas) {
-      push({ id: `${p.id}:${idea.slug}`, type: "film-idea", title: idea.title, excerpt: clip(idea.concept), project: p.title, status: idea.status, format: "film knowledge", route: `${base}/projects/${p.slug}/ideas/${idea.slug}` });
+      const isSelected = (p.productionLifecycle?.selectedIdeaIds || []).includes(idea.slug) || idea.recommended;
+      const ideaRoute = isSelected ? `${base}/projects/${p.slug}#selected-demo` : `${base}/projects/${p.slug}/ideas/${idea.slug}`;
+      push({ id: `${p.id}:${idea.slug}`, type: "film-idea", title: idea.title, excerpt: clip(idea.concept), project: p.title, status: idea.status, format: "film knowledge", route: ideaRoute });
       for (const s of idea.scenes) {
-        push({ id: `${p.id}:${idea.slug}:${s.id}`, type: "scene", title: `${s.id} · ${s.title}`, excerpt: clip(s.description || s.script), project: p.title, status: s.status, format: "scene", route: `${base}/projects/${p.slug}/ideas/${idea.slug}#${s.id}` });
+        const sceneRoute = isSelected ? `${base}/projects/${p.slug}#${s.id}` : `${ideaRoute}#${s.id}`;
+        push({ id: `${p.id}:${idea.slug}:${s.id}`, type: "scene", title: `${s.id} · ${s.title}`, excerpt: clip(s.description || s.script), project: p.title, status: s.status, format: "scene", route: sceneRoute });
       }
     }
   }

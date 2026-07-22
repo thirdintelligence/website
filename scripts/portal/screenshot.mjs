@@ -12,7 +12,7 @@ const ROUTES = [
   ["home", "/"],
   ["projects", "/projects"],
   ["project-detail", "/projects/film1-shaw-bkwatch"],
-  ["film-presentation", "/projects/film1-shaw-bkwatch/ideas/final-demo"],
+  ["brainstorm-presentation", "/projects/film1-shaw-bkwatch/ideas/one-desk-no-detours"],
   ["library", "/library"],
   ["library-branding", "/library/branding"],
   ["library-record", "/library/branding/brand-mission"],
@@ -31,6 +31,7 @@ const SHOTS = [
   ["home", "/", "dark", { width: 390, height: 844 }, "mobile"],
   ["projects", "/projects", "dark", { width: 390, height: 844 }, "mobile"]
 ];
+const ACTIVE_SHOTS = process.env.SHOT ? SHOTS.filter(([name]) => name === process.env.SHOT) : SHOTS;
 
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch();
@@ -40,36 +41,40 @@ async function productionFrameMetrics(frameLocator) {
   return frameLocator.evaluateAll((frames) => frames.map((frame) => {
     const bounds = frame.getBoundingClientRect();
     const image = frame.querySelector(".ip-figure");
-    if (!image || !image.complete || !image.naturalWidth) return { offset: Number.POSITIVE_INFINITY, caption: "", badgeFontSize: 0 };
-    const figure = image.getBoundingClientRect();
-    const canvas = document.createElement("canvas");
-    canvas.width = image.naturalWidth;
-    canvas.height = image.naturalHeight;
-    const context = canvas.getContext("2d", { willReadFrequently: true });
-    context.drawImage(image, 0, 0, canvas.width, canvas.height);
-    const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-    let minY = canvas.height;
-    let maxY = -1;
-    for (let y = 0; y < canvas.height; y += 1) {
-      for (let x = 0; x < canvas.width; x += 1) {
-        if (pixels[(y * canvas.width + x) * 4 + 3] > 8) {
-          minY = Math.min(minY, y);
-          maxY = Math.max(maxY, y);
-        }
-      }
+    const svg = image?.querySelector("svg");
+    if (!image || !svg) return { offset: Number.POSITIVE_INFINITY, caption: "", badgeFontSize: 0 };
+    // Measure every instance at the same SMIL frame. Internal working motion is
+    // allowed, but the removed whole-composition bounce and optical centering
+    // must be assessed against a deterministic frame rather than wall time.
+    svg.pauseAnimations?.();
+    svg.setCurrentTime?.(0);
+    const figure = svg.getBoundingClientRect();
+    let minY = Number.POSITIVE_INFINITY;
+    let maxY = Number.NEGATIVE_INFINITY;
+    for (const element of svg.querySelectorAll("path,rect,circle,ellipse,polygon,polyline,line,image,text")) {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity) <= 0.01 || rect.width <= 0.1 || rect.height <= 0.1) continue;
+      const top = Math.max(figure.top, rect.top);
+      const bottom = Math.min(figure.bottom, rect.bottom);
+      if (bottom <= top) continue;
+      minY = Math.min(minY, top);
+      maxY = Math.max(maxY, bottom);
     }
-    if (maxY < 0) return { offset: Number.POSITIVE_INFINITY, caption: "", badgeFontSize: 0 };
-    const visibleCenter = figure.top + (((minY + maxY) / 2) / canvas.height) * figure.height;
+    if (!Number.isFinite(minY) || !Number.isFinite(maxY)) return { offset: Number.POSITIVE_INFINITY, caption: "", badgeFontSize: 0 };
+    const visibleCenter = (minY + maxY) / 2;
     const badge = frame.querySelector(".ip-badge");
+    const signedOffset = (bounds.top + bounds.height / 2) - visibleCenter;
     return {
-      offset: Math.abs((bounds.top + bounds.height / 2) - visibleCenter),
+      offset: Math.abs(signedOffset),
+      signedOffset,
       caption: frame.querySelector(".ip-cap")?.innerText.trim() || "",
       badgeFontSize: badge ? parseFloat(getComputedStyle(badge).fontSize) : 0
     };
   }));
 }
 
-for (const [name, route, theme, viewport, tag] of SHOTS) {
+for (const [name, route, theme, viewport, tag] of ACTIVE_SHOTS) {
   const ctx = await browser.newContext({ viewport, deviceScaleFactor: 2 });
   await ctx.addInitScript((t) => { try { localStorage.setItem("thirdi-portal-theme", t); } catch {} }, theme);
   const page = await ctx.newPage();
@@ -109,8 +114,8 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
   if (await productionFrames.count()) {
     const frameMetrics = await productionFrameMetrics(productionFrames);
     const offCenterFrames = frameMetrics.filter((frame) => frame.offset > 2);
-    if (offCenterFrames.length) errors.push(`[${name}/${theme}] ${offCenterFrames.length} in-production designer artwork frame(s) are more than 2px off vertical center`);
-    const secondaryCaptions = frameMetrics.map((frame) => frame.caption).filter((caption) => caption !== "In production");
+    if (offCenterFrames.length) errors.push(`[${name}/${theme}] ${offCenterFrames.length} in-production designer artwork frame(s) are more than 2px off vertical center (${frameMetrics.map((frame) => frame.signedOffset.toFixed(2)).join(", ")}px signed)`);
+    const secondaryCaptions = frameMetrics.map((frame) => frame.caption).filter((caption) => !["In production", "Demo in production"].includes(caption));
     if (secondaryCaptions.length) errors.push(`[${name}/${theme}] in-production previews still contain secondary text: ${secondaryCaptions.join(" | ")}`);
     if (await page.locator(".in-production .ip-next").count()) errors.push(`[${name}/${theme}] legacy in-production secondary text remains in the DOM`);
   }
@@ -169,12 +174,17 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     const projectHierarchy = await page.locator(".page").evaluate((root) => {
       const blocks = [...root.querySelectorAll(":scope > .detail-block")];
       const script = blocks.find((block) => block.querySelector(":scope > .section-head h2")?.textContent.trim() === "Script");
-      const scope = blocks.find((block) => block.querySelector(":scope > .scope-panel"));
+      const scope = blocks.find((block) => block.querySelector("h3")?.textContent.trim() === "Scope & investment");
+      const demo = blocks.find((block) => block.id === "selected-demo");
       const creative = blocks.find((block) => block.querySelector(":scope > .section-head h2")?.textContent.trim() === "Creative directions");
-      if (!script || !scope || !creative) return null;
-      return { directlyAfterScript: scope.previousElementSibling === script, directlyBeforeCreative: scope.nextElementSibling === creative };
+      if (!script || !scope || !demo || !creative) return { missing: { script: !script, scope: !scope, demo: !demo, creative: !creative }, blocks: blocks.map((block) => ({ id: block.id, heading: block.querySelector(":scope > .section-head h2")?.textContent.trim() || block.querySelector(":scope > h2")?.textContent.trim() || "" })) };
+      return { directlyAfterScript: scope.previousElementSibling === script, demoBeforeCreative: demo.nextElementSibling === creative };
     });
-    if (!projectHierarchy?.directlyAfterScript || !projectHierarchy?.directlyBeforeCreative) errors.push(`[${name}/${theme}] Scope & investment is not directly between Script and Creative directions`);
+    if (!projectHierarchy?.directlyAfterScript || !projectHierarchy?.demoBeforeCreative) errors.push(`[${name}/${theme}] Scope & investment is not directly under Script or the selected demo is not directly above Creative directions: ${JSON.stringify(projectHierarchy)}`);
+    if (await page.locator('.creative-direction-card-locked a[href*="%anchor%selected-demo"]').count() !== 1) errors.push(`[${name}/${theme}] locked HYBRID card does not point to the embedded demo workspace`);
+    if (await page.locator('a[href*="/ideas/final-demo"]').count()) errors.push(`[${name}/${theme}] locked demo still links to a separate direction page`);
+    const sceneBadgeFontSizes = await page.locator(".selected-demo-workspace .scene-media .ip-badge").evaluateAll((badges) => badges.map((badge) => parseFloat(getComputedStyle(badge).fontSize)));
+    if (sceneBadgeFontSizes.length !== 6 || sceneBadgeFontSizes.some((size) => size > 13)) errors.push(`[${name}/${theme}] embedded demo scene previews are missing or no longer use the standard label size`);
     const criteriaPadding = await page.locator(".comparison-criteria").evaluate((row) => {
       const style = getComputedStyle(row);
       return { top: parseFloat(style.paddingTop), bottom: parseFloat(style.paddingBottom) };
@@ -214,19 +224,21 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
     const expectedMetrics = [
       { value: "20", label: "hours" },
       { value: "3", label: "weeks active" },
-      { value: "5/10", label: "deliverables ready" },
-      { value: "6", label: "Final Demo scenes" }
+      { value: "4/8", label: "deliverables ready" },
+      { value: "6", label: "selected demo scenes" }
     ];
     if (JSON.stringify(valueMetrics) !== JSON.stringify(expectedMetrics)) errors.push(`[${name}/${theme}] Effort & value banner metrics are incomplete or out of order: ${JSON.stringify(valueMetrics)}`);
     if (await page.locator(".project-value-strip .ai-value-actions .btn").count() !== 1) errors.push(`[${name}/${theme}] Effort & value banner is missing its destination button`);
     if (await page.locator(".comment.is-blocker").count() < 2) errors.push(`[${name}/${theme}] curated blockers are not presented in the comment thread`);
     const standaloneBlockers = await page.getByRole("heading", { name: "Open blockers", exact: true }).count();
     if (standaloneBlockers) errors.push(`[${name}/${theme}] blockers still render as a separate non-comment section`);
+    await page.evaluate(() => { location.hash = "#/projects/film1-shaw-bkwatch/ideas/final-demo"; });
+    await page.waitForFunction(() => location.hash.includes("%anchor%selected-demo"), null, { timeout: 3000 }).catch(() => {});
+    if (!page.url().includes("#/projects/film1-shaw-bkwatch%anchor%selected-demo")) errors.push(`[${name}/${theme}] stale locked-demo route did not redirect to the embedded project workspace`);
   }
-  if (name === "film-presentation") {
-    const sceneBadgeFontSizes = await page.locator(".scene-media .ip-badge").evaluateAll((badges) => badges.map((badge) => parseFloat(getComputedStyle(badge).fontSize)));
-    if (!sceneBadgeFontSizes.length || sceneBadgeFontSizes.some((size) => size > 13)) errors.push(`[${name}/${theme}] scene In production labels no longer use the standard preview size`);
-    if (await page.locator(".scene-media > .pc-meta .status").count()) errors.push(`[${name}/${theme}] scene preview areas still contain secondary status text`);
+  if (name === "brainstorm-presentation") {
+    if (await page.locator(".scene-media").count()) errors.push(`[${name}/${theme}] brainstorm direction still renders media placeholders`);
+    if (await page.locator(".scene-block-text-only").count() !== 3) errors.push(`[${name}/${theme}] brainstorm storyboard/script scenes are missing`);
   }
   if (name === "value-results") {
     const readiness = page.locator(".efficiency-readiness");
@@ -274,6 +286,11 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
   if (await designer.count()) {
     const animationName = await designer.evaluate((img) => getComputedStyle(img).animationName);
     if (animationName !== "none") errors.push(`[${name}/${theme}] designer artwork still has wrapper bounce animation: ${animationName}`);
+    const sharedBounce = await designer.evaluate((frame) => [...frame.querySelectorAll('animateTransform[type="translate"]')].some((animation) => {
+      const values = animation.getAttribute("values") || "";
+      return values.startsWith("567.071 665.431") && values.includes("567.071 669.431");
+    }));
+    if (sharedBounce) errors.push(`[${name}/${theme}] designer SVG still contains its whole-composition vertical bounce`);
   }
   const coloredButton = page.locator(".btn-primary").first();
   if (await coloredButton.count()) {
@@ -294,4 +311,4 @@ for (const [name, route, theme, viewport, tag] of SHOTS) {
 
 await browser.close();
 if (errors.length) { console.error("\nRUNTIME ERRORS:\n" + errors.join("\n")); process.exit(1); }
-console.log(`\nAll ${SHOTS.length} screenshots captured with no console/page errors → ${OUT}`);
+console.log(`\nAll ${ACTIVE_SHOTS.length} screenshots captured with no console/page errors → ${OUT}`);

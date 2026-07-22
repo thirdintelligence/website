@@ -6,7 +6,7 @@
     "name": "BankruptcyWatch",
     "shortName": "bkWatch",
     "route": "/bkwatch",
-    "asOf": "2026-07-16",
+    "asOf": "2026-07-21",
     "partner": "Third i"
   },
   "brand": {
@@ -93,19 +93,19 @@
       "source": "Film1 Working Memory — media generation has not started"
     },
     {
-      "label": "Current production phase",
-      "value": "D2 · QC",
-      "unit": "extreme audit passed; gates remain",
-      "asOf": "2026-07-16",
+      "label": "Current project phase",
+      "value": "Demo production",
+      "unit": "selected demo is being built; full film not started",
+      "asOf": "2026-07-21",
       "state": "current",
       "source": "Final Demo Extreme Workflow Audit — go/no-go"
     },
     {
-      "label": "Final Demo build",
+      "label": "Selected demo build",
       "value": "12",
-      "unit": "controlled motion segments",
-      "asOf": "2026-07-16",
-      "state": "awaiting-approval",
+      "unit": "planned controlled motion segments",
+      "asOf": "2026-07-21",
+      "state": "in-production",
       "source": "Final Demo Plan — six-scene segmented architecture"
     },
     {
@@ -137,7 +137,7 @@
       "facts": [
         "Shaw Systems and BankruptcyWatch partnered around native automation inside Spectrum.",
         "Shaw approval for Spectrum UI use is secured; exact sanitized-asset delivery remains outstanding.",
-        "The integration message is the subject of the locked 22-second Final Demo."
+        "The integration message is the subject of the selected 22-second demo currently being built inside Film 1 - Shaw Integration."
       ],
       "state": "Confirmed integration story; exact live/showable function wording remains gated before public publication.",
       "timeline": [
@@ -345,15 +345,15 @@
   ],
   "film": {
     "slug": "film1-shaw-bkwatch",
-    "name": "Film1-ShawBkWatch",
-    "displayName": "Bankruptcy, handled inside Spectrum",
+    "name": "Film 1 - Shaw Integration",
+    "displayName": "Film 1 - Shaw Integration",
     "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
     "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
     "coreMessage": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
     "runtime": "22 seconds",
     "sceneCount": 30,
-    "phase": "Final Demo extreme QC passed",
-    "approval": "Awaiting Third i plan/segment lock, exact sanitized Spectrum assets, and product-function confirmation",
+    "phase": "Demo production — building selected demo",
+    "approval": "Selected demo is being built; exact sanitized Spectrum assets and product-function confirmations remain demo-production checkpoints",
     "approvedMedia": 0,
     "creativeThesis": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
     "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows. Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
@@ -380,7 +380,7 @@
       {
         "state": "done",
         "title": "Direction meeting",
-        "detail": "bkWatch meeting complete; Final Demo selected for planning"
+        "detail": "bkWatch meeting complete; Final Demo selected for demo production"
       },
       {
         "state": "done",
@@ -389,23 +389,23 @@
       },
       {
         "state": "done",
-        "title": "Extreme workflow / QC audit",
-        "detail": "42 Final Demo prompts passed; no media generated"
+        "title": "Demo production readiness",
+        "detail": "The six-scene build plan passed instruction and privacy review"
       },
       {
         "state": "current",
-        "title": "HITL / asset and function lock",
-        "detail": "UI assets, functions, green, logos, composites, and keyframes awaiting approval"
+        "title": "Build selected demo",
+        "detail": "Demo stills and motion are being built scene by scene while UI, function, color, logo, composite, and keyframe details are checked"
       },
       {
         "state": "pending",
-        "title": "D3 / media generation",
-        "detail": "No stills or motion clips generated"
+        "title": "Demo review and approval",
+        "detail": "bkWatch approves, revises, or rejects the completed demo"
       },
       {
         "state": "pending",
-        "title": "D4 / assembly and QC",
-        "detail": "Production begins only after all gates and delivery specifications are approved"
+        "title": "Full-film production",
+        "detail": "Only after demo approval, the same embedded storyboard advances with media history, script, and comments intact"
       }
     ],
     "approvals": [
@@ -423,11 +423,11 @@
         "slug": "final-demo",
         "title": "Final Demo",
         "concept": "Real Spectrum becomes an intricate physical dashboard, reveals BankruptcyWatch working beneath it, resolves three handled outcomes, and returns to the same active lender workflow.",
-        "status": "Selected / extreme QC passed",
+        "status": "Selected / demo in production",
         "runtime": "22 seconds",
         "sceneCount": 6,
-        "demoState": "Six scenes, 12 controlled segments, 30 still/anchor prompts, and 12 motion prompts passed workflow, prompt, claim, privacy, and continuity QC; media not generated",
-        "approval": "Awaiting Third i plan/segment lock plus Spectrum assets, function, color, logo, composite, and keyframe gates",
+        "demoState": "Six-scene selected demo currently being built; full-film production has not started",
+        "approval": "Exact Spectrum assets, function, color, logo, composite, and keyframe checks remain inside demo production",
         "strength": "Best balance of real product proof, human credibility, native-integration clarity, and premium cinematic impact",
         "complexity": "High / controlled hybrid",
         "distinctiveness": "Real UI to physical system to internal mechanism to real UI",
@@ -1123,8 +1123,8 @@
     }
   ],
   "currentWork": {
-    "summary": "Film 1 is the active client-safe creative project in this release. The 22-second Final Demo is planned above eight supporting studies, but no current media should be presented as finished work.",
-    "milestone": "Third i locks the Final Demo plan; NEW FILING is generated with the rest of the film; Shaw provides sanitized Spectrum assets; exact composite keyframes are approved before generation.",
+    "summary": "Film 1 - Shaw Integration is the active project. Its selected 22-second Final Demo is being built now; full-film production has not started. The eight unselected ideas retain storyboard and script pages without media placeholders.",
+    "milestone": "Third i completes the selected demo for bkWatch review. NEW FILING is generated with the rest of the demo, Shaw interface-use approval is already secured, and exact composite frames remain demo-production checkpoints.",
     "deliverables": [
       "Locked 45-word voiceover at 122.7 WPM",
       "Final Demo six-scene storyboard",
@@ -1137,8 +1137,8 @@
     ],
     "blockers": [
       {
-        "title": "Final Demo plan approval",
-        "detail": "Approve the 22-second Final Demo plan and its corrected segment allocation — including confirmation that the live/showable Status, Tasks, and Credit behavior can be demonstrated — before any media is generated."
+        "title": "Demo product-accuracy confirmations",
+        "detail": "Confirm the live/showable Status, Tasks, and Credit behavior while Third i builds the selected 22-second demo. This is not full-film production approval."
       },
       {
         "title": "Final CTA and logo hierarchy",

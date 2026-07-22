@@ -104,7 +104,6 @@ function communicationsPreview(communications) {
       <div class="comm-prev-title">${esc(e.subject)}</div>
       <div class="comm-prev-meta">${esc(e.from?.replace(/<.*>/, "").trim() || "")} · ${esc(e.dateLabel || "")}</div>
     </div>
-    ${cardAction("View emails")}
   </a>`).join("");
 
   const meetingItems = meetings.map((m) => `<a class="comm-prev-item card-link" href="#/library/communication/meetings">
@@ -113,7 +112,6 @@ function communicationsPreview(communications) {
       <div class="comm-prev-title">${esc(m.summary)}</div>
       <div class="comm-prev-meta">${esc(m.startLabel || "")} ${m.upcoming ? "· Upcoming" : ""}</div>
     </div>
-    ${cardAction("View meetings")}
   </a>`).join("");
 
   return `<section class="section">

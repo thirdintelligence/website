@@ -1,15 +1,16 @@
 {
   "name": "Third i Client Portal Masterplan",
-  "version": "2.2",
-  "preparedAt": "2026-07-16",
-  "status": "local_handoff_ready_pending_setup_and_hitl",
+  "version": "2.3",
+  "preparedAt": "2026-07-21",
+  "status": "bkwatch_release_audited_shaw_gated",
   "firstTenant": "bkwatch",
   "secondTenant": "shaw",
   "topLevelPages": [
     "home",
     "projects",
     "library",
-    "ai-roadmap"
+    "ai-roadmap",
+    "value-results"
   ],
   "documents": [
     "00-README.md",
@@ -31,12 +32,16 @@
     "16-future-features.md",
     "17-agent-handoff.md",
     "18-asset-storage-delivery.md",
-    "19-gate-activation-checklist.md"
+    "19-gate-activation-checklist.md",
+    "20-film-demo-lifecycle.md",
+    "21-vision-design-system-audit.md",
+    "22-source-of-truth-sync-operations.md",
+    "23-shaw-portal-readiness.md"
   ],
   "phases": [
     "plan-freeze",
     "contracts-and-shell",
-    "bkwatch-four-pages",
+    "bkwatch-five-areas",
     "comments-and-intake",
     "os-redesign",
     "qc-and-preview",

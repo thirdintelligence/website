@@ -158,7 +158,7 @@ function buildHome(v1, projects) {
     { label: "Open blocker comments", value: openBlockers, source: v1.currentWork.source },
     { label: "Deliverables ready for review", value: (v1.currentWork.deliverables || []).length, source: v1.currentWork.source },
     { label: "Approved generated media", value: v1.film.approvedMedia, unit: "stills or clips", state: "not-started", source: "Film1 Working Memory — media generation has not started" },
-    { label: "Next milestone", value: "Final Demo plan + asset/function lock", source: v1.currentWork.source }
+    { label: "Next milestone", value: "Complete selected demo for review", source: v1.currentWork.source }
   ];
 
   // Blockers may be plain strings (legacy) or { title, detail } objects. The
@@ -187,7 +187,7 @@ function buildHome(v1, projects) {
     phase: film.phase,
     nextMilestone: film.nextMilestone,
     openCount: openBlockers,
-    latestUpdate: "Final Demo extreme workflow and prompt QC passed; no media generated yet.",
+    latestUpdate: "The selected demo is being built. Full-film production begins only after client approval.",
     thumbnailState: film.thumbnail.mediaState,
     route: `/bkwatch/projects/${film.slug}`
   }];
@@ -214,7 +214,10 @@ function buildProjects(v1) {
     title: idea.title,
     concept: idea.concept,
     status: idea.status,
-    recommended: idea.number === "FINAL",
+    recommended: idea.slug === finalIdeaSlug,
+    lifecycleState: idea.slug === finalIdeaSlug ? "demo-production" : "brainstorm",
+    mediaPolicy: idea.slug === finalIdeaSlug ? "demo-placeholders" : "none",
+    ...(idea.slug === finalIdeaSlug ? { sourceIdeaIds: f.ideas.filter((source) => source.slug !== finalIdeaSlug && !/derivative/i.test(source.status)).map((source) => source.slug) } : {}),
     runtime: idea.runtime,
     sceneCount: idea.sceneCount,
     demoState: idea.demoState,
@@ -234,11 +237,11 @@ function buildProjects(v1) {
       purpose: s.purpose,
       status: s.status,
       script: s.script,
-      // Finalized idea scenes awaiting generation use the in-production placeholder;
-      // supporting-study scenes use the neutral ungenerated grid.
+      // Only the selected demo gets production placeholders. Brainstorm ideas
+      // retain storyboard/script data but their presentation omits media slots.
       mediaState: idea.slug === finalIdeaSlug ? "in-production" : "ungenerated",
       assetIds: [],
-      comment: { context: { scope: "scene", projectId: "film1-shaw-bkwatch", sceneId: s.id, route: `/bkwatch/projects/film1-shaw-bkwatch/ideas/${idea.slug}` }, count: 0 }
+      comment: { context: { scope: "scene", projectId: "film1-shaw-bkwatch", sceneId: s.id, route: idea.slug === finalIdeaSlug ? "/bkwatch/projects/film1-shaw-bkwatch" : `/bkwatch/projects/film1-shaw-bkwatch/ideas/${idea.slug}` }, count: 0 }
     }))
   }));
 
@@ -249,7 +252,7 @@ function buildProjects(v1) {
     title: f.displayName,
     displayName: f.name,
     status: "active",
-    statusLabel: "Active · Final Demo extreme QC passed",
+    statusLabel: "Active — Demo in production",
     // Confirmed relationship metrics: invoicing summary as of 2026-07-21 and
     // first Film 1 activity recorded on 2026-07-01.
     startedAt: "2026-07-01",
@@ -265,7 +268,15 @@ function buildProjects(v1) {
     // In-production projects use the designer.svg + grid treatment on their
     // thumbnail (per HITL direction 2026-07-17); not-yet-started projects would
     // use a neutral grid instead.
-    thumbnail: { mediaState: "in-production", label: "In production" },
+    thumbnail: { mediaState: "in-production", label: "Demo in production" },
+    productionLifecycle: {
+      projectPhase: "demo-production",
+      demoPhase: "building",
+      fullFilmPhase: "not-started",
+      selectedIdeaIds: [finalIdeaSlug],
+      canonicalIdeaId: finalIdeaSlug,
+      promotionState: "embedded"
+    },
     draft: false,
     messaging: [f.creativeThesis, f.coreMessage],
     theme: f.creativeThesis,
@@ -288,8 +299,8 @@ function buildProjects(v1) {
       demoEffort: "Confirmed hours pending",
       effortRange: "Scope required",
       priceStatement: "Scope required",
-      assumptions: ["Final Demo plan approved", "Sanitized Spectrum assets supplied", "Live/showable functions confirmed"],
-      note: "The current demo establishes the visual system and proves direction. A complete film adds refinement passes, product-accuracy review, motion continuity, sound, and final QC. Third i presents the confirmed effort range and pricing model before production begins.",
+      assumptions: ["Selected demo direction locked", "Sanitized Spectrum assets supplied", "Live/showable functions confirmed"],
+      note: "The selected demo is being built inside the project page to prove the visual system and direction. Full-film production begins only after client approval advances the same embedded storyboard, media history, script, and comments record.",
       source: "Third i pricing approach — outcome/scope-led; currency shown only when confirmed"
     },
     film: {

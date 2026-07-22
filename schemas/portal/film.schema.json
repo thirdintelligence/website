@@ -7,7 +7,7 @@
     "scene": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "title", "time", "description", "status", "mediaState"],
+      "required": ["id", "title", "time", "description", "status"],
       "properties": {
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
@@ -35,6 +35,9 @@
         "concept": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
         "status": { "type": "string" },
         "recommended": { "type": "boolean" },
+        "lifecycleState": { "type": "string", "enum": ["brainstorm", "selected", "demo-production", "demo-review", "demo-approved", "promoted", "full-production", "archived"] },
+        "mediaPolicy": { "type": "string", "enum": ["none", "demo-placeholders", "production-placeholders", "real-media", "history"] },
+        "sourceIdeaIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/slug" } },
         "runtime": { "type": "string" },
         "sceneCount": { "type": "integer", "minimum": 0 },
         "demoState": { "type": "string" },

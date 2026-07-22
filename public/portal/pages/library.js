@@ -206,7 +206,6 @@ function renderCategory(data, params) {
     <a class="btn btn-sm btn-ghost" href="#/library">${icon("chevronLeft")} Library</a>
     <h1 class="page-title" style="margin-top:12px">${esc(cat.title)}</h1>
     <p class="page-lede">${esc(cat.description || "")}</p>
-    ${cat.subcategories && cat.subcategories.length ? `<div class="lc-subs" style="margin-bottom:24px">${cat.subcategories.map((s) => `<a class="btn btn-sm btn-outline" href="#/library/communication/${s.id}">${esc(s.title)} ${icon("arrowRight")}</a>`).join("")}</div>` : ""}
     <section class="section">${body}</section>
   </div>`;
 
@@ -256,7 +255,6 @@ function emailPreviewRow(e) {
       <div class="comm-title">${esc(e.subject)}</div>
       <div class="comm-meta">${esc(e.from?.replace(/<.*>/, "").trim() || "")} · ${esc(e.dateLabel || "")}</div>
     </div>
-    ${cardAction("View emails")}
   </a>`;
 }
 
@@ -291,7 +289,6 @@ function meetingPreviewRow(m) {
       <div class="comm-title">${esc(m.summary)}</div>
       <div class="comm-meta">${esc(m.startLabel || "")} ${m.upcoming ? "· Upcoming" : ""}</div>
     </div>
-    ${cardAction("View meetings")}
   </a>`;
 }
 

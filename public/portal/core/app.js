@@ -138,6 +138,13 @@ function renderRoute() {
     view = mod.render(DATA, m.params);
   }
 
+  // Locked demos live on their project page. Replace stale/deep links to the
+  // former presentation route without leaving a duplicate demo page behind.
+  if (view.redirect) {
+    location.replace(view.redirect);
+    return;
+  }
+
   contentEl.innerHTML = view.html;
   hydrateDesignerFrames();
   setContext({ crumb: view.crumb || "", title: view.title || "", action: view.action || "" });
@@ -173,6 +180,13 @@ function hydrateDesignerFrames() {
       const template = await designerSvg();
       if (!frame.isConnected) return;
       const svg = template.cloneNode(true);
+      // The source illustration repeats one identical whole-composition 4px
+      // vertical loop around its animated parts. Remove only that shared bounce;
+      // retain the internal working/gear motion inside the designer artwork.
+      svg.querySelectorAll('animateTransform[type="translate"]').forEach((animation) => {
+        const values = animation.getAttribute("values") || "";
+        if (values.startsWith("567.071 665.431") && values.includes("567.071 669.431")) animation.remove();
+      });
       svg.setAttribute("focusable", "false");
       svg.setAttribute("aria-hidden", "true");
       frame.appendChild(svg);

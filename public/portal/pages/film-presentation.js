@@ -2,6 +2,7 @@
    exact script directly beneath its media. Controls never hide the evidence. */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
+import { href } from "../core/router.js";
 import { mediaFrame } from "../components/media.js";
 import { statusLabel, chip } from "../components/cards.js";
 import { addCommentButton } from "../components/feed.js";
@@ -12,6 +13,11 @@ export function render(data, params) {
   const film = p && p.film;
   const idea = film && film.ideas.find((i) => i.slug === params.ideaSlug);
   if (!p || !idea) return { crumb: "Projects", title: "Not found", html: `<div class="page"><div class="empty-state">${icon("alert")}<p>That direction was not found.</p><a class="btn btn-outline" href="#/projects/${params.slug || ""}">Back to project</a></div></div>` };
+
+  const selectedIds = p.productionLifecycle?.selectedIdeaIds || [];
+  if (selectedIds.includes(idea.slug) || idea.recommended) {
+    return { redirect: href(`/projects/${p.slug}#selected-demo`) };
+  }
 
   const ideas = film.ideas;
   const idx = ideas.findIndex((i) => i.slug === idea.slug);

@@ -182,7 +182,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   const scopePosition = projectDetail.indexOf('${scope}');
   const selectedDemoPosition = projectDetail.indexOf('${renderSelectedDemo(p, film)}');
   const creativeDirectionsPosition = projectDetail.indexOf('${film ?', selectedDemoPosition);
-  assert.ok(scopePosition >= 0 && scopePosition < scriptPosition && scriptPosition < selectedDemoPosition && selectedDemoPosition < creativeDirectionsPosition);
+  assert.ok(scriptPosition >= 0 && scriptPosition < scopePosition && scopePosition < selectedDemoPosition && selectedDemoPosition < creativeDirectionsPosition);
   assert.equal(projectDetail.match(/\$\{scope\}/g)?.length, 1);
   assert.match(projectsPage, /id="new-project-btn"[\s\S]*?<span class="control-content">/);
   assert.match(projectsPage, /<div class="new-project-action"><button/);

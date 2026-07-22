@@ -206,9 +206,9 @@ async function main() {
     clientSafe: true,
     asOf,
     metrics: {
-      projectsActive: { count: 1, descriptor: "film", label: "Film 1 — Final Demo showing bankruptcy automation inside Spectrum" },
-      deliverablesCompleted: { count: 5, descriptor: "deliverables", label: "5 of 10 Film 1 deliverables are ready" },
-      hoursInvested: { hours: 20, descriptor: "hours", label: "20 hours on Film 1 — story, script, storyboard, and instructions" },
+      projectsActive: { count: 1, descriptor: "film", label: "Film 1 - Shaw Integration — selected demo in production" },
+      deliverablesCompleted: { count: 4, descriptor: "deliverables", label: "4 of 10 Film 1 - Shaw Integration deliverables are ready" },
+      hoursInvested: { hours: 20, descriptor: "hours", label: "20 hours on Film 1 - Shaw Integration — demo direction, script, storyboard, and instructions" },
       capabilitiesDelivered: { count: 4, descriptor: "capabilities", label: "Client portal, AI film production, AI roadmap, and brand knowledge library" },
     },
     capabilities: [
@@ -219,7 +219,7 @@ async function main() {
       { title: "AI Workflow Training", type: "service", description: "Teaching your team to use AI-powered workflows for everyday tasks — writing, analysis, research, and reporting.", status: "planned" },
     ],
     narrative: {
-      summary: "Third i is building Film 1 alongside a private client portal, AI roadmap, and brand knowledge library. The production system carries forward reusable methods and quality checks from prior work while every client's files, prompts, knowledge, and generated assets remain isolated.",
+      summary: "Third i is building the selected demo for Film 1 - Shaw Integration alongside a private client portal, AI roadmap, and brand knowledge library. Full-film production has not started. The production system carries forward reusable methods and quality checks from prior work while every client's files, prompts, knowledge, and generated assets remain isolated.",
       faster: "Each completed bkWatch film will establish a verified baseline for total hours, weeks to completion, and hours per finished minute. After two completed projects, this page will compare expected and actual efficiency and show how both improve over time.",
       smarter: "Reusable production methods and quality-control patterns improve with completed work, but no other client's source files, prompts, private knowledge, credentials, or generated assets enter bkWatch's workspace. bkWatch work is guided by bkWatch's approved materials and feedback.",
       expanding: "Every future project adds a clearer record of delivery speed, approved quality, deliverable volume, financial context, and reusable capabilities. The placeholders below become verified metrics as work is completed.",
@@ -253,7 +253,7 @@ async function main() {
       formattedBilled: "$0",
       formattedPaid: "$0",
       formattedOutstanding: "$0",
-      note: "bkWatch is in the pipeline phase — no invoices yet. 20 hours are recorded on Film 1 production.",
+      note: "bkWatch is in the pipeline phase — no invoices yet. 20 hours are recorded on Film 1 - Shaw Integration, currently in demo production.",
     },
     source: "Hours from Third i time tracking (20 hrs recorded manually); project efficiency activates only from tenant-owned completed work",
   };

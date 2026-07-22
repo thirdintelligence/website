@@ -1,11 +1,11 @@
 # Gate Activation Checklist (Phase 3+)
 
-Prepared: 2026-07-17 · For: Justin
+Prepared: 2026-07-17 · Updated: 2026-07-21 · For: Third i
 
 ## Build status (updated 2026-07-17 — VERIFIED ON A NETLIFY DEPLOY-PREVIEW)
 
 - Phase 1–2 preview: COMPLETE + accepted at the design/content gate.
-- Phase 3 live backend: **BUILT, TESTED (53/53), and VERIFIED END-TO-END on a
+- Phase 3 live backend: **BUILT, TESTED (63/63 current full suite), and VERIFIED END-TO-END on a
   Netlify deploy-preview** — real login, comment write/read persistence, and R2
   media presigning all succeeded on Netlify infrastructure.
 - **Operational store = Cloudflare R2** (not Netlify Blobs). Reason: `@netlify/blobs`
@@ -15,7 +15,7 @@ Prepared: 2026-07-17 · For: Justin
 - Required env vars now set in Netlify: the 8 media/mail vars + `PORTAL_STORE=r2`.
   The 3 auth secrets already existed (production-scoped).
 - MEM-01 (memory mirror) remains DRY-RUN only until you approve it.
-- Production deploy remains the final gated step (RELEASE).
+- The current bkWatch portal release is explicitly authorized for production by Third i's standing deploy instruction. Shaw activation remains separately gated.
 
 This is the concrete "what I need from you" list to finish each gate. Nothing
 changes production until you complete the step and explicitly say go.
@@ -24,20 +24,14 @@ changes production until you complete the step and explicitly say go.
 
 ## DATA-01 — Live operational store (comments, drafts, completion, actions)
 
-**Decision needed:** approve **Netlify Blobs** as the hosted operational JSON store,
-plus a retention policy (how long soft-deleted comments/audit events are kept).
+**Implemented:** the portal uses the R2-backed operational adapter under an isolated
+`_ops/<version>/` prefix. Comment, blocker-comment, draft, project-request, live
+aggregation, owner action, and audit endpoints are built and tenant-scoped. Netlify
+Blobs is not the active architecture.
 
-**You do:**
-1. Confirm Netlify Blobs is enabled for the `thirdintelligence` site (it is available on the plan; no extra signup).
-2. Approve retention (suggested: audit events kept indefinitely; soft-deleted client comments hidden from UI but retained 180 days).
-3. In Netlify → Site config → Environment variables, set (per context):
-   - `PORTAL_DATA_STORE_VERSION=portal-live-v1`
-   - a distinct **deploy-preview / dev** store namespace so previews never touch production data.
-
-**Then I build (local + preview first):** `@netlify/blobs` adapter behind the storage
-interface, the `portal-comments` / `portal-drafts` / `portal-project-requests` /
-`portal-live` functions, tenant-derived auth, CSRF, rate limiting, immutable audit,
-and the OS completion round-trip — all covered by the tenant-isolation test matrix.
+**Remaining policy decision:** approve retention for soft-deleted comments and audit
+events, plus verify preview and production namespaces remain distinct before any new
+tenant activation.
 
 ---
 

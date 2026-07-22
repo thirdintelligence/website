@@ -15,7 +15,7 @@
       "label": "July 2026",
       "status": "current",
       "items": [
-        { "type": "film", "title": "Film 1 — Final Demo", "description": "The first 30-second film showing how bankruptcy automation works inside Spectrum.", "milestone": false }
+        { "type": "film", "title": "Film 1 - Shaw Integration", "description": "The selected integration demo is being built now. Full-film production begins only after demo approval.", "milestone": false }
       ]
     },
     {

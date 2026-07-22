@@ -228,7 +228,7 @@
       "facts": [
         "Shaw Systems and BankruptcyWatch partnered around native automation inside Spectrum.",
         "Shaw approval for Spectrum UI use is secured; exact sanitized-asset delivery remains outstanding.",
-        "The integration message is the subject of the locked 22-second Final Demo."
+        "The integration message is the subject of the selected 22-second demo currently being built inside Film 1 - Shaw Integration."
       ],
       "status": "Active / confirmed context",
       "format": "integration",
@@ -441,8 +441,8 @@
       "category": "film-knowledge",
       "subcategory": "creative-directions",
       "title": "Selected creative direction — Final Demo",
-      "summary": "Final Demo is the selected production candidate. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain supporting studies.",
-      "status": "Selected",
+      "summary": "Final Demo is the selected demo currently being built for Film 1 - Shaw Integration. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain brainstorm studies with storyboard and script pages but no media placeholders.",
+      "status": "Selected — demo in production",
       "format": "film-knowledge",
       "projectId": "film1-shaw-bkwatch",
       "lastReviewedAt": "2026-07-16",
