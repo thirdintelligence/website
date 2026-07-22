@@ -89,12 +89,14 @@
 /* Hero summary — planned/recommended positioning with real results backing */
 .ai-hero-summary { display: flex; flex-direction: column; gap: var(--space-5); }
 .ai-hero-card { padding: var(--space-6); }
+.ai-hero-card .reading { max-width: none; }
 .ai-hero-points { display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-5); }
 .ai-hero-point { display: flex; gap: var(--space-3); align-items: flex-start; }
 .ai-hero-point-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent) 10%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .ai-hero-point-icon .icon { width: 18px; height: 18px; color: var(--accent); }
 .ai-hero-point-label { display: block; font-weight: 700; font-size: var(--fs-caption); text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-bottom: 4px; }
 .ai-hero-side { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); }
+.ai-hero-side .reading { max-width: none; }
 .ai-backed-stats { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-3); }
 .ai-backed-stat { display: flex; align-items: baseline; gap: var(--space-3); }
 .ai-backed-num { font-size: var(--fs-h3); font-weight: 700; font-family: var(--font-head); color: var(--accent); min-width: 50px; }
