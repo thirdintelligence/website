@@ -45,8 +45,9 @@
 .scene-block-text-only .scene-copy { max-width: 860px; }
 .scene-text-action { margin-top: var(--space-3); }
 .idea-media-policy { margin-top: var(--space-3); max-width: 780px; }
-.selected-demo-workspace { border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: var(--space-6); scroll-margin-top: var(--space-5); }
-.selected-demo-workspace > .section-head { align-items: flex-start; }
+.selected-demo-workspace { border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-6) var(--space-6); scroll-margin-top: var(--space-5); }
+.selected-demo-workspace > .section-head { align-items: flex-start; margin-top: 0; }
+.selected-demo-workspace > .section-head h2 { margin-top: var(--space-2); }
 .selected-demo-workspace > .hero-metaline { margin-top: var(--space-4); }
 .selected-demo-policy { margin-top: var(--space-3); max-width: 900px; }
 .selected-demo-storyboard-head { margin-top: var(--space-6); }
