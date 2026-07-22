@@ -18,7 +18,7 @@ test("bkWatch value page gates its live graph and exposes no Shaw production evi
   assert.doesNotMatch(html, /Shaw Systems|Amplify|614 hours|250 hours/i);
   assert.match(html, /Built on prior work\. Isolated by client\./);
   assert.equal((html.match(/class="future-value-item"/g) || []).length, 6);
-  assert.equal((html.match(/class="cap-row"/g) || []).length, 5);
+  assert.equal((html.match(/class="cap-row"/g) || []).length, 8);
   assert.doesNotMatch(html, /Financial summary|financial-metric|>Outcomes<|outcome-list|Future value record/);
 
   const momentumStart = html.indexOf('<section class="section momentum-section">');

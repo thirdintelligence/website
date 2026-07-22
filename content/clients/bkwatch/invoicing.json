@@ -30,7 +30,7 @@
       "title": "Client Portal",
       "type": "tool",
       "description": "A private, real-time workspace for project collaboration, comments, and progress tracking.",
-      "status": "delivered"
+      "status": "available"
     },
     {
       "title": "AI Film Production",
@@ -42,18 +42,36 @@
       "title": "AI Roadmap",
       "type": "knowledge",
       "description": "Research-backed guidance on where and how to add AI to your operations, with clear value and effort assessment.",
-      "status": "delivered"
+      "status": "available"
     },
     {
       "title": "Brand Knowledge Library",
       "type": "tool",
       "description": "An organized, searchable library of your brand, products, features, and communication guidelines.",
-      "status": "delivered"
+      "status": "available"
     },
     {
       "title": "AI Workflow Training",
       "type": "service",
       "description": "Teaching your team to use AI-powered workflows for everyday tasks — writing, analysis, research, and reporting.",
+      "status": "planned"
+    },
+    {
+      "title": "AI Implementation",
+      "type": "service",
+      "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.",
+      "status": "planned"
+    },
+    {
+      "title": "Value Audit",
+      "type": "service",
+      "description": "Full review of client projects and AI agent workflows — research, reports, upgrading, and refining features. Free and unbillable.",
+      "status": "planned"
+    },
+    {
+      "title": "Extend Partnership",
+      "type": "service",
+      "description": "Planning valuable services alongside main work and updating/renewing the contract. Free and unbillable.",
       "status": "planned"
     }
   ],
@@ -215,13 +233,7 @@
             {
               "title": "AI Tool Integration",
               "description": "Connecting AI tools to bkWatch's existing systems and data sources."
-            }
-          ]
-        },
-        {
-          "title": "AI-use Training",
-          "description": "Hands-on training for every AI service Third i offers, so the team can run and extend the tools themselves.",
-          "items": [
+            },
             {
               "title": "AI-use Training",
               "description": "Practical training for the whole team on using AI across all Third i services — daily use, agentic workflows, tool-specific sessions, team onboarding, and AI best practices with governance and data handling.",

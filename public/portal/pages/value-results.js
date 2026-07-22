@@ -189,12 +189,6 @@ export function render(data) {
 
     ${learningPrivacySection(invoicing)}
 
-    <section class="section">
-      <div class="section-head"><h2 class="section-title">Capabilities</h2></div>
-      <div class="cap-list">${invoicing.capabilities.map(capabilityRow).join("")}</div>
-      ${activeAiCaps.length ? `<p class="muted" style="margin-top:12px">${icon("ai")} ${activeAiCaps.length} AI capabilities confirmed in your <a href="#/ai-roadmap">AI Roadmap</a>.</p>` : ""}
-    </section>
-
     <section class="section vr-narrative">
       <div class="section-head"><h2 class="section-title">How the relationship grows</h2></div>
       <div class="vr-narrative-grid">
@@ -213,6 +207,12 @@ export function render(data) {
     </section>` : `<section class="section">
       <div class="empty-state">${icon("film")}<p>No completed projects yet. Completed projects and approved value evidence will appear here.</p></div>
     </section>`}
+
+    <section class="section">
+      <div class="section-head"><h2 class="section-title">Capabilities</h2></div>
+      <div class="cap-list">${invoicing.capabilities.map(capabilityRow).join("")}</div>
+      ${activeAiCaps.length ? `<p class="muted" style="margin-top:12px">${icon("ai")} ${activeAiCaps.length} AI capabilities confirmed in your <a href="#/ai-roadmap">AI Roadmap</a>.</p>` : ""}
+    </section>
 
     ${sourceNote(invoicing.source)}
   </div>`;
