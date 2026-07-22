@@ -100,7 +100,9 @@ for (const [name, route, theme, viewport, tag] of ACTIVE_SHOTS) {
     .map((img) => img.getAttribute("src")));
   if (brokenImages.length) errors.push(`[${name}/${theme}] broken images: ${brokenImages.join(", ")}`);
 
-  const destinationCards = page.locator(".card-link");
+  // Compact communication rows sit beneath a section-level “View all” action;
+  // all other clickable destinations retain an explicit action inside the card.
+  const destinationCards = page.locator(".card-link:not(.comm-prev-item):not(.comm-preview-row)");
   if (await destinationCards.count()) {
     const missingActions = await destinationCards.evaluateAll((cards) => cards.filter((card) => !card.querySelector(".card-action")).length);
     if (missingActions) errors.push(`[${name}/${theme}] ${missingActions} clickable card/row destination(s) have no explicit action button`);

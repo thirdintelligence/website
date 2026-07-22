@@ -47,7 +47,7 @@ The portal is a client-branded operating workspace and relationship record: one 
 - Client brand is visually primary; Third i is discreet.
 - All text meets WCAG AA contrast; focus is visible; reduced motion is honored.
 - Colored buttons use black text until hover, then white.
-- Clickable cards include a visible destination action and never underline body text on hover.
+- Clickable cards include a visible destination action and never underline body text on hover; compact communication rows may use the owning section's visible `View all` destination instead of repeating the same button on every row.
 - Project cards remain horizontal; project presentation remains one full-width column.
 - Status/title controls are optically centered in their assigned control space.
 - `designer.svg` has no bounce and remains optically centered with its phase label.
