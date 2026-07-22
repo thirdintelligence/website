@@ -39,7 +39,7 @@ export function initComposer(data, hooks = {}) {
     else if (addBtn) {
       e.preventDefault();
       const app = document.querySelector(".portal-app");
-      const ctx = app?.dataset.commentContext ? JSON.parse(app.dataset.commentContext) : null;
+      const ctx = app?.dataset.pageCommentContext ? JSON.parse(app.dataset.pageCommentContext) : null;
       openComment(ctx || { scope: "home", label: "General comment" });
     }
   });

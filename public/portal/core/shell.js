@@ -141,5 +141,5 @@ export function setContext({ crumb = "", title = "", action = "", fullscreen = f
   if (t) t.textContent = title;
   if (a) a.innerHTML = action;
   if (fs) fs.hidden = !fullscreen;
-  if (app) app.dataset.commentContext = commentContext ? JSON.stringify(commentContext) : "";
+  if (app) app.dataset.pageCommentContext = commentContext ? JSON.stringify(commentContext) : "";
 }
