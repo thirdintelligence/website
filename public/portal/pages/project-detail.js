@@ -75,12 +75,11 @@ export function render(data, params) {
     </section>
 
     ${(invoicing && p.status === "active") ? renderProjectValue(p, invoicing, projects.asOf) : ""}
-    ${scope}
 
     ${p.draft ? `<div class="section">${draftNotice()}</div>` : ""}
 
     <section class="detail-block">
-      <div class="section-head"><h2>Current actions &amp; comments</h2>${addCommentButton(ctx)}</div>
+      <div class="section-head"><h2>Comments</h2>${addCommentButton(ctx)}</div>
       ${commentThread(projectComments, { projectId: p.id }) || `<div class="empty-state">${icon("comment")}<p>No open comments on this project. Use Add Comment to leave feedback anywhere.</p></div>`}
     </section>
 
@@ -88,6 +87,12 @@ export function render(data, params) {
       <div class="section-head"><h2>Script</h2>${addCommentButton({ ...ctx, scope: "script", label: "Script" }, "Comment on script")}</div>
       <div class="scene-script"><span class="lbl">Locked voiceover</span><p>${esc(p.script)}</p></div>
       ${sourceNote(p.storyboardNote)}
+    </section>` : ""}
+
+    ${scope}
+
+    ${(p.timeline && p.timeline.length) ? `<section class="detail-block">
+      <h2>Timeline, deliverables &amp; milestones</h2>${renderTimelineWithDeliverables(p)}
     </section>` : ""}
 
     ${renderSelectedDemo(p, film)}
@@ -99,10 +104,6 @@ export function render(data, params) {
     </section>` : ""}
 
     ${comparison}
-
-    ${(p.timeline && p.timeline.length) ? `<section class="detail-block">
-      <h2>Timeline, deliverables &amp; milestones</h2>${renderTimelineWithDeliverables(p)}
-    </section>` : ""}
 
     ${(p.reports && p.reports.length) ? `<section class="detail-block"><h2>Reports &amp; outcomes</h2>${p.reports.map((r) => `<div class="card"><h3 class="pc-title">${esc(r.title)}</h3><p class="reading">${esc(r.body)}</p>${sourceNote(r.source)}</div>`).join("")}</section>` : ""}
 

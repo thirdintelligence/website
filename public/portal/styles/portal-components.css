@@ -243,7 +243,7 @@
 /* ── Posted comments (brand chat/message bubble) ────────────────────────────── */
 .comment-thread { display: flex; flex-direction: column; gap: var(--space-3); }
 .comment {
-  position: relative; max-width: 640px; padding: var(--space-3) var(--space-4);
+  position: relative; padding: var(--space-3) var(--space-4);
   background: var(--surface-2); border: 1px solid var(--line);
   border-radius: 14px 14px 14px 4px;
 }
