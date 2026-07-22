@@ -43,7 +43,6 @@ export function statStrip(stats) {
 }
 
 export function projectCard(p, hrefStr) {
-  const count = (p.comment?.count || 0) + (p.blockers?.length || 0);
   return `<a class="card card-feature project-card card-link" href="${hrefStr}">
     ${motif("grid")}
     <div class="pc-media">
@@ -53,10 +52,6 @@ export function projectCard(p, hrefStr) {
       <div class="pc-meta project-card-badges">${statusLabel(p.statusLabel || p.status, undefined, true)}<span class="chip"><span class="control-content">${esc(p.projectType)}</span></span></div>
       <h3 class="pc-title">${esc(p.title)}</h3>
       <p class="pc-value">${esc(p.valueStatement)}</p>
-      <div class="pc-meta">
-        ${p.nextMilestone ? `<span class="muted">${icon("arrowRight")} ${esc(p.nextMilestone)}</span>` : ""}
-        ${count ? `<span class="muted">${icon("comment")} ${count}</span>` : ""}
-      </div>
       ${cardAction("Open project")}
     </div>
   </a>`;

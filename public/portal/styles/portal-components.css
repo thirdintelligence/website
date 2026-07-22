@@ -142,8 +142,9 @@
 }
 .project-card .pc-media { min-width: 0; height: 100%; }
 .project-card .thumb { width: 100%; height: 100%; min-height: 220px; aspect-ratio: auto !important; border-radius: 0; }
-.project-card .pc-body { display: flex; flex-direction: column; justify-content: flex-start; padding: var(--space-5); position: relative; z-index: 1; }
+.project-card .pc-body { display: flex; flex-direction: column; justify-content: center; padding: var(--space-5); position: relative; z-index: 1; }
 .project-card .pc-body > .pc-meta:first-child { margin-top: 0; }
+.project-card .pc-body > .card-action { position: absolute; bottom: var(--space-5); left: var(--space-5); margin-top: 0; }
 .project-request-card { grid-template-columns: 1fr; min-height: 0; }
 .project-request-card .pc-body { min-height: 180px; }
 .pc-title { font-size: var(--fs-h3); margin-bottom: 4px; }
