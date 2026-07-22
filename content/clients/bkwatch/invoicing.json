@@ -57,12 +57,6 @@
       "status": "planned"
     },
     {
-      "title": "GenAI Workflows",
-      "type": "service",
-      "description": "Repeatable generative-AI workflows for writing, research, and content creation, tailored to bkWatch's product and audience.",
-      "status": "planned"
-    },
-    {
       "title": "AI-use Training",
       "type": "service",
       "description": "Practical training for the whole team on using AI across all Third i services — daily use, agentic workflows, tool-specific sessions, team onboarding, and AI best practices with governance and data handling.",
@@ -72,7 +66,7 @@
       "title": "Demo Video Production",
       "type": "service",
       "description": "Selected demo directions are produced for review before full-film production. Brainstorm directions keep storyboard and script pages without media placeholders; a locked demo lives in the main project page and approval advances that same record with its history intact.",
-      "status": "planned"
+      "status": "active"
     },
     {
       "title": "Conference & Event Videos",
@@ -114,12 +108,6 @@
       "title": "Conference & Trade Show Materials",
       "type": "service",
       "description": "Booth design, presentation materials, and handouts for events.",
-      "status": "planned"
-    },
-    {
-      "title": "AI Implementation",
-      "type": "service",
-      "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.",
       "status": "planned"
     },
     {
