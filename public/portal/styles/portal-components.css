@@ -60,7 +60,7 @@
   background-size: 26px 26px; -webkit-mask-image: radial-gradient(120% 90% at 100% 0%, #000, transparent 70%);
   mask-image: radial-gradient(120% 90% at 100% 0%, #000, transparent 70%); opacity: .35;
 }
-.motif-rings { top: -40%; right: calc(-20% - 20px); width: 340px; height: 340px;
+.motif-rings { top: -40%; right: calc(-20% - 40px); width: 510px; height: 510px;
   background: radial-gradient(closest-side, transparent 62%, var(--client-blue-light) 63%, transparent 66%),
               radial-gradient(closest-side, transparent 74%, var(--client-blue) 75%, transparent 78%);
   opacity: .16; }
