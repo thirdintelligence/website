@@ -60,9 +60,9 @@ export function render(data, params) {
         <dl class="kv">
           ${p.creativeVision ? `<dt>Creative vision</dt><dd>${esc(p.creativeVision)}</dd>` : ""}
           ${p.audience ? `<dt>Audience</dt><dd>${esc(p.audience)}</dd>` : ""}
+          ${(p.keyMessaging && p.keyMessaging.length) ? `<dt>Key messaging</dt><dd><ul class="kv-list">${p.keyMessaging.map((m) => `<li><strong>${esc(m.title)}</strong><span class="reading">${esc(m.detail)}</span></li>`).join("")}</ul></dd>` : ""}
           ${p.phase ? `<dt>Phase</dt><dd>${esc(p.phase)}</dd>` : ""}
           ${p.nextMilestone ? `<dt>Next milestone</dt><dd>${esc(p.nextMilestone)}</dd>` : ""}
-          ${(p.keyMessaging && p.keyMessaging.length) ? `<dt>Key messaging</dt><dd><ul class="kv-list">${p.keyMessaging.map((m) => `<li><strong>${esc(m.title)}</strong><span class="reading">${esc(m.detail)}</span></li>`).join("")}</ul></dd>` : ""}
         </dl>
         <div class="hero-metaline">
           ${addCommentButton(ctx, "Add Comment", "btn-sm btn-primary add-comment")}
