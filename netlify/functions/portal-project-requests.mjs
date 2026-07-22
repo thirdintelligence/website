@@ -8,6 +8,7 @@ import { writeEvent } from "../../lib/portal-audit.mjs";
 import { createFromRequest } from "../../lib/portal-actions.mjs";
 import { queueNotification } from "../../lib/portal-notify.mjs";
 import { json, apiError, readJson, tenantFromPath, tenantLabel } from "../../lib/portal-api-util.mjs";
+import { verifyAttachmentRefs } from "../../lib/portal-attachment-refs.mjs";
 
 export default async (request) => {
   const tenant = tenantFromPath(request);
@@ -17,7 +18,11 @@ export default async (request) => {
   if (!verifyMutation(request, tenant)) return apiError(403, "csrf_failed");
 
   const store = await getStore();
-  const built = await buildProjectRequest(await readJson(request), { tenant });
+  const body = await readJson(request);
+  const attachments = await verifyAttachmentRefs(store, tenant, body.attachments);
+  if (!attachments.ok) return apiError(422, attachments.error);
+  body.attachments = attachments.attachments;
+  const built = await buildProjectRequest(body, { tenant });
   if (!built.ok) return apiError(422, "invalid_request", built.errors);
   const rec = built.record;
 

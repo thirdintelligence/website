@@ -1,6 +1,5 @@
-/* Loads the sanitized v2 tenant manifests. In preview mode the operational
-   layer (comments/completions) is seeded from a bundled sample set; in live mode
-   (Phase 3+) it will come from the tenant-authorized operational API instead. */
+/* Loads sanitized tenant manifests plus tenant-authorized operational state.
+   Preview mode uses bundled sample records; live mode uses the protected API. */
 
 /** Read a non-executed <script type="application/json"> block by id (CSP-safe). */
 function readJsonScript(id) {
@@ -77,10 +76,14 @@ export async function loadPortalData() {
   // Operational (live) records.
   //  • live mode  → real tenant-authorized operational API (comments + CSRF)
   //  • preview    → a small, clearly-sample seed so the UI is reviewable offline
-  let live = { comments: [] };
+  let live = { comments: [], projectRequests: [] };
   if (cfg.mode === "live") {
     const l = await fetchLive(cfg);
-    if (l) { live.comments = l.comments || []; cfg.csrfToken = l.csrfToken; }
+    if (l) {
+      live.comments = l.comments || [];
+      live.projectRequests = l.projectRequests || [];
+      cfg.csrfToken = l.csrfToken;
+    }
   } else if (cfg.sampleLive) {
     try { live = await getJSON(cfg.sampleLive); } catch { /* optional */ }
   }

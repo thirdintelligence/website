@@ -23,7 +23,7 @@ export async function setupEnv() {
   process.env.SHAW_PORTAL_PASSWORD_HASH = HASHES.shaw;
   process.env.OS_PORTAL_PASSWORD_HASH = HASHES["thirdi-os"];
   process.env.PORTAL_MAIL_PROVIDER = "log";
-  process.env.PORTAL_OWNER_EMAIL = "portal@thirdi.net";
+  process.env.PORTAL_OWNER_EMAIL = "ceo@thirdi.net";
   return HASHES;
 }
 

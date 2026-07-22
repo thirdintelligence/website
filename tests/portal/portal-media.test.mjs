@@ -56,3 +56,22 @@ test("media requires authentication and CSRF", async () => {
   assert.equal((await media(authedReq(mUrl("upload/initiate"), "POST", { anon: true, body: {} }))).status, 401);
   assert.equal((await media(authedReq(mUrl("upload/initiate"), "POST", { csrf: false, body: {} }))).status, 403);
 });
+
+test("multipart completion validates ordered parts before storage calls", async () => {
+  const store = await getStore();
+  await store.set(key("bkwatch", "media", "ast_multi"), {
+    id: "ast_multi", tenant: "bkwatch", status: "uploading", uploadId: "upload-1",
+    storageKey: key("bkwatch", "media", "ast_multi", "v1"), versionId: "v1"
+  });
+  assert.equal((await media(authedReq(mUrl("upload/part"), "POST", { body: { assetId: "ast_multi", partNumber: 0 } }))).status, 422);
+  assert.equal((await media(authedReq(mUrl("upload/complete"), "POST", { body: { assetId: "ast_multi", parts: [] } }))).status, 422);
+  assert.equal((await media(authedReq(mUrl("upload/complete"), "POST", { body: { assetId: "ast_multi", parts: [{ partNumber: 2, etag: "x" }] } }))).status, 422);
+});
+
+test("playback authorization is limited to approved video", async () => {
+  const store = await getStore();
+  await store.set(key("bkwatch", "media", "ast_image"), { id: "ast_image", tenant: "bkwatch", status: "approved", kind: "image", storageKey: "x" });
+  await store.set(key("bkwatch", "media", "ast_video"), { id: "ast_video", tenant: "bkwatch", status: "pending", kind: "video", storageKey: "y" });
+  assert.equal((await media(authedReq(mUrl("playback/authorize"), "POST", { body: { assetId: "ast_image" } }))).status, 403);
+  assert.equal((await media(authedReq(mUrl("playback/authorize"), "POST", { body: { assetId: "ast_video" } }))).status, 403);
+});

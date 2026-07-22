@@ -1,17 +1,20 @@
 /* Projects index (plan 05). */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
-import { projectCard } from "../components/cards.js";
+import { projectCard, cardAction, motif, statusLabel } from "../components/cards.js";
 
 export function render(data) {
   const { projects, portal } = data;
   const all = projects.projects;
-  const statuses = [...new Set(all.map((p) => p.status))];
+  const requests = liveRequests(data);
+  const statuses = [...new Set([...all.map((p) => p.status), ...(requests.length ? ["client-proposed"] : [])])];
   const active = all.filter((p) => p.status === "active");
   const history = all.filter((p) => p.status !== "active");
 
   const filters = `<div class="filters" role="group" aria-label="Filter projects">
     ${icon("filter")}
+    <label class="visually-hidden" for="f-search">Search projects</label>
+    <input class="filter-search" id="f-search" type="search" placeholder="Search projects" autocomplete="off" />
     <select class="filter-select" id="f-status" aria-label="Status">
       <option value="">All statuses</option>
       ${statuses.map((s) => `<option value="${esc(s)}">${esc(s[0].toUpperCase() + s.slice(1))}</option>`).join("")}
@@ -30,30 +33,62 @@ export function render(data) {
 
     ${filters}
 
+    ${requests.length ? `<section class="section" id="projects-proposed">
+      <div class="section-head"><h2 class="section-title">Client-proposed projects</h2><span class="muted">${requests.length} awaiting review</span></div>
+      <div class="project-list">${requests.map(requestCard).join("")}</div>
+    </section>` : ""}
+
     <section class="section" id="projects-active">
       <div class="section-head"><h2 class="section-title">Featured active work</h2></div>
       <div class="project-list">
-        ${active.length ? active.map((p) => `<div class="proj-item" data-status="${esc(p.status)}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("") : `<div class="empty-state">${icon("projects")}<p>No active projects. The next agreed relationship milestone will appear here.</p></div>`}
+        ${active.length ? active.map((p) => `<div class="proj-item" data-status="${esc(p.status)}" data-search="${esc(projectSearchText(p))}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("") : `<div class="empty-state">${icon("projects")}<p>No active projects. The next agreed relationship milestone will appear here.</p></div>`}
       </div>
     </section>
 
     ${history.length ? `<section class="section" id="projects-history">
       <div class="section-head"><h2 class="section-title">Completed &amp; archived</h2></div>
-      <div class="project-list">${history.map((p) => `<div class="proj-item" data-status="${esc(p.status)}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("")}</div>
+      <div class="project-list">${history.map((p) => `<div class="proj-item" data-status="${esc(p.status)}" data-search="${esc(projectSearchText(p))}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("")}</div>
     </section>` : ""}
   </div>`;
 
   function onMount() {
     const sel = document.getElementById("f-status");
+    const search = document.getElementById("f-search");
     const apply = () => {
       const v = sel.value;
+      const q = (search?.value || "").trim().toLowerCase();
       document.querySelectorAll(".proj-item").forEach((el) => {
-        el.style.display = !v || el.dataset.status === v ? "" : "none";
+        const statusMatch = !v || el.dataset.status === v;
+        const searchMatch = !q || (el.dataset.search || "").includes(q);
+        el.style.display = statusMatch && searchMatch ? "" : "none";
       });
     };
     sel?.addEventListener("change", apply);
-    document.getElementById("f-clear")?.addEventListener("click", () => { if (sel) sel.value = ""; apply(); });
+    search?.addEventListener("input", apply);
+    document.getElementById("f-clear")?.addEventListener("click", () => { if (sel) sel.value = ""; if (search) search.value = ""; apply(); });
   }
 
   return { crumb: portal.client.shortName, title: "Projects", html, onMount };
+}
+
+function liveRequests(data) {
+  return (data.live?.projectRequests || []).filter(Boolean);
+}
+
+function projectSearchText(project) {
+  return [project.title, project.projectType, project.status, project.statusLabel, project.valueStatement, project.objective].filter(Boolean).join(" ").toLowerCase();
+}
+
+function requestCard(request) {
+  return `<div class="proj-item" data-status="client-proposed" data-search="${esc([request.name, request.description, request.status].join(" ").toLowerCase())}">
+    <a class="card card-feature project-card project-request-card card-link" href="#/projects/requests/${esc(request.id)}">
+      ${motif("grid")}
+      <div class="pc-body">
+        <div class="pc-meta project-card-badges">${statusLabel("Client proposed", "warn", true)}</div>
+        <h3 class="pc-title">${esc(request.name)}</h3>
+        <p class="pc-value">${esc(request.description)}</p>
+        ${cardAction("Open request")}
+      </div>
+    </a>
+  </div>`;
 }

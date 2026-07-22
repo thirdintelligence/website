@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Third i services — AI Film Production, Web Design + Dev, Strategic Marketing, and AI Consulting. Four services, one intelligent system.">
+  <meta property="og:title" content="Services — Third i">
+  <meta property="og:description" content="AI Film Production, Web Design + Dev, Strategic Marketing, and AI Consulting. Every project compounds intelligence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thirdi.net/services">
+  <title>Services — Third i</title>
+  <link rel="icon" type="image/png" href="/public/images/favicon.png">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/nav.css">
+  <link rel="stylesheet" href="/styles/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/public/images/logo.png" alt="Third i">
+        <span>third i</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services" class="active">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Start a Project</a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="/" onclick="document.getElementById('mobile-nav').classList.remove('open')">Home</a>
+    <a href="/services" onclick="document.getElementById('mobile-nav').classList.remove('open')">Services</a>
+    <a href="/portfolio" onclick="document.getElementById('mobile-nav').classList.remove('open')">Portfolio</a>
+    <a href="/about" onclick="document.getElementById('mobile-nav').classList.remove('open')">About</a>
+    <a href="/contact" class="btn btn-primary" onclick="document.getElementById('mobile-nav').classList.remove('open')">Start a Project</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="display gradient-text">What We Build</h1>
+        <p class="subtitle">Four AI-native services. One intelligent system. Every project makes the next one better — for you and for every client after you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services detail -->
+  <section class="section">
+    <div class="container">
+      <div class="services-grid">
+
+        <!-- AI Film Production -->
+        <div class="card service-card fade-up">
+          <div class="icon">&#127909;</div>
+          <h3>AI Film Production</h3>
+          <p>GenAI video for conferences, products, and brand stories. Good / Better / Best tiers — from 30-second spots to 4-minute narratives. Every frame is AI-generated, every edit compounds our production intelligence.</p>
+        </div>
+
+        <!-- Web Design + Dev -->
+        <div class="card service-card fade-up">
+          <div class="icon">&#128187;</div>
+          <h3>Web Design + Dev</h3>
+          <p>Modern sites with AI-generated assets baked in. Landing pages to full platforms. Every build includes a design system — tokens, components, and brand guardrails you actually own.</p>
+        </div>
+
+        <!-- Strategic Marketing -->
+        <div class="card service-card fade-up">
+          <div class="icon">&#128200;</div>
+          <h3>Strategic Marketing</h3>
+          <p>AI-powered marketing strategy that starts with an audit and recommendations, then scales to full ongoing execution. Data-driven positioning, content strategy, and campaign architecture.</p>
+        </div>
+
+        <!-- AI Consulting -->
+        <div class="card service-card fade-up">
+          <div class="icon">&#129302;</div>
+          <h3>AI Consulting</h3>
+          <p>Workflow automation and agent architecture for teams ready to operationalize AI. From discovery workshops to ongoing advisory — we build the systems that make your team faster.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-band">
+    <div class="container fade-up">
+      <h2>Every project is scoped to your goals.</h2>
+      <p>No templates. No hourly billing. Just results — priced to the value we deliver.</p>
+      <a href="/contact" class="btn btn-primary">Start a Project</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="/" class="nav-logo">
+        <img src="/public/images/logo.png" alt="Third i" style="width:24px;height:24px;">
+        <span>third i</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Third i. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll animations + nav scroll effect -->
+  <script>
+    /* Nav glass effect on scroll */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* Fade-up on scroll */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 50);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

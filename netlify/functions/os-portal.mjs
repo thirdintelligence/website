@@ -142,8 +142,8 @@ function buildPages(){var os=document.querySelector(".os");if(!os||os.__paged)re
 .tp-detail{color:#c7d3dc;font-size:13px;line-height:1.5;margin-bottom:4px}
 .tp-meta{color:#8397a5;font-size:11px;margin-bottom:10px}
 .tp-ctrls{display:flex;align-items:center;gap:8px}
-.tp-btn{background:#2b66ae;color:#fff;border:0;border-radius:8px;padding:6px 13px;cursor:pointer;font-weight:600;font-size:12px}
-.tp-btn:hover{background:#214f88}.tp-btn:disabled{opacity:.6;cursor:default}
+.tp-btn{background:#79c4f5;color:#000;border:0;border-radius:8px;padding:6px 13px;cursor:pointer;font-weight:600;font-size:12px}
+.tp-btn:hover{background:#0e141c;color:#fff}.tp-btn:disabled{opacity:.6;cursor:default}
 .tp-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.22);color:#c7d3dc}.tp-btn.ghost:hover{border-color:#fff;background:transparent}
 .tp-btn.icon{padding:5px 9px;background:#1a232c}.tp-btn.icon:hover{background:#243140}
 .tp-prio{display:inline-flex;gap:4px;margin-left:auto}
@@ -153,7 +153,7 @@ function buildPages(){var os=document.querySelector(".os");if(!os||os.__paged)re
 #os-nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0}
 .os-nav-btn{background:#141b23;color:#c7d3dc;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:9px 17px;cursor:pointer;font:600 13px/1 Inter,ui-sans-serif,sans-serif}
 .os-nav-btn:hover{border-color:rgba(121,196,245,.5);color:#fff}
-.os-nav-btn.active{background:#2b66ae;border-color:#2b66ae;color:#fff}</style>`;
+.os-nav-btn.active{background:#79c4f5;border-color:#79c4f5;color:#000}.os-nav-btn.active:hover{background:#0e141c;border-color:#79c4f5;color:#fff}</style>`;
 
   const html = source
     .replace(/<div id="passGate"[\s\S]*?<\/script>/, "")

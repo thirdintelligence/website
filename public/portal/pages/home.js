@@ -26,8 +26,8 @@ export function render(data, _params) {
     <div class="ai-value-strip">
       <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.projectsActive.count}</span><span class="ai-value-label">${esc(invoicing.metrics.projectsActive.descriptor)}</span></div>
       <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours</span></div>
+      <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.deliverablesCompleted.count}/10</span><span class="ai-value-label">deliverables</span></div>
       <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.capabilitiesDelivered.count}</span><span class="ai-value-label">capabilities</span></div>
-      <div class="ai-value-stat"><span class="ai-value-num">12-month</span><span class="ai-value-label">partnership plan</span></div>
       <div class="ai-value-actions">
         <a class="btn btn-sm btn-outline" href="#/value-results">View results ${icon("arrowRight")}</a>
         <a class="btn btn-sm btn-outline" href="#/ai-roadmap">View roadmap ${icon("arrowRight")}</a>

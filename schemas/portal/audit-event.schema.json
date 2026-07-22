@@ -9,7 +9,7 @@
   "properties": {
     "id": { "$ref": "common.schema.json#/$defs/id" },
     "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
-    "type": { "type": "string", "enum": ["comment.created", "comment.edited", "comment.deleted", "comment.completed", "project-request.created", "draft.saved", "draft.deleted", "notification.queued", "notification.sent", "notification.failed", "thumbnail.changed"] },
+    "type": { "type": "string", "enum": ["comment.created", "comment.edited", "comment.deleted", "comment.completed", "project-request.created", "draft.saved", "draft.deleted", "notification.queued", "notification.sent", "notification.failed", "thumbnail.changed", "media.upload.initiated", "media.upload.completed", "media.upload.aborted", "media.download.authorized", "media.playback.authorized"] },
     "subjectId": { "$ref": "common.schema.json#/$defs/id" },
     "actor": { "type": "string", "enum": ["client", "owner", "system", "sync"] },
     "at": { "type": "string" },

@@ -56,8 +56,8 @@ export function render(data, params) {
         </dl>
         <div class="hero-metaline">
           ${addCommentButton(ctx, "Add Comment", "btn-sm btn-primary add-comment")}
-          <button class="btn btn-sm btn-outline" type="button">${icon("download")} Download PDF</button>
-          <a class="btn btn-sm btn-ghost" href="#/projects/${p.slug}/ideas/${film ? film.ideas.find((i) => i.recommended)?.slug || film.ideas[0].slug : ""}">${icon("maximize")} Presentation</a>
+          <button class="btn btn-sm btn-outline" type="button" data-project-pdf="${esc(p.id)}">${icon("download")} Download PDF</button>
+          ${film ? `<a class="btn btn-sm btn-ghost" href="#/projects/${p.slug}/ideas/${film.ideas.find((i) => i.recommended)?.slug || film.ideas[0].slug}">${icon("maximize")} Presentation</a>` : ""}
         </div>
       </div>
     </section>
@@ -107,7 +107,8 @@ export function render(data, params) {
     ${sourceNote(p.source)}
   </div>`;
 
-  return { crumb: "Projects", title: p.title, action: `<button class="btn btn-sm btn-ghost" type="button">${icon("maximize")} Presentation</button>`, html };
+  const presentationSlug = film ? (film.ideas.find((idea) => idea.recommended)?.slug || film.ideas[0]?.slug) : "";
+  return { crumb: "Projects", title: p.title, action: presentationSlug ? `<a class="btn btn-sm btn-ghost" href="#/projects/${p.slug}/ideas/${presentationSlug}">${icon("maximize")} Presentation</a>` : "", html };
 }
 
 function renderProjectValue(p, invoicing, asOf) {

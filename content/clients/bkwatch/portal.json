@@ -10,7 +10,9 @@
     "route": "/bkwatch",
     "partner": "Third i",
     "logo": "/public/portal/bkwatch-logo-black.png",
-    "logoDark": "/public/portal/bkwatch-logo-white.png"
+    "logoDark": "/public/portal/bkwatch-logo-white.png",
+    "logoCollapsed": "/public/portal/bkwatch-icon-black.png",
+    "logoCollapsedDark": "/public/portal/bkwatch-icon-white.png"
   },
   "brand": {
     "mission": "Make bankruptcy operations easy through live, automated tools that reduce compliance risk and effort at scale.",

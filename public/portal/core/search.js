@@ -4,7 +4,11 @@ import { esc, fmtDate } from "./util.js";
 import { icon } from "./icons.js";
 
 export function initSearch(data) {
-  const entries = data.search.entries || [];
+  const entries = () => [
+    ...(data.search.entries || []),
+    ...(data.live?.projectRequests || []).map((request) => ({ id: request.id, type: "project request", title: request.name, excerpt: request.description, status: request.status, route: `/bkwatch/projects/requests/${request.id}` })),
+    ...(data.live?.comments || []).map((comment) => ({ id: comment.id, type: comment.blocker ? "blocker comment" : "comment", title: comment.title, excerpt: comment.description || "", project: comment.projectId, status: comment.status, date: comment.createdAt, route: comment.context?.route || "/bkwatch/library/communication/comments" }))
+  ];
   const shortName = data.portal.client.shortName;
 
   // Desktop utility-bar search.
@@ -46,7 +50,7 @@ function attach(input, panel, entries, shortName, onNavigate) {
   const run = () => {
     const q = input.value.trim().toLowerCase();
     if (q.length < 2) { panel.hidden = true; panel.innerHTML = ""; return; }
-    const results = entries.filter((e) =>
+    const results = entries().filter((e) =>
       (e.title + " " + (e.excerpt || "") + " " + (e.keywords || "") + " " + (e.category || "") + " " + (e.project || "")).toLowerCase().includes(q)
     ).slice(0, 12);
     panel.innerHTML = results.length

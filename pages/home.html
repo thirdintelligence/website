@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Third i — AI-native creative marketing agency. Film production, web design, strategic marketing, and AI consulting that gets smarter with every project.">
+  <meta property="og:title" content="Third i — AI-Native Creative Agency">
+  <meta property="og:description" content="Film production, web design, strategic marketing, and AI consulting. Every project compounds intelligence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thirdi.net">
+  <title>Third i — AI-Native Creative Agency</title>
+  <link rel="icon" type="image/png" href="/public/images/favicon.png">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/nav.css">
+  <link rel="stylesheet" href="/styles/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/public/images/logo.png" alt="Third i">
+        <span>third i</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Start a Project</a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="/" onclick="document.getElementById('mobile-nav').classList.remove('open')">Home</a>
+    <a href="/services" onclick="document.getElementById('mobile-nav').classList.remove('open')">Services</a>
+    <a href="/portfolio" onclick="document.getElementById('mobile-nav').classList.remove('open')">Portfolio</a>
+    <a href="/about" onclick="document.getElementById('mobile-nav').classList.remove('open')">About</a>
+    <a href="/contact" class="btn btn-primary" onclick="document.getElementById('mobile-nav').classList.remove('open')">Start a Project</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="display gradient-text">Film at the Speed of Thought</h1>
+        <p class="subtitle">AI-native creative agency. Film production, web design, strategic marketing, and AI consulting — powered by a workflow that gets smarter with every project.</p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn btn-primary">Start a Project</a>
+          <a href="/portfolio" class="btn btn-secondary">See Our Work</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <!-- GenAI hero visual goes here (via FILM integration) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Services overview -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 class="gradient-text">What We Build</h2>
+        <p>Four services. One intelligent system. Every project makes the next one better.</p>
+      </div>
+      <div class="services-grid">
+        <div class="card service-card fade-up">
+          <div class="icon">&#127909;</div>
+          <h3>AI Film Production</h3>
+          <p>GenAI video for conferences, products, and brand stories. 30-second spots to 4-minute narratives.</p>
+        </div>
+        <div class="card service-card fade-up">
+          <div class="icon">&#128187;</div>
+          <h3>Web Design + Dev</h3>
+          <p>Modern sites with AI-generated assets. Landing pages to full platforms. Design system included.</p>
+        </div>
+        <div class="card service-card fade-up">
+          <div class="icon">&#128200;</div>
+          <h3>Strategic Marketing</h3>
+          <p>AI-powered marketing strategy. From audit and recommendations to full execution.</p>
+        </div>
+        <div class="card service-card fade-up">
+          <div class="icon">&#129302;</div>
+          <h3>AI Consulting</h3>
+          <p>Workflow automation and agent architecture. From workshops to ongoing advisory.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-band">
+    <div class="container fade-up">
+      <h2>Ready to build something intelligent?</h2>
+      <p>Every project is scoped to your goals. No templates. No hourly billing. Just results.</p>
+      <a href="/contact" class="btn btn-primary">Book a Call</a>
+    </div>
+  </section>
+
+  <!-- Client portals -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Client Portals</h2>
+        <p>Private workspaces for active clients.</p>
+      </div>
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <a href="/bkwatch" class="card fade-up" style="text-decoration:none;">
+          <h3>bkWatch</h3>
+          <p>Active portal — bankruptcy operations intelligence.</p>
+        </a>
+        <a href="/shaw" class="card fade-up" style="text-decoration:none; opacity: 0.5;">
+          <h3>Shaw Systems</h3>
+          <p>Coming soon — loan servicing intelligence.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="/" class="nav-logo">
+        <img src="/public/images/logo.png" alt="Third i" style="width:24px;height:24px;">
+        <span>third i</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Third i. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll animations + nav scroll effect -->
+  <script>
+    /* Nav glass effect on scroll */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* Fade-up on scroll */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 50);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

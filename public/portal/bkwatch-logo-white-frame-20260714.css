@@ -1,0 +1,21 @@
+/* Approved bkWatch wordmark on a white rounded rectangle */
+.brand-block {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.brand-block img,
+.login-card img {
+  background: #fff;
+  border: 1px solid rgba(45, 51, 59, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(45, 51, 59, 0.14);
+  box-sizing: border-box;
+  filter: none;
+  padding: 10px 12px;
+}
+
+.brand-block img {
+  width: 100%;
+  max-width: none;
+}

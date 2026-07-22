@@ -1,0 +1,497 @@
+/* bkWatch light mode: white canvas, blue cards, white navigation chrome. */
+:root {
+  color-scheme: light;
+  --blue: #2b66ae;
+  --blue-dark: #214f88;
+  --blue-soft: #e8f3fb;
+  --black: #214f88;
+  --paper: #fff;
+  --muted: #526b7d;
+  --line: #d8e5ed;
+  --line-dark: #aec5d4;
+  --shadow: 0 18px 45px rgba(43, 102, 174, 0.14);
+}
+
+body,
+.workspace {
+  background: #fff;
+  color: #214f88;
+}
+
+.skip-link {
+  background: #2b66ae;
+  color: #fff;
+}
+
+.sidebar,
+.topbar {
+  background: #fff;
+  color: #2b66ae;
+}
+
+.sidebar {
+  box-shadow: 12px 0 36px rgba(43, 102, 174, 0.1);
+}
+
+.brand-block,
+.sidebar-foot {
+  border-color: rgba(43, 102, 174, 0.24);
+}
+
+.brand-block > span,
+.nav-label,
+.security-state small,
+.sidebar-foot > p span {
+  color: rgba(43, 102, 174, 0.72);
+}
+
+.primary-nav a {
+  color: rgba(43, 102, 174, 0.86);
+}
+
+.primary-nav a span {
+  color: rgba(43, 102, 174, 0.7);
+}
+
+.primary-nav a:hover {
+  background: rgba(43, 102, 174, 0.13);
+  color: #2b66ae;
+}
+
+.primary-nav a[aria-current="page"] {
+  background: #2b66ae;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(6, 74, 124, 0.2);
+}
+
+.primary-nav a[aria-current="page"] span {
+  color: #fff;
+}
+
+.security-state strong,
+.sidebar-foot > p {
+  color: #2b66ae;
+}
+
+.logout-button {
+  border-color: rgba(43, 102, 174, 0.52);
+  color: #2b66ae;
+}
+
+.logout-button:hover {
+  background: #2b66ae;
+  border-color: #2b66ae;
+  color: #fff;
+}
+
+.topbar {
+  border-bottom-color: rgba(43, 102, 174, 0.22);
+  box-shadow: 0 8px 24px rgba(43, 102, 174, 0.1);
+}
+
+.topbar .eyebrow,
+.topbar-meta,
+.menu-button,
+.page-context {
+  color: #2b66ae;
+}
+
+.topbar .eyebrow,
+.topbar-meta {
+  opacity: 0.84;
+}
+
+.page-head h1,
+.section-head h2,
+.page-head .eyebrow,
+.section-head a {
+  color: #2b66ae;
+}
+
+.page-head p:last-child,
+.section-head p {
+  color: #526b7d;
+}
+
+.button,
+.button-secondary {
+  background: #2b66ae;
+  border-color: #2b66ae;
+  color: #fff;
+  box-shadow: 0 7px 18px rgba(43, 102, 174, 0.14);
+}
+
+.button:hover,
+.button-secondary:hover {
+  background: #214f88;
+  border-color: #214f88;
+  color: #fff;
+}
+
+.hero-panel,
+.card,
+.metric-card,
+.split-card,
+.split-card > div,
+.split-card > div + div,
+.data-table-wrap,
+.data-table,
+.data-table th,
+.data-table td,
+.product-card,
+.idea-card,
+.film-hero,
+.film-hero .film-side,
+.script-block,
+.media-empty,
+.recommendation,
+.presentation-bar,
+.scene-card,
+.scene-media,
+.scene-copy,
+.voiceover {
+  background: #2b66ae;
+  color: #fff;
+}
+
+.hero-panel,
+.card,
+.metric-card,
+.split-card,
+.data-table-wrap,
+.product-card,
+.idea-card,
+.script-block,
+.media-empty,
+.recommendation,
+.scene-card,
+.voiceover {
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 16px 36px rgba(43, 102, 174, 0.14);
+}
+
+.card:hover,
+.product-card:hover,
+.idea-card:hover {
+  border-color: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 20px 44px rgba(43, 102, 174, 0.2);
+}
+
+.hero-panel::after {
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0 36px rgba(255, 255, 255, 0.1),
+    0 0 0 78px rgba(255, 255, 255, 0.055);
+}
+
+.hero-panel .eyebrow,
+.card-index > span:first-child,
+.card-footer,
+.scene-title-line p,
+.source::before,
+.storyboard-copy h3,
+.voiceover h3,
+.recommendation strong {
+  color: #fff;
+}
+
+.hero-panel > p,
+.hero-flags span,
+.card p,
+.metric-card .metric-unit,
+.source,
+.data-table td p,
+.product-card p,
+.idea-card p,
+.media-empty p,
+.film-hero p,
+.film-side p,
+.timeline span,
+.scene-timing,
+.scene-fact span,
+.unknown {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-flags strong,
+.card h2,
+.card h3,
+.metric-card .metric-value,
+.metric-card .metric-label,
+.split-card h2,
+.split-card h3,
+.data-table td,
+.data-table td strong,
+.product-card h2,
+.idea-card h3,
+.script-block blockquote,
+.media-empty strong,
+.film-hero h1,
+.film-side h2,
+.scene-title-line h2,
+.storyboard-copy p,
+.scene-fact strong,
+.voiceover blockquote {
+  color: #fff;
+}
+
+.hero-flags span {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.card-accent,
+.idea-card.recommended {
+  border-top-color: #fff;
+}
+
+.metric-state,
+.idea-meta span {
+  background: #fff;
+  color: #2b66ae;
+}
+
+/* Deeper semantic indicators that sit comfortably on bkWatch-blue cards. */
+.status {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.status-active {
+  background: #0d5238;
+  color: #dff5e9;
+}
+
+.status-active::before {
+  background: #093a28;
+  color: #dff5e9;
+}
+
+.status-partial {
+  background: #5a4309;
+  color: #fff1c2;
+}
+
+.status-partial::before {
+  background: #3e2d05;
+  color: #fff1c2;
+}
+
+.status-not {
+  background: #6c2926;
+  color: #ffe4e1;
+}
+
+.status-not::before {
+  background: #481a18;
+  color: #ffe4e1;
+}
+
+.status-unknown {
+  background: #344b5c;
+  color: #e5edf2;
+}
+
+.status-unknown::before {
+  background: #263947;
+  color: #e5edf2;
+}
+
+/* The four legend indicators sit on white, so retain the original pastel treatment there. */
+.page-actions .status {
+  border: 0;
+  box-shadow: none;
+}
+
+.page-actions .status-active {
+  background: #eaf7f0;
+  color: #147a48;
+}
+
+.page-actions .status-active::before {
+  background: #147a48;
+  color: #fff;
+}
+
+.page-actions .status-partial {
+  background: #fff6db;
+  color: #8b6200;
+}
+
+.page-actions .status-partial::before {
+  background: #8b6200;
+  color: #fff;
+}
+
+.page-actions .status-not {
+  background: #fff0ef;
+  color: #a33128;
+}
+
+.page-actions .status-not::before {
+  background: #a33128;
+  color: #fff;
+}
+
+.page-actions .status-unknown {
+  background: #edf1f3;
+  color: #5d6870;
+}
+
+.page-actions .status-unknown::before {
+  background: #5d6870;
+  color: #fff;
+}
+
+.split-card > div + div,
+.film-hero .film-side {
+  background: #245996;
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.fact-list li,
+.decision-list li,
+.scene-fact,
+.data-table th,
+.data-table td,
+.scene-media {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.fact-list li::before {
+  background: #fff;
+}
+
+.timeline::before {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.timeline li::before {
+  border-color: #2b66ae;
+}
+
+.data-table th {
+  background: rgba(255, 255, 255, 0.11);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.film-hero .film-side {
+  background: linear-gradient(145deg, #0b78c5 0%, #214f88 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.film-hero .film-side::before {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.film-kpis {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.film-kpis div {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.film-kpis span {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.media-empty {
+  background: linear-gradient(145deg, #2b66ae 0%, #245996 100%);
+}
+
+.scene-media {
+  background: linear-gradient(145deg, #0b78c5 0%, #2b66ae 100%);
+}
+
+.media-empty::before {
+  background: linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.media-empty .media-icon {
+  background: #fff;
+  border-color: #fff;
+  color: #2b66ae;
+}
+
+.recommendation {
+  background: #2b66ae;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.presentation-bar {
+  background: rgba(43, 102, 174, 0.96);
+  border-radius: 10px;
+  box-shadow: 0 10px 26px rgba(43, 102, 174, 0.14);
+  margin-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.presentation-bar .button,
+.presentation-bar .button-secondary,
+.scene-index a {
+  background: #fff;
+  border-color: #fff;
+  color: #2b66ae;
+  box-shadow: none;
+}
+
+.presentation-bar .button:hover,
+.presentation-bar .button-secondary:hover,
+.scene-index a:hover {
+  background: #e8f3fb;
+  border-color: #e8f3fb;
+  color: #214f88;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #2b66ae;
+  outline-offset: 3px;
+}
+
+.presentation-bar a:focus-visible,
+.presentation-bar button:focus-visible {
+  outline-color: #fff;
+}
+
+@media print {
+  body,
+  .workspace,
+  .card,
+  .metric-card,
+  .split-card,
+  .split-card > div,
+  .split-card > div + div,
+  .data-table-wrap,
+  .data-table,
+  .data-table th,
+  .data-table td,
+  .product-card,
+  .idea-card,
+  .script-block,
+  .recommendation,
+  .scene-card,
+  .scene-copy {
+    background: #fff;
+    color: #214f88;
+  }
+
+  .card h2,
+  .card h3,
+  .metric-card .metric-value,
+  .metric-card .metric-label,
+  .data-table td,
+  .data-table td strong,
+  .product-card h2,
+  .idea-card h3,
+  .script-block blockquote,
+  .scene-title-line h2,
+  .storyboard-copy p,
+  .scene-fact strong {
+    color: #214f88;
+  }
+}

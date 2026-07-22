@@ -50,7 +50,7 @@ test("comment create → durable record + OS action + queued notification + audi
   const notes = await listNotifications(store, "bkwatch");
   assert.equal(notes.length, 1);
   assert.equal(notes[0].status, "queued");
-  assert.equal(notes[0].to, "portal@thirdi.net");
+  assert.equal(notes[0].to, "ceo@thirdi.net");
   assert.match(notes[0].subject, /\[Portal · bkWatch · film1-shaw-bkwatch\]/);
 
   const events = await listEvents(store, "bkwatch");
@@ -64,6 +64,18 @@ test("blocker comment produces a blocker action", async () => {
   const actions = await listActions(await getStore(), "bkwatch");
   assert.equal(actions[0].type, "blocker");
   assert.equal(actions[0].subjectId, comment.id);
+});
+
+test("comment attachments must reference completed tenant-owned uploads", async () => {
+  const store = await getStore();
+  await store.set(key("bkwatch", "media", "ast_uploading"), { id: "ast_uploading", tenant: "bkwatch", kind: "image", status: "uploading" });
+  const early = await postComment({ title: "Too early", attachments: [{ id: "ast_uploading", name: "frame.png" }] });
+  assert.equal(early.status, 422);
+
+  await store.set(key("bkwatch", "media", "ast_ready"), { id: "ast_ready", tenant: "bkwatch", kind: "image", status: "pending", downloadName: "frame.png" });
+  const accepted = await postComment({ title: "Review frame", attachments: [{ id: "ast_ready", name: "frame.png", sizeLabel: "25 KB" }] });
+  assert.equal(accepted.status, 201);
+  assert.equal((await accepted.json()).comment.attachments[0].id, "ast_ready");
 });
 
 test("comment edit + soft-delete", async () => {
@@ -123,12 +135,15 @@ test("project request → record + non-executable action + notification", async 
   assert.equal((await listNotifications(store, "bkwatch")).length, 1);
 });
 
-test("live endpoint returns comments, counts, and a rotated CSRF token", async () => {
+test("live endpoint returns comments, project requests, counts, and a rotated CSRF token", async () => {
   await postComment({ title: "blocker one", blocker: true });
+  await projectRequests(authedReq(U + "/bkwatch/api/project-requests", "POST", { body: { name: "Portal request", description: "Show this immediately on Projects." } }));
   const res = await live(authedReq(U + "/bkwatch/api/live", "GET"));
   const body = await res.json();
   assert.equal(body.counts.comments, 1);
   assert.equal(body.counts.openBlockers, 1);
+  assert.equal(body.counts.projectRequests, 1);
+  assert.equal(body.projectRequests[0].name, "Portal request");
   assert.ok(body.csrfToken);
   assert.match(res.headers.get("set-cookie"), /thirdi_bkwatch_csrf=/);
 });

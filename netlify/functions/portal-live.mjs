@@ -15,16 +15,25 @@ export default async (request) => {
   if (request.method !== "GET") return apiError(405, "method_not_allowed");
 
   const store = await getStore();
-  const keys = await store.list(key(tenant, "comments") + "/");
-  const comments = (await Promise.all(keys.map((k) => store.get(k)))).filter((c) => c && !c.deleted);
+  const [commentKeys, requestKeys] = await Promise.all([
+    store.list(key(tenant, "comments") + "/"),
+    store.list(key(tenant, "project-requests") + "/")
+  ]);
+  const [comments, projectRequests] = await Promise.all([
+    Promise.all(commentKeys.map((k) => store.get(k))),
+    Promise.all(requestKeys.map((k) => store.get(k)))
+  ]);
+  const visibleComments = comments.filter((c) => c && !c.deleted);
+  const visibleRequests = projectRequests.filter(Boolean);
 
-  const openBlockers = comments.filter((c) => c.blocker && c.status === "open").length;
-  const completed = comments.filter((c) => c.status === "completed");
+  const openBlockers = visibleComments.filter((c) => c.blocker && c.status === "open").length;
+  const completed = visibleComments.filter((c) => c.status === "completed");
 
   const csrfToken = randomBytes(18).toString("base64url");
   return json({
-    comments: comments.sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt))),
-    counts: { comments: comments.length, openBlockers, completed: completed.length },
+    comments: visibleComments.sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt))),
+    projectRequests: visibleRequests.sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt))),
+    counts: { comments: visibleComments.length, openBlockers, completed: completed.length, projectRequests: visibleRequests.length },
     csrfToken,
     asOf: new Date().toISOString()
   }, 200, { "set-cookie": csrfCookie(tenant, csrfToken) });

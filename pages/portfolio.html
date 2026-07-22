@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Third i portfolio — AI film productions, web platforms, and strategic marketing projects. Coming soon.">
+  <meta property="og:title" content="Portfolio — Third i">
+  <meta property="og:description" content="Our work — AI film productions, web platforms, and strategic marketing projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thirdi.net/portfolio">
+  <title>Portfolio — Third i</title>
+  <link rel="icon" type="image/png" href="/public/images/favicon.png">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/nav.css">
+  <link rel="stylesheet" href="/styles/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/public/images/logo.png" alt="Third i">
+        <span>third i</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio" class="active">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Start a Project</a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="/" onclick="document.getElementById('mobile-nav').classList.remove('open')">Home</a>
+    <a href="/services" onclick="document.getElementById('mobile-nav').classList.remove('open')">Services</a>
+    <a href="/portfolio" onclick="document.getElementById('mobile-nav').classList.remove('open')">Portfolio</a>
+    <a href="/about" onclick="document.getElementById('mobile-nav').classList.remove('open')">About</a>
+    <a href="/contact" class="btn btn-primary" onclick="document.getElementById('mobile-nav').classList.remove('open')">Start a Project</a>
+  </div>
+
+  <!-- Portfolio placeholder -->
+  <section class="placeholder-page">
+    <div class="container fade-up">
+      <span class="placeholder-badge">COMING SOON</span>
+      <h1 class="gradient-text">Our Work</h1>
+      <p>Portfolio coming soon. We're finishing our first productions — Shaw Systems AI films and web platforms.</p>
+      <a href="/" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="/" class="nav-logo">
+        <img src="/public/images/logo.png" alt="Third i" style="width:24px;height:24px;">
+        <span>third i</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Third i. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll animations + nav scroll effect -->
+  <script>
+    /* Nav glass effect on scroll */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* Fade-up on scroll */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 50);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

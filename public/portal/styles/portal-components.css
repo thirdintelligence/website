@@ -135,6 +135,8 @@
 .project-card .pc-media { min-width: 0; height: 100%; }
 .project-card .thumb { width: 100%; height: 100%; min-height: 220px; aspect-ratio: auto !important; border-radius: 0; }
 .project-card .pc-body { display: flex; flex-direction: column; justify-content: center; padding: var(--space-5); position: relative; z-index: 1; }
+.project-request-card { grid-template-columns: 1fr; min-height: 0; }
+.project-request-card .pc-body { min-height: 180px; }
 .pc-title { font-size: var(--fs-h3); margin-bottom: 4px; }
 .pc-value { color: var(--text-secondary); font-size: var(--fs-small); }
 .pc-meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: var(--space-3); }
@@ -173,7 +175,7 @@
 /* In-production placeholder: grid + optically centered designer.svg. The SVG's
    visible artwork sits low inside its square canvas, so image and caption share
    the same measured upward correction wherever this component is rendered. */
-.in-production { --ip-composition-shift: 11.2067%; position: relative; display: grid; place-items: center; }
+.in-production { --ip-composition-shift: 15%; position: relative; display: grid; place-items: center; }
 .in-production .ip-grid::before {
   content: ""; position: absolute; inset: 0;
   background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -184,8 +186,9 @@
 .in-production .ip-figure {
   position: absolute; inset: auto; left: 50%; top: calc(50% - var(--ip-composition-shift));
   margin: 0; height: 82%; aspect-ratio: 1 / 1; max-width: 82%; transform: translate(-50%, -50%);
-  object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
+  display: grid; place-items: center; filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
 }
+.in-production .ip-figure > svg { display: block; width: 100%; height: 100%; }
 .in-production .ip-cap { position: absolute; left: 0; right: 0; bottom: calc(12px + var(--ip-composition-shift)); text-align: center; }
 .in-production .ip-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--surface) 78%, transparent); border: 1px solid var(--line-strong); font-size: var(--fs-caption); font-weight: 600; color: var(--accent-solid); }
 
@@ -218,8 +221,9 @@
 
 /* ── Filters ────────────────────────────────────────────────────────────────── */
 .filters { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; margin-bottom: var(--space-5); }
-.filter-select { height: 36px; padding: 0 32px 0 12px; border-radius: var(--radius-pill); border: 1px solid var(--line); background: var(--surface) var(--select-caret) no-repeat right 12px center; color: var(--text); font-size: var(--fs-caption); appearance: none; }
-.filter-select:focus { border-color: var(--line-strong); outline: none; }
+.filter-select, .filter-search { height: 36px; padding: 0 32px 0 12px; border-radius: var(--radius-pill); border: 1px solid var(--line); background: var(--surface) var(--select-caret) no-repeat right 12px center; color: var(--text); font-size: var(--fs-caption); appearance: none; }
+.filter-search { min-width: 190px; padding-right: 12px; background-image: none; }
+.filter-select:focus, .filter-search:focus { border-color: var(--line-strong); outline: 2px solid var(--focus); outline-offset: 1px; }
 .filter-clear { font-size: var(--fs-caption); }
 
 /* ── Bands (value / effort / evidence) ──────────────────────────────────────── */
@@ -241,12 +245,14 @@
 .comment-attr { font-weight: 600; color: var(--text-secondary); }
 .comment-title { font-weight: 600; color: var(--text); }
 .comment-body { color: var(--text-secondary); font-size: var(--fs-small); margin-top: 4px; }
-.comment-ctx { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: var(--fs-caption); color: var(--accent-solid); font-family: var(--font-mono); }
+.comment-ctx { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 0; border: 0; background: transparent; font-size: var(--fs-caption); color: var(--accent-solid); font-family: var(--font-mono); cursor: pointer; }
+.comment-ctx:disabled { opacity: 1; cursor: default; }
 .comment-actions { position: absolute; top: 10px; right: 10px; display: flex; gap: 4px; opacity: 0; transition: opacity var(--dur) var(--ease); }
 .comment:hover .comment-actions, .comment:focus-within .comment-actions { opacity: 1; }
 .comment-edit { color: var(--accent-solid); }
 .comment-del { color: var(--risk); }
-.comment-attach { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 4px 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-size: var(--fs-caption); }
+.comment-attach { display: inline-flex; align-items: center; gap: 6px; margin: 8px 6px 0 0; padding: 4px 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); color: var(--text-secondary); font-size: var(--fs-caption); cursor: pointer; }
+.comment-attach:hover { border-color: var(--line-strong); color: var(--text); }
 
 /* ── Add-comment affordance ─────────────────────────────────────────────────── */
 .add-comment { color: var(--accent-solid); }
@@ -276,6 +282,16 @@
 }
 .field textarea { min-height: 92px; resize: vertical; }
 .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent-solid); outline: none; }
+.field [aria-invalid="true"] { border-color: var(--risk); }
+.field-error { min-height: 1em; color: var(--risk); font-size: var(--fs-caption); }
+.composer-file-help, .composer-status { color: var(--text-tertiary); font-size: var(--fs-caption); }
+.composer-status:empty, .field-error:empty { display: none; }
+.composer-files { display: flex; flex-direction: column; gap: 6px; }
+.composer-file { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; border: 1px solid var(--line-plain); border-radius: var(--radius-sm); background: var(--surface); }
+.composer-file > span { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.composer-file strong, .composer-file small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.composer-file strong { font-size: var(--fs-caption); color: var(--text); }
+.composer-file small { color: var(--text-tertiary); }
 .ctx-chip { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; padding: 5px 10px; border-radius: var(--radius-pill); background: var(--client-gradient-soft); border: 1px solid var(--line); font-size: var(--fs-caption); color: var(--accent-solid); font-family: var(--font-mono); }
 .toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
 .toggle input { position: absolute; opacity: 0; }
@@ -290,6 +306,7 @@
 .composer.min .composer-body, .composer.min .composer-foot { display: none; }
 .composer.min .composer-head { border-bottom: none; cursor: pointer; }
 .draft-dock { position: fixed; right: 16px; bottom: 16px; z-index: var(--z-composer); display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+.portal-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 100; width: max-content; max-width: min(560px, 92vw); padding: 12px 16px; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--surface); color: var(--text); box-shadow: var(--shadow-lg); font-size: var(--fs-small); }
 
 @media (max-width: 620px) {
   .composer { left: 0 !important; right: 0 !important; bottom: 0 !important; top: auto !important; width: 100vw; max-height: 92vh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }

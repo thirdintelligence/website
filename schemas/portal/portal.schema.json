@@ -22,7 +22,9 @@
         "route": { "type": "string", "pattern": "^/[a-z0-9-]+$" },
         "partner": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
         "logo": { "type": "string" },
-        "logoDark": { "type": "string" }
+        "logoDark": { "type": "string" },
+        "logoCollapsed": { "type": "string" },
+        "logoCollapsedDark": { "type": "string" }
       }
     },
     "brand": {

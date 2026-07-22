@@ -1,0 +1,210 @@
+/* ═══════════════════════════════════════════════════════════
+   BASE STYLES — Reset + Global Defaults
+   Uses tokens from tokens.css
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--text-h1); font-weight: var(--weight-bold); }
+h2 { font-size: var(--text-h2); font-weight: var(--weight-semibold); }
+h3 { font-size: var(--text-h3); font-weight: var(--weight-semibold); }
+h4 { font-size: var(--text-h4); font-weight: var(--weight-semibold); }
+
+p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 65ch;
+}
+
+a {
+  color: var(--color-interactive);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--gutter-tablet);
+    padding-right: var(--gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+}
+
+/* Section */
+.section {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--btn-font);
+  font-weight: var(--btn-weight);
+  border-radius: var(--btn-radius);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-default),
+              box-shadow var(--duration-fast) var(--ease-default);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+}
+
+.btn-primary {
+  background: var(--gradient-cta);
+  color: #000;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-glow-lg);
+  color: white;
+  background: #0e141c;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-glow);
+  color: var(--color-text);
+}
+
+/* Cards — glass-morphism */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--duration-fast) var(--ease-default),
+              box-shadow var(--duration-fast) var(--ease-default),
+              transform var(--duration-fast) var(--ease-default);
+}
+
+.card:hover {
+  border-color: var(--glass-hover-border);
+  box-shadow: var(--glass-hover-shadow);
+  transform: scale(1.02);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accessibility — focus states */
+:focus-visible {
+  outline: 2px solid var(--steel-blue);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Scroll animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-normal) var(--ease-default),
+              transform var(--duration-normal) var(--ease-default);
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

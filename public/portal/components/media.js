@@ -22,7 +22,7 @@ export const draftTag = () => `<span class="draft-tag">${icon("alert")} Draft</s
 export function inProduction({ ratio = "16 / 9" } = {}) {
   return `<div class="thumb in-production" style="aspect-ratio:${ratio}">
     <div class="ip-grid" aria-hidden="true"></div>
-    <img class="ip-figure" src="${DESIGNER_SVG}" alt="" aria-hidden="true" />
+    <span class="ip-figure" data-designer-svg="${DESIGNER_SVG}" aria-hidden="true"></span>
     <div class="ip-cap">
       <span class="ip-badge">${icon("clock")} In production</span>
     </div>
@@ -49,7 +49,7 @@ export function mediaFrame({ mediaState = "ungenerated", label, ratio = "16 / 9"
   return draft ? frame.replace('<span class="thumb-label">', `<span class="thumb-label" data-draft="1">${draftTag()} `) : frame;
 }
 
-/** Version history list (stills/video only). Presentational until assets exist. */
+/** Version history list (stills/video only), with authorized direct downloads. */
 export function versionHistory(asset) {
   if (!asset || !asset.versions || asset.versions.length === 0) return "";
   return `<div class="version-history">
@@ -58,7 +58,7 @@ export function versionHistory(asset) {
       ${asset.versions.map((v) => `<li class="record-row">
         <span><span class="rr-title">${esc(v.label)}</span>
           <span class="rr-summary">${esc(v.state)}${v.createdAt ? " · " + fmtDate(v.createdAt) : ""}${v.current ? " · current" : ""}</span></span>
-        <span>${v.downloadName ? `<a class="btn btn-sm btn-outline" href="#" aria-disabled="true">${icon("download")} ${esc(v.sizeLabel || "Download")}</a>` : ""}</span>
+        <span>${v.downloadName ? `<button class="btn btn-sm btn-outline" type="button" data-media-download="${esc(v.id)}">${icon("download")} ${esc(v.sizeLabel || "Download")}</button>` : ""}</span>
       </li>`).join("")}
     </ul>
   </div>`;

@@ -1,0 +1,51 @@
+/* The login follows the saved portal theme without storing credentials. */
+html[data-theme="dark"] body {
+  background: #080d14;
+  color: #f5f9fc;
+}
+
+html[data-theme="dark"] body::before {
+  background: radial-gradient(circle at 18% 16%, rgba(43, 102, 174, 0.2), transparent 34%),
+    linear-gradient(rgba(121, 196, 245, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 196, 245, 0.045) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
+
+html[data-theme="dark"] .login-card {
+  background: linear-gradient(#0b0f14, #0b0f14) padding-box,
+    linear-gradient(135deg, #79c4f5 0%, #2b66ae 100%) border-box;
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 28px 78px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="dark"] .login-copy,
+html[data-theme="dark"] .privacy-note {
+  color: #a8bac8;
+}
+
+html[data-theme="dark"] .login-form input {
+  background: #111923;
+  border-color: rgba(121, 196, 245, 0.28);
+  color: #fff;
+}
+
+html[data-theme="dark"] .login-form input:focus {
+  border-color: #79c4f5;
+  outline-color: rgba(121, 196, 245, 0.32);
+}
+
+html[data-theme="dark"] .login-form button {
+  background: linear-gradient(rgba(5, 12, 20, 0.42), rgba(5, 12, 20, 0.42)),
+    linear-gradient(135deg, #79c4f5 0%, #2b66ae 100%);
+  color: #fff;
+}
+
+html[data-theme="dark"] .login-form button:hover {
+  background: linear-gradient(rgba(5, 12, 20, 0.25), rgba(5, 12, 20, 0.25)),
+    linear-gradient(135deg, #79c4f5 0%, #2b66ae 100%);
+}
+
+html[data-theme="dark"] .partner-note {
+  color: #79c4f5;
+}

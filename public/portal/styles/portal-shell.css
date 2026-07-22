@@ -116,6 +116,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .sidebar-brand .brand-logo-dark { display: none; }
 [data-theme="dark"] .sidebar-brand .brand-logo-light { display: none; }
 [data-theme="dark"] .sidebar-brand .brand-logo-dark { display: block; }
+/* Collapsed icon logos: hidden by default, shown when sidebar is collapsed */
+.sidebar-brand .brand-logo-collapsed { display: none; height: 32px; width: 32px; border-radius: 8px; }
+/* When collapsed: hide rectangle logos, show icon logos */
+.portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-light,
+.portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-dark { display: none; }
+.portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-light { display: block; }
+[data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-light { display: none; }
+[data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-dark { display: block; }
 .sidebar-brand .brand-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
 .sidebar-brand .brand-name { font-family: var(--font-head); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; }
 .sidebar-brand .brand-sub { font-size: var(--fs-caption); color: var(--text-tertiary); }

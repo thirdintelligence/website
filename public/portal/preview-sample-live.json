@@ -1,5 +1,5 @@
 {
-  "_note": "PREVIEW-ONLY sample operational records to demonstrate the comment/completion UI. Not client content. Production comments come from the tenant-authorized operational store (gated DATA-01).",
+  "_note": "PREVIEW-ONLY sample operational records used to demonstrate the live comment/completion UI. Not client content. Production uses the tenant-authorized operational store.",
   "comments": [
     {
       "id": "rec-handled-green", "tenant": "bkwatch", "kind": "comment",

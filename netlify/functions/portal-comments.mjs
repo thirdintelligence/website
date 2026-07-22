@@ -8,6 +8,7 @@ import { createFromComment } from "../../lib/portal-actions.mjs";
 import { queueNotification, buildCommentEmail } from "../../lib/portal-notify.mjs";
 import { json, apiError, readJson, tenantFromPath, idFromPath, tenantLabel } from "../../lib/portal-api-util.mjs";
 import { nowIso } from "../../lib/portal-ids.mjs";
+import { verifyAttachmentRefs } from "../../lib/portal-attachment-refs.mjs";
 
 export default async (request) => {
   const tenant = tenantFromPath(request);
@@ -28,6 +29,9 @@ export default async (request) => {
 
   if (request.method === "POST") {
     const body = await readJson(request);
+    const attachments = await verifyAttachmentRefs(store, tenant, body.attachments);
+    if (!attachments.ok) return apiError(422, attachments.error);
+    body.attachments = attachments.attachments;
     const built = await buildComment(body, { tenant, attribution: `${tenantLabel(tenant)} commented` });
     if (!built.ok) return apiError(422, "invalid_comment", built.errors);
     const rec = built.record;

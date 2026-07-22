@@ -1,0 +1,79 @@
+/* bkWatch login with a white canvas and blue portal card. */
+:root {
+  color-scheme: light;
+  --blue: #2b66ae;
+  --black: #214f88;
+  --paper: #fff;
+}
+
+body {
+  background: #fff;
+  color: #214f88;
+}
+
+body::before {
+  background: radial-gradient(circle at 18% 16%, rgba(43, 102, 174, 0.1), transparent 34%),
+    linear-gradient(rgba(43, 102, 174, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 102, 174, 0.045) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
+
+.login-card {
+  background: #2b66ae;
+  border-color: rgba(255, 255, 255, 0.46);
+  border-top-color: #fff;
+  box-shadow: 0 26px 72px rgba(43, 102, 174, 0.24);
+  color: #fff;
+}
+
+.eyebrow,
+h1,
+.login-form label {
+  color: #fff;
+}
+
+.login-copy,
+.privacy-note {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.login-form input {
+  background: #fff;
+  border-color: rgba(255, 255, 255, 0.82);
+  color: #214f88;
+  box-shadow: inset 0 1px 2px rgba(43, 102, 174, 0.06);
+}
+
+.login-form input:focus {
+  border-color: #fff;
+  outline-color: rgba(255, 255, 255, 0.56);
+}
+
+.login-form button {
+  background: #fff;
+  color: #2b66ae;
+  box-shadow: 0 9px 24px rgba(6, 74, 124, 0.18);
+}
+
+.login-form button:hover {
+  background: #e8f3fb;
+}
+
+.login-form button:focus-visible {
+  outline-color: #fff;
+}
+
+.login-error {
+  background: #fff1f0;
+  border-left-color: #b42318;
+  color: #8d1a12;
+}
+
+.privacy-note span {
+  color: #8ff0bc;
+}
+
+.partner-note {
+  color: #2b66ae;
+  font-weight: 750;
+}

@@ -1,0 +1,14 @@
+/* Comfortable title spacing on standard portal routes */
+#portal-main[data-page-spacing="compact"] {
+  padding-top: 36px;
+}
+
+#portal-main[data-page-spacing="compact"] > .page-head .eyebrow {
+  margin: 0 0 8px;
+}
+
+@media (max-width: 820px) {
+  #portal-main[data-page-spacing="compact"] {
+    padding-top: 26px;
+  }
+}

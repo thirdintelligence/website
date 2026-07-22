@@ -75,10 +75,10 @@ function renderComment(c) {
   const tsLabel = Number.isFinite(c.timestampMs) ? `${icon("clock")} ${fmtTimestamp(c.timestampMs)}${c.rangeMs ? "–" + fmtTimestamp(c.timestampMs + c.rangeMs) : ""}` : "";
   const ctx = c.context || {};
   const ctxLabel = ctx.label || (ctx.sceneId ? "Scene " + ctx.sceneId : ctx.scope);
-  return `<article class="comment ${c.blocker ? "is-blocker" : ""} ${completed ? "is-completed" : ""}">
+  return `<article class="comment ${c.blocker ? "is-blocker" : ""} ${completed ? "is-completed" : ""}" data-comment-id="${esc(c.id || "")}">
     ${c.readonly ? "" : `<div class="comment-actions">
-      <button class="btn btn-icon btn-sm comment-edit" title="Edit" aria-label="Edit comment">${icon("pencil")}</button>
-      <button class="btn btn-icon btn-sm comment-del" title="Delete" aria-label="Delete comment">${icon("trash")}</button>
+      <button type="button" class="btn btn-icon btn-sm comment-edit" data-comment-edit="${esc(c.id)}" title="Edit" aria-label="Edit comment">${icon("pencil")}</button>
+      <button type="button" class="btn btn-icon btn-sm comment-del" data-comment-delete="${esc(c.id)}" title="Delete" aria-label="Delete comment">${icon("trash")}</button>
     </div>`}
     <div class="comment-head">
       <span class="comment-attr">${esc(c.attribution || "bkWatch commented")}</span>
@@ -88,8 +88,10 @@ function renderComment(c) {
     </div>
     <div class="comment-title">${esc(c.title)}</div>
     ${c.description ? `<div class="comment-body">${esc(c.description)}</div>` : ""}
-    ${(tsLabel || ctxLabel) ? `<span class="comment-ctx">${tsLabel || ""}${tsLabel && ctxLabel ? " · " : ""}${ctxLabel ? esc(ctxLabel) : ""}</span>` : ""}
-    ${(c.attachments || []).map((a) => `<span class="comment-attach">${icon("paperclip")} ${esc(a.name)}${a.sizeLabel ? " · " + esc(a.sizeLabel) : ""}</span>`).join("")}
+    ${(tsLabel || ctxLabel) ? (Number.isFinite(c.timestampMs)
+      ? `<button type="button" class="comment-ctx" data-comment-timestamp="${c.timestampMs}" data-comment-range="${c.rangeMs || 5000}">${tsLabel}${ctxLabel ? " · " + esc(ctxLabel) : ""}</button>`
+      : `<span class="comment-ctx">${ctxLabel ? esc(ctxLabel) : ""}</span>`) : ""}
+    ${(c.attachments || []).map((a) => `<button type="button" class="comment-attach" data-media-download="${esc(a.id)}">${icon("paperclip")} ${esc(a.name)}${a.sizeLabel ? " · " + esc(a.sizeLabel) : ""}${icon("download")}</button>`).join("")}
     ${completed && c.completionNote ? `<div class="comment-body">${icon("checkCircle")} ${esc(c.completionNote)}</div>` : ""}
   </article>`;
 }

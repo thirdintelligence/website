@@ -23,6 +23,9 @@ export function render(data, params) {
   }
 
   const formats = [...new Set(library.records.map((r) => r.format))];
+  const statuses = [...new Set(library.records.map((r) => r.status))];
+  const projectIds = [...new Set(library.records.map((r) => r.projectId || "general"))];
+  const years = [...new Set(library.records.map(recordYear).filter(Boolean))].sort().reverse();
 
   const dir = library.categories.map((c) => {
     const count = counts[c.id] || 0;
@@ -63,8 +66,13 @@ export function render(data, params) {
 
     <div class="filters" role="group" aria-label="Filter library">
       ${icon("filter")}
+      <label class="visually-hidden" for="lf-search">Search library records</label>
+      <input class="filter-search" id="lf-search" type="search" placeholder="Search records" autocomplete="off" />
       <select class="filter-select" id="lf-format" aria-label="Format"><option value="">All formats</option>${formats.map((f) => `<option>${esc(f)}</option>`).join("")}</select>
       <select class="filter-select" id="lf-cat" aria-label="Category"><option value="">All categories</option>${library.categories.map((c) => `<option value="${esc(c.id)}">${esc(c.title)}</option>`).join("")}</select>
+      <select class="filter-select" id="lf-status" aria-label="Status"><option value="">All statuses</option>${statuses.map((status) => `<option value="${esc(status)}">${esc(status)}</option>`).join("")}</select>
+      <select class="filter-select" id="lf-project" aria-label="Project"><option value="">All projects</option>${projectIds.map((id) => `<option value="${esc(id)}">${esc(projectLabel(data, id))}</option>`).join("")}</select>
+      ${years.length ? `<select class="filter-select" id="lf-year" aria-label="Reviewed year"><option value="">All dates</option>${years.map((year) => `<option value="${year}">${year}</option>`).join("")}</select>` : ""}
       <button class="btn btn-sm btn-ghost" id="lf-clear" type="button">Clear</button>
     </div>
 
@@ -77,32 +85,65 @@ export function render(data, params) {
       <div class="record-list" id="lib-records">
         ${library.records.map((r) => recordRow(r)).join("")}
       </div>
+      <div class="empty-state" id="lib-no-results" hidden>${icon("search")}<p>No records match these filters.</p></div>
     </section>
   </div>`;
 
   function onMount() {
     const fmt = document.getElementById("lf-format");
     const cat = document.getElementById("lf-cat");
+    const status = document.getElementById("lf-status");
+    const project = document.getElementById("lf-project");
+    const year = document.getElementById("lf-year");
+    const search = document.getElementById("lf-search");
     const apply = () => {
+      let visible = 0;
+      const q = (search?.value || "").trim().toLowerCase();
       document.querySelectorAll("#lib-records .record-row").forEach((el) => {
         const okF = !fmt.value || el.dataset.format === fmt.value;
         const okC = !cat.value || el.dataset.cat === cat.value;
-        el.style.display = okF && okC ? "" : "none";
+        const okS = !status.value || el.dataset.status === status.value;
+        const okP = !project.value || el.dataset.project === project.value;
+        const okY = !year?.value || el.dataset.year === year.value;
+        const okQ = !q || (el.dataset.search || "").includes(q);
+        const show = okF && okC && okS && okP && okY && okQ;
+        el.style.display = show ? "" : "none";
+        if (show) visible += 1;
       });
+      const empty = document.getElementById("lib-no-results");
+      if (empty) empty.hidden = visible !== 0;
     };
     fmt?.addEventListener("change", apply);
     cat?.addEventListener("change", apply);
-    document.getElementById("lf-clear")?.addEventListener("click", () => { fmt.value = ""; cat.value = ""; apply(); });
+    status?.addEventListener("change", apply);
+    project?.addEventListener("change", apply);
+    year?.addEventListener("change", apply);
+    search?.addEventListener("input", apply);
+    document.getElementById("lf-clear")?.addEventListener("click", () => {
+      [fmt, cat, status, project, year].filter(Boolean).forEach((control) => { control.value = ""; });
+      if (search) search.value = "";
+      apply();
+    });
   }
 
   return { crumb: portal.client.shortName, title: "Library", html, onMount };
 }
 
 function recordRow(r) {
-  return `<a class="record-row card-link" href="#/library/${r.category}/${r.id}" data-format="${esc(r.format)}" data-cat="${esc(r.category)}">
+  return `<a class="record-row card-link" href="#/library/${r.category}/${r.id}" data-format="${esc(r.format)}" data-cat="${esc(r.category)}" data-status="${esc(r.status)}" data-project="${esc(r.projectId || "general")}" data-year="${esc(recordYear(r))}" data-search="${esc([r.title, r.summary, r.body, r.status, r.format].filter(Boolean).join(" ").toLowerCase())}">
     <span><span class="rr-title">${esc(r.title)}</span><span class="rr-summary">${esc(r.summary)}</span></span>
     <span class="record-row-actions">${statusLabel(r.status)}${cardAction("View record")}</span>
   </a>`;
+}
+
+function recordYear(record) {
+  const value = record.lastReviewedAt || record.eventDate || "";
+  return /^\d{4}/.test(value) ? value.slice(0, 4) : "";
+}
+
+function projectLabel(data, id) {
+  if (id === "general") return "General";
+  return data.projects?.projects?.find((project) => project.id === id)?.title || id;
 }
 
 /* Communication category overview — shows links to Comments, Emails, Meetings
@@ -130,7 +171,7 @@ function renderCategory(data, params) {
 
     // Preview: 5 most recent comments
     const recentComments = (live?.comments || []).slice(0, 5);
-    const commentPreview = recentComments.length ? recentComments.map((c) => `<div class="comm-preview-row"><span class="comm-rail"></span><div><div class="comm-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div><div class="comm-meta">${esc(c.author || "Client")} · ${esc(c.createdAt?.split("T")[0] || "")}</div></div></div>`).join("") : `<div class="empty-state compact">${icon("comment")}<p>No comments yet.</p></div>`;
+    const commentPreview = recentComments.length ? recentComments.map((c) => `<div class="comm-preview-row"><span class="comm-rail"></span><div><div class="comm-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div><div class="comm-meta">${esc(c.attribution || "Client commented")} · ${esc(c.createdAt?.split("T")[0] || "")}</div></div></div>`).join("") : `<div class="empty-state compact">${icon("comment")}<p>No comments yet.</p></div>`;
 
     body = `
       <div class="comms-sections">

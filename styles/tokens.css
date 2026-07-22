@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS — Third i Visual System
+   Source: design/skills/DESIGN.md (v1.0.0, locked 2026-07-07)
+   
+   Three-layer token system:
+     Layer 1: Primitive (raw brand values)
+     Layer 2: Semantic (purpose-driven aliases)
+     Layer 3: Component (scoped to UI elements)
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Layer 1: Primitive Tokens ─── */
+
+  /* Colors — Primary */
+  --lavender: #B8C0FF;
+  --deep-purple: #2E0A4F;
+
+  /* Colors — Accents */
+  --steel-blue: #94bbe0;
+  --midnight: #1B0033;
+  --ghost-white: #F8F2FF;
+
+  /* Colors — Bright */
+  --pastel-pink: #feb3d1;
+  --banana: #FFE66D;
+  --mint: #7CFFB2;
+
+  /* Typography — Families */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Typography — Scale */
+  --text-display: clamp(2.25rem, 5vw, 4rem);      /* 36px → 64px */
+  --text-h1: clamp(1.875rem, 4vw, 3rem);           /* 30px → 48px */
+  --text-h2: clamp(1.5rem, 3vw, 2.25rem);          /* 24px → 36px */
+  --text-h3: clamp(1.25rem, 2.5vw, 1.75rem);       /* 20px → 28px */
+  --text-h4: clamp(1.125rem, 2vw, 1.375rem);       /* 18px → 22px */
+  --text-body: clamp(1rem, 1.5vw, 1.125rem);       /* 16px → 18px */
+  --text-small: 0.875rem;                           /* 14px */
+  --text-caption: 0.75rem;                          /* 12px */
+
+  /* Typography — Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing — 8px base */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  --space-5xl: 8rem;     /* 128px */
+
+  /* Radius */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(46, 10, 79, 0.05);
+  --shadow-md: 0 4px 6px rgba(46, 10, 79, 0.07);
+  --shadow-lg: 0 10px 15px rgba(46, 10, 79, 0.10);
+  --shadow-xl: 0 20px 25px rgba(46, 10, 79, 0.12);
+  --shadow-glow: 0 0 20px rgba(148, 187, 224, 0.15);
+  --shadow-glow-lg: 0 0 30px rgba(148, 187, 224, 0.25);
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Layout */
+  --container-max: 1200px;
+  --gutter-mobile: 1rem;
+  --gutter-tablet: 1.5rem;
+  --gutter-desktop: 2rem;
+
+
+  /* ─── Layer 2: Semantic Tokens ─── */
+
+  /* Surfaces */
+  --color-bg: var(--midnight);
+  --color-surface: var(--deep-purple);
+  --color-surface-glass: rgba(248, 242, 255, 0.08);
+
+  /* Text */
+  --color-text: var(--ghost-white);
+  --color-text-secondary: var(--lavender);
+  --color-text-muted: #938bb0;
+
+  /* Interactive */
+  --color-interactive: var(--steel-blue);
+  --color-cta: var(--pastel-pink);
+  --color-success: var(--mint);
+  --color-warning: var(--banana);
+
+  /* Borders */
+  --color-border: rgba(184, 192, 255, 0.15);
+  --color-border-hover: rgba(148, 187, 224, 0.3);
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, var(--lavender), var(--steel-blue));
+  --gradient-cta: linear-gradient(135deg, var(--steel-blue), var(--pastel-pink));
+  --gradient-hero: linear-gradient(160deg, var(--deep-purple) 0%, var(--midnight) 50%, rgba(184, 192, 255, 0.08) 100%);
+
+  /* Glass */
+  --glass-bg: rgba(248, 242, 255, 0.08);
+  --glass-border: 1px solid var(--color-border);
+  --glass-blur: blur(12px);
+  --glass-hover-border: rgba(148, 187, 224, 0.3);
+  --glass-hover-shadow: 0 0 30px rgba(148, 187, 224, 0.15);
+
+
+  /* ─── Layer 3: Component Tokens ─── */
+
+  /* Navigation */
+  --nav-height: 64px;
+  --nav-bg: transparent;
+  --nav-bg-scrolled: rgba(27, 0, 51, 0.7);
+  --nav-blur: blur(16px);
+  --nav-border: 1px solid rgba(184, 192, 255, 0.1);
+
+  /* Buttons */
+  --btn-radius: var(--radius-full);
+  --btn-font: var(--font-heading);
+  --btn-weight: var(--weight-semibold);
+  --btn-sm-height: 32px;
+  --btn-md-height: 40px;
+  --btn-lg-height: 48px;
+  --btn-xl-height: 56px;
+
+  /* Cards */
+  --card-bg: var(--glass-bg);
+  --card-border: var(--glass-border);
+  --card-radius: var(--radius-lg);
+  --card-padding: var(--space-lg);
+  --card-shadow: var(--shadow-glow);
+
+  /* Sections */
+  --section-padding-y: var(--space-4xl);
+  --section-padding-x: var(--gutter-desktop);
+
+  /* Hero */
+  --hero-height: 85vh;
+}

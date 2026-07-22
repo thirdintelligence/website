@@ -8,6 +8,7 @@ import * as r2 from "../../lib/portal-media-store.mjs";
 import { fromSceneRef, assetDownloadName, isSafeDownloadName } from "../../lib/portal-download-name.mjs";
 import { json, apiError, readJson, tenantFromPath, subPath } from "../../lib/portal-api-util.mjs";
 import { newId, nowIso } from "../../lib/portal-ids.mjs";
+import { writeEvent } from "../../lib/portal-audit.mjs";
 
 const sanitize = (m) => m && ({ id: m.id, kind: m.kind, mime: m.mime, sizeBytes: m.sizeBytes, status: m.status, downloadName: m.downloadName, versionId: m.versionId, createdAt: m.createdAt });
 
@@ -49,8 +50,9 @@ export default async (request) => {
       if (!r.ok) return apiError(503, r.error);
       url = r.url;
     }
-    const meta = { id: assetId, tenant, kind: v.mime.split("/")[0], mime: v.mime, ext: v.ext, sizeBytes: Number(body.sizeBytes), storageKey, versionId, uploadId, status: "pending", isClientUpload: body.isClientUpload !== false, downloadName, createdAt: nowIso() };
+    const meta = { id: assetId, tenant, kind: v.mime.split("/")[0], mime: v.mime, ext: v.ext, sizeBytes: Number(body.sizeBytes), storageKey, versionId, uploadId, status: "uploading", isClientUpload: body.isClientUpload !== false, downloadName, createdAt: nowIso() };
     await store.set(key(tenant, "media", assetId), meta);
+    await writeEvent(store, { tenant, type: "media.upload.initiated", subjectId: assetId, actor: "client", revision: 1 });
     return json({ assetId, versionId, multipart: !!v.multipart, uploadId, partSize: PART_BYTES, url }, 201);
   }
 
@@ -59,24 +61,44 @@ export default async (request) => {
   if (!meta || meta.tenant !== tenant) return apiError(404, "not_found");
 
   if (action === "upload/part") {
-    const r = await r2.signPart(meta.storageKey, meta.uploadId, Number(body.partNumber));
+    const partNumber = Number(body.partNumber);
+    if (!meta.uploadId || !Number.isInteger(partNumber) || partNumber < 1 || partNumber > 10000) return apiError(422, "invalid_part");
+    const r = await r2.signPart(meta.storageKey, meta.uploadId, partNumber);
     return r.ok ? json({ url: r.url }) : apiError(503, r.error);
   }
   if (action === "upload/complete") {
-    const r = await r2.completeMultipart(meta.storageKey, meta.uploadId, body.parts || []);
+    let r;
+    if (meta.uploadId) {
+      const parts = Array.isArray(body.parts) ? body.parts : [];
+      const validParts = parts.length > 0 && parts.every((part, index) => Number.isInteger(part.partNumber) && part.partNumber === index + 1 && typeof part.etag === "string" && part.etag.length > 0);
+      if (!validParts) return apiError(422, "invalid_parts");
+      r = await r2.completeMultipart(meta.storageKey, meta.uploadId, parts);
+    } else {
+      r = await r2.verifyObject(meta.storageKey, { sizeBytes: meta.sizeBytes, contentType: meta.mime });
+    }
     if (!r.ok) return apiError(503, r.error);
-    meta.status = "uploaded"; meta.updatedAt = nowIso(); await store.set(key(tenant, "media", meta.id), meta);
+    meta.status = meta.isClientUpload ? "pending" : "uploaded"; meta.updatedAt = nowIso(); await store.set(key(tenant, "media", meta.id), meta);
+    await writeEvent(store, { tenant, type: "media.upload.completed", subjectId: meta.id, actor: "client", revision: 1 });
     return json({ ok: true, assetId: meta.id });
   }
   if (action === "upload/abort") {
-    await r2.abortMultipart(meta.storageKey, meta.uploadId);
+    if (meta.uploadId) await r2.abortMultipart(meta.storageKey, meta.uploadId);
+    else await r2.deleteObject(meta.storageKey);
     meta.status = "aborted"; meta.updatedAt = nowIso(); await store.set(key(tenant, "media", meta.id), meta);
+    await writeEvent(store, { tenant, type: "media.upload.aborted", subjectId: meta.id, actor: "client", revision: 1 });
     return json({ ok: true });
   }
   if (action === "download/authorize") {
     if (meta.status !== "approved") return apiError(403, "not_client_visible"); // only owner-approved media is downloadable
     const r = await r2.signDownload(meta.storageKey, { filename: meta.downloadName });
+    if (r.ok) await writeEvent(store, { tenant, type: "media.download.authorized", subjectId: meta.id, actor: "client", revision: 1 });
     return r.ok ? json({ url: r.url, name: meta.downloadName, sizeBytes: meta.sizeBytes }) : apiError(503, r.error);
+  }
+  if (action === "playback/authorize") {
+    if (meta.status !== "approved" || meta.kind !== "video") return apiError(403, "not_client_visible");
+    const r = await r2.signPlayback(meta.storageKey, { contentType: meta.mime });
+    if (r.ok) await writeEvent(store, { tenant, type: "media.playback.authorized", subjectId: meta.id, actor: "client", revision: 1 });
+    return r.ok ? json({ url: r.url, mime: meta.mime, sizeBytes: meta.sizeBytes }) : apiError(503, r.error);
   }
 
   return apiError(404, "unknown_action");

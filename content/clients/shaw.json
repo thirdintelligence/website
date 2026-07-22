@@ -1,0 +1,23 @@
+{
+  "client": "Shaw Systems",
+  "slug": "shaw",
+  "status": "placeholder",
+  "brand_color": "#216F9B",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "status": "coming-soon"
+    },
+    {
+      "id": "products",
+      "title": "Products",
+      "status": "coming-soon"
+    },
+    {
+      "id": "films",
+      "title": "Films",
+      "status": "coming-soon"
+    }
+  ]
+}

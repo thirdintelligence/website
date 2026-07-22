@@ -47,7 +47,7 @@ export function render(data, params) {
           <div class="hero-metaline">${idea.recommended ? statusLabel("Recommended direction", "ok") : statusLabel(idea.status)}<span class="chip">${esc(idea.number)}</span></div>
           <h1 class="page-title" style="margin-top:8px">${esc(idea.title)}</h1>
         </div>
-        <button class="btn btn-sm btn-outline" type="button">${icon("maximize")} Full screen</button>
+        <button class="btn btn-sm btn-outline" type="button" data-presentation-fullscreen aria-pressed="false">${icon("maximize")} Full screen</button>
       </div>
       <p class="page-lede">${esc(idea.concept)}</p>
       <div class="hero-metaline">${chip(`${idea.sceneCount} scenes`, "film")}${idea.runtime ? chip(idea.runtime, "clock") : ""}${idea.demoState ? chip(idea.demoState) : ""}</div>

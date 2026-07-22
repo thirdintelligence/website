@@ -6,6 +6,7 @@ import { getConfig } from "./data.js";
 const ROUTES = [
   { name: "home", re: /^\/?$/, keys: [] },
   { name: "projects", re: /^\/projects\/?$/, keys: [] },
+  { name: "projectRequest", re: /^\/projects\/requests\/([^/]+)\/?$/, keys: ["requestId"] },
   { name: "idea", re: /^\/projects\/([^/]+)\/ideas\/([^/]+)\/?$/, keys: ["slug", "ideaSlug"] },
   { name: "project", re: /^\/projects\/([^/]+)\/?$/, keys: ["slug"] },
   { name: "library", re: /^\/library\/?$/, keys: [] },

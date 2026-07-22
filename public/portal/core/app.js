@@ -1,5 +1,5 @@
-/* Portal bootstrap: load sanitized data, render the shell, wire router/search/
-   composer/theme, and render the four pages + nested views. */
+/* Portal bootstrap: load sanitized data, render the shell, and wire every
+   top-level workspace plus its nested project and library views. */
 import { loadPortalData } from "./data.js";
 import { initTheme, toggleTheme, syncToggle } from "./theme.js";
 import { renderShell, setContext, setActiveNav } from "./shell.js";
@@ -10,6 +10,7 @@ import { initComposer } from "./composer.js";
 import * as home from "../pages/home.js";
 import * as projects from "../pages/projects.js";
 import * as projectDetail from "../pages/project-detail.js";
+import * as projectRequest from "../pages/project-request.js";
 import * as filmPresentation from "../pages/film-presentation.js";
 import * as library from "../pages/library.js";
 import * as libraryRecord from "../pages/library-record.js";
@@ -17,7 +18,7 @@ import * as aiRoadmap from "../pages/ai-roadmap.js";
 import * as valueResults from "../pages/value-results.js";
 
 const PAGES = {
-  home, projects, project: projectDetail, idea: filmPresentation,
+  home, projects, project: projectDetail, projectRequest, idea: filmPresentation,
   library, libraryCategory: library, libraryComms: library, libraryQuicklinks: library, libraryRecord, aiRoadmap, valueResults
 };
 
@@ -44,10 +45,85 @@ async function boot() {
 
   document.addEventListener("click", (e) => {
     if (e.target.closest("#theme-toggle")) { toggleTheme(); syncToggle(); }
+    const download = e.target.closest("[data-media-download]");
+    const timestamp = e.target.closest("[data-comment-timestamp]");
+    const printProject = e.target.closest("[data-project-pdf]");
+    const fullscreen = e.target.closest("[data-presentation-fullscreen]");
+    if (download) { e.preventDefault(); authorizeDownload(download); }
+    else if (timestamp) { e.preventDefault(); seekComment(timestamp); }
+    else if (printProject) { e.preventDefault(); window.print(); }
+    else if (fullscreen) { e.preventDefault(); togglePresentation(fullscreen); }
+  });
+
+  document.addEventListener("fullscreenchange", () => syncPresentationState(true));
+  document.addEventListener("keydown", (event) => {
+    const app = document.querySelector(".portal-app");
+    if (event.key === "Escape" && app?.dataset.fullscreen === "true" && !document.fullscreenElement) {
+      app.dataset.fullscreen = "false";
+      syncPresentationState(false);
+    }
   });
 
   onRouteChange(renderRoute);
   renderRoute();
+}
+
+async function authorizeDownload(button) {
+  if (button.disabled) return;
+  button.disabled = true;
+  const id = button.getAttribute("data-media-download");
+  try {
+    const response = await fetch(DATA.cfg.routeBase + "/api/media/download/authorize", {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json", "x-csrf-token": DATA.cfg.csrfToken || "" },
+      body: JSON.stringify({ assetId: id })
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || `http_${response.status}`);
+    const anchor = document.createElement("a");
+    anchor.href = result.url;
+    anchor.download = result.name || "download";
+    anchor.rel = "noopener";
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  } catch (error) {
+    appToast(error.message === "not_client_visible" ? "This upload is awaiting Third i review before it can be downloaded." : "The download could not be authorized. Try again.");
+  } finally { button.disabled = false; }
+}
+
+function seekComment(button) {
+  const video = document.querySelector("video");
+  if (!video) { appToast("The video preview is not available yet. This timestamp will become playable when approved media is added."); return; }
+  video.currentTime = Number(button.getAttribute("data-comment-timestamp")) / 1000;
+  video.play().catch(() => {});
+  video.focus();
+}
+
+async function togglePresentation(button) {
+  const app = document.querySelector(".portal-app");
+  const active = app?.dataset.fullscreen === "true";
+  if (!app) return;
+  app.dataset.fullscreen = active ? "false" : "true";
+  if (!active && document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen().catch(() => {});
+  else if (active && document.fullscreenElement) await document.exitFullscreen().catch(() => {});
+  syncPresentationState(false);
+}
+
+function syncPresentationState(fromFullscreenEvent = false) {
+  const app = document.querySelector(".portal-app");
+  if (!app) return;
+  if (fromFullscreenEvent && !document.fullscreenElement && app.dataset.fullscreen === "true") app.dataset.fullscreen = "false";
+  document.querySelectorAll("[data-presentation-fullscreen]").forEach((button) => button.setAttribute("aria-pressed", app.dataset.fullscreen === "true" ? "true" : "false"));
+}
+
+function appToast(message) {
+  const toast = document.createElement("div");
+  toast.className = "portal-toast";
+  toast.setAttribute("role", "status");
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 4200);
 }
 
 function renderRoute() {
@@ -63,6 +139,7 @@ function renderRoute() {
   }
 
   contentEl.innerHTML = view.html;
+  hydrateDesignerFrames();
   setContext({ crumb: view.crumb || "", title: view.title || "", action: view.action || "" });
   setActiveNav(m.name);
   document.title = `${view.title || "Home"} · ${DATA.portal.client.shortName} · Third i`;
@@ -78,6 +155,40 @@ function renderRoute() {
   contentEl.focus({ preventScroll: true });
 
   view.onMount && view.onMount();
+}
+
+let designerSvgPromise = null;
+function designerSvg() {
+  if (!designerSvgPromise) {
+    designerSvgPromise = fetch("/assets/designer.svg", { credentials: "same-origin" })
+      .then((response) => { if (!response.ok) throw new Error("designer_unavailable"); return response.text(); })
+      .then((source) => new DOMParser().parseFromString(source, "image/svg+xml").documentElement);
+  }
+  return designerSvgPromise;
+}
+
+function hydrateDesignerFrames() {
+  document.querySelectorAll("[data-designer-svg]:empty").forEach(async (frame) => {
+    try {
+      const template = await designerSvg();
+      if (!frame.isConnected) return;
+      const svg = template.cloneNode(true);
+      svg.setAttribute("focusable", "false");
+      svg.setAttribute("aria-hidden", "true");
+      frame.appendChild(svg);
+      // The source artwork includes looping SMIL motion. The portal uses one
+      // stable production illustration so every thumbnail and hero stays still.
+      if (typeof svg.setCurrentTime === "function") svg.setCurrentTime(3.5);
+      if (typeof svg.pauseAnimations === "function") svg.pauseAnimations();
+    } catch {
+      frame.classList.add("designer-unavailable");
+      frame.innerHTML = iconFallback();
+    }
+  });
+}
+
+function iconFallback() {
+  return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 16l8-8 2 2-8 8H6v-2Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
 }
 
 boot();

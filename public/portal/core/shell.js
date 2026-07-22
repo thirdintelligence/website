@@ -12,7 +12,7 @@ const NAV = [
   { name: "library", label: "Library", icon: "library", path: "/library" }
 ];
 /* Route-name → active nav-name mapping (detail routes light up their parent). */
-const ACTIVE = { home: "home", projects: "projects", project: "projects", idea: "projects", library: "library", libraryCategory: "library", libraryComms: "library", libraryQuicklinks: "library", libraryRecord: "library", aiRoadmap: "aiRoadmap", valueResults: "valueResults" };
+const ACTIVE = { home: "home", projects: "projects", project: "projects", projectRequest: "projects", idea: "projects", library: "library", libraryCategory: "library", libraryComms: "library", libraryQuicklinks: "library", libraryRecord: "library", aiRoadmap: "aiRoadmap", valueResults: "valueResults" };
 
 export function renderShell(root, data) {
   const { portal } = data;
@@ -27,6 +27,8 @@ export function renderShell(root, data) {
       <div class="sidebar-brand">
         <img class="brand-logo brand-logo-light" src="${portal.client.logo || "/public/portal/bkwatch-logo.png"}" alt="${c.name} logo" />
         ${portal.client.logoDark ? `<img class="brand-logo brand-logo-dark" src="${portal.client.logoDark}" alt="${c.name} logo" />` : ""}
+        ${portal.client.logoCollapsed ? `<img class="brand-logo brand-logo-collapsed brand-logo-collapsed-light" src="${portal.client.logoCollapsed}" alt="${c.name} icon" />` : ""}
+        ${portal.client.logoCollapsedDark ? `<img class="brand-logo brand-logo-collapsed brand-logo-collapsed-dark" src="${portal.client.logoCollapsedDark}" alt="${c.name} icon" />` : ""}
         <span class="brand-text"><span class="brand-name">${c.shortName}</span><span class="brand-sub">Client workspace</span></span>
       </div>
       <nav class="sidebar-nav" aria-label="Primary">
@@ -73,14 +75,14 @@ export function renderShell(root, data) {
   <div class="scrim" id="scrim"></div>
   <div class="draft-dock" id="draft-dock"></div>`;
 
-  wireShell();
+  wireShell(data);
   return {
     app: root.querySelector(".portal-app"),
     content: root.querySelector("#main")
   };
 }
 
-function wireShell() {
+function wireShell(data) {
   const app = document.querySelector(".portal-app");
 
   const collapse = document.getElementById("sidebar-collapse");

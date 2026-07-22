@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Private BankruptcyWatch client workspace.">
+  <title>bkWatch Client Workspace</title>
+  <link rel="icon" href="/public/images/favicon.png">
+  <script src="/public/portal/bkwatch-theme-init.js?v=20260714-11"></script>
+  <link rel="stylesheet" href="/public/portal/bkwatch.css?v=20260714-11">
+  <link rel="stylesheet" href="/public/portal/bkwatch-professional-light-20260714.css?v=20260714-11">
+  <link rel="stylesheet" href="/public/portal/bkwatch-compact-headers-20260714.css">
+  <link rel="stylesheet" href="/public/portal/bkwatch-logo-white-frame-20260714.css">
+  <link rel="stylesheet" href="/public/portal/bkwatch-dark-mode-20260714.css?v=20260714-11">
+</head>
+<body>
+  <a class="skip-link" href="#portal-main">Skip to workspace content</a>
+  <div class="portal-shell">
+    <aside class="sidebar" id="portal-sidebar" aria-label="Portal navigation">
+      <div class="brand-block">
+        <img src="/public/portal/bkwatch-logo.png?v=white-frame-20260714" width="432" height="114" alt="BankruptcyWatch">
+        <span>Client workspace</span>
+      </div>
+      <nav class="primary-nav">
+        <p class="nav-label">Workspace</p>
+        <a data-route href="/bkwatch" data-section="home"><span aria-hidden="true">⌂</span>Overview</a>
+        <a data-route href="/bkwatch/products" data-section="products"><span aria-hidden="true">▦</span>Products</a>
+        <a data-route href="/bkwatch/films/film1-shaw-bkwatch" data-section="films"><span aria-hidden="true">▶</span>Film 1</a>
+        <a data-route href="/bkwatch/ai-capability-matrix" data-section="ai"><span aria-hidden="true">✦</span>AI matrix</a>
+        <a data-route href="/bkwatch/current-work" data-section="work"><span aria-hidden="true">◫</span>Current work</a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="security-state"><span aria-hidden="true">●</span><div><strong>Private session</strong><small>Renews with activity · 30 days</small></div></div>
+        <form method="post" action="/bkwatch"><input type="hidden" name="action" value="logout"><input type="hidden" name="csrf" value="__CSRF_TOKEN__"><button class="logout-button" type="submit">Log out</button></form>
+        <p>Third i <span>service partner</span></p>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="portal-sidebar"><span aria-hidden="true">☰</span><span class="sr-only">Open navigation</span></button>
+        <div><p class="eyebrow">BankruptcyWatch / Operations</p><p class="page-context" id="page-context">Overview</p></div>
+        <div class="topbar-meta"><span class="updated-dot" aria-hidden="true"></span><span>Updated <time datetime="2026-07-16">Jul 16, 2026</time></span></div>
+        <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+          <span class="theme-toggle-label">Dark mode</span><span class="theme-toggle-track" aria-hidden="true"><span></span></span>
+        </button>
+      </header>
+      <main id="portal-main" tabindex="-1" aria-live="polite"></main>
+    </div>
+  </div>
+  <div class="scrim" id="scrim" hidden></div>
+  <script id="portal-data" type="application/json">__PORTAL_DATA__</script>
+  <script src="/public/portal/client-portal.js?v=__ASSET_RELEASE__" defer></script>
+</body>
+</html>
