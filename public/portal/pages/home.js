@@ -2,7 +2,7 @@
 import { h, esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { statStrip, actionItem, projectCard, band, motif, sourceNote, cardAction } from "../components/cards.js";
-import { activityFeed, commentThread, addCommentButton } from "../components/feed.js";
+import { activityFeed, commentThread } from "../components/feed.js";
 
 export function render(data, _params) {
   const { home, portal, projects, live, invoicing, communications, roadmap } = data;
@@ -22,7 +22,7 @@ export function render(data, _params) {
   </article>`;
 
   // Value summary strip — shows momentum at a glance.
-  const valueStrip = invoicing ? `<section class="section">
+  const valueStrip = invoicing ? `<section class="section value-strip-section">
     <div class="ai-value-strip">
       <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.projectsActive.count}</span><span class="ai-value-label">${esc(invoicing.metrics.projectsActive.descriptor)}</span></div>
       <div class="ai-value-stat"><span class="ai-value-num">${invoicing.metrics.hoursInvested.hours}</span><span class="ai-value-label">hours</span></div>
@@ -43,7 +43,6 @@ export function render(data, _params) {
       <p class="r-summary">${esc(rel.summary)}</p>
       <div class="r-meta">
         <span><span class="k">Phase:</span> ${esc(rel.phase)}</span>
-        ${addCommentButton({ scope: "home", label: "General comment" }, "Add Comment", "btn-sm btn-outline add-comment")}
       </div>
     </section>
 
@@ -64,7 +63,7 @@ export function render(data, _params) {
       </div>
     </section>
 
-    ${communicationsPreview(communications)}
+    ${communicationsPreview(communications, live)}
 
     ${roadmapPreview(roadmap)}
 
@@ -90,13 +89,22 @@ export function render(data, _params) {
   return { crumb: portal.client.shortName, title: "Home", html };
 }
 
-/* Communications preview — shows recent emails + meetings on the home page,
-   separate from comments. Clicking any item navigates to the full page. */
-function communicationsPreview(communications) {
+/* Communications preview — shows recent comments + emails + meetings on the
+   home page. Clicking any item navigates to the full page. */
+function communicationsPreview(communications, live) {
   if (!communications) return "";
+  const comments = (live?.comments || []).slice(0, 3);
   const emails = (communications.emails || []).slice(0, 3);
   const meetings = (communications.meetings || []).slice(0, 3);
-  if (!emails.length && !meetings.length) return "";
+  if (!comments.length && !emails.length && !meetings.length) return "";
+
+  const commentItems = comments.map((c) => `<a class="comm-prev-item card-link" href="#/library/communication/comments">
+    ${icon("comment")}
+    <div class="comm-prev-body">
+      <div class="comm-prev-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div>
+      <div class="comm-prev-meta">${esc(c.attribution || "Client commented")} · ${esc(c.createdAt?.split("T")[0] || "")}</div>
+    </div>
+  </a>`).join("");
 
   const emailItems = emails.map((e) => `<a class="comm-prev-item card-link" href="#/library/communication/emails">
     ${icon("mail")}
@@ -118,6 +126,7 @@ function communicationsPreview(communications) {
     <div class="section-head"><h2 class="section-title">Recent communications</h2>
       <a class="btn btn-sm btn-ghost" href="#/library/communication">View all ${icon("arrowRight")}</a></div>
     <div class="comm-prev-grid">
+      ${comments.length ? `<div class="comm-prev-col"><div class="comm-prev-col-head">${icon("comment")} Comments (${live.comments.length})</div>${commentItems}</div>` : ""}
       ${emails.length ? `<div class="comm-prev-col"><div class="comm-prev-col-head">${icon("mail")} Emails (${communications.emails.length})</div>${emailItems}</div>` : ""}
       ${meetings.length ? `<div class="comm-prev-col"><div class="comm-prev-col-head">${icon("users")} Meetings (${communications.meetings.length})</div>${meetingItems}</div>` : ""}
     </div>
