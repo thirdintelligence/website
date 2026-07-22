@@ -34,6 +34,12 @@
 .hero-facts { display: flex; flex-direction: column; gap: var(--space-3); }
 .hero-facts h1 { font-size: var(--fs-h1); }
 .hero-metaline { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.hero-key-messaging { margin-top: var(--space-2); }
+.hero-key-messaging h3 { font-size: var(--fs-h4); margin-bottom: var(--space-2); }
+.hero-key-messaging ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.hero-key-messaging li { display: flex; flex-direction: column; gap: 2px; }
+.hero-key-messaging li strong { font-weight: 600; }
+.hero-key-messaging li .reading { color: var(--text-tertiary); font-size: var(--fs-body); }
 
 .detail-block { margin-top: var(--space-7); }
 .detail-block > h2 { font-size: var(--fs-h2); margin-bottom: var(--space-3); }
@@ -42,7 +48,11 @@
 .scene-block-text-only .scene-copy { max-width: 860px; }
 .scene-text-action { margin-top: var(--space-3); }
 .idea-media-policy { margin-top: var(--space-3); max-width: 780px; }
-.promoted-production { border-color: var(--line-strong); }
+.selected-demo-workspace { border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: var(--space-6); scroll-margin-top: var(--space-5); }
+.selected-demo-policy { margin-top: var(--space-3); max-width: 900px; }
+.selected-demo-storyboard-head { margin-top: var(--space-6); }
+.selected-demo-storyboard-head h3 { font-size: var(--fs-h3); }
+.scene-comment-action { margin-top: var(--space-2); }
 
 /* ── Film presentation: scene-by-scene ──────────────────────────────────────── */
 .idea-block { margin-top: var(--space-6); }
@@ -128,6 +138,11 @@
 .creative-direction-card { display: flex; flex-direction: column; }
 .creative-direction-card .card-action { margin-top: auto; }
 .creative-direction-card .pc-meta.muted { margin-bottom: var(--space-4); }
+.creative-direction-card-locked .direction-workspace-link { align-self: flex-start; margin-top: auto; }
+
+@media (max-width: 720px) {
+  .selected-demo-workspace { padding: var(--space-5); }
+}
 
 /* ── Partnership roadmap infographic ────────────────────────────────────────── */
 .roadmap-section { margin-top: var(--space-6); }

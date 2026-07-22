@@ -119,6 +119,14 @@
 .ptl-row.current .ptl-dot { border-color: var(--accent-solid); box-shadow: 0 0 0 4px var(--accent-tint); }
 .ptl-row.blocked .ptl-dot { border-color: var(--risk); }
 
+/* Deliverables nested inside timeline rows */
+.ptl-deliverables { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 4px; }
+.ptl-deliverable { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; padding: 4px 0; }
+.ptl-deliverable-state { flex: none; }
+.ptl-deliverable-state .status { height: 20px; padding-block: 0; font-size: 11px; }
+.ptl-deliverable-title { font-weight: 600; font-size: var(--fs-caption); }
+.ptl-deliverable-detail { flex-basis: 100%; margin: 0; color: var(--text-tertiary); font-size: var(--fs-caption); }
+
 /* ── Grids ──────────────────────────────────────────────────────────────────── */
 .grid { display: grid; gap: var(--space-4); }
 .grid-2 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
@@ -175,7 +183,7 @@
 /* In-production placeholder: grid + optically centered designer.svg. The SVG's
    visible artwork sits low inside its square canvas, so image and caption share
    the same measured upward correction wherever this component is rendered. */
-.in-production { --ip-composition-shift: 15%; position: relative; display: grid; place-items: center; }
+.in-production { --ip-composition-shift: 11.7%; position: relative; display: grid; place-items: center; }
 .in-production .ip-grid::before {
   content: ""; position: absolute; inset: 0;
   background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);

@@ -18,7 +18,6 @@
       "valueStatement": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
       "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
-      "coreValue": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "phase": "Demo production — building the selected demo",
       "nextMilestone": "Third i completes the selected demo for bkWatch review. Full-film production does not begin until the demo is approved.",
       "runtime": "22 seconds",
@@ -34,13 +33,9 @@
           "final-demo"
         ],
         "canonicalIdeaId": "final-demo",
-        "promotionState": "not-eligible"
+        "promotionState": "embedded"
       },
       "draft": false,
-      "messaging": [
-        "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
-        "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use."
-      ],
       "theme": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
       "vision": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
       "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows. Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
@@ -84,17 +79,7 @@
         {
           "title": "Final versions",
           "state": "not-started",
-          "detail": "Full-film production and final versions begin only after the demo is approved and promoted."
-        },
-        {
-          "title": "Review audits/edits throughout",
-          "state": "in-progress",
-          "detail": "Quality review audits continue throughout the current demo build and later full-film production."
-        },
-        {
-          "title": "Improved client knowledge and workflows",
-          "state": "in-progress",
-          "detail": "Brand knowledge library, AI roadmap, and client portal delivered alongside the film."
+          "detail": "Full-film production and final versions begin only after the demo is approved and the embedded record advances."
         }
       ],
       "assets": [],
@@ -111,12 +96,12 @@
         },
         {
           "state": "done",
-          "title": "Direction meeting",
+          "title": "Review 1 — Review Ideas and Choose Direction",
           "detail": "bkWatch meeting complete; Final Demo selected for demo production"
         },
         {
           "state": "done",
-          "title": "Phase 3 — Story + Script (Review B: finalize story and script)",
+          "title": "Phase 3 — Story + Script",
           "detail": "Six scenes, 12 segments, and 122-item instruction inventory ready"
         },
         {
@@ -131,13 +116,18 @@
         },
         {
           "state": "pending",
-          "title": "Phase 6 — Demo review and approval",
+          "title": "Review 2 — Review Demo and Finalize Direction",
           "detail": "bkWatch reviews the completed demo and approves, revises, or rejects the direction"
         },
         {
           "state": "pending",
-          "title": "Phase 7 — Full-film production",
-          "detail": "After demo approval, the complete selected storyboard is promoted to the top of this project page with its media history, script, and comments intact"
+          "title": "Phase 6 — Full-film production",
+          "detail": "After demo approval, the same embedded storyboard, media history, script, and comments record advances into full-film production"
+        },
+        {
+          "state": "pending",
+          "title": "Review 3 — Review Draft and Give Feedback",
+          "detail": "bkWatch reviews the draft full film and provides feedback before final delivery"
         }
       ],
       "blockers": [
@@ -169,7 +159,7 @@
           "Cleaned Spectrum screenshots supplied",
           "Live/showable features confirmed"
         ],
-        "note": "The selected demo is currently being built to prove the visual system and direction. After bkWatch approves it, the complete demo storyboard is promoted as the canonical full-film production record. A complete film adds refinement passes, product-accuracy review, animation continuity, sound, and final quality review. Third i confirms full-production scope before that promotion.",
+        "note": "The selected demo is currently being built inside the project page to prove the visual system and direction. After bkWatch approves it, this same embedded storyboard becomes the canonical full-film production record. A complete film adds refinement passes, product-accuracy review, animation continuity, sound, and final quality review. Third i confirms full-production scope before that transition.",
         "source": "Third i pricing approach — outcome/scope-led; currency shown only when confirmed"
       },
       "film": {
@@ -239,7 +229,7 @@
                     "scope": "scene",
                     "projectId": "film1-shaw-bkwatch",
                     "sceneId": "scene-1",
-                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch"
                   },
                   "count": 0
                 }
@@ -262,7 +252,7 @@
                     "scope": "scene",
                     "projectId": "film1-shaw-bkwatch",
                     "sceneId": "scene-2",
-                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch"
                   },
                   "count": 0
                 }
@@ -285,7 +275,7 @@
                     "scope": "scene",
                     "projectId": "film1-shaw-bkwatch",
                     "sceneId": "scene-3",
-                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch"
                   },
                   "count": 0
                 }
@@ -308,7 +298,7 @@
                     "scope": "scene",
                     "projectId": "film1-shaw-bkwatch",
                     "sceneId": "scene-4",
-                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch"
                   },
                   "count": 0
                 }
@@ -331,7 +321,7 @@
                     "scope": "scene",
                     "projectId": "film1-shaw-bkwatch",
                     "sceneId": "scene-5",
-                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch"
                   },
                   "count": 0
                 }
@@ -354,7 +344,7 @@
                     "scope": "scene",
                     "projectId": "film1-shaw-bkwatch",
                     "sceneId": "scene-6",
-                    "route": "/bkwatch/projects/film1-shaw-bkwatch/ideas/final-demo"
+                    "route": "/bkwatch/projects/film1-shaw-bkwatch"
                   },
                   "count": 0
                 }
@@ -1059,7 +1049,22 @@
         },
         "count": 0
       },
-      "source": "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and instruction inventory — updated Jul 16, 2026"
+      "source": "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and instruction inventory — updated Jul 16, 2026",
+      "creativeVision": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
+      "keyMessaging": [
+        {
+          "title": "Native integration",
+          "detail": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use."
+        },
+        {
+          "title": "Real product proof",
+          "detail": "Show actual Spectrum UI, real bankruptcy workflow, and visible handled outcomes — not abstract claims."
+        },
+        {
+          "title": "Controlled cinematic impact",
+          "detail": "Premium visual quality that elevates the product without distracting from its real functionality."
+        }
+      ]
     }
   ]
 }

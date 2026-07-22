@@ -56,8 +56,8 @@ test("project blockers are comment records and effort/value metrics are confirme
   const film = projects.projects.find((p) => p.type === "film");
   assert.equal(film.startedAt, "2026-07-01");
   assert.equal(film.hoursInvested, 20);
-  assert.equal(film.deliverables.length, 10);
-  assert.equal(film.deliverables.filter((d) => d.state === "done").length, 5);
+  assert.equal(film.deliverables.length, 8);
+  assert.equal(film.deliverables.filter((d) => d.state === "done").length, 4);
   for (const blocker of film.blockers) {
     assert.equal(blocker.kind, "comment");
     assert.equal(blocker.blocker, true);
@@ -81,7 +81,7 @@ test("Value & Results uses privacy-safe tenant evidence and future metric placeh
   assert.equal(invoicing.financialSummary.activeProjects, 1);
   assert.equal(invoicing.financialSummary.completedProjects, 0);
   assert.equal(invoicing.outcomes, undefined);
-  assert.equal(invoicing.capabilities.length, 19);
+  assert.equal(invoicing.capabilities.length, 18);
   // All former "delivered"/"available" statuses changed to "active"
   assert.equal(invoicing.capabilities.some((c) => c.status === "delivered"), false);
   assert.equal(invoicing.capabilities.some((c) => c.status === "available"), false);
@@ -90,21 +90,27 @@ test("Value & Results uses privacy-safe tenant evidence and future metric placeh
   // Planned capabilities from the service catalog (yellow)
   assert.ok(invoicing.capabilities.some((c) => c.title === "Website Design & Development" && c.status === "planned"));
   assert.ok(invoicing.capabilities.some((c) => c.title === "Social Media Asset Generation" && c.status === "planned"));
-  assert.ok(invoicing.capabilities.some((c) => c.title === "Monthly Video Series" && c.status === "planned"));
   // AI integration items removed (inferred by all others)
   assert.equal(invoicing.capabilities.some((c) => c.title === "GenAI Integrations"), false);
   assert.equal(invoicing.capabilities.some((c) => c.title === "AI Tool Integration"), false);
-  assert.equal(invoicing.capabilities.some((capability) => capability.title === "Monthly Video Series"), true);
+  assert.equal(invoicing.capabilities.some((capability) => capability.title === "Monthly Video Series"), false);
   assert.match(invoicing.capabilities.find((capability) => capability.title === "AI Film Production").description, /ongoing monthly film series/i);
   assert.doesNotMatch(JSON.stringify(invoicing), /Shaw Systems|Amplify|614 hours|250 hours/i);
 });
 
-test("only the finalized idea uses the in-production placeholder", async () => {
+test("film lifecycle separates brainstorm directions, demo production, and full-film production", async () => {
   const projects = await read("projects.json");
   const film = projects.projects.find((p) => p.type === "film");
+  assert.equal(film.title, "Film 1 - Shaw Integration");
+  assert.equal(film.productionLifecycle.projectPhase, "demo-production");
+  assert.equal(film.productionLifecycle.demoPhase, "building");
+  assert.equal(film.productionLifecycle.fullFilmPhase, "not-started");
+  assert.equal(film.productionLifecycle.promotionState, "embedded");
   for (const idea of film.film.ideas) {
     const expected = idea.slug === "final-demo" ? "in-production" : "ungenerated";
     for (const s of idea.scenes) assert.equal(s.mediaState, expected, `${idea.slug}/${s.id}`);
+    assert.equal(idea.mediaPolicy, idea.slug === "final-demo" ? "demo-placeholders" : "none");
+    assert.equal(idea.lifecycleState, idea.slug === "final-demo" ? "demo-production" : "brainstorm");
   }
 });
 

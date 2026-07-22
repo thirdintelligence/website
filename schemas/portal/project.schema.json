@@ -83,6 +83,21 @@
         "label": { "type": "string" }
       }
     },
+    "productionLifecycle": {
+      "type": "object",
+      "description": "Separates demo development from full-film production and records when a locked demo is embedded in the project workspace, then advanced in place after approval.",
+      "additionalProperties": false,
+      "required": ["projectPhase", "demoPhase", "fullFilmPhase", "selectedIdeaIds", "promotionState"],
+      "properties": {
+        "projectPhase": { "type": "string", "enum": ["brainstorming", "direction-selection", "demo-production", "demo-review", "demo-approved", "full-production", "final-review", "delivered", "paused", "archived"] },
+        "demoPhase": { "type": "string", "enum": ["not-started", "brainstorming", "selecting", "building", "in-review", "approved"] },
+        "fullFilmPhase": { "type": "string", "enum": ["not-started", "in-production", "in-review", "delivered"] },
+        "selectedIdeaIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/slug" } },
+        "canonicalIdeaId": { "$ref": "common.schema.json#/$defs/slug" },
+        "promotedIdeaId": { "$ref": "common.schema.json#/$defs/slug" },
+        "promotionState": { "type": "string", "enum": ["not-selected", "embedded", "eligible", "promoted"] }
+      }
+    },
     "project": {
       "type": "object",
       "additionalProperties": false,
@@ -101,11 +116,13 @@
         "valueStatement": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
         "objective": { "type": "string" },
         "audience": { "type": "string" },
-        "coreValue": { "type": "string" },
+        "creativeVision": { "type": "string", "description": "The living creative idea for the entire project." },
+        "keyMessaging": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["title", "detail"], "properties": { "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" }, "detail": { "$ref": "common.schema.json#/$defs/nonEmptyText" } } } },
         "phase": { "type": "string" },
         "nextMilestone": { "type": "string" },
         "runtime": { "type": "string" },
         "thumbnail": { "$ref": "project.schema.json#/$defs/thumbnail" },
+        "productionLifecycle": { "$ref": "project.schema.json#/$defs/productionLifecycle" },
         "draft": { "type": "boolean", "description": "True while media are AI-assisted drafts, triggering the draft notice." },
         "messaging": { "type": "array", "items": { "type": "string" } },
         "theme": { "type": "string" },

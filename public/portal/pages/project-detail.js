@@ -1,9 +1,10 @@
 /* Project detail (plan 05): full hierarchy for creative + delivery work. */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
+import { href } from "../core/router.js";
 import { mediaFrame, draftNotice, versionHistory } from "../components/media.js";
 import { statusLabel, chip, motif, sourceNote, cardAction } from "../components/cards.js";
-import { commentThread, commentsWithProjectBlockers, addCommentButton, projectTimeline } from "../components/feed.js";
+import { commentThread, commentsWithProjectBlockers, addCommentButton } from "../components/feed.js";
 
 export function render(data, params) {
   const { projects, portal, live, invoicing } = data;
@@ -14,10 +15,20 @@ export function render(data, params) {
   const film = p.film;
   const projectComments = commentsWithProjectBlockers(live.comments, [p]);
 
-  const ideaCards = film ? film.ideas.map((idea) => `
+  const selectedIds = new Set(p.productionLifecycle?.selectedIdeaIds || []);
+  const isSelectedIdea = (idea) => selectedIds.has(idea.slug) || idea.recommended;
+  const ideaCards = film ? film.ideas.map((idea) => isSelectedIdea(idea) ? `
+    <article class="card card-feature creative-direction-card creative-direction-card-locked">
+      ${motif("grid")}
+      <div class="pc-meta creative-direction-badges">${statusLabel("Locked", "ok", true)}<span class="chip"><span class="control-content">${esc(idea.number)}</span></span></div>
+      <h3 class="pc-title">${esc(idea.title)}</h3>
+      <p class="pc-value">${esc(idea.concept)}</p>
+      <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
+      <a class="btn btn-sm btn-outline direction-workspace-link" href="${href(`/projects/${p.slug}#selected-demo`)}">View demo above ${icon("arrowRight")}</a>
+    </article>` : `
     <a class="card card-feature card-link creative-direction-card" href="#/projects/${p.slug}/ideas/${idea.slug}">
       ${motif("grid")}
-      <div class="pc-meta creative-direction-badges">${idea.recommended ? statusLabel("Locked", "ok", true) : statusLabel(idea.status, undefined, true)}<span class="chip"><span class="control-content">${esc(idea.number)}</span></span></div>
+      <div class="pc-meta creative-direction-badges">${statusLabel(idea.status, undefined, true)}<span class="chip"><span class="control-content">${esc(idea.number)}</span></span></div>
       <h3 class="pc-title">${esc(idea.title)}</h3>
       <p class="pc-value">${esc(idea.concept)}</p>
       <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
@@ -49,22 +60,22 @@ export function render(data, params) {
         <h1>${esc(p.title)}</h1>
         <p class="reading">${esc(p.objective || p.valueStatement)}</p>
         <dl class="kv">
+          ${p.creativeVision ? `<dt>Creative vision</dt><dd>${esc(p.creativeVision)}</dd>` : ""}
           ${p.audience ? `<dt>Audience</dt><dd>${esc(p.audience)}</dd>` : ""}
-          ${p.coreValue ? `<dt>Core value</dt><dd>${esc(p.coreValue)}</dd>` : ""}
           ${p.phase ? `<dt>Phase</dt><dd>${esc(p.phase)}</dd>` : ""}
           ${p.nextMilestone ? `<dt>Next milestone</dt><dd>${esc(p.nextMilestone)}</dd>` : ""}
         </dl>
+        ${(p.keyMessaging && p.keyMessaging.length) ? `<div class="hero-key-messaging"><h3>Key messaging</h3><ul>${p.keyMessaging.map((m) => `<li><strong>${esc(m.title)}</strong><span class="reading">${esc(m.detail)}</span></li>`).join("")}</ul></div>` : ""}
         <div class="hero-metaline">
           ${addCommentButton(ctx, "Add Comment", "btn-sm btn-primary add-comment")}
           <button class="btn btn-sm btn-outline" type="button" data-project-pdf="${esc(p.id)}">${icon("download")} Download PDF</button>
-          ${film ? `<a class="btn btn-sm btn-ghost" href="#/projects/${p.slug}/ideas/${film.ideas.find((i) => i.recommended)?.slug || film.ideas[0].slug}">${icon("maximize")} Presentation</a>` : ""}
+          ${film && film.ideas.some(isSelectedIdea) ? `<a class="btn btn-sm btn-ghost" href="${href(`/projects/${p.slug}#selected-demo`)}">${icon("maximize")} View demo</a>` : ""}
         </div>
       </div>
     </section>
 
-    ${renderPromotedProduction(p, film)}
-
     ${(invoicing && p.status === "active") ? renderProjectValue(p, invoicing, projects.asOf) : ""}
+    ${scope}
 
     ${p.draft ? `<div class="section">${draftNotice()}</div>` : ""}
 
@@ -73,35 +84,24 @@ export function render(data, params) {
       ${commentThread(projectComments, { projectId: p.id }) || `<div class="empty-state">${icon("comment")}<p>No open comments on this project. Use Add Comment to leave feedback anywhere.</p></div>`}
     </section>
 
-    ${(p.messaging && p.messaging.length) ? `<section class="detail-block">
-      <h2>Key messaging, theme &amp; creative vision</h2>
-      <div class="reading">${p.messaging.map((m) => `<p style="margin-bottom:12px">${esc(m)}</p>`).join("")}</div>
-    </section>` : ""}
-
     ${p.script ? `<section class="detail-block">
       <div class="section-head"><h2>Script</h2>${addCommentButton({ ...ctx, scope: "script", label: "Script" }, "Comment on script")}</div>
       <div class="scene-script"><span class="lbl">Locked voiceover</span><p>${esc(p.script)}</p></div>
       ${sourceNote(p.storyboardNote)}
     </section>` : ""}
 
-    ${scope}
+    ${renderSelectedDemo(p, film)}
 
     ${film ? `<section class="detail-block">
       <div class="section-head"><h2>Creative directions</h2><span class="muted">${film.ideas.length} directions</span></div>
-      <p class="reading muted">Each direction is a complete proposed film. Open one for its full scene-by-scene storyboard and script.</p>
+      <p class="reading muted">Brainstorm directions retain their own storyboard and script pages without media placeholders. The locked HYBRID remains here as the decision record; its complete demo workspace now lives directly above.</p>
       <div class="grid grid-2" style="margin-top:16px">${ideaCards}</div>
     </section>` : ""}
 
     ${comparison}
 
-    <section class="detail-block">
-      <h2>Deliverables &amp; assets</h2>
-      ${(p.deliverables && p.deliverables.length) ? `<dl class="kv">${p.deliverables.map((d) => `<dt>${statusLabel(d.state)}</dt><dd>${esc(d.title)}</dd>`).join("")}</dl>` : ""}
-      ${(p.assets && p.assets.length) ? p.assets.map((a) => versionHistory(a)).join("") : `<div class="empty-state" style="margin-top:16px">${icon("layers")}<p>No client-visible assets yet. Approved stills and video will appear here with direct downloads and version history.</p></div>`}
-    </section>
-
     ${(p.timeline && p.timeline.length) ? `<section class="detail-block">
-      <h2>Timeline &amp; milestones</h2>${projectTimeline(p.timeline)}
+      <h2>Timeline, deliverables &amp; milestones</h2>${renderTimelineWithDeliverables(p)}
     </section>` : ""}
 
     ${(p.reports && p.reports.length) ? `<section class="detail-block"><h2>Reports &amp; outcomes</h2>${p.reports.map((r) => `<div class="card"><h3 class="pc-title">${esc(r.title)}</h3><p class="reading">${esc(r.body)}</p>${sourceNote(r.source)}</div>`).join("")}</section>` : ""}
@@ -109,8 +109,8 @@ export function render(data, params) {
     ${sourceNote(p.source)}
   </div>`;
 
-  const presentationSlug = film ? (film.ideas.find((idea) => idea.recommended)?.slug || film.ideas[0]?.slug) : "";
-  return { crumb: "Projects", title: p.title, action: presentationSlug ? `<a class="btn btn-sm btn-ghost" href="#/projects/${p.slug}/ideas/${presentationSlug}">${icon("maximize")} Presentation</a>` : "", html };
+  const selectedDemo = film?.ideas.find(isSelectedIdea);
+  return { crumb: "Projects", title: p.title, action: selectedDemo ? `<a class="btn btn-sm btn-ghost" href="${href(`/projects/${p.slug}#selected-demo`)}">${icon("maximize")} View demo</a>` : "", html };
 }
 
 function renderProjectValue(p, invoicing, asOf) {
@@ -137,43 +137,109 @@ function renderProjectValue(p, invoicing, asOf) {
   </div></section>`;
 }
 
-/** After demo approval, the canonical direction is promoted intact to the top
- * of the project page. Its scene order, script, comments, and media/version
- * history remain attached; the current bkWatch project is not at this gate yet. */
-function renderPromotedProduction(p, film) {
-  if (!film || p.productionLifecycle?.promotionState !== "promoted") return "";
-  const promotedId = p.productionLifecycle.promotedIdeaId || p.productionLifecycle.canonicalIdeaId;
-  const idea = film.ideas.find((item) => item.slug === promotedId);
+/** A locked demo stops being a separate presentation and becomes the working
+ * production record on the project page. Approval later advances this same
+ * stable scene/history/comment record into full-film production. */
+function renderSelectedDemo(p, film) {
+  if (!film) return "";
+  const selectedIds = p.productionLifecycle?.selectedIdeaIds || [];
+  const idea = film.ideas.find((item) => selectedIds.includes(item.slug)) || film.ideas.find((item) => item.recommended);
   if (!idea) return "";
   const scenes = idea.scenes.map((scene) => {
     const histories = (p.assets || []).filter((asset) => (scene.assetIds || []).includes(asset.id));
-    return `<article class="scene-block promoted-scene" id="production-${esc(scene.id)}">
-      <div class="scene-media">${mediaFrame({ mediaState: scene.mediaState, ratio: "16 / 9" })}${histories.map(versionHistory).join("")}</div>
+    const commentRoute = `/bkwatch/projects/${p.slug}#${scene.id}`;
+    return `<article class="scene-block selected-demo-scene" id="${esc(scene.id)}">
+      <div class="scene-media">${mediaFrame({ mediaState: scene.mediaState, label: idea.lifecycleState === "demo-production" ? "Demo in production" : undefined, ratio: "16 / 9" })}${histories.map(versionHistory).join("")}
+        <div class="pc-meta scene-comment-action">${addCommentButton({ scope: "scene", projectId: p.id, sceneId: scene.id, label: `Scene ${scene.id}`, route: commentRoute }, "Comment on scene")}</div>
+      </div>
       <div class="scene-copy"><div class="scene-id">${esc(scene.id)} · ${esc(scene.time || "")}</div><h3 class="scene-title">${esc(scene.title)}</h3>
         ${scene.description ? `<p class="reading">${esc(scene.description)}</p>` : ""}
         ${scene.script ? `<div class="scene-script"><span class="lbl">Script</span><p>${esc(scene.script)}</p></div>` : ""}
-        ${addCommentButton({ scope: "scene", projectId: p.id, sceneId: scene.id, label: `Scene ${scene.id}`, route: `/bkwatch/projects/${p.slug}` }, "Comment on scene")}
+        <dl class="scene-dl">
+          ${scene.direction ? `<dt>Direction</dt><dd>${esc(scene.direction)}</dd>` : ""}
+          ${scene.transition ? `<dt>Transition</dt><dd>${esc(scene.transition)}</dd>` : ""}
+          ${scene.purpose ? `<dt>Purpose</dt><dd>${esc(scene.purpose)}</dd>` : ""}
+          ${scene.duration ? `<dt>Duration</dt><dd>${esc(scene.duration)}</dd>` : ""}
+        </dl>
       </div>
     </article>`;
   }).join("");
-  return `<section class="detail-block promoted-production"><div class="section-head"><div><span class="eyebrow">Approved direction · full-film production</span><h2>${esc(idea.title)}</h2></div>${statusLabel("Promoted to production", "ok")}</div><p class="reading muted">The approved demo direction is now the canonical production record. Storyboard, script, scene comments, previews, and version history stay together here.</p><div class="scene-list">${scenes}</div></section>`;
+  const lifecycleLabel = p.productionLifecycle?.demoPhase === "building" ? "Demo in production" : idea.status;
+  return `<section class="detail-block selected-demo-workspace" id="selected-demo">
+    <div class="section-head"><div><span class="eyebrow">Locked demo · project workspace</span><h2>${esc(idea.title)}</h2></div>${statusLabel(lifecycleLabel, "warn")}</div>
+    <p class="reading">${esc(idea.concept)}</p>
+    <p class="reading muted selected-demo-policy">This locked HYBRID no longer has a separate direction page. Its storyboard, script, scene comments, preview placeholders, and every future still/video version live together here. Demo approval will advance this same record into full-film production without copying or losing its history.</p>
+    <div class="hero-metaline">${chip(`${idea.sceneCount} scenes`, "film")}${idea.runtime ? chip(idea.runtime, "clock") : ""}${idea.demoState ? chip(idea.demoState) : ""}<button class="btn btn-sm btn-outline" type="button" data-presentation-fullscreen aria-pressed="false">${icon("maximize")} Full screen</button></div>
+    <div class="section-head selected-demo-storyboard-head"><h3>Storyboard &amp; script</h3></div>
+    <div class="scene-list">${scenes}</div>
+  </section>`;
 }
 
 function renderScope(s) {
   if (s.ownerApproved) {
-    return `<section class="detail-block"><div class="scope-panel"><h3>Scope &amp; investment</h3>
+    return `<section class="detail-block"><div class="value-panel"><h3>Scope &amp; investment</h3>
       <dl class="kv"><dt>Model</dt><dd>${esc(s.model)}</dd>
       ${s.effortRange ? `<dt>Effort</dt><dd>${esc(s.effortRange)}</dd>` : ""}
       ${s.priceStatement ? `<dt>Investment</dt><dd>${esc(s.priceStatement)}</dd>` : ""}</dl>
       ${sourceNote(s.source)}</div></section>`;
   }
-  return `<section class="detail-block"><div class="scope-panel">
+  return `<section class="detail-block"><div class="value-panel">
     <h3>Scope &amp; investment</h3>
     <p class="reading">${esc(s.note)}</p>
     ${(s.assumptions && s.assumptions.length) ? `<p class="muted" style="margin-top:8px">Assumptions: ${s.assumptions.map((a) => chip(a)).join(" ")}</p>` : ""}
     <p style="margin-top:12px"><span class="scope-required">${icon("clock")} Scope required</span> — Third i presents the confirmed effort range and pricing model before production begins.</p>
     ${sourceNote(s.source)}
   </div></section>`;
+}
+
+/** Timeline with deliverables integrated. Each deliverable is shown as a
+ * sub-row under the timeline phase it belongs to, based on its state. */
+function renderTimelineWithDeliverables(p) {
+  const timeline = p.timeline || [];
+  const deliverables = p.deliverables || [];
+  if (!timeline.length) return "";
+
+  // Map deliverable states to timeline phases
+  const deliverablePhaseMap = {
+    "done": "done",
+    "in-progress": "current",
+    "not-started": "pending"
+  };
+
+  // Group deliverables by their corresponding timeline phase
+  const doneDeliverables = deliverables.filter((d) => d.state === "done");
+  const inProgressDeliverables = deliverables.filter((d) => d.state === "in-progress");
+  const notStartedDeliverables = deliverables.filter((d) => d.state === "not-started");
+
+  return `<div class="ptimeline">
+    ${timeline.map((t) => {
+      // Attach deliverables to the appropriate phase
+      let phaseDeliverables = [];
+      if (t.state === "done" && t.title.includes("Phase 1")) {
+        phaseDeliverables = doneDeliverables.filter((d) => d.title === "Brainstorm ideas");
+      } else if (t.state === "done" && t.title.includes("Phase 3")) {
+        phaseDeliverables = doneDeliverables.filter((d) => d.title === "Storyboard + script" || d.title === "Voiceover");
+      } else if (t.state === "done" && t.title.includes("Phase 4")) {
+        phaseDeliverables = doneDeliverables.filter((d) => d.title === "Prompts");
+      } else if (t.state === "current" && t.title.includes("Phase 5")) {
+        phaseDeliverables = [...inProgressDeliverables, ...notStartedDeliverables.filter((d) => d.title === "Videos")];
+      } else if (t.state === "pending" && t.title.includes("Phase 6")) {
+        phaseDeliverables = notStartedDeliverables.filter((d) => d.title === "Final versions");
+      }
+
+      const deliverableRows = phaseDeliverables.map((d) =>
+        `<div class="ptl-deliverable"><span class="ptl-deliverable-state ${esc(d.state)}">${statusLabel(d.state)}</span><span class="ptl-deliverable-title">${esc(d.title)}</span>${d.detail ? `<span class="ptl-deliverable-detail reading">${esc(d.detail)}</span>` : ""}</div>`
+      ).join("");
+
+      return `<div class="ptl-row ${esc(t.state)}">
+        <span class="ptl-dot" aria-hidden="true"></span>
+        <div><strong>${esc(t.title)}</strong>${t.detail ? `<div class="feed-detail">${esc(t.detail)}</div>` : ""}
+          <span class="visually-hidden">status: ${esc(t.state)}</span>
+          ${deliverableRows ? `<div class="ptl-deliverables">${deliverableRows}</div>` : ""}
+        </div>
+      </div>`;
+    }).join("")}
+  </div>`;
 }
 
 function notFound() {

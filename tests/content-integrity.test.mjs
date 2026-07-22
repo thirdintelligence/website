@@ -16,6 +16,8 @@ test("bkWatch manifest is explicitly client-safe and tenant-scoped", () => {
 });
 
 test("Film 1 current state is internally consistent", () => {
+  assert.equal(manifest.film.name, "Film 1 - Shaw Integration");
+  assert.equal(manifest.film.phase, "Demo production — building selected demo");
   assert.equal(manifest.film.runtime, "22 seconds");
   assert.equal(manifest.film.ideas.length, 9);
   assert.equal(manifest.film.ideas[0].number, "HYBRID");
@@ -162,6 +164,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   const homePage = await readFile(new URL("../public/portal/pages/home.js", import.meta.url), "utf8");
   const libraryRecord = await readFile(new URL("../public/portal/pages/library-record.js", import.meta.url), "utf8");
   const search = await readFile(new URL("../public/portal/core/search.js", import.meta.url), "utf8");
+  const portalApp = await readFile(new URL("../public/portal/core/app.js", import.meta.url), "utf8");
 
   assert.doesNotMatch(projectDetail, /next:\s*p\.nextMilestone/);
   assert.doesNotMatch(mediaComponents, /ip-next|next\s*=/);
@@ -177,8 +180,9 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(projectDetail, /reading muted comparison-criteria/);
   const scriptPosition = projectDetail.indexOf('${p.script ?');
   const scopePosition = projectDetail.indexOf('${scope}');
-  const creativeDirectionsPosition = projectDetail.indexOf('${film ?', scopePosition);
-  assert.ok(scriptPosition >= 0 && scriptPosition < scopePosition && scopePosition < creativeDirectionsPosition);
+  const selectedDemoPosition = projectDetail.indexOf('${renderSelectedDemo(p, film)}');
+  const creativeDirectionsPosition = projectDetail.indexOf('${film ?', selectedDemoPosition);
+  assert.ok(scopePosition >= 0 && scopePosition < scriptPosition && scriptPosition < selectedDemoPosition && selectedDemoPosition < creativeDirectionsPosition);
   assert.equal(projectDetail.match(/\$\{scope\}/g)?.length, 1);
   assert.match(projectsPage, /id="new-project-btn"[\s\S]*?<span class="control-content">/);
   assert.match(projectsPage, /<div class="new-project-action"><button/);
@@ -189,7 +193,8 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(portalComponentsCss, /\.project-card-badges \.status,[\s\S]*?\.project-card-badges \.chip \{[^}]*height: 28px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; transform: translateY\(-8px\); \}/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \.status,[\s\S]*?\.creative-direction-badges \.chip \{[^}]*height: 24px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
-  assert.match(portalComponentsCss, /\.in-production \{ --ip-composition-shift: 15%;[^}]*\}/);
+  assert.match(portalComponentsCss, /\.in-production \{ --ip-composition-shift: 11\.7%;[^}]*\}/);
+  assert.match(portalApp, /values\.startsWith\("567\.071 665\.431"\)[\s\S]*567\.071 669\.431[\s\S]*animation\.remove\(\)/);
   assert.match(portalComponentsCss, /\.in-production \.ip-figure \{[^}]*top: calc\(50% - var\(--ip-composition-shift\)\);[^}]*transform: translate\(-50%, -50%\);/);
   assert.match(portalComponentsCss, /\.in-production \.ip-cap \{[^}]*bottom: calc\(12px \+ var\(--ip-composition-shift\)\);/);
   assert.doesNotMatch(portalComponentsCss, /\.ip-next/);
@@ -213,7 +218,13 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(projectDetail, /label: "hours"/);
   assert.match(projectDetail, /label: "weeks active"/);
   assert.match(projectDetail, /label: "deliverables ready"/);
-  assert.match(projectDetail, /label: "Final Demo scenes"/);
+  assert.match(projectDetail, /label: "selected demo scenes"/);
+  assert.match(filmPresentation, /idea\.mediaPolicy !== "none"/);
+  assert.match(filmPresentation, /media preview spaces appear only after a direction is selected for demo production/);
+  assert.match(filmPresentation, /return \{ redirect: href\(`\/projects\/\$\{p\.slug\}#selected-demo`\) \}/);
+  assert.match(projectDetail, /function renderSelectedDemo/);
+  assert.match(projectDetail, /This locked HYBRID no longer has a separate direction page/);
+  assert.doesNotMatch(projectDetail, /renderPromotedProduction/);
   assert.doesNotMatch(projectDetail, /<h2>Open blockers<\/h2>/);
   assert.match(projectDetail, /commentsWithProjectBlockers/);
   assert.match(libraryPage, /commentsWithProjectBlockers/);
