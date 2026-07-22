@@ -176,10 +176,6 @@ function hydrateDesignerFrames() {
       svg.setAttribute("focusable", "false");
       svg.setAttribute("aria-hidden", "true");
       frame.appendChild(svg);
-      // The source artwork includes looping SMIL motion. The portal uses one
-      // stable production illustration so every thumbnail and hero stays still.
-      if (typeof svg.setCurrentTime === "function") svg.setCurrentTime(3.5);
-      if (typeof svg.pauseAnimations === "function") svg.pauseAnimations();
     } catch {
       frame.classList.add("designer-unavailable");
       frame.innerHTML = iconFallback();
