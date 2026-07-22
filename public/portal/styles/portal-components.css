@@ -142,7 +142,7 @@
 }
 .project-card .pc-media { min-width: 0; height: 100%; }
 .project-card .thumb { width: 100%; height: 100%; min-height: 220px; aspect-ratio: auto !important; border-radius: 0; }
-.project-card .pc-body { display: flex; flex-direction: column; justify-content: center; padding: var(--space-5); position: relative; z-index: 1; }
+.project-card .pc-body { display: flex; flex-direction: column; justify-content: flex-start; padding: var(--space-5); position: relative; z-index: 1; }
 .project-card .pc-body > .pc-meta:first-child { margin-top: 0; }
 .project-request-card { grid-template-columns: 1fr; min-height: 0; }
 .project-request-card .pc-body { min-height: 180px; }
