@@ -4,8 +4,8 @@ import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { motif, sourceNote, chip } from "../components/cards.js";
 
-const STATUS_TONE = { delivered: "ok", "in-progress": "info", planned: "neutral", available: "info" };
-const STATUS_TEXT = { delivered: "Delivered", "in-progress": "In progress", planned: "Planned", available: "Available" };
+const STATUS_TONE = { active: "ok", "in-progress": "info", planned: "warn", available: "ok" };
+const STATUS_TEXT = { active: "Active", "in-progress": "In progress", planned: "Planned", available: "Active" };
 const CAP_TYPE_ICON = { tool: "layers", knowledge: "graduationCap", service: "handshake" };
 const CAP_TYPE_LABEL = { tool: "Tool built", knowledge: "Knowledge transferred", service: "Service enabled" };
 const DEFAULT_THRESHOLD = 2;
@@ -43,7 +43,6 @@ function completedRow(p) {
     <td>${esc(p.completedAt)}</td>
     <td>${esc(p.hours)} hrs</td>
     <td>${esc(p.amount)}</td>
-    <td>${esc(p.outcome)}</td>
   </tr>`;
 }
 
@@ -201,7 +200,7 @@ export function render(data) {
     ${(invoicing.completedProjects && invoicing.completedProjects.length) ? `<section class="section">
       <div class="section-head"><h2 class="section-title">Completed projects</h2></div>
       <div style="overflow:auto"><table class="ptable">
-        <thead><tr><th>Project</th><th>Completed</th><th>Hours</th><th>Investment</th><th>Outcome</th></tr></thead>
+        <thead><tr><th>Project</th><th>Completed</th><th>Hours</th><th>Investment</th></tr></thead>
         <tbody>${invoicing.completedProjects.map(completedRow).join("")}</tbody>
       </table></div>
     </section>` : `<section class="section">

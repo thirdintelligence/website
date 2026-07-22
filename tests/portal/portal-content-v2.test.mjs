@@ -81,14 +81,20 @@ test("Value & Results uses privacy-safe tenant evidence and future metric placeh
   assert.equal(invoicing.financialSummary.activeProjects, 1);
   assert.equal(invoicing.financialSummary.completedProjects, 0);
   assert.equal(invoicing.outcomes, undefined);
-  assert.equal(invoicing.capabilities.length, 8);
-  // All former "delivered" statuses changed to "available"
+  assert.equal(invoicing.capabilities.length, 19);
+  // All former "delivered"/"available" statuses changed to "active"
   assert.equal(invoicing.capabilities.some((c) => c.status === "delivered"), false);
-  // Planned capabilities from the roadmap milestones are included
-  assert.ok(invoicing.capabilities.some((c) => c.title === "AI Implementation" && c.status === "planned"));
-  assert.ok(invoicing.capabilities.some((c) => c.title === "Value Audit" && c.status === "planned"));
-  assert.ok(invoicing.capabilities.some((c) => c.title === "Extend Partnership" && c.status === "planned"));
-  assert.equal(invoicing.capabilities.some((capability) => capability.title === "Monthly Video Series"), false);
+  assert.equal(invoicing.capabilities.some((c) => c.status === "available"), false);
+  // Active capabilities (green)
+  assert.ok(invoicing.capabilities.some((c) => c.title === "Client Portal" && c.status === "active"));
+  // Planned capabilities from the service catalog (yellow)
+  assert.ok(invoicing.capabilities.some((c) => c.title === "Website Design & Development" && c.status === "planned"));
+  assert.ok(invoicing.capabilities.some((c) => c.title === "Social Media Asset Generation" && c.status === "planned"));
+  assert.ok(invoicing.capabilities.some((c) => c.title === "Monthly Video Series" && c.status === "planned"));
+  // AI integration items removed (inferred by all others)
+  assert.equal(invoicing.capabilities.some((c) => c.title === "GenAI Integrations"), false);
+  assert.equal(invoicing.capabilities.some((c) => c.title === "AI Tool Integration"), false);
+  assert.equal(invoicing.capabilities.some((capability) => capability.title === "Monthly Video Series"), true);
   assert.match(invoicing.capabilities.find((capability) => capability.title === "AI Film Production").description, /ongoing monthly film series/i);
   assert.doesNotMatch(JSON.stringify(invoicing), /Shaw Systems|Amplify|614 hours|250 hours/i);
 });

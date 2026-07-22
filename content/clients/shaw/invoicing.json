@@ -30,31 +30,31 @@
       "title": "AI Film Production",
       "type": "knowledge",
       "description": "Full AI-powered video production pipeline — storyboarding, stills, video generation, and editing.",
-      "status": "delivered"
+      "status": "active"
     },
     {
       "title": "Conference AV + Live Production",
       "type": "service",
       "description": "Live conference AV support, lighting, and logo video assets.",
-      "status": "delivered"
+      "status": "active"
     },
     {
       "title": "Team Training",
       "type": "knowledge",
       "description": "Hands-on training sessions on AI-powered workflows for the Shaw marketing team.",
-      "status": "delivered"
+      "status": "active"
     },
     {
       "title": "Agent Architecture",
       "type": "tool",
       "description": "Custom workflow and agent architecture for Shaw's marketing operations (40 hours goodwill).",
-      "status": "delivered"
+      "status": "active"
     },
     {
       "title": "Loop Video Assets",
       "type": "tool",
       "description": "Reusable logo sequence loop videos for conferences and digital displays.",
-      "status": "delivered"
+      "status": "active"
     }
   ],
   "narrative": {
@@ -139,42 +139,66 @@
       "icon": "clock",
       "statusLabel": "Ready to track",
       "description": "Shows whether production becomes faster across completed projects.",
-      "metrics": ["Total hours", "Weeks to completion", "Hours per finished minute"]
+      "metrics": [
+        "Total hours",
+        "Weeks to completion",
+        "Hours per finished minute"
+      ]
     },
     {
       "title": "Deliverable quality",
       "icon": "checkCircle",
       "statusLabel": "Ready to track",
       "description": "Uses approval evidence instead of an invented quality score.",
-      "metrics": ["Approved deliverables", "Review rounds", "Rework hours"]
+      "metrics": [
+        "Approved deliverables",
+        "Review rounds",
+        "Rework hours"
+      ]
     },
     {
       "title": "Output volume",
       "icon": "layers",
       "statusLabel": "Ready to track",
       "description": "Records how much finished, Shaw-approved work each project produces.",
-      "metrics": ["Deliverables", "Finished minutes", "Approved versions"]
+      "metrics": [
+        "Deliverables",
+        "Finished minutes",
+        "Approved versions"
+      ]
     },
     {
       "title": "Financial return",
       "icon": "chart",
       "statusLabel": "Ready to track",
       "description": "Adds comparable financial context after project scope and billing are confirmed.",
-      "metrics": ["Cost per deliverable", "Effective rate", "Value over baseline"]
+      "metrics": [
+        "Cost per deliverable",
+        "Effective rate",
+        "Value over baseline"
+      ]
     },
     {
       "title": "Compounding capability",
       "icon": "sparkles",
       "statusLabel": "Ready to track",
       "description": "Shows the reusable systems and Shaw-specific capabilities added by each project.",
-      "metrics": ["Capabilities added", "Reusable components", "Next-project time saved"]
+      "metrics": [
+        "Capabilities added",
+        "Reusable components",
+        "Next-project time saved"
+      ]
     },
     {
       "title": "Project confidence",
       "icon": "target",
       "statusLabel": "Ready to track",
       "description": "Compares plans with completed results using Shaw-owned records only.",
-      "metrics": ["Expected vs. actual", "Milestone accuracy", "Decision turnaround"]
+      "metrics": [
+        "Expected vs. actual",
+        "Milestone accuracy",
+        "Decision turnaround"
+      ]
     }
   ],
   "financialSummary": {
