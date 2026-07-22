@@ -4,7 +4,7 @@
 import { esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { statusLabel, chip, motif, sourceNote, cardAction } from "../components/cards.js";
-import { commentThread, commentsWithProjectBlockers, addCommentButton } from "../components/feed.js";
+import { commentThread, addCommentButton } from "../components/feed.js";
 
 const CAT_ICON = { branding: "bookmark", products: "layers", features: "puzzle", "integrations-partners": "users", "film-knowledge": "film", communication: "comment", "other-knowledge": "bookOpen" };
 
@@ -222,7 +222,7 @@ function renderCommsSubPage(data, params) {
   let body = "";
 
   if (sub === "comments") {
-    body = commentThread(commentsWithProjectBlockers(live?.comments || [], data.projects?.projects || [])) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
+    body = commentThread(live?.comments || []) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
   } else if (sub === "emails") {
     const emails = communications?.emails || [];
     body = emails.length ? `<div class="email-list">${emails.map(emailFullRow).join("")}</div>` : `<div class="empty-state">${icon("mail")}<p>No emails yet. Emails related to ${esc(portal.client.name)} will appear here, synced from Gmail.</p></div>`;

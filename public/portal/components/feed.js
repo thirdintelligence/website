@@ -45,41 +45,16 @@ export function commentThread(comments, context) {
   </div>`;
 }
 
-/** Curated project blockers use the same comment presentation and counting
-    model as live blocker comments. They remain read-only until they originate
-    from the operational comment store, avoiding unauthorised production writes. */
-export function commentsWithProjectBlockers(comments = [], projects = []) {
-  const live = Array.isArray(comments) ? comments : [];
-  const liveKeys = new Set(live.filter((c) => c.blocker).map((c) => `${c.projectId || c.context?.projectId || "general"}:${String(c.title || "").trim().toLowerCase()}`));
-  const curated = (projects || []).flatMap((project) => (project.blockers || []).map((blocker, index) => {
-    const title = typeof blocker === "string" ? blocker : blocker.title;
-    const description = typeof blocker === "object" ? (blocker.description || blocker.detail) : "";
-    return {
-      id: `curated-blocker-${project.id}-${index + 1}`,
-      kind: "comment",
-      blocker: true,
-      projectId: project.id,
-      title,
-      ...(description ? { description } : {}),
-      status: "open",
-      attribution: "Project blocker comment",
-      context: { scope: "project", projectId: project.id, label: project.title, route: `/bkwatch/projects/${project.slug}` },
-      readonly: true
-    };
-  }).filter((c) => c.title && !liveKeys.has(`${c.projectId}:${c.title.trim().toLowerCase()}`)));
-  return [...live, ...curated];
-}
-
 function renderComment(c) {
   const completed = c.status === "completed";
   const tsLabel = Number.isFinite(c.timestampMs) ? `${icon("clock")} ${fmtTimestamp(c.timestampMs)}${c.rangeMs ? "–" + fmtTimestamp(c.timestampMs + c.rangeMs) : ""}` : "";
   const ctx = c.context || {};
   const ctxLabel = ctx.label || (ctx.sceneId ? "Scene " + ctx.sceneId : ctx.scope);
   return `<article class="comment ${c.blocker ? "is-blocker" : ""} ${completed ? "is-completed" : ""}" data-comment-id="${esc(c.id || "")}">
-    ${c.readonly ? "" : `<div class="comment-actions">
+    <div class="comment-actions">
       <button type="button" class="btn btn-icon btn-sm comment-edit" data-comment-edit="${esc(c.id)}" title="Edit" aria-label="Edit comment">${icon("pencil")}</button>
       <button type="button" class="btn btn-icon btn-sm comment-del" data-comment-delete="${esc(c.id)}" title="Delete" aria-label="Delete comment">${icon("trash")}</button>
-    </div>`}
+    </div>
     <div class="comment-head">
       <span class="comment-attr">${esc(c.attribution || "bkWatch commented")}</span>
       ${c.createdAt ? `· <span>${fmtDate(c.createdAt)}</span>` : ""}

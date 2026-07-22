@@ -165,6 +165,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   const libraryRecord = await readFile(new URL("../public/portal/pages/library-record.js", import.meta.url), "utf8");
   const search = await readFile(new URL("../public/portal/core/search.js", import.meta.url), "utf8");
   const portalApp = await readFile(new URL("../public/portal/core/app.js", import.meta.url), "utf8");
+  const dataJs = await readFile(new URL("../public/portal/core/data.js", import.meta.url), "utf8");
 
   assert.doesNotMatch(projectDetail, /next:\s*p\.nextMilestone/);
   assert.doesNotMatch(mediaComponents, /ip-next|next\s*=/);
@@ -225,10 +226,10 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(projectDetail, /This locked HYBRID no longer has a separate direction page/);
   assert.doesNotMatch(projectDetail, /renderPromotedProduction/);
   assert.doesNotMatch(projectDetail, /<h2>Open blockers<\/h2>/);
-  assert.match(projectDetail, /commentsWithProjectBlockers/);
-  assert.match(libraryPage, /commentsWithProjectBlockers/);
-  assert.match(feedComponents, /kind: "comment",[\s\S]*blocker: true/);
-  assert.match(feedComponents, /c\.readonly \? ""/);
+  assert.doesNotMatch(projectDetail, /commentsWithProjectBlockers/);
+  assert.doesNotMatch(libraryPage, /commentsWithProjectBlockers/);
+  assert.match(dataJs, /kind: "comment",[\s\S]*blocker: true/);
+  assert.doesNotMatch(feedComponents, /c\.readonly/);
   assert.match(homePage, /cardAction\("Open roadmap"\)/);
   assert.match(libraryRecord, /cardAction\("View record"\)/);
   assert.match(search, /View result/);

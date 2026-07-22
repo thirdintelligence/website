@@ -3,7 +3,7 @@ import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { mediaFrame, draftNotice, versionHistory } from "../components/media.js";
 import { statusLabel, chip, motif, sourceNote, cardAction } from "../components/cards.js";
-import { commentThread, commentsWithProjectBlockers, addCommentButton } from "../components/feed.js";
+import { commentThread, addCommentButton } from "../components/feed.js";
 
 export function render(data, params) {
   const { projects, portal, live, invoicing } = data;
@@ -12,7 +12,7 @@ export function render(data, params) {
 
   const ctx = { scope: "project", projectId: p.id, label: p.title, route: `/bkwatch/projects/${p.slug}` };
   const film = p.film;
-  const projectComments = commentsWithProjectBlockers(live.comments, [p]);
+  const projectComments = live.comments;
 
   const selectedIds = new Set(p.productionLifecycle?.selectedIdeaIds || []);
   const isSelectedIdea = (idea) => selectedIds.has(idea.slug) || idea.recommended;
