@@ -207,7 +207,7 @@ async function main() {
     asOf,
     metrics: {
       projectsActive: { count: 1, descriptor: "film", label: "Film 1 - Shaw Integration — selected demo in production" },
-      deliverablesCompleted: { count: 4, descriptor: "deliverables", label: "4 of 10 Film 1 - Shaw Integration deliverables are ready" },
+      deliverablesCompleted: { count: 4, descriptor: "deliverables", label: "4 of 8 Film 1 - Shaw Integration deliverables are ready" },
       hoursInvested: { hours: 20, descriptor: "hours", label: "20 hours on Film 1 - Shaw Integration — demo direction, script, storyboard, and instructions" },
       capabilitiesDelivered: { count: 4, descriptor: "capabilities", label: "Client portal, AI film production, AI roadmap, and brand knowledge library" },
     },

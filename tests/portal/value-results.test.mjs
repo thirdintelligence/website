@@ -28,6 +28,7 @@ test("bkWatch value page gates its live graph and exposes no Shaw production evi
   assert.ok(momentum.indexOf('class="future-value-grid"') > momentum.indexOf('class="metric-grid"'));
 
   assert.equal(invoicing.metrics.deliverablesCompleted.descriptor, "deliverables");
+  assert.match(invoicing.metrics.deliverablesCompleted.label, /4 of 8 Film 1 - Shaw Integration deliverables are ready/);
   assert.equal(invoicing.metrics.hoursInvested.descriptor, "hours");
   assert.equal(invoicing.metrics.capabilitiesDelivered.descriptor, "capabilities");
   assert.equal(invoicing.outcomes, undefined);
