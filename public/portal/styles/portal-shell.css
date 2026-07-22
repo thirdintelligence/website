@@ -242,6 +242,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .mobile-search-trigger { display: inline-flex; }
   #topbar-fullscreen span { display: none; }
   #topbar-fullscreen { min-width: 32px; padding: 0; border-radius: var(--radius-pill); }
+  #add-comment-btn span { display: none; }
+  #add-comment-btn { min-width: 32px; padding: 0; border-radius: var(--radius-pill); }
   .search-sheet[data-open="true"] { display: block; position: fixed; inset: 0; background: var(--bg); z-index: var(--z-overlay); }
   .portal-content { padding: var(--space-5) var(--space-4) var(--space-8); }
 }
