@@ -33,12 +33,10 @@
 .hero-facts { display: flex; flex-direction: column; gap: var(--space-3); }
 .hero-facts h1 { font-size: var(--fs-h1); }
 .hero-metaline { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-.hero-key-messaging { margin-top: var(--space-2); }
-.hero-key-messaging h3 { font-size: var(--fs-h4); margin-bottom: var(--space-2); }
-.hero-key-messaging ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
-.hero-key-messaging li { display: flex; flex-direction: column; gap: 2px; }
-.hero-key-messaging li strong { font-weight: 600; }
-.hero-key-messaging li .reading { color: var(--text-tertiary); font-size: var(--fs-body); }
+.kv-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.kv-list li { display: flex; flex-direction: column; gap: 2px; }
+.kv-list li strong { font-weight: 600; }
+.kv-list li .reading { color: var(--text-tertiary); font-size: var(--fs-body); }
 
 .detail-block { margin-top: var(--space-7); }
 .detail-block > h2 { font-size: var(--fs-h2); margin-bottom: var(--space-3); }

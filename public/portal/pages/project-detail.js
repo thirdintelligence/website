@@ -62,8 +62,8 @@ export function render(data, params) {
           ${p.audience ? `<dt>Audience</dt><dd>${esc(p.audience)}</dd>` : ""}
           ${p.phase ? `<dt>Phase</dt><dd>${esc(p.phase)}</dd>` : ""}
           ${p.nextMilestone ? `<dt>Next milestone</dt><dd>${esc(p.nextMilestone)}</dd>` : ""}
+          ${(p.keyMessaging && p.keyMessaging.length) ? `<dt>Key messaging</dt><dd><ul class="kv-list">${p.keyMessaging.map((m) => `<li><strong>${esc(m.title)}</strong><span class="reading">${esc(m.detail)}</span></li>`).join("")}</ul></dd>` : ""}
         </dl>
-        ${(p.keyMessaging && p.keyMessaging.length) ? `<div class="hero-key-messaging"><h3>Key messaging</h3><ul>${p.keyMessaging.map((m) => `<li><strong>${esc(m.title)}</strong><span class="reading">${esc(m.detail)}</span></li>`).join("")}</ul></div>` : ""}
         <div class="hero-metaline">
           ${addCommentButton(ctx, "Add Comment", "btn-sm btn-primary add-comment")}
           <button class="btn btn-sm btn-outline" type="button" data-project-pdf="${esc(p.id)}">${icon("download")} Download PDF</button>
