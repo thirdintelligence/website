@@ -1,6 +1,6 @@
 # Large Asset Storage and Client Delivery
 
-Decision status: architecture selected; production provider setup remains gated by `DATA-02` and `RELEASE-02`
+Decision status: architecture and current policy approved; signed-transfer implementation tested; separate preview bucket pending
 Prepared: 2026-07-16
 Primary decision: private Cloudflare R2 Standard storage with tenant-authorized, short-lived direct upload/download URLs
 
@@ -267,23 +267,21 @@ The media path is not ready until all of these pass:
 - No storage key, signed URL, secret, local path, prompt, or cross-tenant metadata appears in HTML, logs, source maps, analytics, or error UI.
 - Previous approved version remains retrievable after the selected version changes.
 - CORS denies unapproved origins.
-- Cost/budget dashboard and provider alert are exercised before release.
+- Provider budget alerts are optional until real upload volume makes them useful.
 
 Use sparse/generated test fixtures in preview rather than committing large binaries to Git.
 
-## HITL gate DATA-02
+## Current DATA-02 decision
 
-The architecture decision is Cloudflare R2 Standard with a 2 GiB product limit. Before production setup, Third i must approve:
+Approved now:
 
-1. the Cloudflare account/billing context;
-2. production and preview bucket names/regions/jurisdiction settings;
-3. the $5/$15/$30 budget-alert thresholds;
-4. the allowed upload types and whether client comment videos may use the full 2 GiB limit;
-5. the retention/deletion policy and backup location;
-6. the exact client-visible upload/download copy;
-7. creation of scoped credentials and production environment variables.
+- Cloudflare R2 Standard private storage;
+- 2 GiB owner-published/client-downloadable files and the current lower client-upload limit;
+- current allowed/blocked file types;
+- signed direct transfers, owner approval before client access, short-lived URLs, and tenant prefixes;
+- simple operations for now, with quarantine/scanning, retention automation, and budget alerts added only when volume/provider requirements justify them.
 
-Approval of this plan does not itself authorize creating a bucket, adding billing, moving assets, uploading client data, or changing production environment variables.
+The only immediate setup item is the separate `thirdi-media-preview` bucket, scoped preview credential, and Netlify deploy-preview context in `25-r2-preview-bucket.md`. Production values remain unchanged.
 
 ## Re-evaluation triggers
 

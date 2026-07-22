@@ -1,7 +1,7 @@
 # Source of truth, live connectors, sync, and upgrades
 
 Status: operating architecture
-Updated: 2026-07-21
+Updated: 2026-07-22
 
 ## Source-of-truth model
 
@@ -18,6 +18,8 @@ There is no single file that can safely own every kind of truth. Authority is ex
 | Owner actions/audit/notification state | Hosted operational store, aggregated through owner API | Immediate OS readback; reconciliation every 10 minutes |
 | Client media | Approved project master + private R2 delivery copy and asset metadata | Direct signed upload → validate/finalize → attach asset/version record |
 | Agent instructions | AGENTS/workflow/rules/design + masterplan handoff + current working memory | Version-controlled/local plan change, tested OS prompt update |
+| Automation cadence | `memory/THIRD_I/AUTOMATIONS.md` | Update registry first, then OS prompt/scheduler after HITL |
+| Release state | Git commit/push record + Netlify deploy record | Minimal log fields and one weekly review cursor |
 
 ## Local filesystem map
 
@@ -39,14 +41,16 @@ Agents may read these configured roots locally. Browser code and deployed Netlif
 - R2-compatible operational/media adapters and signed transfer endpoints are implemented. Production use depends on approved/configured environment and DATA-02 policy.
 - Deterministic search-index generation from sanitized manifests.
 - OS snapshot extraction for client-safe communications and metrics.
+- bkWatch v2 is accepted as the shared-platform visual/structural regression baseline.
 
 ## Gated or planned
 
 - Live operational-event mirroring into Obsidian communications folders is dry-run only until MEM-01.
-- Shaw tenant routes/data/auth/live APIs are not activated beyond the protected placeholder until bkWatch acceptance plus SHAW-01/DATA-02/DEPLOY-01.
+- Shaw tenant routes/data/auth/live APIs are not activated beyond the protected placeholder until Shaw content/design/data and deployment gates are complete. bkWatch v2 acceptance is already recorded.
 - Individual client accounts, names/roles, passkeys/MFA, recovery, and session revocation are future security work.
 - Autonomous publishing from arbitrary memory prose is forbidden. A future no-deploy content release still requires structured input, validation, client-safe approval, atomic release pointers, rollback, and audit history.
-- Media quarantine/malware scanning and client-originated upload limits require the approved DATA-02 policy.
+- Media quarantine/scanning, retention automation, and provider budget alerts are deferred until real upload volume or provider requirements justify them; current limits/types and owner-review policy apply.
+- Deploy-preview media remains gated until `thirdi-media-preview` uses a distinct scoped credential and bucket.
 
 ## Efficient update paths
 
@@ -88,22 +92,24 @@ Current repository manifests deploy with the application. The future optimizatio
 | Automation | Cadence | Current state |
 |---|---|---|
 | Portal notification reconciliation | Every 10 minutes | Implemented for bkWatch |
-| OS live connector refresh | On local OS load/sync run | Implemented; Gmail/Calendar freshness depends on valid read-only OAuth |
+| OS live connector refresh | On local OS load plus local 15-minute cache refresh | Implemented; Gmail/Calendar freshness depends on valid read-only OAuth |
 | Metrics/communications extraction | After OS snapshot refresh and before client release | Implemented scripts |
 | Search rebuild/content validation | Every client content release/build | Implemented scripts/tests |
 | Memory mirror | Event-driven/local sync | Dry-run until MEM-01 |
-| AI Roadmap source refresh | Monthly and before major client review | Planned operational policy |
-| Backup/restore verification | Nightly backup, quarterly restore exercise | Required before broad production rollout |
-| Storage/budget/queue health | Continuous/provider alerts plus OS summary | Planned at DATA-02/operations gate |
+| Daily Morning Prep | 8:00 AM America/Chicago | Prompt-ready; scheduler presence must be confirmed |
+| third-i-weekly | Friday 5:00 PM America/Chicago | Prompt-ready; one full-system report and hours/invoice check |
+| Research/cleanup/value review | Folded into weekly/monthly/quarterly review | Planned inside existing cadence; do not add separate jobs yet |
+
+`memory/THIRD_I/AUTOMATIONS.md` is the schedule authority. The legacy five-minute byte-change auto-deployer is retired: refresh and deployment are separate. A failed/unavailable local OS server is a skip, not a reason to deploy stale content.
 
 ## Upgrade protocol
 
 - Minor copy/status: source correction → manifests → validation → deploy/release.
 - Design change: DESIGN authority → visual proposal → HITL → implementation → screenshot/contrast/responsive tests → deploy.
-- Template upgrade: schema migration with backward compatibility → bkWatch preview → acceptance → tenant-by-tenant rollout; never overwrite all tenants at once.
+- Template upgrade: change the shared core once → schema/backward-compatibility tests → bkWatch regression preview → acceptance → controlled tenant rollout. Tenant content stays separate; do not create client code forks.
 - Automation change: idempotency, retry, audit, budget, security, and rollback test before enablement.
 - Major portal version: feature flag/canary, content migration report, preview acceptance, production smoke, and documented rollback.
 
 ## Agent consumption contract
 
-Agents read the controlling instructions first, then current working memory and sanitized portal data. They must state whether a value is canonical, live operational, derived, stale, planned, or unknown. They may propose changes from raw memory but never publish arbitrary prose or cross-client facts without sanitization and approval.
+Agents read the controlling instructions first, then current working memory and sanitized portal data. They must state whether a value is canonical, live operational, derived, stale, planned, or unknown. Correctly routed communication is client-safe in that client's private portal; raw cross-client content, public/internal workflow architecture, credentials, and local paths remain excluded. Only explicit blockers, current memory blockers, direct client stop instructions, and Third i HITL are treated as blockers.

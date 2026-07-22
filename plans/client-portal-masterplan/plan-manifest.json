@@ -1,8 +1,8 @@
 {
   "name": "Third i Client Portal Masterplan",
-  "version": "2.3",
-  "preparedAt": "2026-07-21",
-  "status": "bkwatch_release_audited_shaw_gated",
+  "version": "2.4",
+  "preparedAt": "2026-07-22",
+  "status": "bkwatch_v2_accepted_shared_platform_approved",
   "firstTenant": "bkwatch",
   "secondTenant": "shaw",
   "topLevelPages": [
@@ -36,7 +36,9 @@
     "20-film-demo-lifecycle.md",
     "21-vision-design-system-audit.md",
     "22-source-of-truth-sync-operations.md",
-    "23-shaw-portal-readiness.md"
+    "23-shaw-portal-readiness.md",
+    "24-approved-platform-operating-plan.md",
+    "25-r2-preview-bucket.md"
   ],
   "phases": [
     "plan-freeze",
@@ -49,7 +51,8 @@
     "generator-and-shaw",
     "learning"
   ],
-  "productionChangesAuthorized": false,
-  "memoryMutationsAuthorized": false,
+  "productionChangesAuthorized": true,
+  "portalUiChangesAuthorized": false,
+  "memoryMutationsAuthorized": true,
   "externalProviderSetupAuthorized": false
 }

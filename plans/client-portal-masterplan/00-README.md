@@ -1,10 +1,10 @@
 # Third i Client Portal Masterplan
 
-Status: approved brief converted to execution plan
-Version: 2.2
-Prepared: 2026-07-16
+Status: bkWatch v2 accepted; shared-platform plan approved
+Version: 2.4
+Prepared: 2026-07-22
 First tenant: bkWatch
-Second tenant: Shaw Systems, after bkWatch acceptance
+Second tenant: Shaw Systems, planned from the accepted bkWatch template
 
 ## Purpose
 
@@ -64,10 +64,13 @@ The approved client-portal directions in this plan are a client-portal overlay. 
 | `16-future-features.md` | Deferred features and the 2026-11-15 upgrade action |
 | `17-agent-handoff.md` | Verified target-agent access, missing setup, and safe starting sequence |
 | `18-asset-storage-delivery.md` | 2 GiB media delivery, provider research, R2 architecture, cost model, security, and tests |
+| `19-gate-activation-checklist.md` | Current provider, operations, memory, and release activation status |
 | `20-film-demo-lifecycle.md` | Canonical project/demo/full-production state machine, locked-demo embed, placeholder policy, and approval transition |
 | `21-vision-design-system-audit.md` | Full vision/design/product audit, strengths, gaps, and acceptance checklist |
 | `22-source-of-truth-sync-operations.md` | Data authority, local filesystem, live connectors, sync, automations, updates, and upgrades |
 | `23-shaw-portal-readiness.md` | Shaw design/content readiness, contradiction register, template boundary, and acceptance order |
+| `24-approved-platform-operating-plan.md` | Approved shared-core/tenant-config architecture, generator, update behavior, and Shaw facts |
+| `25-r2-preview-bucket.md` | Simple Cloudflare R2 deploy-preview bucket setup and current media policy |
 | `plan-manifest.json` | Machine-readable phase and document index |
 
 ## Operating interpretation of “shared memory”
@@ -88,10 +91,10 @@ The portal and OS read the same hosted operational records immediately. A local 
 3. Maintain all five bkWatch work areas with real current content and Film 1 in its confirmed project/demo/full-production state.
 4. Build the connected OS views and completion flow.
 5. Pass local and preview QC.
-6. Receive production approval and deploy bkWatch.
-7. Record learned patterns.
-8. Generate Shaw from the approved reusable system.
+6. Maintain the accepted bkWatch v2 release as the regression baseline.
+7. Build the shared platform/generator without changing the accepted bkWatch design.
+8. Generate Shaw from the approved reusable system after its tenant-specific content/design/data gates.
 
 ## Current status
 
-The bkWatch implementation and operating architecture now exist and are audited against this plan. This folder remains the controlling reusable contract; it does not independently authorize new providers, account changes, memory reorganization, Shaw activation, or a design-direction change. Those actions retain their gates in `14-roadmap-hitl.md`, while an explicit user instruction controls each bkWatch release deployment.
+The bkWatch v2 portal and operating architecture are accepted as the reusable baseline. The shared-platform decision, Shaw canon, minimal automation cadence, OS restructure direction, and preview-media setup are approved. This system pass intentionally leaves the current client portal UI unchanged. New provider credentials, Shaw client publication, and visual-direction changes retain their specific gates.

@@ -1,6 +1,16 @@
 # Future Features
 
-Create an owner OS action item named **Upgrade Client Portals** with due date **2026-11-15** after the current release action system exists.
+Plan-only backlog. Keep the current portal UI unchanged. Review this through the owner OS action **Upgrade Client Portals** on **2026-11-15** or earlier only when a repeated client need justifies it.
+
+## Approved future priorities
+
+1. **Client Actions & Approvals:** one clear list of owner, due date, state, next step, and sign-off for client decisions.
+2. **Since last visit:** concise new decisions, deliverables, comments, and required actions; an optional weekly executive recap.
+3. **Decision history:** durable approval/decision timeline attached to projects, directions, media, and scope.
+4. **Owner-only client health:** OS view of activity, delivery cadence, value, unresolved actions, relationship risk, and next retention opportunity. Never expose this scoring to clients.
+5. **New-client onboarding template:** contacts, goals, brand/product sources, projects, access, meeting cadence, content/design approval, and launch checklist.
+
+These join the existing security, media review, Library, AI Roadmap, and OS items below. They do not authorize a current visual or product change.
 
 ## Deferred from approved answers
 
@@ -66,6 +76,17 @@ Stage 2, only if attributable approvals/comments are required:
 - per-client release notes;
 - feature flags for staged portal upgrades;
 - automated preview generation with manual production promotion.
+- owner-only client-health and retention view;
+- shared-platform version, tenant schema, migration, and rollout status;
+- concise “since last weekly review” report using Git/Netlify cursors instead of re-reading every push.
+
+## Lower priority until demanded
+
+- invoices/e-signatures inside the portal;
+- individual client accounts beyond the planned security upgrade;
+- support tickets, live chat, SMS, or a dedicated mobile app.
+
+The private portal already covers the relationship workflow more directly. Add these only when an actual client process would become simpler.
 
 ## Evaluation rule
 

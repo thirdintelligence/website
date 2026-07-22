@@ -1,20 +1,17 @@
 #!/bin/bash
-# Syncs os.html from ThirdI_EXEC to ThirdI_WEB as os.html
-# 1. Fetches live snapshot from local dashboard server
-# 2. Embeds snapshot as window.__SNAPSHOT__ in the HTML
-# 3. Leaves authentication to the server-side /os Netlify Function
-# Run before deploying ThirdI_WEB to Netlify
+# Manual OS release preparation.
+# ThirdI_WEB/os.html is the current runtime baseline. This script never copies
+# the older ThirdI_EXEC/os.html over it and is never run by launchd.
+# It fetches a valid snapshot, embeds it, and updates deterministic portal
+# extracts for a reviewed/tested release.
 
-EXEC_DASHBOARD="/Users/justinbrannon/Desktop/Third i/ThirdI_EXEC/os.html"
 WEB_OS="/Users/justinbrannon/Desktop/Third i/ThirdI_WEB/os.html"
-LOCAL_API="http://localhost:8765/api/os-snapshot"
+LOCAL_API="http://127.0.0.1:8765/api/os-snapshot"
 
-if [ ! -f "$EXEC_DASHBOARD" ]; then
-  echo "ERROR: os.html not found at $EXEC_DASHBOARD"
+if [ ! -f "$WEB_OS" ]; then
+  echo "ERROR: canonical runtime os.html not found at $WEB_OS"
   exit 1
 fi
-
-cp "$EXEC_DASHBOARD" "$WEB_OS"
 
 # Fetch live snapshot from local server and embed it only when it is valid.
 SNAPSHOT=$(curl -s --fail --max-time 45 "$LOCAL_API" 2>/dev/null)
@@ -26,15 +23,21 @@ if [ -n "$SNAPSHOT" ] && node -e "const s=JSON.parse(process.argv[1]); const ok=
     const snapshot = process.argv[2];
     let html = fs.readFileSync(file, 'utf8');
     const tag = '<script>window.__SNAPSHOT__=' + snapshot + ';</script>';
-    html = html.replace('<head>', '<head>' + tag);
+    const marker = '<script>window.__SNAPSHOT__=';
+    const start = html.indexOf(marker);
+    const end = start >= 0 ? html.indexOf('</script>', start) : -1;
+    html = start >= 0 && end >= 0
+      ? html.slice(0, start) + tag + html.slice(end + '</script>'.length)
+      : html.replace('<head>', '<head>' + tag);
     fs.writeFileSync(file, html);
   " "$WEB_OS" "$SNAPSHOT"
   echo "Embedded live snapshot from local server"
 else
-  echo "WARNING: Local server did not return a verified snapshot, deploying without embedded snapshot"
+  echo "ERROR: Local server did not return a verified snapshot; repository left unchanged"
+  exit 1
 fi
 
-echo "Synced os.html -> os.html for server-side owner authentication ($(wc -c < "$WEB_OS") bytes)"
+echo "Prepared canonical os.html for reviewed release ($(wc -c < "$WEB_OS") bytes)"
 
 # Extract client communications (emails + meetings) from the embedded snapshot
 # into per-client communications.json files for the client portals.

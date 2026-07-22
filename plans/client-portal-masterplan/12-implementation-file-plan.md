@@ -10,7 +10,7 @@ This file describes the intended source layout. It does not authorize the change
 | `netlify/functions/bkwatch-portal.mjs` | Preserve route/auth responsibility; refactor rendering and API bootstrap |
 | `netlify/functions/os-portal.mjs` | Preserve isolated owner auth; connect OS renderer to live portal APIs |
 | `content/clients/bkwatch.json` | Migrate into schema-v2 split manifests; retain migration snapshot |
-| `content/clients/shaw.json` | Keep blocked/placeholder until bkWatch acceptance |
+| `content/clients/shaw.json` | Generate from approved Shaw sources; keep client publication gated by Shaw content/design/data approval |
 | `portal-template.html` | Replace with the approved five-work-area reusable shell |
 | `bkWatch-os.html` | Migrate content to template/renderer; keep as a rollback artifact until production acceptance |
 | `public/portal/client-portal.js` | Split into focused ES modules; temporary compatibility wrapper during migration |

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.thirdi.portal-data-refresh</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/justinbrannon/Library/Application Support/Third i/portal-data-refresh.sh</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StartInterval</key>
+  <integer>900</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/justinbrannon/Library/Application Support/Third i/portal-data-refresh-launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/justinbrannon/Library/Application Support/Third i/portal-data-refresh-launchd-error.log</string>
+</dict>
+</plist>

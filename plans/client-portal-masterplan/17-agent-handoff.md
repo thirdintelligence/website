@@ -1,6 +1,6 @@
 # ThirdI_WEB Agent Handoff
 
-Prepared: 2026-07-16; current-state addendum: 2026-07-21
+Prepared: 2026-07-16; current-state addendum: 2026-07-22
 Target agent: Third-i-Web
 Working directory: `/Users/justinbrannon/Desktop/Third i/ThirdI_WEB`
 
@@ -18,6 +18,8 @@ Read in this order before changing source:
 8. `plans/client-portal-masterplan/15-requirements-traceability.md` before declaring a phase complete.
 9. `plans/client-portal-masterplan/20-film-demo-lifecycle.md` before any film project/data/UI work.
 10. `plans/client-portal-masterplan/21-vision-design-system-audit.md`, `22-source-of-truth-sync-operations.md`, and `23-shaw-portal-readiness.md` before declaring the template or Shaw readiness complete.
+11. `plans/client-portal-masterplan/24-approved-platform-operating-plan.md` before changing portal architecture or generating a tenant.
+12. `memory/THIRD_I/AUTOMATIONS.md` before creating or changing any recurring automation.
 
 ## Current-state addendum
 
@@ -27,6 +29,9 @@ Read in this order before changing source:
 - Once locked, the selected demo's complete storyboard/history/script/comments workspace lives directly above Creative Directions on the main project page and has no separate direction page. Its scenes use `designer.svg` during demo production; approval advances this same record into full-film production.
 - `NEW FILING` is generated with its filing object. Shaw interface-use approval is already secured; exact sanitized assets remain required.
 - The implementation now includes live portal operations and R2-compatible adapters; use `22-source-of-truth-sync-operations.md` to distinguish active configuration from gated/planned activation.
+- bkWatch v2 is accepted as the reusable design/structure baseline. This pass keeps its current UI unchanged.
+- The approved architecture is one shared portal core plus tenant configuration/content/auth/data/media/search. Never copy a client HTML page to create another tenant.
+- Shaw Film 1 is complete conference work (250 hours, fixed-bid/pre-contract); Film 2 V1 and V2 are complete; Film 3 is AI Advisor and awaiting direction lock; Film 4 is Insight. Films 2–4 form one aligned Summit loop.
 
 For bkWatch visual/content work also read:
 
@@ -48,7 +53,7 @@ For bkWatch visual/content work also read:
 | Netlify project | Linked to `thirdintelligence`, project ID `a790b3a4-8c53-420a-920c-f274c0ec6e3d`, production URL `https://thirdi.net` |
 | Production auth secrets | Keys present: `BKWATCH_PORTAL_PASSWORD_HASH`, `OS_PORTAL_PASSWORD_HASH`, `PORTAL_SESSION_SECRET`; values were not displayed |
 | Git | `origin` resolves to `https://github.com/thirdintelligence/website.git`; the audited release is maintained on `client-portals` |
-| Local connectors | Local OS snapshot endpoint reachable; Sheets, Gmail, and Calendar reported active |
+| Local connectors | Local OS snapshot endpoint reachable; Sheets, Gmail, and Calendar reported active; refresh is separated from deployment |
 | Portal implementation | Five work areas, schemas, client-safe manifests, search, Value & Results, project lifecycle, comments/drafts/requests/actions/audit, and owner readback exist |
 | Existing tests | 63/63 Node tests pass, including auth, schema, tenant isolation, live operations, media contracts, notification reconciliation, and Value & Results privacy |
 | Existing auth | bkWatch and owner OS server-side auth/tenant-isolation tests pass |
@@ -63,11 +68,11 @@ Keep distinct development/deploy-preview auth and store namespaces. Never use pr
 
 The R2-backed `_ops/<version>/` adapter and tenant-scoped operational endpoints are implemented. Retention, backup, namespace-separation, and restore policy remain explicit operating decisions before adding tenants.
 
-### DATA-02 — Approve media upload storage
+### DATA-02 — Separate preview media
 
 The researched architecture is Cloudflare R2 Standard with direct signed multipart upload/download, a 2 GiB per-file product limit, and readable client filenames. The full cost/security/flow decision is in `18-asset-storage-delivery.md`.
 
-Signed upload/download and media-isolation contracts are implemented and tested. Client media publication remains blocked until the approved production bucket, billing/budget, scoped credential, CORS, quarantine, retention, and backup policy are verified under `DATA-02`.
+Signed upload/download and media-isolation contracts are implemented and tested; current limits/types and simple owner-review policy are approved. Create `thirdi-media-preview` with a preview-only token and Netlify deploy-preview variables before preview media testing. Defer quarantine/scanning, retention automation, and budget alerts until real volume or provider requirements justify them.
 
 ### EMAIL-01 — Approve outbound email provider
 
@@ -83,9 +88,9 @@ These approved target folders do not yet exist:
 
 Run the dry-run migration and receive `MEM-01` before writing or moving communication memory.
 
-### OPS-01 — Repair or replace auto-sync
+### OPS-01 — Replace auto-sync
 
-The `com.thirdi.auto-sync` launch agent is loaded at five-minute intervals but its latest exit code is `126`. Do not rely on it for portal publishing. Diagnose permissions/execution context, then replace the current byte-change production deployment behavior with the validated event/content synchronization described in `09-live-data-security.md`.
+The legacy `com.thirdi.auto-sync` job failed with exit `126` because macOS background access to Desktop was denied and its byte-change production deploy behavior was unsafe. Retire it. The replacement refreshes a local snapshot cache only, runs outside Desktop, and never edits the repository or deploys.
 
 ## Build sequence for the next agent
 
@@ -93,9 +98,9 @@ The `com.thirdi.auto-sync` launch agent is loaded at five-minute intervals but i
 2. Treat the deployed bkWatch portal, sanitized v2 manifests, schemas, and passing tests as the reusable baseline.
 3. Maintain bkWatch through deterministic manifest/search/metric builds and immediate hosted operational updates as classified in `22-source-of-truth-sync-operations.md`.
 4. Run the complete QC matrix for every release; receive design HITL for any new visual decision.
-5. Keep memory mirror in dry-run until `MEM-01`; repair/replace the exit-126 auto-sync before trusting automated local publication.
-6. Do not begin Shaw implementation until the bkWatch release is accepted. Readiness/source reconciliation may proceed now through `23-shaw-portal-readiness.md` and the canonical `os.html` superprompt.
-7. Activate Shaw tenant auth, storage, notifications, and deployment only through the named Shaw/data/deploy gates.
+5. Keep memory mirror in dry-run until `MEM-01`; use the refresh-only local service and explicit tested releases.
+6. Build the shared platform/generator from `24-approved-platform-operating-plan.md`; keep current bkWatch UI unchanged unless a later visual HITL approves a change.
+7. Plan Shaw from the accepted bkWatch baseline and confirmed canon; activate Shaw tenant auth, storage, notifications, and deployment only through the named Shaw/data/deploy gates.
 
 ## Non-negotiable operational boundaries
 
@@ -110,4 +115,4 @@ The `com.thirdi.auto-sync` launch agent is loaded at five-minute intervals but i
 
 ## Handoff verdict
 
-The bkWatch portal is the implemented, tested reusable template—not a Phase 1 mockup. Agents have the repository, source hierarchy, lifecycle contract, memory map, schemas, test suite, Netlify linkage, operating architecture, audit, and canonical Shaw build prompt needed to maintain bkWatch and prepare Shaw. Shaw client publication still depends on bkWatch acceptance, source reconciliation, tenant-specific content/design approval, provider-policy verification, full QC, and deployment HITL.
+The bkWatch v2 portal is the accepted, tested reusable design/structure template—not a mockup. The architecture decision and Shaw facts are resolved well enough to build the shared platform and generator. Shaw client publication still depends on tenant-specific content/design approval, separated preview/production media configuration, auth/data activation, full QC, and deployment HITL.

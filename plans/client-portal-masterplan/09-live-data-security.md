@@ -205,7 +205,7 @@ Use schedules only for:
 
 If Third i later wants three daily reconciliation checks, use one local automation at 8:00 AM, 12:00 PM, and 4:00 PM America/Chicago rather than three separate agents. It should call the deterministic sync/publisher and surface failures in OS; it must not reinterpret memory or publish unapproved prose.
 
-The existing five-minute local `auto-sync-deploy.sh` must be revised before reuse. Production deploys should not be triggered by any `os.html` byte change without schema validation, tests, diff inspection, and the agreed HITL production gate.
+The five-minute byte-change auto-deployer was retired on 2026-07-22. `com.thirdi.portal-data-refresh` now refreshes a private local snapshot cache every 15 minutes from outside Desktop and never edits the repository or deploys. `sync-os.sh` is manual release preparation only, treats `ThirdI_WEB/os.html` as the current runtime baseline, and refuses to copy the older ThirdI_EXEC OS over it. Production releases still require validation, tests, diff inspection, and the normal deploy gate.
 
 ## Backup and recovery
 

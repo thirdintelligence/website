@@ -1,6 +1,6 @@
 # Gate Activation Checklist (Phase 3+)
 
-Prepared: 2026-07-17 · Updated: 2026-07-21 · For: Third i
+Prepared: 2026-07-17 · Updated: 2026-07-22 · For: Third i
 
 ## Build status (updated 2026-07-17 — VERIFIED ON A NETLIFY DEPLOY-PREVIEW)
 
@@ -37,20 +37,11 @@ tenant activation.
 
 ## DATA-02 — Media storage (uploads + 2 GiB downloads) via Cloudflare R2
 
-**Decision needed:** approve the Cloudflare R2 Standard architecture in `18-asset-storage-delivery.md`.
+**Architecture approved and implemented:** private R2, signed direct transfers, tenant prefixes, owner approval before client access, 2 GiB owner/512 MiB client limits, current allowed types, and short-lived URLs.
 
-**You do:**
-1. Create a Cloudflare account + **R2 bucket** (production) and a separate **preview** bucket.
-2. Create a scoped R2 API token (S3-compatible) limited to those buckets.
-3. Approve: 2 GiB per-file limit, allowed MIME types, retention/backup, and a monthly budget alert.
-4. Set a CORS policy allowing only the portal origins.
-5. Add to Netlify env (never commit): `PORTAL_MEDIA_R2_ACCOUNT_ID`, `PORTAL_MEDIA_R2_BUCKET`,
-   `PORTAL_MEDIA_R2_ACCESS_KEY_ID`, `PORTAL_MEDIA_R2_SECRET_ACCESS_KEY`,
-   `PORTAL_MEDIA_ALLOWED_ORIGINS` (+ the numeric limits already in `.env.example`).
+**Only current setup task:** create `thirdi-media-preview`, give it a preview-only scoped token, and set the Netlify deploy-preview environment values in `25-r2-preview-bucket.md`. Production and preview currently have distinct operational store versions but still report the same media bucket.
 
-**Then I build:** signed multipart upload/download functions (bytes never pass through
-Netlify), version history, readable `act1.scene2.vers3-description.mp4` filenames,
-and the upload/download/isolation tests.
+Do not add quarantine/scanning, new retention automation, or budget alerts until real upload volume/provider requirements justify them. Review those policies when client-originated media becomes common.
 
 ---
 
@@ -84,8 +75,7 @@ records, and enable the deterministic live→memory mirror (one file per event, 
 
 ## OPS-01 — Replace the failing auto-sync
 
-The `com.thirdi.auto-sync` launch agent currently exits `126`. Before any auto-publish, I
-diagnose/replace it with the validated event/content sync in `09-live-data-security.md`.
+**Complete 2026-07-22.** The old Desktop job and byte-change production deployer are retired. `com.thirdi.portal-data-refresh` runs from Application Support every 15 minutes, updates only a private local cache, preserves the last good cache when the local server is unavailable, exits cleanly, and never edits the repository or deploys. The disabled legacy plist is retained under Application Support for recovery/audit context.
 
 ---
 
@@ -101,4 +91,4 @@ switch to v2 happens through a reviewed PR with a rollback artifact retained.
 
 `DATA-01` → live comments/drafts/completion (highest client value) →
 `EMAIL-01` → notifications → `DATA-02` → media/downloads → `MEM-01` → memory mirror →
-OS redesign → `RELEASE-01/02/03`. Shaw only after bkWatch production is accepted.
+OS redesign → `RELEASE-01/02/03`. bkWatch v2 is accepted; Shaw still requires its tenant content/design/data/deploy gates.

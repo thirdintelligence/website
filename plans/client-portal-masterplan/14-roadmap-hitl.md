@@ -62,7 +62,7 @@ Deliverables:
 - local memory mirror dry run.
 
 HITL `DATA-01`: confirm the implemented R2 `_ops/<version>/` operational namespace, preview/production separation, and retention policy.
-HITL `DATA-02`: approve the selected Cloudflare R2 Standard account/buckets, 2 GiB file policy, allowed types, retention/backup, budget alerts, scoped credentials, and production environment setup.
+HITL `DATA-02`: architecture/current file limits and types are approved. Complete the separate `thirdi-media-preview` bucket/credential setup in `25-r2-preview-bucket.md`; revisit quarantine, retention automation, and budget alerts only when provider use requires them.
 HITL `EMAIL-01`: approve transactional email provider, sender, and production secret setup.
 HITL `COMMS-01`: approve exact email copy and superprompt templates.
 HITL `MEM-01`: approve the live-event-to-vault mirror writing into client communications folders.
@@ -148,7 +148,7 @@ After each accepted release:
 | Email provider approval | Automatic notification delivery |
 | OS action API | Completion round trip |
 | Memory migration approval | New COMMS folder writes and department consolidation |
-| bkWatch acceptance | Shaw build |
+| Shaw tenant content/design/data approval | Shaw client publication (bkWatch v2 baseline is already accepted) |
 
 ## Definition of masterplan completion
 

@@ -4779,7 +4779,7 @@
           </div>
           <div class="project-detail route-film">
             <div class="project-title"><span class="skill-badge film">FILM</span> Shaw Film</div>
-            <div class="project-meta">Active Shaw film lane: Film 1 archived, Film 2 Amplify in production, Film 3 AI Advisor brainstorm v3 complete (top 8 ideas ranked, demos next, target Aug 15), Film 4 Insight planned (target Sept 15) for the Vegas Summit booth loop.</div>
+            <div class="project-meta">Shaw film lane: Film 1 complete (250h fixed-bid/pre-contract), Film 2 Amplify V1/V2 complete, Film 3 AI Advisor brainstorm complete with direction lock next, and Film 4 Insight planned. Films 2–4 form one aligned Vegas Summit loop.</div>
             <div class="project-kv">
               <span>Instructions</span><span>Shaw film rules + film-specific approval gates + 11_demos_plan skill</span>
               <span>Workflow</span><span>Demo-first pipeline (D1 braindump &rarr; D2 demo packages &rarr; D3 video demos &rarr; D4 master plan &rarr; D5 production) with HITL at every gate</span>
@@ -5679,16 +5679,16 @@
             <tr>
               <td class="mono">1</td>
               <td>
-                <div class="priority-main"><span class="badge badge-urgent">URGENT</span> Ship Shaw Film 2 — Amplify</div>
+                <div class="priority-main"><span class="badge badge-urgent">URGENT</span> Lock Shaw Film 3 direction + Summit loop alignment</div>
                 <ul class="substep-list">
-                  <li>Finish generation/edit pass</li>
-                  <li>Assemble review cut</li>
-                  <li>QC Shaw brand + product accuracy</li>
-                  <li>Package delivery + case-study notes</li>
+                  <li>Choose or hybridize the strongest AI Advisor direction</li>
+                  <li>Align Films 2, 3, and 4 as one campaign sequence</li>
+                  <li>Lock the Film 3 storyboard and script</li>
+                  <li>Carry confirmed Spectrum, Amplify, AI Advisor, and Insight relationships across all three</li>
                 </ul>
               </td>
-              <td class="mono">July 8</td>
-              <td><span class="status status-red"><span class="status-dot"></span>In Production</span></td>
+              <td class="mono">Aug 15</td>
+              <td><span class="status status-yellow"><span class="status-dot"></span>Direction Lock</span></td>
             </tr>
             <tr>
               <td class="mono">2</td>
@@ -6094,6 +6094,33 @@ OUTPUT:
 - Any blocked connector or missing template access
 - Exact OS action-card title, route, priority, and prompt body for every blocked non-planned agent`
       },
+      weeklyAutomationSetupPrompt: {
+        title: 'Set Up third-i-weekly',
+        kind: 'Automation Setup Prompt · Feed to Exec',
+        body: `AGENT: Exec
+SCHEDULE: Friday at 5:00 PM America/Chicago
+AUTHORITY: memory/THIRD_I/AUTOMATIONS.md
+
+TASK:
+Create or update one automation named third-i-weekly. Keep it simple and produce one concise report—not a report per push.
+
+CHECK:
+1. Read Accounting and client time tabs; ask Third i for missing hours; verify HCL/client status; prepare separate invoice drafts by company. Do not send or change statuses without HITL.
+2. Review Git and Netlify only since the last stored weekly commit/deploy cursor. Record timestamp, commit, branch, changed area, tests, deploy ID/URL/result, rollback commit, and optional note.
+3. Check tests/build/deploy health, live connector freshness, failed jobs, agents, active projects, memory, portal, OS, and source-of-truth drift.
+4. Complete only safe mechanical cleanup. Propose design, content, architecture, provider, destructive, or meaningful upgrade work for HITL.
+5. Treat only an explicit blocker comment, current memory blocker, direct client stop instruction, or Third i HITL as a blocker.
+
+OUTPUT:
+- Missing-hours question and per-client invoice draft plan
+- Changes/releases since the last cursor
+- System health and drift findings
+- Safe cleanup completed
+- Exact HITL decisions, if any
+- Updated weekly cursor
+
+Do not add separate monthly jobs yet; fold monthly research/cleanup into the first weekly report of the month.`
+      },
       thirdIWeeklyUpgradePrompt: {
         title: 'Upgrade Automation to third-i-weekly',
         kind: 'Automation Upgrade Prompt · Feed to Exec',
@@ -6234,8 +6261,8 @@ OUTPUT:
 - Confirmation that all writes are client-siloed to Shaw`
       },
       shawFilm3BrainstormPrompt: {
-        title: 'Brainstorm Shaw Film 3 aiAdvisor',
-        kind: 'Brainstorm + Deep R&D Prompt · Feed to Shaw-Film3',
+        title: 'Lock Shaw Film 3 AI Advisor direction',
+        kind: 'Direction Lock + Summit Alignment Prompt · Feed to Shaw-Film3',
         body: `AGENT: Shaw-Film3
 SETTINGS: brainstorm mode, deep R&D research ON, browser/web research ON, Shaw privacy silo ON, memory updates proposed after synthesis
 SUPERSKILLS: researcher, strategist, project_manager, 0_tasks, 1_planning, 2_storyboarding, 3_prompting, qc, learner
@@ -6244,7 +6271,7 @@ PROJECT: Shaw Film 3 — aiAdvisor
 TARGET: August 15, 2026
 
 TASK:
-Brainstorm strong Film 3 concepts for Shaw AI Advisor using Justin's meeting notes and a deep R&D pass.
+Use the completed Film 3 brainstorm to select or hybridize the strongest AI Advisor direction, then align its storyboard/script plan with completed Film 2 - Amplify and planned Film 4 - Insight as one Summit campaign loop.
 
 MEETING NOTES:
 - AI Advisor video length: 1 minute.
@@ -6515,7 +6542,7 @@ TASK:
 Create the Shaw-Film4 project agent AND deliver Phase D1 (Braindump) of the demo-first pipeline. Follow the exact pattern established by Shaw Film 3 (AI Advisor): setup → research → brainstorm → demo packages → direction lock → plans → production.
 
 CONTEXT (What's Already Done):
-- Film 2 (Amplify): 3-4 min video, borrower self-service, in production. Visual: warm/cool beams + spectrumCore.
+- Film 2 (Amplify): V1 and V2 complete; borrower self-service. Visual: warm/cool beams + spectrumCore.
 - Film 3 (AI Advisor): ~60s video, agent intelligence / Next Best Action, brainstorm v3 complete with top 8 ideas demoed. Visual: prediction cascade / dominos / holographic JARVIS. Hero: AI Advisor predicts problems before they happen.
 - Film 4 (Insight): ~60s video, executive analytics / portfolio intelligence. Target: September 15, 2026. Visual: MUST be distinct from Film 2 and Film 3.
 - All three loop together at the Shaw Systems Vegas Summit booth in October 2026.
@@ -6528,7 +6555,7 @@ REQUIRED SETUP:
 1. Create Shaw-Film4 agent folder at ~/Desktop/Shaw/Film4-Insight/Film4_Agent/ (copy from Film3 or Template).
 2. Create memory/SHAW/SHAW_FILM4/ with README, INDEX, WORKING, EPISODIC, research/products/, research/competitors/, plans/.
 3. Research Insight product deeply — what it is, what it does, how it differs from Spectrum reporting.
-4. Create product-interplay research for the EXECUTIVE layer (Insight sits above AI Advisor in the stack).
+4. Create product-interplay research for the executive story while keeping Insight correctly framed as a feature/capability within Spectrum.
 5. Update SHAW_README, SHAW_INDEX, os.html, and EXEC_WORKING.
 
 BRAINSTORM REQUIREMENTS (Phase D1 of 11_demos_plan):
@@ -6746,7 +6773,7 @@ Restore and rework the old per-project film OS concept into secure client film p
 PRIMARY DELIVERABLES:
 1. Create the Shaw Film 3 client portal source as shaw-portal.html and serve it at https://thirdi.net/shaw.
 2. Use the Film1-ShawBkWatch project surface source as bkWatch-os.html and serve its approved client-safe build at https://thirdi.net/bkWatch, with a lowercase redirect if the host normalizes paths.
-3. Do not build portals for Shaw Film 1, Shaw Film 2, Shaw Web, bkWatch Web, or non-film work unless Justin explicitly asks. Scope is Shaw Film 3, Film1-ShawBkWatch, and all future film projects.
+3. Shaw Projects contains Films 1–4. Other Shaw work belongs in Library/Value unless separately scoped as a project.
 4. Create a reusable future-film portal template and content schema so every future film can receive the same system without sharing another client's private content.
 5. This replaces per-project dashboard.md for client-facing film presentation. Do not create or maintain dashboard.md/os.md as the active project presentation surface. Project state remains in central ThirdI_EXEC/os.html; client-facing film presentation lives in the portal.
 6. Until the public Third i homepage is built, keep the root homepage intentionally minimal: Third i logo/name plus links to the Shaw and bkWatch portals. Do not build a marketing homepage in this task.
@@ -6900,16 +6927,130 @@ OUTPUT:
 @web.md
 /web`
       },
+      clientPortalPlatformPrompt: {
+        title: 'Build shared client portal platform and Shaw generator',
+        kind: 'ThirdI_WEB Superprompt · Feed to Third-i-Web',
+        body: `AGENT: Third-i-Web
+SETTINGS: architecture/build mode, tenant isolation ON, browser verification ON, current portal visual regression lock ON, production deploy only after validation/HITL
+
+TASK:
+Build the approved shared client-portal platform and a reusable tenant generator from the accepted bkWatch v2 design/structure baseline. Keep the current bkWatch portal UI visually unchanged during migration. Prepare Shaw from confirmed Shaw content; do not copy a client HTML file or create a permanent tenant code fork.
+
+READ FIRST:
+1. AGENTS.md, .devin/workflows/web.md, .devin/rules/thirdi_web.md, design/skills/DESIGN.md
+2. plans/client-portal-masterplan/17-agent-handoff.md
+3. plans/client-portal-masterplan/20-film-demo-lifecycle.md
+4. plans/client-portal-masterplan/22-source-of-truth-sync-operations.md
+5. plans/client-portal-masterplan/23-shaw-portal-readiness.md
+6. plans/client-portal-masterplan/24-approved-platform-operating-plan.md
+7. plans/client-portal-masterplan/25-r2-preview-bucket.md
+8. memory/THIRD_I/AUTOMATIONS.md and current Third i/Shaw working memory
+
+ARCHITECTURE:
+- One shared renderer/core/components/routes/schemas/APIs/tests.
+- Separate tenant config, design tokens, client-safe content, auth/session namespace, operational store, media prefixes, search index, and release pointer.
+- Generator accepts tenant key/route/design authority/logo/client-safe records/auth+storage namespaces/features and generates configuration/manifests/tests only.
+- Hashes are for input change detection, release IDs, cache keys, and weekly cursors—not tenant architecture.
+- Immediate operational writes use tenant-scoped APIs; reviewed facts/status/copy use sanitized structured releases.
+- Shared upgrades are tested against bkWatch, then rolled out compatibly; tenant content updates stay tenant-specific.
+
+SHAW CANON:
+- Projects shows Films 1–4; other engagements live in Library/Value unless separately scoped.
+- Film 1 is complete 2026 conference work: 250 hours, fixed-bid/pre-contract, official Film 1.
+- Film 2 - Amplify V1 and V2 are complete.
+- Film 3 - AI Advisor has completed creative brainstorming and awaits direction lock.
+- Film 4 - Insight is planned; Insight is a Spectrum feature/capability.
+- Films 2, 3, and 4 form one aligned Summit campaign loop. Every film must consider the other two.
+- Correctly routed Shaw communications are client-safe in the private portal. Exclude cross-client data, credentials, local paths, raw prompts, and internal workflow architecture.
+
+BLOCKERS:
+Only explicit blocker comments, current memory blockers, direct client stop instructions, and Third i HITL block work. Do not treat automatic email footers or ordinary review notes as blockers.
+
+BUILD + VERIFY:
+1. Inventory current portal source/schemas/functions/tests and produce a no-regression migration map.
+2. Extract shared core and tenant registry without changing bkWatch visuals or behavior.
+3. Build the generator and schema/tenant isolation tests.
+4. Prepare Shaw config/content source map; stop before client-visible publication for its content/design/data gates.
+5. Verify all routes, buttons, search/filters, comments, lifecycle states, auth, tenant denial, responsive layouts, accessibility, performance, build, preview, and rollback.
+6. Use distinct preview/production operational and media namespaces. Do not activate media preview until thirdi-media-preview exists.
+7. Update plans, OS, and memory with release/version evidence.
+
+OUTPUT:
+- Shared-platform source map and migration report
+- Generator inputs/outputs and tenant-isolation model
+- bkWatch visual/functional regression evidence
+- Shaw readiness/build artifacts and remaining tenant gates
+- Tests, preview/production evidence, rollback point, and agent-readable release record
+
+@web.md
+/web`
+      },
+      osRestructurePrompt: {
+        title: 'Restructure OS into small agent-readable sources',
+        kind: 'Separate OS Superprompt · Feed to Third-i-Web',
+        body: `AGENT: Third-i-Web
+SETTINGS: architecture/refactor mode, current OS visual regression lock ON, no portal work, no connector writes
+
+TASK:
+Restructure os.html into the smallest agent-efficient source system, then generate the single HTML artifact. This is separate from the client-portal platform build.
+
+KNOWN STARTING ISSUE:
+- ThirdI_WEB/os.html is newer than ThirdI_EXEC/os.html.
+- The legacy sync copied the older ThirdI_EXEC file over the newer deployed file and could regress work.
+- Treat the current deployed/repository OS as the runtime baseline until source reconciliation is complete.
+
+TARGET:
+- structured data/config for agents, projects, actions, prompts, connectors, metrics, and automation registry references;
+- small templates/components and one deterministic build step that generates os.html;
+- one compact agent-context manifest listing every authority path/tool and whether data is canonical, live, derived, planned, stale, or unknown;
+- connector adapters read their existing authorities instead of copied prose;
+- local snapshot refresh is separate from repository edits and deployment;
+- preserve current owner UI, auth, routes, action behavior, and connector behavior unless separate visual HITL approves changes.
+
+PROCESS:
+1. Inventory both OS files, runtime/server scripts, embedded snapshot, generators, extractors, and duplicated prompts.
+2. Reconcile facts/prompts against current memory and plans; archive superseded prompt text outside the generated runtime.
+3. Define the minimal structured source tree and JSON schemas.
+4. Build deterministic generation and validation; generated os.html must have no hand-edited source-of-truth role.
+5. Add drift detection proving generated output matches committed output.
+6. Test owner auth, actions, live connectors, snapshot fallback, responsive behavior, accessibility, build, and deployment.
+7. Update sync/runbooks so no process copies an older OS over a newer one.
+
+OUTPUT:
+- Source inventory and authority map
+- Proposed/implemented source tree
+- Generator, schemas, drift check, and migration notes
+- Regression evidence and rollback point
+- Updated agent-context manifest and operating instructions
+
+@web.md
+/web`
+      },
+      portalFutureUpgradesPrompt: {
+        title: 'Plan future client portal upgrades',
+        kind: 'Planning Prompt · Feed to Third-i-Web',
+        body: `AGENT: Third-i-Web
+MODE: plan only; keep current portal UI unchanged
+AUTHORITY: plans/client-portal-masterplan/16-future-features.md
+
+TASK:
+Maintain the future portal backlog around the approved priorities: Client Actions & Approvals, Since Last Visit/weekly recap, formal decision history, owner-only client health/retention in OS, and a reusable new-client onboarding template. Incorporate the existing security, media review, Library, AI Roadmap, portal health, release-note, feature-flag, backup, and preview-promotion plans.
+
+Keep invoices/e-signatures, individual accounts, tickets, live chat, SMS, and a native mobile app lower priority until real client demand justifies them. For every promoted feature, define retention value, source of truth, tenancy/privacy, HITL, tests, rollout, and rollback. Do not implement or redesign the current portal in this task.
+
+@web.md
+/web`
+      },
       shawClientPortalPrompt: {
         title: 'Build Shaw client portal from accepted bkWatch template',
-        kind: 'Canonical Shaw Portal Superprompt · Feed to Third-i-Web after bkWatch acceptance',
+        kind: 'Supporting Shaw Portal Prompt · Feed to Third-i-Web',
         body: `AGENT: Third-i-Web
 SETTINGS: full-stack build mode, Shaw privacy silo ON, browser verification ON, Netlify deployment ON, security review ON, no production mutation before its named HITL gate
 CLIENT: Shaw Systems
 PROJECT: Reusable Shaw client portal
 
 START CONDITION:
-Do not begin the Shaw build until Third i records acceptance of the bkWatch portal release. Until then, run readiness and reconciliation only. Reuse the accepted portal architecture, schemas, interaction patterns, tests, and operational contracts—never bkWatch content, credentials, prompts, private assets, or generated media.
+bkWatch v2 is accepted. Use actionPayloads.clientPortalPlatformPrompt as the controlling build prompt. This Shaw-specific prompt remains supporting detail only.
 
 READ IN THIS ORDER:
 1. .devin/workflows/web.md and .devin/rules/thirdi_web.md
@@ -6943,10 +7084,11 @@ FILM WORKFLOW CONTRACT FOR EVERY FUTURE PROJECT:
 
 SHAW CONTENT READINESS:
 - Inventory Spectrum, Amplify, Insight, and any confirmed AI Advisor naming and interplay without inventing product relationships.
-- Treat Film 1 history as unresolved until memory, time tracking, invoices, communications, and approved assets agree on whether it was archived before generation or delivered as conference work. Do not publish either interpretation until reconciled.
-- Confirm official Film 3/AI Advisor nomenclature before client display.
-- Treat Insight as a standalone product only after its low-confidence product status is confirmed.
-- Represent Film 2 version/status history from the current working record; never flatten V1 completion and V2 production into one ambiguous state.
+- Film 1 is complete conference work: 250 hours, fixed-bid/pre-contract, and the official Film 1 record. The archived scaffold is historical only.
+- Film 2 - Amplify V1 and V2 are complete; preserve both version records.
+- Film 3 - AI Advisor is the official name; brainstorming is complete and direction lock is next.
+- Film 4 - Insight is planned; Insight is a Spectrum feature/capability.
+- Plan Films 2, 3, and 4 as one aligned Summit campaign loop, with every film considering the other two.
 - Keep client/private Shaw assets isolated from bkWatch. General production methods and quality controls may transfer; source files, prompts, knowledge, credentials, feedback, and media may not.
 
 DATA + LIVE CONNECTORS:
@@ -7090,6 +7232,25 @@ DAILY PREP SECTIONS:
 
 OUTPUT FORMAT:
 Deliver as a single structured briefing. Log to EPISODIC memory. Post any workflow improvement proposals to R&D for HITL review.`
+      },
+      morningPrepPrompt: {
+        title: 'Daily Morning Prep Automation',
+        kind: 'Automation Setup Prompt · Feed to Exec',
+        body: `AGENT: Exec
+SCHEDULE: Every morning at 8:00 AM America/Chicago
+AUTHORITY: memory/THIRD_I/AUTOMATIONS.md
+
+TASK:
+Produce one concise morning briefing from current live connectors and active working memory.
+
+OUTPUT:
+1. Top three actions for today.
+2. Meetings/deadlines in the next seven days.
+3. Urgent communications requiring a draft or decision.
+4. One relevant AI/business signal only when it can change today's work.
+5. One proposed workflow/business upgrade only when evidence supports it.
+
+Stay read-only. Do not send, write to Sheets/Calendar, publish, or create broad memory/research logs without HITL. Treat only an explicit blocker comment, current memory blocker, direct client stop instruction, or Third i HITL as a blocker.`
       },
       emailSetupPrompt: {
         title: 'Set up founder@thirdi.net Email',
@@ -8017,9 +8178,23 @@ OUTPUT:
       {
         id: 'static-client-portfolio-portals',
         priority: 'urgent',
-        title: 'Prepare Shaw portal from accepted bkWatch template',
-        meta: 'Readiness/reconciliation now · build only after bkWatch acceptance · five connected work areas · reusable tenant lifecycle/data contracts · Agent: Third-i-Web',
-        payload: actionPayloads.shawClientPortalPrompt
+        title: 'Build shared client portal platform and Shaw generator',
+        meta: 'bkWatch v2 accepted · one shared core + isolated tenant data · keep current portal UI unchanged · Agent: Third-i-Web',
+        payload: actionPayloads.clientPortalPlatformPrompt
+      },
+      {
+        id: 'static-os-restructure',
+        priority: 'high',
+        title: 'Restructure OS into agent-readable sources',
+        meta: 'Separate superprompt · reconcile the two OS copies · generate os.html deterministically · preserve current OS UI · Agent: Third-i-Web',
+        payload: actionPayloads.osRestructurePrompt
+      },
+      {
+        id: 'static-future-portal-upgrades',
+        priority: 'normal',
+        title: 'Plan future client portal upgrades',
+        meta: 'Plan only · actions/approvals, since-last-visit, decisions, client health, onboarding · current portal unchanged · Agent: Third-i-Web',
+        payload: actionPayloads.portalFutureUpgradesPrompt
       },
       {
         id: 'static-portal-auth-upgrade',
@@ -8038,8 +8213,8 @@ OUTPUT:
       {
         id: 'static-brainstorm-shaw-film3',
         priority: 'urgent',
-        title: 'Brainstorm Shaw Film 3 aiAdvisor',
-        meta: 'Use last week’s Shaw notes · Next Best Action · Spectrum/Amplify/Insight interplay · Genesys/Cresta research · Agent: Shaw-Film3',
+        title: 'Lock Shaw Film 3 AI Advisor direction',
+        meta: 'Brainstorm complete · choose/hybridize direction · align completed Amplify, AI Advisor, and planned Insight as one Summit loop · Agent: Shaw-Film3',
         payload: actionPayloads.shawFilm3BrainstormPrompt
       },
       {
