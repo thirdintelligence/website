@@ -1,9 +1,9 @@
 # Third i Client Portal Masterplan
 
-Status: approved brief converted to execution plan  
-Version: 2.2  
-Prepared: 2026-07-16  
-First tenant: bkWatch  
+Status: approved brief converted to execution plan
+Version: 2.2
+Prepared: 2026-07-16
+First tenant: bkWatch
 Second tenant: Shaw Systems, after bkWatch acceptance
 
 ## Purpose
@@ -33,7 +33,7 @@ The masterplan changes the client portal and OS architecture. It does not author
 
 When sources disagree, use this order:
 
-1. Justin's approved brief in `CLIENT_PORTAL_BRIEF.md` and the files in this folder.
+1. Third i's approved brief in `CLIENT_PORTAL_BRIEF.md` and the files in this folder.
 2. `.devin/workflows/web.md` v3.0.
 3. Client memory-root `DESIGN.md` and approved brand assets.
 4. `design/skills/DESIGN.md` for shared Third i platform behavior.
@@ -74,7 +74,7 @@ The approved client-portal directions in this plan are a client-portal overlay. 
 
 Every local project has a `memory/` symlink into the same Obsidian vault. This is useful and remains the local knowledge source of truth.
 
-It does not mean Netlify can read the vault at runtime. A deployed function cannot follow a symlink to Justin's Mac. The system therefore has two synchronized layers:
+It does not mean Netlify can read the vault at runtime. A deployed function cannot follow a symlink to the local Third i filesystem. The system therefore has two synchronized layers:
 
 1. **Curated knowledge:** the symlinked Obsidian vault and sanitized client manifests.
 2. **Live operational state:** authenticated hosted records for comments, drafts, completion, uploads, and client-created project requests.

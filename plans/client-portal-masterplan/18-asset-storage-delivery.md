@@ -1,7 +1,7 @@
 # Large Asset Storage and Client Delivery
 
-Decision status: architecture selected; production provider setup remains gated by `DATA-02` and `RELEASE-02`  
-Prepared: 2026-07-16  
+Decision status: architecture selected; production provider setup remains gated by `DATA-02` and `RELEASE-02`
+Prepared: 2026-07-16
 Primary decision: private Cloudflare R2 Standard storage with tenant-authorized, short-lived direct upload/download URLs
 
 ## Outcome
@@ -273,7 +273,7 @@ Use sparse/generated test fixtures in preview rather than committing large binar
 
 ## HITL gate DATA-02
 
-The architecture decision is Cloudflare R2 Standard with a 2 GiB product limit. Before production setup, Justin must approve:
+The architecture decision is Cloudflare R2 Standard with a 2 GiB product limit. Before production setup, Third i must approve:
 
 1. the Cloudflare account/billing context;
 2. production and preview bucket names/regions/jurisdiction settings;

@@ -105,11 +105,11 @@ Only these owner actions are directly executable without an agent:
 
 Complex work becomes a versioned copy-prompt with the correct agent and workflow. A button must not imply execution if an agent or approval is still required.
 
-For agent-required work, OS shows `Copy prompt` and assigned agent. `Complete` remains available only after the work result exists and Justin is confirming closure; having a pre-built prompt is not itself completion.
+For agent-required work, OS shows `Copy prompt` and assigned agent. `Complete` remains available only after the work result exists and Third i is confirming closure; having a pre-built prompt is not itself completion.
 
 ## Agent handoff
 
-Agents may read the protected/generated OS state to discover Justin's reordered priorities, new comments, and action choices. Knowledge, history, brand facts, and approved project truth still come from memory and live connectors. OS is the action/orchestration surface, not a replacement factual memory vault.
+Agents may read the protected/generated OS state to discover Third i's reordered priorities, new comments, and action choices. Knowledge, history, brand facts, and approved project truth still come from memory and live connectors. OS is the action/orchestration surface, not a replacement factual memory vault.
 
 ## Comment completion flow
 

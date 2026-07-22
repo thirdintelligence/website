@@ -42,7 +42,7 @@ No project completion percentage is shown unless the underlying milestone model 
 
 ### 4. Recently completed actions
 
-When Justin marks a comment complete in OS, it appears here with:
+When Third i marks a comment complete in OS, it appears here with:
 
 - completed status and icon;
 - original comment title;

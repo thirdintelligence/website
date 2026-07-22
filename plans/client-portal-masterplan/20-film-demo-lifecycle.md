@@ -1,6 +1,6 @@
 # Film project, demo, and promotion lifecycle
 
-Status: controlling reusable product contract  
+Status: controlling reusable product contract
 Updated: 2026-07-21
 
 ## Canonical naming

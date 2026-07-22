@@ -10,7 +10,7 @@ Deliverables:
 - exact file plan;
 - test and rollback plan.
 
-Exit: Justin accepts or edits the plan folder.
+Exit: Third i accepts or edits the plan folder.
 
 ## Phase 1 — Data contracts and reusable shell
 
@@ -25,8 +25,8 @@ Deliverables:
 - meaningful utility bar;
 - search/filter contract.
 
-HITL `DESIGN-01`: approve desktop/mobile shell mockups in light/dark.  
-HITL `DESIGN-02`: approve abstract motif system and gradient endpoint.  
+HITL `DESIGN-01`: approve desktop/mobile shell mockups in light/dark.
+HITL `DESIGN-02`: approve abstract motif system and gradient endpoint.
 HITL `CONTENT-01`: approve migrated bkWatch client-visible copy/data.
 
 ## Phase 2 — Four bkWatch pages
@@ -41,9 +41,9 @@ Deliverables:
 - direct downloads and print/PDF layout;
 - in-production and draft treatments.
 
-HITL `DESIGN-03`: approve in-production grid plus animated `designer.svg`.  
-HITL `CONTENT-02`: approve AI-assisted draft disclaimer.  
-HITL `COMMERCIAL-01`: approve project-level pricing/scope presentation.  
+HITL `DESIGN-03`: approve in-production grid plus animated `designer.svg`.
+HITL `CONTENT-02`: approve AI-assisted draft disclaimer.
+HITL `COMMERCIAL-01`: approve project-level pricing/scope presentation.
 HITL `AI-01`: approve AI categories, statuses, recommendations, and cited research snapshot.
 
 ## Phase 3 — Live comments and project intake
@@ -61,10 +61,10 @@ Deliverables:
 - notification queue adapter;
 - local memory mirror dry run.
 
-HITL `DATA-01`: approve Netlify Blobs as hosted operational JSON store and retention policy.  
-HITL `DATA-02`: approve the selected Cloudflare R2 Standard account/buckets, 2 GiB file policy, allowed types, retention/backup, budget alerts, scoped credentials, and production environment setup.  
-HITL `EMAIL-01`: approve transactional email provider, sender, and production secret setup.  
-HITL `COMMS-01`: approve exact email copy and superprompt templates.  
+HITL `DATA-01`: confirm the implemented R2 `_ops/<version>/` operational namespace, preview/production separation, and retention policy.
+HITL `DATA-02`: approve the selected Cloudflare R2 Standard account/buckets, 2 GiB file policy, allowed types, retention/backup, budget alerts, scoped credentials, and production environment setup.
+HITL `EMAIL-01`: approve transactional email provider, sender, and production secret setup.
+HITL `COMMS-01`: approve exact email copy and superprompt templates.
 HITL `MEM-01`: approve the live-event-to-vault mirror writing into client communications folders.
 
 ## Phase 4 — OS redesign
@@ -80,7 +80,7 @@ Deliverables:
 - view-as-client parity;
 - logout placement.
 
-HITL `OS-01`: approve OS wireframes and information hierarchy.  
+HITL `OS-01`: approve OS wireframes and information hierarchy.
 HITL `MEM-02`: approve department consolidation and any source-file moves/merges.
 
 ## Phase 5 — Full QC and preview
@@ -95,8 +95,8 @@ Deliverables:
 - backup and rollback rehearsal;
 - preview URL.
 
-HITL `RELEASE-01`: approve preview design and client-visible content.  
-HITL `RELEASE-02`: approve production datastore/email/media configuration.  
+HITL `RELEASE-01`: approve preview design and client-visible content.
+HITL `RELEASE-02`: approve production datastore/email/media configuration.
 HITL `RELEASE-03`: explicit production deployment approval.
 
 ## Phase 6 — bkWatch production

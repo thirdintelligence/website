@@ -106,7 +106,7 @@ The requested composer must allow interaction with the site behind it, so it sho
 
 ### Finding
 
-Netlify site-scoped Blobs persist across deploys. Strong consistency is available when immediate reads after updates matter. Netlify documents Functions + Blobs for validated user uploads and operational data. [Netlify Blobs](https://docs.netlify.com/build/data-and-storage/netlify-blobs/)
+Netlify Blobs was evaluated for small operational records, but the implemented system selected the S3-compatible Cloudflare R2 adapter for both isolated operational JSON and private media. This avoids the rejected Blobs dependency path and keeps tenant enforcement, audit records, and storage credentials on one adapter while preserving separate `_ops/` and media prefixes. Netlify still owns authentication, authorization, validation, and signing.
 
 Netlify Background Functions return immediately, can run asynchronously, and retry failed invocations; they are appropriate for notification work that should not block the client transaction. [Netlify Background Functions](https://docs.netlify.com/build/functions/background-functions/)
 
@@ -133,8 +133,8 @@ Backblaze B2 has lower raw storage pricing, but its free egress is limited relat
 
 ### Decision
 
-- Use Netlify Blobs for live JSON operational state.
-- Use Cloudflare R2 Standard for private client-visible media, with a 2 GiB per-file product limit.
+- Use Cloudflare R2 Standard for tenant-scoped live JSON under `_ops/<version>/` and for private client-visible media under separate prefixes.
+- Keep the 2 GiB per-file product limit on the media contract; operational JSON remains schema- and size-limited.
 - Send large uploads/downloads directly between browser/local tooling and R2; Netlify only validates and signs.
 - Use multipart upload above 100 MiB, default 64 MiB parts, and preserve resumable state.
 - Never expose a storage token to the browser.

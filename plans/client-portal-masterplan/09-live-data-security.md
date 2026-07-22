@@ -27,7 +27,7 @@ Use an event-driven hosted operational layer for live interaction and the symlin
 
 ## Why the split is required
 
-The symlink exists on Justin's local projects and is valuable for agents and scripts. It does not exist inside Netlify's runtime and must not be included in deploy artifacts. A production portal therefore cannot guarantee a direct write to the local vault.
+The symlink exists across Third i's local projects and is valuable for agents and scripts. It does not exist inside Netlify's runtime and must not be included in deploy artifacts. A production portal therefore cannot guarantee a direct write to the local vault.
 
 The system can guarantee durable hosted acceptance first, then observable/retryable local mirroring.
 
@@ -35,12 +35,12 @@ The system can guarantee durable hosted acceptance first, then observable/retrya
 
 ### Operational JSON
 
-Use site-scoped Netlify Blobs with strong consistency for comments, drafts, actions, completion, notification state, and small metadata. Site-scoped records persist across deploys; strong consistency is required because owner completion must be immediately visible to the portal.
+Use the private Cloudflare R2 operational adapter for comments, drafts, actions, completion, notification state, and small metadata. Operational JSON lives under an isolated `_ops/<version>/` prefix, separate from client media, and persists across deploys. The selected adapter avoids the rejected Netlify Blobs dependency path while reusing the scoped R2/S3 contract and tenant controls.
 
 Recommended key pattern:
 
 ```text
-portal-live-v1/
+_ops/portal-live-v1/
   tenants/{tenant}/comments/{commentId}.json
   tenants/{tenant}/drafts/{deviceId}/{draftId}.json
   tenants/{tenant}/project-requests/{requestId}.json
@@ -55,7 +55,7 @@ The tenant is server-derived and included in every key. List operations always u
 Approved client-safe content uses a separate versioned namespace:
 
 ```text
-portal-content-v2/
+_content/portal-content-v2/
   tenants/{tenant}/releases/{releaseId}.json
   tenants/{tenant}/current.json
 ```
@@ -66,7 +66,7 @@ The local publisher reads only structured records with `clientSafe: true` and `o
 
 Architecture selection: private Cloudflare R2 Standard storage with short-lived signed upload/download URLs and a first-release product limit of 2 GiB per file. Use tenant-prefixed opaque object keys, multipart upload over 100 MiB, immutable versions, range reads for playback, and readable `Content-Disposition` filenames.
 
-Netlify authenticates, authorizes, creates asset metadata/audit records, and signs the transfer. It never proxies the media bytes. Netlify Blobs remains the operational JSON store, not the large-media store.
+Netlify authenticates, authorizes, creates asset metadata/audit records, and signs the transfer. It never proxies the media bytes. R2 stores both isolated operational JSON and private media under different prefixes/contracts; large bytes never pass through a Netlify Function.
 
 Production bucket creation, billing, scoped credentials, allowed types, retention, backup, and environment changes remain blocked until HITL gate `DATA-02`. The complete provider comparison and implementation contract is in `18-asset-storage-delivery.md`.
 
@@ -203,7 +203,7 @@ Use schedules only for:
 - approved AI Roadmap research refresh;
 - deterministic client-safe manifest publishing when local infrastructure is online.
 
-If Justin later wants three daily reconciliation checks, use one local automation at 8:00 AM, 12:00 PM, and 4:00 PM America/Chicago rather than three separate agents. It should call the deterministic sync/publisher and surface failures in OS; it must not reinterpret memory or publish unapproved prose.
+If Third i later wants three daily reconciliation checks, use one local automation at 8:00 AM, 12:00 PM, and 4:00 PM America/Chicago rather than three separate agents. It should call the deterministic sync/publisher and surface failures in OS; it must not reinterpret memory or publish unapproved prose.
 
 The existing five-minute local `auto-sync-deploy.sh` must be revised before reuse. Production deploys should not be triggered by any `os.html` byte change without schema validation, tests, diff inspection, and the agreed HITL production gate.
 

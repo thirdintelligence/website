@@ -1,6 +1,6 @@
 # Shaw portal readiness and template plan
 
-Status: development-ready plan; build gated until bkWatch acceptance  
+Status: development-ready plan; build gated until bkWatch acceptance
 Updated: 2026-07-21
 
 ## Reuse boundary

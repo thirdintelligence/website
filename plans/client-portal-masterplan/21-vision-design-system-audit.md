@@ -1,6 +1,6 @@
 # Vision, design, and product-system audit
 
-Status: final-version audit with gated improvement plan  
+Status: final-version audit with gated improvement plan
 Updated: 2026-07-21
 
 ## Product vision

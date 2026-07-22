@@ -1,6 +1,6 @@
 # Source of truth, live connectors, sync, and upgrades
 
-Status: operating architecture  
+Status: operating architecture
 Updated: 2026-07-21
 
 ## Source-of-truth model

@@ -157,8 +157,8 @@ Before production:
 1. Build and all automated tests pass.
 2. Netlify deploy preview uses non-production operational stores/providers.
 3. Third i reviews all five work areas in both themes.
-4. Justin reviews draft disclaimer, pricing treatment, comments, and in-production template.
-5. Justin approves final client-visible bkWatch content and assets.
+4. Third i reviews draft disclaimer, pricing treatment, comments, and in-production template.
+5. Third i approves final client-visible bkWatch content and assets.
 6. Data/security provider configuration is confirmed.
 7. Backup/rollback rehearsal passes.
 
