@@ -131,13 +131,15 @@ export function setActiveNav(routeName) {
   });
 }
 
-export function setContext({ crumb = "", title = "", action = "", fullscreen = false } = {}) {
+export function setContext({ crumb = "", title = "", action = "", fullscreen = false, commentContext = null } = {}) {
   const c = document.getElementById("topbar-crumb");
   const t = document.getElementById("topbar-title");
   const a = document.getElementById("topbar-action");
   const fs = document.getElementById("topbar-fullscreen");
+  const app = document.querySelector(".portal-app");
   if (c) c.textContent = crumb;
   if (t) t.textContent = title;
   if (a) a.innerHTML = action;
   if (fs) fs.hidden = !fullscreen;
+  if (app) app.dataset.commentContext = commentContext ? JSON.stringify(commentContext) : "";
 }

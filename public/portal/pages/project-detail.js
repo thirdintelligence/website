@@ -109,7 +109,7 @@ export function render(data, params) {
   </div>`;
 
   const hasDemo = film && film.ideas.some(isSelectedIdea);
-  return { crumb: "Projects", title: p.title, fullscreen: hasDemo, html };
+  return { crumb: "Projects", title: p.title, fullscreen: hasDemo, commentContext: { scope: "project", projectId: p.id, label: p.title, route: `/bkwatch/projects/${p.slug}` }, html };
 }
 
 function renderProjectValue(p, invoicing, asOf) {

@@ -79,5 +79,5 @@ export function render(data, params) {
     </section>
   </div>`;
 
-  return { crumb: p.title, title: idea.title, fullscreen: true, html };
+  return { crumb: p.title, title: idea.title, fullscreen: true, commentContext: { scope: "project", projectId: p.id, label: p.title, route: `/bkwatch/projects/${p.slug}` }, html };
 }

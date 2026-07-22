@@ -36,7 +36,12 @@ export function initComposer(data, hooks = {}) {
     else if (del) { e.preventDefault(); deleteComment(del.getAttribute("data-comment-delete")); }
     else if (np) { e.preventDefault(); openProject(); }
     else if (cc) { e.preventDefault(); openComment(JSON.parse(cc.getAttribute("data-comment-context") || "{}")); }
-    else if (addBtn) { e.preventDefault(); openComment({ scope: "home", label: "General comment" }); }
+    else if (addBtn) {
+      e.preventDefault();
+      const app = document.querySelector(".portal-app");
+      const ctx = app?.dataset.commentContext ? JSON.parse(app.dataset.commentContext) : null;
+      openComment(ctx || { scope: "home", label: "General comment" });
+    }
   });
 
   document.addEventListener("keydown", (e) => {
@@ -263,7 +268,7 @@ function render() {
       <button class="btn btn-icon btn-sm composer-min" id="cmp-min" type="button" aria-label="Minimize">${icon("minus")}</button>
     </div>
     <div class="composer-body">
-      ${ctxLabel && !isProject ? `<span class="ctx-chip">${icon("bookmark")} ${esc(ctxLabel)}</span>` : ""}
+      ${ctxLabel && !isProject && ctxLabel !== "General comment" ? `<span class="ctx-chip">${icon("bookmark")} ${esc(ctxLabel)}</span>` : ""}
       ${isProject ? `
         <div class="field"><label for="cmp-name">Project name</label><input id="cmp-name" type="text" value="${esc(state.fields.name || "")}" placeholder="e.g. Compliance explainer film" aria-describedby="cmp-name-error" /><span class="field-error" id="cmp-name-error"></span></div>
       ` : `
