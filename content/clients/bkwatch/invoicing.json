@@ -127,7 +127,7 @@
     {
       "title": "Extend Partnership",
       "type": "service",
-      "description": "Planning valuable services alongside main work and updating/renewing the contract. Free and unbillable.",
+      "description": "Planning valuable services alongside main work and updating/renewing the contract.",
       "status": "planned",
       "icon": "contract"
     }
@@ -476,7 +476,7 @@
     "partnershipExtension": {
       "title": "Partnership Extension",
       "icon": "contract",
-      "billing": "free",
+      "billing": "fallback",
       "description": "Ways to maintain access to Third i's work and support if the partnership shifts to a lighter engagement.",
       "items": [
         {

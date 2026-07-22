@@ -58,7 +58,7 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 6", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "partnership", "title": "Extend Partnership", "description": "Planning valuable services to complete alongside main work and updating/renewing the contract for the next phase. Free and unbillable.", "milestone": true, "icon": "contract", "free": true }
+        { "type": "partnership", "title": "Extend Partnership", "description": "Planning valuable services to complete alongside main work and updating/renewing the contract for the next phase.", "milestone": true, "icon": "contract" }
       ]
     },
     {
@@ -109,17 +109,17 @@
       "status": "upcoming",
       "items": [
         { "type": "film", "title": "Film 12", "description": "The next 30-second video in the monthly series.", "milestone": false },
-        { "type": "partnership", "title": "Extend Partnership", "description": "Year-end contract renewal — planning valuable services for year two and updating the partnership agreement. Free and unbillable.", "milestone": true, "icon": "contract", "free": true }
+        { "type": "partnership", "title": "Extend Partnership", "description": "Year-end contract renewal — planning valuable services for year two and updating the partnership agreement.", "milestone": true, "icon": "contract" }
       ]
     }
   ],
   "milestones": [
     { "month": 2, "title": "AI Implementation", "description": "Implementing AI-powered workflows and agents for daily use — automations, genAI integrations, and team training.", "icon": "worktree" },
     { "month": 4, "title": "Value Audit", "description": "Full review of client projects and AI agent workflows — research, reports, upgrading, and refining features. Free and unbillable.", "icon": "graph", "free": true },
-    { "month": 6, "title": "Extend Partnership", "description": "Planning valuable services alongside main work and updating/renewing the contract. Free and unbillable.", "icon": "contract", "free": true },
+    { "month": 6, "title": "Extend Partnership", "description": "Planning valuable services alongside main work and updating/renewing the contract.", "icon": "contract" },
     { "month": 8, "title": "AI Implementation", "description": "Second round — deeper automations, advanced agent training, and expanded genAI integrations.", "icon": "worktree" },
     { "month": 10, "title": "Value Audit", "description": "Full year-in-review — auditing all projects, workflows, and delivered value. Free and unbillable.", "icon": "graph", "free": true },
-    { "month": 12, "title": "Extend Partnership", "description": "Year-end contract renewal — planning year two services and updating the partnership agreement. Free and unbillable.", "icon": "contract", "free": true }
+    { "month": 12, "title": "Extend Partnership", "description": "Year-end contract renewal — planning year two services and updating the partnership agreement.", "icon": "contract" }
   ],
   "source": "Third i partnership plan — tailored to bkWatch based on Film 1 work history"
 }
