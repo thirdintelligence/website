@@ -14,12 +14,15 @@ import * as projectRequest from "../pages/project-request.js";
 import * as filmPresentation from "../pages/film-presentation.js";
 import * as library from "../pages/library.js";
 import * as libraryRecord from "../pages/library-record.js";
+import * as communications from "../pages/communications.js";
 import * as aiRoadmap from "../pages/ai-roadmap.js";
 import * as valueResults from "../pages/value-results.js";
 
 const PAGES = {
   home, projects, project: projectDetail, projectRequest, idea: filmPresentation,
-  library, libraryCategory: library, libraryComms: library, libraryQuicklinks: library, libraryRecord, aiRoadmap, valueResults
+  library, libraryCategory: library, libraryComms: library, libraryQuicklinks: library, libraryRecord,
+  communications, communicationsSub: communications,
+  aiRoadmap, valueResults
 };
 
 let DATA = null;

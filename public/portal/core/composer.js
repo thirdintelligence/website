@@ -3,7 +3,7 @@
  * tenant-authorized APIs. Preview mode simulates the same interaction locally. */
 import { esc } from "./util.js";
 import { icon } from "./icons.js";
-import { apiSend, fetchLive } from "./data.js";
+import { apiSend, fetchLive, mergeBlockerComments } from "./data.js";
 import { navigate } from "./router.js";
 
 let dataRef = null;
@@ -239,7 +239,7 @@ async function submit() {
 async function refreshLive() {
   const l = await fetchLive(dataRef.cfg);
   if (l) {
-    dataRef.live.comments = l.comments || [];
+    dataRef.live.comments = mergeBlockerComments(l.comments || [], dataRef.projects);
     dataRef.live.projectRequests = l.projectRequests || [];
     dataRef.cfg.csrfToken = l.csrfToken;
   }

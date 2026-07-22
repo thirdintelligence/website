@@ -135,13 +135,16 @@
           "kind": "comment",
           "blocker": true,
           "title": "Demo product-accuracy confirmations",
-          "description": "Confirm the live and showable Status, Tasks, and Credit behavior while Third i builds the selected 22-second demo. This is a demo-production checkpoint, not full-film production approval."
+          "description": "Confirm the live and showable Status, Tasks, and Credit behavior while Third i builds the selected 22-second demo. This is a demo-production checkpoint, not full-film production approval.",
+          "createdAt": "2026-07-15T09:00:00Z"
         },
         {
           "kind": "comment",
           "blocker": true,
           "title": "Final CTA and logo hierarchy",
-          "description": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene."
+          "description": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene.",
+          "sceneId": "F06",
+          "createdAt": "2026-07-15T09:30:00Z"
         }
       ],
       "related": [

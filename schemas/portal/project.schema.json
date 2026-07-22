@@ -37,14 +37,16 @@
     },
     "blockerComment": {
       "type": "object",
-      "description": "A curated blocker is always represented as a read-only comment in the client portal.",
+      "description": "A curated blocker is represented as a comment in the client portal, with optional scene and date context.",
       "additionalProperties": false,
       "required": ["kind", "blocker", "title"],
       "properties": {
         "kind": { "type": "string", "const": "comment" },
         "blocker": { "type": "boolean", "const": true },
         "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
-        "description": { "type": "string" }
+        "description": { "type": "string" },
+        "sceneId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
       }
     },
     "report": {

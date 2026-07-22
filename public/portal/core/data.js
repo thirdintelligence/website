@@ -50,6 +50,33 @@ export async function apiSend(cfg, path, method, body) {
   } catch { return { ok: false, error: "network" }; }
 }
 
+/** Merge curated project blockers into a comments array so they are treated as
+    real comments everywhere. Deduplicates by title+projectId. */
+export function mergeBlockerComments(comments, projectsData) {
+  const existingKeys = new Set((comments || []).map((c) => `${c.projectId || c.context?.projectId || "general"}:${String(c.title || "").trim().toLowerCase()}`));
+  const blockerComments = (projectsData?.projects || []).flatMap((project) => (project.blockers || []).map((blocker, index) => {
+    const title = typeof blocker === "string" ? blocker : blocker.title;
+    const description = typeof blocker === "object" ? (blocker.description || blocker.detail) : "";
+    const sceneId = typeof blocker === "object" ? blocker.sceneId : undefined;
+    const createdAt = typeof blocker === "object" ? blocker.createdAt : undefined;
+    const scope = sceneId ? "scene" : "project";
+    const label = sceneId ? `Scene ${sceneId}` : project.title;
+    return {
+      id: `blocker-${project.id}-${index + 1}`,
+      kind: "comment",
+      blocker: true,
+      projectId: project.id,
+      title,
+      ...(description ? { description } : {}),
+      status: "open",
+      attribution: "Third i flagged",
+      ...(createdAt ? { createdAt } : {}),
+      context: { scope, projectId: project.id, ...(sceneId ? { sceneId } : {}), label, route: `/bkwatch/projects/${project.slug}` }
+    };
+  }).filter((c) => c.title && !existingKeys.has(`${c.projectId}:${c.title.trim().toLowerCase()}`)));
+  return [...(comments || []), ...blockerComments];
+}
+
 export async function loadPortalData() {
   const cfg = getConfig();
   // Live: manifests are embedded in the authenticated HTML (client-confidential,
@@ -90,24 +117,7 @@ export async function loadPortalData() {
 
   // Merge curated project blockers into live comments so they are treated as
   // real comments everywhere (home preview, project detail, library, counts).
-  // Deduplicate by title+projectId to avoid double-counting with live blockers.
-  const existingKeys = new Set((live.comments || []).map((c) => `${c.projectId || c.context?.projectId || "general"}:${String(c.title || "").trim().toLowerCase()}`));
-  const blockerComments = (projects?.projects || []).flatMap((project) => (project.blockers || []).map((blocker, index) => {
-    const title = typeof blocker === "string" ? blocker : blocker.title;
-    const description = typeof blocker === "object" ? (blocker.description || blocker.detail) : "";
-    return {
-      id: `blocker-${project.id}-${index + 1}`,
-      kind: "comment",
-      blocker: true,
-      projectId: project.id,
-      title,
-      ...(description ? { description } : {}),
-      status: "open",
-      attribution: "Third i flagged",
-      context: { scope: "project", projectId: project.id, label: project.title, route: `/bkwatch/projects/${project.slug}` }
-    };
-  }).filter((c) => c.title && !existingKeys.has(`${c.projectId}:${c.title.trim().toLowerCase()}`)));
-  live.comments = [...(live.comments || []), ...blockerComments];
+  live.comments = mergeBlockerComments(live.comments || [], projects);
 
   return { cfg, portal, home, projects, library, aiRoadmap, roadmap, invoicing, communications, search, live };
 }
