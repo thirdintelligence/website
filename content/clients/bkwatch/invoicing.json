@@ -30,97 +30,106 @@
       "title": "Client Portal",
       "type": "tool",
       "description": "A private, real-time workspace for project collaboration, comments, and progress tracking.",
-      "status": "active"
+      "status": "active",
+      "icon": "globe"
     },
     {
       "title": "AI Film Production",
       "type": "knowledge",
       "description": "AI-powered production for individual films and an ongoing monthly film series, creating a growing content library faster and at lower cost than traditional methods.",
-      "status": "active"
+      "status": "active",
+      "icon": "film"
     },
     {
       "title": "AI Roadmap",
       "type": "knowledge",
       "description": "Research-backed guidance on where and how to add AI to your operations, with clear value and effort assessment.",
-      "status": "active"
+      "status": "active",
+      "icon": "route"
     },
     {
-      "title": "Brand Knowledge Library",
+      "title": "Brand Knowledge & Asset Library",
       "type": "tool",
-      "description": "An organized, searchable library of your brand, products, features, and communication guidelines.",
-      "status": "active"
+      "description": "A centralized library of brand knowledge, style guides, approved assets, and reusable materials — built and maintained alongside every project.",
+      "status": "active",
+      "icon": "bookOpen"
     },
     {
       "title": "Daily Use Workflows",
       "type": "service",
       "description": "AI-assisted drafting, summarizing, triage, and document automation for email, support, internal comms, proposals, and reports — faster output with a consistent brand voice.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "brain"
     },
     {
       "title": "AI-use Training",
       "type": "service",
       "description": "Practical training for the whole team on using AI across all Third i services — daily use, agentic workflows, tool-specific sessions, team onboarding, and AI best practices with governance and data handling.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "graduationCap"
     },
     {
       "title": "Demo Video Production",
       "type": "service",
       "description": "Selected demo directions are produced for review before full-film production. Brainstorm directions keep storyboard and script pages without media placeholders; a locked demo lives in the main project page and approval advances that same record with its history intact.",
-      "status": "active"
+      "status": "active",
+      "icon": "film"
     },
     {
       "title": "Conference & Event Videos",
       "type": "service",
       "description": "Videos, AV support, loop assets, and customer story films for conferences, trade shows, and events.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "film"
     },
     {
       "title": "Integration Videos",
       "type": "service",
       "description": "Videos showing how bkWatch integrates with other systems and platforms — clear, visual explanations of technical connections.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "film"
     },
     {
       "title": "Website Design & Development",
       "type": "tool",
       "description": "Full website builds, redesigns, and ongoing improvements to bkWatch's web presence.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "globe"
     },
     {
       "title": "Website Asset Generation",
       "type": "tool",
       "description": "AI-generated hero images, illustrations, icons, and visual assets for the website — tailored to bkWatch's brand.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "film"
     },
     {
       "title": "Social Media Asset Generation",
       "type": "service",
       "description": "AI-generated posts, images, and short-form video for LinkedIn and other platforms.",
-      "status": "planned"
-    },
-    {
-      "title": "Brand Asset Library",
-      "type": "service",
-      "description": "Ongoing generation of brand-consistent assets — templates, illustrations, and visual system extensions.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "film"
     },
     {
       "title": "Conference & Trade Show Materials",
       "type": "service",
       "description": "Booth design, presentation materials, and handouts for events.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "bookOpen"
     },
     {
       "title": "Value Audit",
       "type": "service",
       "description": "Full review of client projects and AI agent workflows — research, reports, upgrading, and refining features. Free and unbillable.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "graph"
     },
     {
       "title": "Extend Partnership",
       "type": "service",
       "description": "Planning valuable services alongside main work and updating/renewing the contract. Free and unbillable.",
-      "status": "planned"
+      "status": "planned",
+      "icon": "contract"
     }
   ],
   "narrative": {
@@ -155,7 +164,7 @@
   "futureValueSections": [
     {
       "title": "Delivery speed",
-      "icon": "clockBolt",
+      "icon": "zap",
       "statusLabel": "Ready to track",
       "description": "Shows whether production becomes faster across completed projects.",
       "metrics": [
@@ -210,7 +219,7 @@
     },
     {
       "title": "Project confidence",
-      "icon": "cool",
+      "icon": "graph",
       "statusLabel": "Ready to track",
       "description": "Compares plans with completed results without exposing another client's records.",
       "metrics": [

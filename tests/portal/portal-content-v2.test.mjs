@@ -81,7 +81,7 @@ test("Value & Results uses privacy-safe tenant evidence and future metric placeh
   assert.equal(invoicing.financialSummary.activeProjects, 1);
   assert.equal(invoicing.financialSummary.completedProjects, 0);
   assert.equal(invoicing.outcomes, undefined);
-  assert.equal(invoicing.capabilities.length, 16);
+  assert.equal(invoicing.capabilities.length, 15);
   // All former "delivered"/"available" statuses changed to "active"
   assert.equal(invoicing.capabilities.some((c) => c.status === "delivered"), false);
   assert.equal(invoicing.capabilities.some((c) => c.status === "available"), false);

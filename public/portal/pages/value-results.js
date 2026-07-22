@@ -25,7 +25,7 @@ function metricCard(m, iconName) {
 function capabilityRow(c) {
   const tone = STATUS_TONE[c.status] || "neutral";
   const text = STATUS_TEXT[c.status] || c.status;
-  const iconName = CAP_TYPE_ICON[c.type] || "dot";
+  const iconName = c.icon || CAP_TYPE_ICON[c.type] || "dot";
   return `<div class="cap-row">
     <span class="cap-icon">${icon(iconName)}</span>
     <div class="cap-body">
@@ -191,9 +191,9 @@ export function render(data) {
     <section class="section vr-narrative">
       <div class="section-head"><h2 class="section-title">How the relationship grows</h2></div>
       <div class="vr-narrative-grid">
-        <div class="card vr-narrative-card">${icon("clockBolt")}<h3>Getting faster</h3><p class="reading">${esc(nar.faster)}</p></div>
+        <div class="card vr-narrative-card">${icon("zap")}<h3>Getting faster</h3><p class="reading">${esc(nar.faster)}</p></div>
         <div class="card vr-narrative-card">${icon("brain")}<h3>Getting smarter</h3><p class="reading">${esc(nar.smarter)}</p></div>
-        <div class="card vr-narrative-card">${icon("handshake")}<h3>Expanding scope</h3><p class="reading">${esc(nar.expanding)}</p></div>
+        <div class="card vr-narrative-card">${icon("telescope")}<h3>Expanding scope</h3><p class="reading">${esc(nar.expanding)}</p></div>
       </div>
     </section>
 

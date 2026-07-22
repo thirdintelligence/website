@@ -63,7 +63,8 @@
           "title": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
           "type": { "type": "string", "enum": ["tool", "knowledge", "service"], "description": "tool = something built and handed over; knowledge = expertise the client now has access to; service = ongoing service now available." },
           "description": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
-          "status": { "type": "string", "enum": ["active", "planned"], "description": "active = in use now; planned = coming soon." }
+          "status": { "type": "string", "enum": ["active", "planned"], "description": "active = in use now; planned = coming soon." },
+          "icon": { "type": "string", "description": "Icon name from the portal icon set; overrides the default type-based icon." }
         }
       }
     },
