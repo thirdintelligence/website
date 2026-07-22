@@ -204,9 +204,8 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(portalPagesCss, /\.filter-page \.page-lede \{ margin-bottom: var\(--space-2\); \}/);
   assert.match(portalPagesCss, /\.filter-page \.filters \{ margin-bottom: 0; \}/);
   assert.match(portalPagesCss, /\.filter-page \.filters \+ \.section \{ margin-top: var\(--space-2\); \}/);
-  assert.match(portalPagesCss, /\.new-project-action \{ margin-top: -20px; padding-block: var\(--space-1\); \}/);
+  assert.match(portalPagesCss, /\.new-project-action \{ padding-block: var\(--space-3\) var\(--space-4\); \}/);
   assert.match(portalPagesCss, /#new-project-btn \{ margin: 0; \}/);
-  assert.match(portalPagesCss, /#new-project-btn \.control-content \{ transform: translateY\(-2px\); \}/);
   assert.match(portalShellCss, /\.control-content \{[^}]*display: inline-flex;[^}]*align-items: center;[^}]*transform: translateY\(-1px\);/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
   assert.match(portalShellCss, /\.btn\.btn-primary:hover \{[\s\S]*?color: #ffffff;[\s\S]*?\}/);

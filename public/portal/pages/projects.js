@@ -8,8 +8,6 @@ export function render(data) {
   const all = projects.projects;
   const requests = liveRequests(data);
   const statuses = [...new Set([...all.map((p) => p.status), ...(requests.length ? ["client-proposed"] : [])])];
-  const active = all.filter((p) => p.status === "active");
-  const history = all.filter((p) => p.status !== "active");
 
   const filters = `<div class="filters" role="group" aria-label="Filter projects">
     ${icon("filter")}
@@ -23,13 +21,11 @@ export function render(data) {
   </div>`;
 
   const html = `<div class="page filter-page">
-    <div class="page-head-row">
-      <div>
-        <h1 class="page-title">Projects</h1>
-        <p class="page-lede">Active, completed, paused, and archived work for ${esc(portal.client.name)}. Open a project for its creative presentation, assets, and outcomes.</p>
-      </div>
-      <div class="new-project-action"><button class="btn btn-primary" id="new-project-btn" type="button" data-new-project="1"><span class="control-content">${icon("plus")}<span>Create a New Project</span></span></button></div>
+    <div>
+      <h1 class="page-title">Projects</h1>
+      <p class="page-lede">Active, completed, paused, and archived work for ${esc(portal.client.name)}. Open a project for its creative presentation, assets, and outcomes.</p>
     </div>
+    <div class="new-project-action"><button class="btn btn-primary" id="new-project-btn" type="button" data-new-project="1"><span class="control-content">${icon("plus")}<span>Create a New Project</span></span></button></div>
 
     ${filters}
 
@@ -38,17 +34,11 @@ export function render(data) {
       <div class="project-list">${requests.map(requestCard).join("")}</div>
     </section>` : ""}
 
-    <section class="section" id="projects-active">
-      <div class="section-head"><h2 class="section-title">Featured active work</h2></div>
+    <section class="section" id="projects-all">
       <div class="project-list">
-        ${active.length ? active.map((p) => `<div class="proj-item" data-status="${esc(p.status)}" data-search="${esc(projectSearchText(p))}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("") : `<div class="empty-state">${icon("projects")}<p>No active projects. The next agreed relationship milestone will appear here.</p></div>`}
+        ${all.length ? all.map((p) => `<div class="proj-item" data-status="${esc(p.status)}" data-search="${esc(projectSearchText(p))}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("") : `<div class="empty-state">${icon("projects")}<p>No projects yet.</p></div>`}
       </div>
     </section>
-
-    ${history.length ? `<section class="section" id="projects-history">
-      <div class="section-head"><h2 class="section-title">Completed &amp; archived</h2></div>
-      <div class="project-list">${history.map((p) => `<div class="proj-item" data-status="${esc(p.status)}" data-search="${esc(projectSearchText(p))}">${projectCard(p, `#/projects/${p.slug}`)}</div>`).join("")}</div>
-    </section>` : ""}
   </div>`;
 
   function onMount() {
