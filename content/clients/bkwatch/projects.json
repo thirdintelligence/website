@@ -2,16 +2,16 @@
   "schemaVersion": "2.0.0",
   "tenant": "bkwatch",
   "clientSafe": true,
-  "asOf": "2026-07-16",
+  "asOf": "2026-07-21",
   "projects": [
     {
       "id": "film1-shaw-bkwatch",
       "slug": "film1-shaw-bkwatch",
       "type": "film",
-      "title": "Bankruptcy, handled inside Spectrum",
-      "displayName": "Film1-ShawBkWatch",
+      "title": "Film 1 - Shaw Integration",
+      "displayName": "Film 1 - Shaw Integration",
       "status": "active",
-      "statusLabel": "Active — Demo built, awaiting bkWatch review",
+      "statusLabel": "Active — Demo in production",
       "startedAt": "2026-07-01",
       "hoursInvested": 20,
       "projectType": "Integration film · Shaw × bkWatch",
@@ -19,12 +19,22 @@
       "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
       "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
       "coreValue": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
-      "phase": "Demo review — awaiting client feedback",
-      "nextMilestone": "bkWatch reviews the complete Final Demo (top-to-bottom) and provides feedback. Third i then incorporates revisions before final production.",
+      "phase": "Demo production — building the selected demo",
+      "nextMilestone": "Third i completes the selected demo for bkWatch review. Full-film production does not begin until the demo is approved.",
       "runtime": "22 seconds",
       "thumbnail": {
         "mediaState": "in-production",
-        "label": "In production"
+        "label": "Demo in production"
+      },
+      "productionLifecycle": {
+        "projectPhase": "demo-production",
+        "demoPhase": "building",
+        "fullFilmPhase": "not-started",
+        "selectedIdeaIds": [
+          "final-demo"
+        ],
+        "canonicalIdeaId": "final-demo",
+        "promotionState": "not-eligible"
       },
       "draft": false,
       "messaging": [
@@ -39,12 +49,12 @@
         {
           "title": "Brainstorm ideas",
           "state": "done",
-          "detail": "Film 1 integration brief separated from future Film 2; creative directions explored and Final Demo selected."
+          "detail": "Demo directions were explored with their own storyboards and scripts; Final Demo was selected for demo production."
         },
         {
           "title": "Demo video(s)",
-          "state": "done",
-          "detail": "Final Demo built top-to-bottom for bkWatch to review — complete and awaiting client feedback."
+          "state": "in-progress",
+          "detail": "The selected Final Demo is currently being built. It is not complete and has not entered client review."
         },
         {
           "title": "Storyboard + script",
@@ -64,22 +74,22 @@
         {
           "title": "Stills",
           "state": "in-progress",
-          "detail": "Reference image instructions ready; stills generation pending client review of demo."
+          "detail": "Selected-demo scene previews are in production. Supporting brainstorm directions have no media placeholders."
         },
         {
           "title": "Videos",
           "state": "not-started",
-          "detail": "Video production begins after stills are approved."
+          "detail": "Selected-demo motion production follows approved demo stills and product-accuracy checks."
         },
         {
           "title": "Final versions",
           "state": "not-started",
-          "detail": "Final edited versions produced after all approval checkpoints."
+          "detail": "Full-film production and final versions begin only after the demo is approved and promoted."
         },
         {
           "title": "Review audits/edits throughout",
           "state": "in-progress",
-          "detail": "Quality review audits conducted at each phase; client review of demo is the current checkpoint."
+          "detail": "Quality review audits continue throughout the current demo build and later full-film production."
         },
         {
           "title": "Improved client knowledge and workflows",
@@ -96,13 +106,13 @@
         },
         {
           "state": "done",
-          "title": "Phase 2 — Demos (Review A: finalize demo)",
-          "detail": "Original 45-word script retained"
+          "title": "Phase 2 — Direction selection",
+          "detail": "Final Demo selected from the brainstorm directions; original 45-word script retained"
         },
         {
           "state": "done",
           "title": "Direction meeting",
-          "detail": "bkWatch meeting complete; Final Demo selected for planning"
+          "detail": "bkWatch meeting complete; Final Demo selected for demo production"
         },
         {
           "state": "done",
@@ -116,26 +126,26 @@
         },
         {
           "state": "current",
-          "title": "Phase 5 — Stills (Review C: final confirmations)",
-          "detail": "Interface details, features, green, logos, combined visuals, and keyframes awaiting approval"
+          "title": "Phase 5 — Build selected demo",
+          "detail": "Demo stills and motion are being built scene by scene; product details and exact composite frames remain approval checkpoints"
         },
         {
           "state": "pending",
-          "title": "Phase 6 — Video",
-          "detail": "No stills or motion clips produced"
+          "title": "Phase 6 — Demo review and approval",
+          "detail": "bkWatch reviews the completed demo and approves, revises, or rejects the direction"
         },
         {
           "state": "pending",
-          "title": "Phase 7 — Editing (Review D: final touches)",
-          "detail": "Production begins only after all approval checkpoints and delivery specifications are approved"
+          "title": "Phase 7 — Full-film production",
+          "detail": "After demo approval, the complete selected storyboard is promoted to the top of this project page with its media history, script, and comments intact"
         }
       ],
       "blockers": [
         {
           "kind": "comment",
           "blocker": true,
-          "title": "Final Demo plan approval",
-          "description": "Approve the 22-second Final Demo plan and its corrected segment allocation, including confirmation that the live and showable Status, Tasks, and Credit behavior can be demonstrated, before any media is generated."
+          "title": "Demo product-accuracy confirmations",
+          "description": "Confirm the live and showable Status, Tasks, and Credit behavior while Third i builds the selected 22-second demo. This is a demo-production checkpoint, not full-film production approval."
         },
         {
           "kind": "comment",
@@ -155,11 +165,11 @@
         "effortRange": "Scope required",
         "priceStatement": "Scope required",
         "assumptions": [
-          "Final Demo plan approved",
+          "Selected demo direction locked",
           "Cleaned Spectrum screenshots supplied",
           "Live/showable features confirmed"
         ],
-        "note": "The current demo establishes the visual system and proves direction. A complete film adds refinement passes, product-accuracy review, animation continuity, sound, and final quality review. Third i presents the confirmed effort range and pricing model before production begins.",
+        "note": "The selected demo is currently being built to prove the visual system and direction. After bkWatch approves it, the complete demo storyboard is promoted as the canonical full-film production record. A complete film adds refinement passes, product-accuracy review, animation continuity, sound, and final quality review. Third i confirms full-production scope before that promotion.",
         "source": "Third i pricing approach — outcome/scope-led; currency shown only when confirmed"
       },
       "film": {
@@ -186,15 +196,25 @@
         ],
         "ideas": [
           {
-            "number": "FINAL",
+            "number": "HYBRID",
             "slug": "final-demo",
             "title": "Final Demo",
             "concept": "Real Spectrum becomes an intricate physical dashboard, reveals BankruptcyWatch working beneath it, resolves three handled outcomes, and returns to the same active lender workflow.",
-            "status": "Selected — passed quality review",
+            "status": "Selected — demo in production",
             "recommended": true,
+            "lifecycleState": "demo-production",
+            "mediaPolicy": "demo-placeholders",
+            "sourceIdeaIds": [
+              "already-inside-spectrum",
+              "the-moment-it-lands",
+              "one-desk-no-detours",
+              "confidence-before-motion",
+              "built-beneath-the-surface",
+              "the-workday-doesnt-break"
+            ],
             "runtime": "22 seconds",
             "sceneCount": 6,
-            "demoState": "Six scenes, 12 animated sections, 30 reference images, and 12 animation instructions passed quality review — video not started",
+            "demoState": "Six-scene selected demo currently being built; full-film production has not started",
             "approval": "Awaiting Third i plan/segment approval plus Spectrum screenshots, feature, color, logo, combined visuals, and keyframe approval checkpoints",
             "strength": "Best balance of real product proof, human credibility, native-integration clarity, and premium cinematic impact",
             "complexity": "High — mixed techniques",
@@ -348,6 +368,8 @@
             "concept": "A direct product-proof control: one filing arrives, seats natively, and resolves into three handled Spectrum states.",
             "status": "Supporting study",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",
@@ -432,6 +454,8 @@
             "concept": "A filing lands with controlled kinetic force, opening one blue seam that becomes three ordered outcomes.",
             "status": "Supporting study",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",
@@ -516,6 +540,8 @@
             "concept": "External court information folds into one native folio and docks without breaking the specialist's desk workflow.",
             "status": "Supporting study",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",
@@ -600,6 +626,8 @@
             "concept": "A precision iris accepts the filing, locks, then releases ordered action only after a deliberate beat.",
             "status": "Supporting study",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",
@@ -684,6 +712,8 @@
             "concept": "A tactile Spectrum surface separates by millimeters to reveal a purpose-built bkWatch mechanism underneath.",
             "status": "Supporting study",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",
@@ -768,6 +798,8 @@
             "concept": "A continuous side-dolly preserves the specialist's daylight and hand rhythm while the bankruptcy event is handled in Spectrum.",
             "status": "Supporting study",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",
@@ -852,6 +884,8 @@
             "concept": "An editorial record corrects itself, opens onto Spectrum proof, and resolves into a concise evidence spread.",
             "status": "Supporting derivative",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",
@@ -936,6 +970,8 @@
             "concept": "A filing token crosses a blue ingress arc, resolves into three states, and leaves a persistent handled marker as the next event arrives.",
             "status": "Supporting derivative",
             "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
             "runtime": "15 seconds",
             "sceneCount": 3,
             "demoState": "Instructions ready — video not started",

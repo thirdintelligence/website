@@ -28,210 +28,1124 @@
     "source": "bkWatch Design System and BankruptcyWatch factual canon — updated Jul 16, 2026"
   },
   "metrics": [
-    {"label":"Court coverage","value":"94","unit":"U.S. bankruptcy courts","asOf":"2026-07-13","state":"confirmed","source":"BankruptcyWatch factual canon — Key Integration Features"},
-    {"label":"Bankruptcy chapters monitored","value":"3","unit":"Chapters 7, 11, and 13","asOf":"2026-07-13","state":"confirmed","source":"BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring"},
-    {"label":"Film 1 target runtime","value":"22","unit":"seconds","asOf":"2026-07-16","state":"locked","source":"Final Demo Plan — professional timing map"},
-    {"label":"Locked voiceover","value":"45","unit":"words · 122.7 WPM","asOf":"2026-07-16","state":"locked","source":"Film1 Working Memory — Final Demo"},
-    {"label":"Creative directions","value":"9","unit":"Final Demo + 8 studies","asOf":"2026-07-16","state":"confirmed","source":"Final Demo brainstorm and D2 comparative storyboards"},
-    {"label":"Storyboard scenes","value":"30","unit":"client presentation scenes","asOf":"2026-07-16","state":"derived","source":"Final Demo 6 scenes + 8 studies × 3 scenes"},
-    {"label":"Generation plan","value":"122","unit":"visual prompts","asOf":"2026-07-16","state":"ready","source":"Film1 prompt inventory — 86 still/anchor + 36 motion prompts"},
-    {"label":"Approved generated media","value":"0","unit":"stills or motion clips","asOf":"2026-07-16","state":"not-started","source":"Film1 Working Memory — media generation has not started"},
-    {"label":"Current production phase","value":"D2 · QC","unit":"extreme audit passed; gates remain","asOf":"2026-07-16","state":"current","source":"Final Demo Extreme Workflow Audit — go/no-go"},
-    {"label":"Final Demo build","value":"12","unit":"controlled motion segments","asOf":"2026-07-16","state":"awaiting-approval","source":"Final Demo Plan — six-scene segmented architecture"},
-    {"label":"AI adoption coverage","value":"Unavailable","unit":"confirmed percentage","asOf":"2026-07-13","state":"needs-confirmation","source":"Current audit records none-to-little rules-based automation but no measured adoption denominator"},
-    {"label":"Acquisition conversion","value":"Unavailable","unit":"rate or baseline","asOf":"2026-07-13","state":"needs-confirmation","source":"No client-safe funnel baseline is recorded in approved memory"}
+    {
+      "label": "Court coverage",
+      "value": "94",
+      "unit": "U.S. bankruptcy courts",
+      "asOf": "2026-07-13",
+      "state": "confirmed",
+      "source": "BankruptcyWatch factual canon — Key Integration Features"
+    },
+    {
+      "label": "Bankruptcy chapters monitored",
+      "value": "3",
+      "unit": "Chapters 7, 11, and 13",
+      "asOf": "2026-07-13",
+      "state": "confirmed",
+      "source": "BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring"
+    },
+    {
+      "label": "Film 1 target runtime",
+      "value": "22",
+      "unit": "seconds",
+      "asOf": "2026-07-16",
+      "state": "locked",
+      "source": "Final Demo Plan — professional timing map"
+    },
+    {
+      "label": "Locked voiceover",
+      "value": "45",
+      "unit": "words · 122.7 WPM",
+      "asOf": "2026-07-16",
+      "state": "locked",
+      "source": "Film1 Working Memory — Final Demo"
+    },
+    {
+      "label": "Creative directions",
+      "value": "9",
+      "unit": "Final Demo + 8 studies",
+      "asOf": "2026-07-16",
+      "state": "confirmed",
+      "source": "Final Demo brainstorm and D2 comparative storyboards"
+    },
+    {
+      "label": "Storyboard scenes",
+      "value": "30",
+      "unit": "client presentation scenes",
+      "asOf": "2026-07-16",
+      "state": "derived",
+      "source": "Final Demo 6 scenes + 8 studies × 3 scenes"
+    },
+    {
+      "label": "Generation plan",
+      "value": "122",
+      "unit": "visual prompts",
+      "asOf": "2026-07-16",
+      "state": "ready",
+      "source": "Film1 prompt inventory — 86 still/anchor + 36 motion prompts"
+    },
+    {
+      "label": "Approved generated media",
+      "value": "0",
+      "unit": "stills or motion clips",
+      "asOf": "2026-07-16",
+      "state": "not-started",
+      "source": "Film1 Working Memory — media generation has not started"
+    },
+    {
+      "label": "Current production phase",
+      "value": "D2 · QC",
+      "unit": "extreme audit passed; gates remain",
+      "asOf": "2026-07-16",
+      "state": "current",
+      "source": "Final Demo Extreme Workflow Audit — go/no-go"
+    },
+    {
+      "label": "Final Demo build",
+      "value": "12",
+      "unit": "controlled motion segments",
+      "asOf": "2026-07-16",
+      "state": "awaiting-approval",
+      "source": "Final Demo Plan — six-scene segmented architecture"
+    },
+    {
+      "label": "AI adoption coverage",
+      "value": "Unavailable",
+      "unit": "confirmed percentage",
+      "asOf": "2026-07-13",
+      "state": "needs-confirmation",
+      "source": "Current audit records none-to-little rules-based automation but no measured adoption denominator"
+    },
+    {
+      "label": "Acquisition conversion",
+      "value": "Unavailable",
+      "unit": "rate or baseline",
+      "asOf": "2026-07-13",
+      "state": "needs-confirmation",
+      "source": "No client-safe funnel baseline is recorded in approved memory"
+    }
   ],
   "products": [
     {
-      "slug":"spectrum-integration","name":"Spectrum Integration","category":"Integration","status":"Active / confirmed context",
-      "mission":"Bring specialized bankruptcy automation into the loan management environment Spectrum users already trust.",
-      "businessValue":"Reduces switching friction and manual case-information entry by keeping the bankruptcy workflow connected to existing servicing operations.",
-      "audience":"Existing Spectrum users across servicing, collections, compliance, and recovery.",
-      "facts":["Shaw Systems and BankruptcyWatch partnered around native automation inside Spectrum.","Shaw approval for Spectrum UI use is secured; exact sanitized-asset delivery remains outstanding.","The integration message is the subject of the locked 22-second Final Demo."],
-      "state":"Confirmed integration story; exact live/showable function wording remains gated before public publication.",
-      "timeline":[{"state":"done","title":"Integration narrative confirmed","detail":"Client-provided context recorded"},{"state":"done","title":"Final Demo planned","detail":"22-second six-scene hybrid and 12-segment prompt package ready"},{"state":"done","title":"Extreme workflow and prompt QC","detail":"42 Final Demo prompts passed after low-risk timing, naming, continuity, and privacy self-heals"},{"state":"current","title":"Asset and claim lock","detail":"Sanitized Spectrum assets, functions, green, and keyframes awaiting approval"}],
-      "decisions":["Confirm which functions are live and showable today.","Approve public wording for real-time and credit-reporting correction.","Confirm final CTA and logo hierarchy."],
-      "opportunities":["Approved in-product demo walkthrough","Role-specific integration one-pager","Sales enablement film cutdowns after claim lock"],
-      "source":"BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
+      "slug": "spectrum-integration",
+      "name": "Spectrum Integration",
+      "category": "Integration",
+      "status": "Active / confirmed context",
+      "mission": "Bring specialized bankruptcy automation into the loan management environment Spectrum users already trust.",
+      "businessValue": "Reduces switching friction and manual case-information entry by keeping the bankruptcy workflow connected to existing servicing operations.",
+      "audience": "Existing Spectrum users across servicing, collections, compliance, and recovery.",
+      "facts": [
+        "Shaw Systems and BankruptcyWatch partnered around native automation inside Spectrum.",
+        "Shaw approval for Spectrum UI use is secured; exact sanitized-asset delivery remains outstanding.",
+        "The integration message is the subject of the locked 22-second Final Demo."
+      ],
+      "state": "Confirmed integration story; exact live/showable function wording remains gated before public publication.",
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Integration narrative confirmed",
+          "detail": "Client-provided context recorded"
+        },
+        {
+          "state": "done",
+          "title": "Final Demo planned",
+          "detail": "22-second six-scene hybrid and 12-segment prompt package ready"
+        },
+        {
+          "state": "done",
+          "title": "Extreme workflow and prompt QC",
+          "detail": "42 Final Demo prompts passed after low-risk timing, naming, continuity, and privacy self-heals"
+        },
+        {
+          "state": "current",
+          "title": "Asset and claim lock",
+          "detail": "Sanitized Spectrum assets, functions, green, and keyframes awaiting approval"
+        }
+      ],
+      "decisions": [
+        "Confirm which functions are live and showable today.",
+        "Approve public wording for real-time and credit-reporting correction.",
+        "Confirm final CTA and logo hierarchy."
+      ],
+      "opportunities": [
+        "Approved in-product demo walkthrough",
+        "Role-specific integration one-pager",
+        "Sales enablement film cutdowns after claim lock"
+      ],
+      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
     },
     {
-      "slug":"monitoring","name":"Bankruptcy Monitoring","category":"Operations","status":"Active / confirmed",
-      "mission":"Detect bankruptcy filings across active loan portfolios quickly enough for teams to protect compliance workflows.",
-      "businessValue":"Supports timely awareness of filings and reduces manual monitoring effort across portfolio operations.",
-      "audience":"Lenders, servicers, compliance teams, and bankruptcy operations teams.",
-      "facts":["Coverage is recorded across all 94 U.S. Bankruptcy Courts.","Monitoring includes Chapters 7, 11, and 13.","Current architecture is primarily API calls, predefined rules, custom scrapers, and regex parsing."],
-      "state":"Current product capability is confirmed in memory; public latency and accuracy language requires exact approval.",
-      "timeline":[{"state":"done","title":"Court monitoring capability","detail":"Confirmed in factual canon"},{"state":"current","title":"Rules-based automation","detail":"Current operating baseline"},{"state":"pending","title":"AI-assisted exception handling","detail":"Opportunity, not current adoption"}],
-      "decisions":["Confirm approved public latency wording.","Confirm exception and human-review workflow details.","Supply client-safe operating scale if it should appear in the statistics layer."],
-      "opportunities":["Exception triage copilot","Unstructured filing parser with human validation","Portfolio risk trend summaries"],
-      "source":"BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring and AI Use Audit"
+      "slug": "monitoring",
+      "name": "Bankruptcy Monitoring",
+      "category": "Operations",
+      "status": "Active / confirmed",
+      "mission": "Detect bankruptcy filings across active loan portfolios quickly enough for teams to protect compliance workflows.",
+      "businessValue": "Supports timely awareness of filings and reduces manual monitoring effort across portfolio operations.",
+      "audience": "Lenders, servicers, compliance teams, and bankruptcy operations teams.",
+      "facts": [
+        "Coverage is recorded across all 94 U.S. Bankruptcy Courts.",
+        "Monitoring includes Chapters 7, 11, and 13.",
+        "Current architecture is primarily API calls, predefined rules, custom scrapers, and regex parsing."
+      ],
+      "state": "Current product capability is confirmed in memory; public latency and accuracy language requires exact approval.",
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Court monitoring capability",
+          "detail": "Confirmed in factual canon"
+        },
+        {
+          "state": "current",
+          "title": "Rules-based automation",
+          "detail": "Current operating baseline"
+        },
+        {
+          "state": "pending",
+          "title": "AI-assisted exception handling",
+          "detail": "Opportunity, not current adoption"
+        }
+      ],
+      "decisions": [
+        "Confirm approved public latency wording.",
+        "Confirm exception and human-review workflow details.",
+        "Supply client-safe operating scale if it should appear in the statistics layer."
+      ],
+      "opportunities": [
+        "Exception triage copilot",
+        "Unstructured filing parser with human validation",
+        "Portfolio risk trend summaries"
+      ],
+      "source": "BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring and AI Use Audit"
     },
     {
-      "slug":"research","name":"Advanced Bankruptcy Research","category":"Research","status":"Active / confirmed",
-      "mission":"Turn docket-level court activity into accessible case intelligence for operating teams.",
-      "businessValue":"Reduces the effort required to detect, import, parse, and log case events for review and action.",
-      "audience":"Bankruptcy specialists, compliance analysts, and servicing teams.",
-      "facts":["The confirmed capability detects, imports, parses, and logs docket-level case events.","Rigid layouts and unstructured files can still require manual intervention under the current rules-based approach."],
-      "state":"Current capability confirmed; generative document interpretation remains an opportunity, not current usage.",
-      "timeline":[{"state":"done","title":"Docket event workflow","detail":"Confirmed product capability"},{"state":"current","title":"Rules-based parsing","detail":"Current operating model"},{"state":"pending","title":"Multimodal document understanding","detail":"Proposed with human validation"}],
-      "decisions":["Confirm current public-facing product screens.","Define approved language for parsing exceptions and review."],
-      "opportunities":["Case-file summarization","Citation-backed local-rule search","Document field extraction with confidence scoring"],
-      "source":"BankruptcyWatch factual canon — Advanced Bankruptcy Research and AI Use Audit"
+      "slug": "research",
+      "name": "Advanced Bankruptcy Research",
+      "category": "Research",
+      "status": "Active / confirmed",
+      "mission": "Turn docket-level court activity into accessible case intelligence for operating teams.",
+      "businessValue": "Reduces the effort required to detect, import, parse, and log case events for review and action.",
+      "audience": "Bankruptcy specialists, compliance analysts, and servicing teams.",
+      "facts": [
+        "The confirmed capability detects, imports, parses, and logs docket-level case events.",
+        "Rigid layouts and unstructured files can still require manual intervention under the current rules-based approach."
+      ],
+      "state": "Current capability confirmed; generative document interpretation remains an opportunity, not current usage.",
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Docket event workflow",
+          "detail": "Confirmed product capability"
+        },
+        {
+          "state": "current",
+          "title": "Rules-based parsing",
+          "detail": "Current operating model"
+        },
+        {
+          "state": "pending",
+          "title": "Multimodal document understanding",
+          "detail": "Proposed with human validation"
+        }
+      ],
+      "decisions": [
+        "Confirm current public-facing product screens.",
+        "Define approved language for parsing exceptions and review."
+      ],
+      "opportunities": [
+        "Case-file summarization",
+        "Citation-backed local-rule search",
+        "Document field extraction with confidence scoring"
+      ],
+      "source": "BankruptcyWatch factual canon — Advanced Bankruptcy Research and AI Use Audit"
     },
     {
-      "slug":"response","name":"Automated Bankruptcy Response","category":"Workflow","status":"Partial / roadmap",
-      "mission":"Move teams from bankruptcy event awareness to controlled, compliant action.",
-      "businessValue":"Connects case events to document preparation and servicing responses while preserving review gates.",
-      "audience":"Bankruptcy operations, legal-review, servicing, and recovery teams.",
-      "facts":["Memory records Proof of Claim preparation and direct eFiling as product capabilities.","Loan restructuring and reaffirmation automation are marked coming soon.","Future features must not be presented as currently live."],
-      "state":"Mixed current and roadmap scope. Exact production availability needs Jessica/Dylan confirmation before publication.",
-      "timeline":[{"state":"done","title":"Response capability documented","detail":"Client-provided product context"},{"state":"current","title":"Availability verification","detail":"Live/showable function review needed"},{"state":"pending","title":"Future workflow integrations","detail":"Reaffirmations and related roadmap items"}],
-      "decisions":["Separate currently live response functions from roadmap functions.","Confirm legal-review and approval ownership.","Approve public terminology for document automation."],
-      "opportunities":["Human-gated document drafting","Case-to-task orchestration","Review-ready audit trail summaries"],
-      "source":"BankruptcyWatch factual canon — Automated Bankruptcy Response; Film1 claim gates"
+      "slug": "response",
+      "name": "Automated Bankruptcy Response",
+      "category": "Workflow",
+      "status": "Partial / roadmap",
+      "mission": "Move teams from bankruptcy event awareness to controlled, compliant action.",
+      "businessValue": "Connects case events to document preparation and servicing responses while preserving review gates.",
+      "audience": "Bankruptcy operations, legal-review, servicing, and recovery teams.",
+      "facts": [
+        "Memory records Proof of Claim preparation and direct eFiling as product capabilities.",
+        "Loan restructuring and reaffirmation automation are marked coming soon.",
+        "Future features must not be presented as currently live."
+      ],
+      "state": "Mixed current and roadmap scope. Exact production availability needs Jessica/Dylan confirmation before publication.",
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Response capability documented",
+          "detail": "Client-provided product context"
+        },
+        {
+          "state": "current",
+          "title": "Availability verification",
+          "detail": "Live/showable function review needed"
+        },
+        {
+          "state": "pending",
+          "title": "Future workflow integrations",
+          "detail": "Reaffirmations and related roadmap items"
+        }
+      ],
+      "decisions": [
+        "Separate currently live response functions from roadmap functions.",
+        "Confirm legal-review and approval ownership.",
+        "Approve public terminology for document automation."
+      ],
+      "opportunities": [
+        "Human-gated document drafting",
+        "Case-to-task orchestration",
+        "Review-ready audit trail summaries"
+      ],
+      "source": "BankruptcyWatch factual canon — Automated Bankruptcy Response; Film1 claim gates"
     },
     {
-      "slug":"pacer-uptime","name":"PACER Uptime Support","category":"Reliability","status":"Active / confirmed",
-      "mission":"Make federal court service availability visible so downstream bankruptcy automation can be interpreted responsibly.",
-      "businessValue":"Provides operational context for teams and systems that depend on PACER availability.",
-      "audience":"Operations leaders, integration teams, and service-reliability stakeholders.",
-      "facts":["BankruptcyWatch operates PacerUptime.com.","The service tracks availability across all 94 federal bankruptcy courts."],
-      "state":"Confirmed capability; no client-safe historical uptime percentage is recorded in memory.",
-      "timeline":[{"state":"done","title":"Coverage confirmed","detail":"94 federal bankruptcy courts"},{"state":"current","title":"Operational support","detail":"Live service-availability context"},{"state":"pending","title":"Portal trend layer","detail":"Needs approved historical dataset"}],
-      "decisions":["Confirm whether uptime history may be displayed in this client portal.","Provide an approved reporting period and denominator for any uptime percentage."],
-      "opportunities":["Service-impact summaries","Dependency-aware incident briefs","Client-safe availability trends"],
-      "source":"BankruptcyWatch factual canon — PACER Uptime Support"
+      "slug": "pacer-uptime",
+      "name": "PACER Uptime Support",
+      "category": "Reliability",
+      "status": "Active / confirmed",
+      "mission": "Make federal court service availability visible so downstream bankruptcy automation can be interpreted responsibly.",
+      "businessValue": "Provides operational context for teams and systems that depend on PACER availability.",
+      "audience": "Operations leaders, integration teams, and service-reliability stakeholders.",
+      "facts": [
+        "BankruptcyWatch operates PacerUptime.com.",
+        "The service tracks availability across all 94 federal bankruptcy courts."
+      ],
+      "state": "Confirmed capability; no client-safe historical uptime percentage is recorded in memory.",
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Coverage confirmed",
+          "detail": "94 federal bankruptcy courts"
+        },
+        {
+          "state": "current",
+          "title": "Operational support",
+          "detail": "Live service-availability context"
+        },
+        {
+          "state": "pending",
+          "title": "Portal trend layer",
+          "detail": "Needs approved historical dataset"
+        }
+      ],
+      "decisions": [
+        "Confirm whether uptime history may be displayed in this client portal.",
+        "Provide an approved reporting period and denominator for any uptime percentage."
+      ],
+      "opportunities": [
+        "Service-impact summaries",
+        "Dependency-aware incident briefs",
+        "Client-safe availability trends"
+      ],
+      "source": "BankruptcyWatch factual canon — PACER Uptime Support"
     }
   ],
   "film": {
-    "slug":"film1-shaw-bkwatch","name":"Film1-ShawBkWatch","displayName":"Bankruptcy, handled inside Spectrum","objective":"Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
-    "audience":"Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
-    "coreMessage":"Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
-    "runtime":"22 seconds","sceneCount":30,"phase":"Final Demo extreme QC passed","approval":"Awaiting Third i plan/segment lock, exact sanitized Spectrum assets, and product-function confirmation","approvedMedia":0,
-    "creativeThesis":"Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
-    "script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows. Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
-    "scriptSource":"Final Demo Script Plan — original 45 words preserved at 122.7 WPM, Jul 16, 2026",
-    "comparisonCriteria":["Message clarity","Product accuracy","Emotional impact","Production complexity","Distinctiveness"],
-    "recommendation":"Final Demo is the selected production candidate. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain supporting studies.",
-    "timeline":[{"state":"done","title":"D0 / project split","detail":"Film 1 integration brief separated from future Film 2"},{"state":"done","title":"D1 / locked story","detail":"Original 45-word script retained"},{"state":"done","title":"Direction meeting","detail":"bkWatch meeting complete; Final Demo selected for planning"},{"state":"done","title":"D2 / Final Demo plan","detail":"Six scenes, 12 segments, and 122-project-prompt inventory ready"},{"state":"done","title":"Extreme workflow / QC audit","detail":"42 Final Demo prompts passed; no media generated"},{"state":"current","title":"HITL / asset and function lock","detail":"UI assets, functions, green, logos, composites, and keyframes awaiting approval"},{"state":"pending","title":"D3 / media generation","detail":"No stills or motion clips generated"},{"state":"pending","title":"D4 / assembly and QC","detail":"Production begins only after all gates and delivery specifications are approved"}],
-    "approvals":["Third i locks the 22-second Final Demo plan and corrected internal segment allocation.","Generate NEW FILING with the filing object as part of the same production pass.","Shaw approval for Spectrum UI use is secured; use exact sanitized Spectrum start/working captures and masks for the bkWatch film.","One internal legacy screenshot containing visible customer/account information is rejected and must not enter the production package.","Jessica/Dylan and Shaw confirm live/showable Status, Tasks, Credit behavior, real-time wording, CTA, and factual claims.","Handled-state green, final Shaw + BankruptcyWatch lockup, UI composite frames, and all start/final keyframe pairs receive approval.","D4 locks delivery resolution, frame rate, color pipeline, audio and caption masters, and review/export formats."],
+    "slug": "film1-shaw-bkwatch",
+    "name": "Film1-ShawBkWatch",
+    "displayName": "Bankruptcy, handled inside Spectrum",
+    "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
+    "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
+    "coreMessage": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
+    "runtime": "22 seconds",
+    "sceneCount": 30,
+    "phase": "Final Demo extreme QC passed",
+    "approval": "Awaiting Third i plan/segment lock, exact sanitized Spectrum assets, and product-function confirmation",
+    "approvedMedia": 0,
+    "creativeThesis": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
+    "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows. Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+    "scriptSource": "Final Demo Script Plan — original 45 words preserved at 122.7 WPM, Jul 16, 2026",
+    "comparisonCriteria": [
+      "Message clarity",
+      "Product accuracy",
+      "Emotional impact",
+      "Production complexity",
+      "Distinctiveness"
+    ],
+    "recommendation": "Final Demo is the selected production candidate. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain supporting studies.",
+    "timeline": [
+      {
+        "state": "done",
+        "title": "D0 / project split",
+        "detail": "Film 1 integration brief separated from future Film 2"
+      },
+      {
+        "state": "done",
+        "title": "D1 / locked story",
+        "detail": "Original 45-word script retained"
+      },
+      {
+        "state": "done",
+        "title": "Direction meeting",
+        "detail": "bkWatch meeting complete; Final Demo selected for planning"
+      },
+      {
+        "state": "done",
+        "title": "D2 / Final Demo plan",
+        "detail": "Six scenes, 12 segments, and 122-project-prompt inventory ready"
+      },
+      {
+        "state": "done",
+        "title": "Extreme workflow / QC audit",
+        "detail": "42 Final Demo prompts passed; no media generated"
+      },
+      {
+        "state": "current",
+        "title": "HITL / asset and function lock",
+        "detail": "UI assets, functions, green, logos, composites, and keyframes awaiting approval"
+      },
+      {
+        "state": "pending",
+        "title": "D3 / media generation",
+        "detail": "No stills or motion clips generated"
+      },
+      {
+        "state": "pending",
+        "title": "D4 / assembly and QC",
+        "detail": "Production begins only after all gates and delivery specifications are approved"
+      }
+    ],
+    "approvals": [
+      "Third i locks the 22-second Final Demo plan and corrected internal segment allocation.",
+      "Generate NEW FILING with the filing object as part of the same production pass.",
+      "Shaw approval for Spectrum UI use is secured; use exact sanitized Spectrum start/working captures and masks for the bkWatch film.",
+      "One internal legacy screenshot containing visible customer/account information is rejected and must not enter the production package.",
+      "Jessica/Dylan and Shaw confirm live/showable Status, Tasks, Credit behavior, real-time wording, CTA, and factual claims.",
+      "Handled-state green, final Shaw + BankruptcyWatch lockup, UI composite frames, and all start/final keyframe pairs receive approval.",
+      "D4 locks delivery resolution, frame rate, color pipeline, audio and caption masters, and review/export formats."
+    ],
     "ideas": [
       {
-        "number":"FINAL","slug":"final-demo","title":"Final Demo","concept":"Real Spectrum becomes an intricate physical dashboard, reveals BankruptcyWatch working beneath it, resolves three handled outcomes, and returns to the same active lender workflow.","status":"Selected / extreme QC passed","runtime":"22 seconds","sceneCount":6,"demoState":"Six scenes, 12 controlled segments, 30 still/anchor prompts, and 12 motion prompts passed workflow, prompt, claim, privacy, and continuity QC; media not generated","approval":"Awaiting Third i plan/segment lock plus Spectrum assets, function, color, logo, composite, and keyframe gates","strength":"Best balance of real product proof, human credibility, native-integration clarity, and premium cinematic impact","complexity":"High / controlled hybrid","distinctiveness":"Real UI to physical system to internal mechanism to real UI","recommendation":"Selected production candidate",
-        "scenes":[
-          {"id":"F01","title":"Spectrum is already home","time":"Seconds 0–2","duration":"2 seconds","description":"A simple over-the-shoulder push frames a woman working while approved real Spectrum fills more than 80 percent of the monitor and the lender floor remains active behind her.","direction":"Use a stable human plate and tracked exact UI; keep the real Shaw mark and safe sample data recognizable from the first frame. Production segment: F1.1.","transition":"Cut from the dominant monitor to a desk-object-height three-quarter face angle.","purpose":"Establish Spectrum as the familiar operating home base before any metaphor appears.","status":"Prompts ready · media not generated","script":"Spectrum runs your lending operation."},
-          {"id":"F02","title":"The filing arrives","time":"Seconds 3–5","duration":"3 seconds","description":"The physical filing object lowers perfectly vertically, hovers between the specialist and monitor, and begins moving toward Spectrum after one keyboard input.","direction":"Allocate F2.1 to 2–4 seconds for descent, deceleration, and hover; allocate F2.2 to 4–5 seconds for the key input and departure. Generate the file-like NEW FILING label with the filing object during the same production pass.","transition":"Follow the filing toward the prepared receiving region as the view returns to the monitor.","purpose":"Give bankruptcy urgency a precise physical event without fear-based imagery.","status":"Prompts QC-passed · media not generated","script":"Bankruptcy does not wait."},
-          {"id":"F03","title":"Spectrum becomes physical","time":"Seconds 6–10","duration":"5 seconds","description":"The approved real UI gains depth as the camera orbits and sweeps into a city-like physical dashboard. The filing clicks into a prepared slot, one blue pulse crosses the recessed valleys, and Status, Tasks, and Credit begin loading.","direction":"Build F3.1 at 5–6 seconds, F3.2 at 6–8 seconds, and F3.3 at 8–10 seconds as controlled 3D/VFX from approved UI textures and masks. Preserve safe data, panel geometry, live indicators, and one approved simplified slot region.","transition":"Hold the side view as the complete Spectrum surface prepares to lift.","purpose":"Make native automation feel physically engineered into the system the team already uses.","status":"Previs prompts QC-passed · exact UI assets required · media not generated","script":"Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum,"},
-          {"id":"F04","title":"Why the platform knows","time":"Seconds 11–14","duration":"4 seconds","description":"The Spectrum top layer rises as one rigid precision assembly, revealing an intricate black-and-blue BankruptcyWatch mechanism beneath it. One restrained pulse travels outward before the layer closes.","direction":"Use F4.1 and F4.2 start/final pairs. Composite the approved BankruptcyWatch logo into the unmarked internal recess; avoid generic circuitry or science-fiction effects.","transition":"The precision layer closes and aligns, setting up the completion hero.","purpose":"Visually explain why Spectrum already knows without changing the original script order.","status":"Previs prompts ready · logo/keyframes pending · media not generated","script":"so when a borrower files, your platform already knows."},
-          {"id":"F05","title":"Handled-state hero","time":"Seconds 15–18","duration":"4 seconds","description":"Status, Tasks, and Credit complete one at a time. Each check sends one green signal to a linked dashboard region; all three cards, paths, and targets remain illuminated as the camera widens.","direction":"Build F5.1–F5.3 separately, preserve completed states, and use exact labels/checks in post after current-function and handled-green approval.","transition":"Continue the pullback as the physical dashboard resolves into the real working interface.","purpose":"Turn the integration promise into three visible operational consequences.","status":"Previs prompts ready · function/color approval pending · media not generated","script":"Status updated. Tasks queued. Credit reporting corrected."},
-          {"id":"F06","title":"Same Spectrum, more capable","time":"Seconds 19–22","duration":"4 seconds","description":"The view returns to the original over-the-shoulder workplace. The specialist performs another task while meaningful approved state changes occur in Spectrum and the active floor continues behind her.","direction":"Use F6.1 as a stable human plate, resolve to the approved alternate working UI, and add the transparent Shaw + BankruptcyWatch lockup only in post.","transition":"End on the working environment rather than a detached generic end card.","purpose":"Close the switching objection: the team already has Spectrum, and the workflow now has bankruptcy handled.","status":"Prompts ready · exact working UI and logo lockup pending · media not generated","script":"You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "HYBRID",
+        "slug": "final-demo",
+        "title": "Final Demo",
+        "concept": "Real Spectrum becomes an intricate physical dashboard, reveals BankruptcyWatch working beneath it, resolves three handled outcomes, and returns to the same active lender workflow.",
+        "status": "Selected / extreme QC passed",
+        "runtime": "22 seconds",
+        "sceneCount": 6,
+        "demoState": "Six scenes, 12 controlled segments, 30 still/anchor prompts, and 12 motion prompts passed workflow, prompt, claim, privacy, and continuity QC; media not generated",
+        "approval": "Awaiting Third i plan/segment lock plus Spectrum assets, function, color, logo, composite, and keyframe gates",
+        "strength": "Best balance of real product proof, human credibility, native-integration clarity, and premium cinematic impact",
+        "complexity": "High / controlled hybrid",
+        "distinctiveness": "Real UI to physical system to internal mechanism to real UI",
+        "recommendation": "Selected production candidate",
+        "scenes": [
+          {
+            "id": "F01",
+            "title": "Spectrum is already home",
+            "time": "Seconds 0–2",
+            "duration": "2 seconds",
+            "description": "A simple over-the-shoulder push frames a woman working while approved real Spectrum fills more than 80 percent of the monitor and the lender floor remains active behind her.",
+            "direction": "Use a stable human plate and tracked exact UI; keep the real Shaw mark and safe sample data recognizable from the first frame. Production segment: F1.1.",
+            "transition": "Cut from the dominant monitor to a desk-object-height three-quarter face angle.",
+            "purpose": "Establish Spectrum as the familiar operating home base before any metaphor appears.",
+            "status": "Prompts ready · media not generated",
+            "script": "Spectrum runs your lending operation."
+          },
+          {
+            "id": "F02",
+            "title": "The filing arrives",
+            "time": "Seconds 3–5",
+            "duration": "3 seconds",
+            "description": "The physical filing object lowers perfectly vertically, hovers between the specialist and monitor, and begins moving toward Spectrum after one keyboard input.",
+            "direction": "Allocate F2.1 to 2–4 seconds for descent, deceleration, and hover; allocate F2.2 to 4–5 seconds for the key input and departure. Generate the file-like NEW FILING label with the filing object during the same production pass.",
+            "transition": "Follow the filing toward the prepared receiving region as the view returns to the monitor.",
+            "purpose": "Give bankruptcy urgency a precise physical event without fear-based imagery.",
+            "status": "Prompts QC-passed · media not generated",
+            "script": "Bankruptcy does not wait."
+          },
+          {
+            "id": "F03",
+            "title": "Spectrum becomes physical",
+            "time": "Seconds 6–10",
+            "duration": "5 seconds",
+            "description": "The approved real UI gains depth as the camera orbits and sweeps into a city-like physical dashboard. The filing clicks into a prepared slot, one blue pulse crosses the recessed valleys, and Status, Tasks, and Credit begin loading.",
+            "direction": "Build F3.1 at 5–6 seconds, F3.2 at 6–8 seconds, and F3.3 at 8–10 seconds as controlled 3D/VFX from approved UI textures and masks. Preserve safe data, panel geometry, live indicators, and one approved simplified slot region.",
+            "transition": "Hold the side view as the complete Spectrum surface prepares to lift.",
+            "purpose": "Make native automation feel physically engineered into the system the team already uses.",
+            "status": "Previs prompts QC-passed · exact UI assets required · media not generated",
+            "script": "Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum,"
+          },
+          {
+            "id": "F04",
+            "title": "Why the platform knows",
+            "time": "Seconds 11–14",
+            "duration": "4 seconds",
+            "description": "The Spectrum top layer rises as one rigid precision assembly, revealing an intricate black-and-blue BankruptcyWatch mechanism beneath it. One restrained pulse travels outward before the layer closes.",
+            "direction": "Use F4.1 and F4.2 start/final pairs. Composite the approved BankruptcyWatch logo into the unmarked internal recess; avoid generic circuitry or science-fiction effects.",
+            "transition": "The precision layer closes and aligns, setting up the completion hero.",
+            "purpose": "Visually explain why Spectrum already knows without changing the original script order.",
+            "status": "Previs prompts ready · logo/keyframes pending · media not generated",
+            "script": "so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "F05",
+            "title": "Handled-state hero",
+            "time": "Seconds 15–18",
+            "duration": "4 seconds",
+            "description": "Status, Tasks, and Credit complete one at a time. Each check sends one green signal to a linked dashboard region; all three cards, paths, and targets remain illuminated as the camera widens.",
+            "direction": "Build F5.1–F5.3 separately, preserve completed states, and use exact labels/checks in post after current-function and handled-green approval.",
+            "transition": "Continue the pullback as the physical dashboard resolves into the real working interface.",
+            "purpose": "Turn the integration promise into three visible operational consequences.",
+            "status": "Previs prompts ready · function/color approval pending · media not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected."
+          },
+          {
+            "id": "F06",
+            "title": "Same Spectrum, more capable",
+            "time": "Seconds 19–22",
+            "duration": "4 seconds",
+            "description": "The view returns to the original over-the-shoulder workplace. The specialist performs another task while meaningful approved state changes occur in Spectrum and the active floor continues behind her.",
+            "direction": "Use F6.1 as a stable human plate, resolve to the approved alternate working UI, and add the transparent Shaw + BankruptcyWatch lockup only in post.",
+            "transition": "End on the working environment rather than a detached generic end card.",
+            "purpose": "Close the switching objection: the team already has Spectrum, and the workflow now has bankruptcy handled.",
+            "status": "Prompts ready · exact working UI and logo lockup pending · media not generated",
+            "script": "You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"01","slug":"already-inside-spectrum","title":"Already Inside Spectrum","concept":"A direct product-proof control: one filing arrives, seats natively, and resolves into three handled Spectrum states.","status":"Supporting study","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Retained as source study; not the current production candidate","strength":"Clearest baseline for product comprehension","complexity":"Moderate","distinctiveness":"Intentional standard control","recommendation":"Standard benchmark for Final Demo proof clarity",
-        "scenes":[
-          {"id":"I1.1","title":"Home base","time":"0:00–0:05","description":"A stable Spectrum plate holds center while one filing approaches and a receiving point appears.","direction":"Restrained product demonstration; Spectrum remains the visual anchor.","transition":"Continuous native route into Scene 2.","purpose":"Establish Spectrum as the trusted home base and introduce urgency without alarm.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I1.2","title":"Native arrival","time":"0:05–0:10","description":"The filing travels through a direct native route and seats in the case area.","direction":"Tier-one integration metaphor with exact interface treatment reserved for approved post-production.","transition":"Direct movement into the handled state.","purpose":"Show the filing signal entering through the native integration.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I1.3","title":"Handled","time":"0:10–0:15","description":"Status, task, and reporting regions settle in order.","direction":"Calm ordered proof; exact labels and logos remain post-produced and function-gated.","transition":"End card treatment needs approval.","purpose":"Show ordered workflow proof and land on the handled payoff.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "01",
+        "slug": "already-inside-spectrum",
+        "title": "Already Inside Spectrum",
+        "concept": "A direct product-proof control: one filing arrives, seats natively, and resolves into three handled Spectrum states.",
+        "status": "Supporting study",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Retained as source study; not the current production candidate",
+        "strength": "Clearest baseline for product comprehension",
+        "complexity": "Moderate",
+        "distinctiveness": "Intentional standard control",
+        "recommendation": "Standard benchmark for Final Demo proof clarity",
+        "scenes": [
+          {
+            "id": "I1.1",
+            "title": "Home base",
+            "time": "0:00–0:05",
+            "description": "A stable Spectrum plate holds center while one filing approaches and a receiving point appears.",
+            "direction": "Restrained product demonstration; Spectrum remains the visual anchor.",
+            "transition": "Continuous native route into Scene 2.",
+            "purpose": "Establish Spectrum as the trusted home base and introduce urgency without alarm.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I1.2",
+            "title": "Native arrival",
+            "time": "0:05–0:10",
+            "description": "The filing travels through a direct native route and seats in the case area.",
+            "direction": "Tier-one integration metaphor with exact interface treatment reserved for approved post-production.",
+            "transition": "Direct movement into the handled state.",
+            "purpose": "Show the filing signal entering through the native integration.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I1.3",
+            "title": "Handled",
+            "time": "0:10–0:15",
+            "description": "Status, task, and reporting regions settle in order.",
+            "direction": "Calm ordered proof; exact labels and logos remain post-produced and function-gated.",
+            "transition": "End card treatment needs approval.",
+            "purpose": "Show ordered workflow proof and land on the handled payoff.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"02","slug":"the-moment-it-lands","title":"The Moment It Lands","concept":"A filing lands with controlled kinetic force, opening one blue seam that becomes three ordered outcomes.","status":"Supporting study","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Retained as source study; not the current production candidate","strength":"Immediate event-to-consequence clarity","complexity":"Moderate","distinctiveness":"Macro kinetic impact","recommendation":"Kinetic source for the Final Demo filing click and pulse",
-        "scenes":[
-          {"id":"I2.1","title":"Approach","time":"0:00–0:05","description":"A macro account field sits on a Spectrum-derived plane as a filing descends toward one receiving slot.","direction":"Precise macro cinematography; no personal data or latency promise.","transition":"Filing impact begins the seam reveal.","purpose":"Establish home base and the arriving bankruptcy event.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I2.2","title":"Impact","time":"0:05–0:10","description":"The filing lands edge-first; one blue seam opens and divides into three tracks.","direction":"One decisive kinetic event; no representation of identity-match mechanics.","transition":"Hard shape match from physical tracks to product regions.","purpose":"Make the native automation event legible in one physical action.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I2.3","title":"Consequence","time":"0:10–0:15","description":"Three physical tabs match-cut to three ordered Spectrum states.","direction":"Product-region payoff with state labels added only in approved post-production.","transition":"Hard shape match; end state holds.","purpose":"Resolve the event into status, task, and reporting proof.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "02",
+        "slug": "the-moment-it-lands",
+        "title": "The Moment It Lands",
+        "concept": "A filing lands with controlled kinetic force, opening one blue seam that becomes three ordered outcomes.",
+        "status": "Supporting study",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Retained as source study; not the current production candidate",
+        "strength": "Immediate event-to-consequence clarity",
+        "complexity": "Moderate",
+        "distinctiveness": "Macro kinetic impact",
+        "recommendation": "Kinetic source for the Final Demo filing click and pulse",
+        "scenes": [
+          {
+            "id": "I2.1",
+            "title": "Approach",
+            "time": "0:00–0:05",
+            "description": "A macro account field sits on a Spectrum-derived plane as a filing descends toward one receiving slot.",
+            "direction": "Precise macro cinematography; no personal data or latency promise.",
+            "transition": "Filing impact begins the seam reveal.",
+            "purpose": "Establish home base and the arriving bankruptcy event.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I2.2",
+            "title": "Impact",
+            "time": "0:05–0:10",
+            "description": "The filing lands edge-first; one blue seam opens and divides into three tracks.",
+            "direction": "One decisive kinetic event; no representation of identity-match mechanics.",
+            "transition": "Hard shape match from physical tracks to product regions.",
+            "purpose": "Make the native automation event legible in one physical action.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I2.3",
+            "title": "Consequence",
+            "time": "0:10–0:15",
+            "description": "Three physical tabs match-cut to three ordered Spectrum states.",
+            "direction": "Product-region payoff with state labels added only in approved post-production.",
+            "transition": "Hard shape match; end state holds.",
+            "purpose": "Resolve the event into status, task, and reporting proof.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"03","slug":"one-desk-no-detours","title":"One Desk. No Detours.","concept":"External court information folds into one native folio and docks without breaking the specialist's desk workflow.","status":"Supporting study","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Retained as source study; not the current production candidate","strength":"Human workflow continuity","complexity":"Higher","distinctiveness":"Document-fold choreography","recommendation":"Human workflow source for the Final Demo opening and close",
-        "scenes":[
-          {"id":"I3.1","title":"Outside pull","time":"0:00–0:05","description":"A specialist and Spectrum remain central while three translucent document planes enter the desk perimeter.","direction":"One restrained camera arc around an anchored desk; court information stays abstract.","transition":"Document planes prepare to hinge together.","purpose":"Show the external complexity that historically pulled work away from Spectrum.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I3.2","title":"Native fold","time":"0:05–0:10","description":"The planes hinge into one blue-bound folio and dock at the monitor edge.","direction":"Physical integration metaphor; never imply zero human review.","transition":"Folio docking motivates the single hand input.","purpose":"Compress fragmented court information into a native workflow handoff.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I3.3","title":"Same desk","time":"0:10–0:15","description":"One hand input settles task and status inside Spectrum; no extra app or operator appears.","direction":"Continue the same restrained camera arc; approved interface detail is composited later.","transition":"End on uninterrupted desk continuity.","purpose":"Resolve the switching objection through a visible same-desk payoff.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "03",
+        "slug": "one-desk-no-detours",
+        "title": "One Desk. No Detours.",
+        "concept": "External court information folds into one native folio and docks without breaking the specialist's desk workflow.",
+        "status": "Supporting study",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Retained as source study; not the current production candidate",
+        "strength": "Human workflow continuity",
+        "complexity": "Higher",
+        "distinctiveness": "Document-fold choreography",
+        "recommendation": "Human workflow source for the Final Demo opening and close",
+        "scenes": [
+          {
+            "id": "I3.1",
+            "title": "Outside pull",
+            "time": "0:00–0:05",
+            "description": "A specialist and Spectrum remain central while three translucent document planes enter the desk perimeter.",
+            "direction": "One restrained camera arc around an anchored desk; court information stays abstract.",
+            "transition": "Document planes prepare to hinge together.",
+            "purpose": "Show the external complexity that historically pulled work away from Spectrum.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I3.2",
+            "title": "Native fold",
+            "time": "0:05–0:10",
+            "description": "The planes hinge into one blue-bound folio and dock at the monitor edge.",
+            "direction": "Physical integration metaphor; never imply zero human review.",
+            "transition": "Folio docking motivates the single hand input.",
+            "purpose": "Compress fragmented court information into a native workflow handoff.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I3.3",
+            "title": "Same desk",
+            "time": "0:10–0:15",
+            "description": "One hand input settles task and status inside Spectrum; no extra app or operator appears.",
+            "direction": "Continue the same restrained camera arc; approved interface detail is composited later.",
+            "transition": "End on uninterrupted desk continuity.",
+            "purpose": "Resolve the switching objection through a visible same-desk payoff.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"04","slug":"confidence-before-motion","title":"Confidence Before Motion","concept":"A precision iris accepts the filing, locks, then releases ordered action only after a deliberate beat.","status":"Supporting study","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Retained as source study; not the current production candidate","strength":"Control and compliance tone","complexity":"Moderate","distinctiveness":"Optical restraint and delayed action","recommendation":"Precision and trust reference for Final Demo motion",
-        "scenes":[
-          {"id":"I4.1","title":"Acceptance","time":"0:00–0:05","description":"Focus racks from Spectrum to a flush precision iris; the filing seats and the blue ring closes.","direction":"Acceptance is a metaphor only; do not add unapproved verification wording.","transition":"Hold the lock before releasing movement.","purpose":"Frame the event as controlled rather than alarming.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I4.2","title":"Controlled handoff","time":"0:05–0:10","description":"The locked signal exits on one narrow rail and seats in Spectrum.","direction":"Minimal controlled movement; no accuracy or identifier claim.","transition":"One-beat hold after the handoff.","purpose":"Express native integration as a controlled route.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I4.3","title":"Delayed action","time":"0:10–0:15","description":"After one held beat, status, task, and reporting move in order.","direction":"Downstream motion is withheld until acceptance; exact functions remain gated.","transition":"Ordered settle into end state.","purpose":"Show the three proof outcomes with a compliance-minded rhythm.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "04",
+        "slug": "confidence-before-motion",
+        "title": "Confidence Before Motion",
+        "concept": "A precision iris accepts the filing, locks, then releases ordered action only after a deliberate beat.",
+        "status": "Supporting study",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Retained as source study; not the current production candidate",
+        "strength": "Control and compliance tone",
+        "complexity": "Moderate",
+        "distinctiveness": "Optical restraint and delayed action",
+        "recommendation": "Precision and trust reference for Final Demo motion",
+        "scenes": [
+          {
+            "id": "I4.1",
+            "title": "Acceptance",
+            "time": "0:00–0:05",
+            "description": "Focus racks from Spectrum to a flush precision iris; the filing seats and the blue ring closes.",
+            "direction": "Acceptance is a metaphor only; do not add unapproved verification wording.",
+            "transition": "Hold the lock before releasing movement.",
+            "purpose": "Frame the event as controlled rather than alarming.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I4.2",
+            "title": "Controlled handoff",
+            "time": "0:05–0:10",
+            "description": "The locked signal exits on one narrow rail and seats in Spectrum.",
+            "direction": "Minimal controlled movement; no accuracy or identifier claim.",
+            "transition": "One-beat hold after the handoff.",
+            "purpose": "Express native integration as a controlled route.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I4.3",
+            "title": "Delayed action",
+            "time": "0:10–0:15",
+            "description": "After one held beat, status, task, and reporting move in order.",
+            "direction": "Downstream motion is withheld until acceptance; exact functions remain gated.",
+            "transition": "Ordered settle into end state.",
+            "purpose": "Show the three proof outcomes with a compliance-minded rhythm.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"05","slug":"built-beneath-the-surface","title":"Built Beneath the Surface","concept":"A tactile Spectrum surface separates by millimeters to reveal a purpose-built bkWatch mechanism underneath.","status":"Supporting study","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Retained as the primary creative source for Final Demo","strength":"Ownable architecture and premium materiality","complexity":"Higher","distinctiveness":"Tactile architectural cutaway","recommendation":"Architectural source for the Final Demo internal reveal",
-        "scenes":[
-          {"id":"I5.1","title":"Trusted surface","time":"0:00–0:05","description":"Raking light reveals a tactile Spectrum relief; its top separates by millimeters to expose a blue mechanism.","direction":"Warm-white paper or resin above a black substrate; architecture is metaphor, not a literal technology stack.","transition":"Camera follows the revealed channel beneath the surface.","purpose":"Keep Spectrum visually trusted while revealing specialized capability underneath.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I5.2","title":"Purpose-built route","time":"0:05–0:10","description":"The filing moves through a recessed channel below and raises one selected account tile flush.","direction":"Use one precise blue mechanism; do not imply an exact identity-match method.","transition":"Raised tile motivates an overhead move.","purpose":"Make the native route feel engineered for bankruptcy work.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I5.3","title":"Embossed proof","time":"0:10–0:15","description":"From overhead, status, task, and reporting embosses rise into calm order.","direction":"Exact copy and logos are composited in post after function approval.","transition":"Calm overhead hold for the handled payoff.","purpose":"Land three operational outcomes in a premium, ownable final frame.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "05",
+        "slug": "built-beneath-the-surface",
+        "title": "Built Beneath the Surface",
+        "concept": "A tactile Spectrum surface separates by millimeters to reveal a purpose-built bkWatch mechanism underneath.",
+        "status": "Supporting study",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Retained as the primary creative source for Final Demo",
+        "strength": "Ownable architecture and premium materiality",
+        "complexity": "Higher",
+        "distinctiveness": "Tactile architectural cutaway",
+        "recommendation": "Architectural source for the Final Demo internal reveal",
+        "scenes": [
+          {
+            "id": "I5.1",
+            "title": "Trusted surface",
+            "time": "0:00–0:05",
+            "description": "Raking light reveals a tactile Spectrum relief; its top separates by millimeters to expose a blue mechanism.",
+            "direction": "Warm-white paper or resin above a black substrate; architecture is metaphor, not a literal technology stack.",
+            "transition": "Camera follows the revealed channel beneath the surface.",
+            "purpose": "Keep Spectrum visually trusted while revealing specialized capability underneath.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I5.2",
+            "title": "Purpose-built route",
+            "time": "0:05–0:10",
+            "description": "The filing moves through a recessed channel below and raises one selected account tile flush.",
+            "direction": "Use one precise blue mechanism; do not imply an exact identity-match method.",
+            "transition": "Raised tile motivates an overhead move.",
+            "purpose": "Make the native route feel engineered for bankruptcy work.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I5.3",
+            "title": "Embossed proof",
+            "time": "0:10–0:15",
+            "description": "From overhead, status, task, and reporting embosses rise into calm order.",
+            "direction": "Exact copy and logos are composited in post after function approval.",
+            "transition": "Calm overhead hold for the handled payoff.",
+            "purpose": "Land three operational outcomes in a premium, ownable final frame.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"06","slug":"the-workday-doesnt-break","title":"The Workday Doesn't Break","concept":"A continuous side-dolly preserves the specialist's daylight and hand rhythm while the bankruptcy event is handled in Spectrum.","status":"Supporting study","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Retained as source study; not the current production candidate","strength":"Human emotional proof without hype","complexity":"Higher","distinctiveness":"Continuous workday rhythm","recommendation":"Continuity reference for the Final Demo return to work",
-        "scenes":[
-          {"id":"I6.1","title":"Rhythm","time":"0:00–0:05","description":"A side dolly follows the specialist, Spectrum, and one stripe of daylight as a filing reaches the monitor.","direction":"No visible speech or personal data; performance remains measured.","transition":"Camera and hand rhythm continue without a cut in energy.","purpose":"Establish an attentive, uninterrupted working environment.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I6.2","title":"Native handoff","time":"0:05–0:10","description":"The filing seats and one task advances while the specialist completes one measured hand movement.","direction":"Do not imply zero review; automation supports the operator's continuity.","transition":"Side dolly continues into a wider frame.","purpose":"Show native handling without breaking the operator's workflow.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I6.3","title":"Continuity","time":"0:10–0:15","description":"The camera widens as status and reporting settle; daylight and hand rhythm continue with one operator.","direction":"The emotional signature is protected attention, not celebration or a headcount claim.","transition":"Continuous rhythm carries through the final frame.","purpose":"Turn the handled payoff into visible workflow continuity.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "06",
+        "slug": "the-workday-doesnt-break",
+        "title": "The Workday Doesn't Break",
+        "concept": "A continuous side-dolly preserves the specialist's daylight and hand rhythm while the bankruptcy event is handled in Spectrum.",
+        "status": "Supporting study",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Retained as source study; not the current production candidate",
+        "strength": "Human emotional proof without hype",
+        "complexity": "Higher",
+        "distinctiveness": "Continuous workday rhythm",
+        "recommendation": "Continuity reference for the Final Demo return to work",
+        "scenes": [
+          {
+            "id": "I6.1",
+            "title": "Rhythm",
+            "time": "0:00–0:05",
+            "description": "A side dolly follows the specialist, Spectrum, and one stripe of daylight as a filing reaches the monitor.",
+            "direction": "No visible speech or personal data; performance remains measured.",
+            "transition": "Camera and hand rhythm continue without a cut in energy.",
+            "purpose": "Establish an attentive, uninterrupted working environment.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I6.2",
+            "title": "Native handoff",
+            "time": "0:05–0:10",
+            "description": "The filing seats and one task advances while the specialist completes one measured hand movement.",
+            "direction": "Do not imply zero review; automation supports the operator's continuity.",
+            "transition": "Side dolly continues into a wider frame.",
+            "purpose": "Show native handling without breaking the operator's workflow.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I6.3",
+            "title": "Continuity",
+            "time": "0:10–0:15",
+            "description": "The camera widens as status and reporting settle; daylight and hand rhythm continue with one operator.",
+            "direction": "The emotional signature is protected attention, not celebration or a headcount claim.",
+            "transition": "Continuous rhythm carries through the final frame.",
+            "purpose": "Turn the handled payoff into visible workflow continuity.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"07","slug":"the-update-writes-itself","title":"The Update Writes Itself","concept":"An editorial record corrects itself, opens onto Spectrum proof, and resolves into a concise evidence spread.","status":"Supporting derivative","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Proof derivative only; quote placement remains gated","strength":"Proof-led sales enablement","complexity":"Moderate","distinctiveness":"Editorial correction grammar","recommendation":"Separate proof-led derivative after the main film",
-        "scenes":[
-          {"id":"I7.1","title":"Correction","time":"0:00–0:05","description":"A text-free record sheet holds one misaligned gray field; a blue rule corrects its position.","direction":"Use an abstract record only, never real borrower data.","transition":"The corrected rule creates the die-cut reveal.","purpose":"Translate bankruptcy risk into a controlled record correction.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I7.2","title":"Product reveal","time":"0:05–0:10","description":"A die-cut paper window opens to a handled Spectrum state and a blank proof field.","direction":"Any quote is short, approved, and added in post only.","transition":"Window expands into an editorial spread.","purpose":"Connect the correction metaphor to visible product proof.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I7.3","title":"Proof spread","time":"0:10–0:15","description":"Product and proof field align into one editorial spread with three blue rules.","direction":"Driveway logo or excerpt placement requires explicit approval.","transition":"Hold as a proof-led end frame.","purpose":"Package the three handled outcomes as sales evidence.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "07",
+        "slug": "the-update-writes-itself",
+        "title": "The Update Writes Itself",
+        "concept": "An editorial record corrects itself, opens onto Spectrum proof, and resolves into a concise evidence spread.",
+        "status": "Supporting derivative",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Proof derivative only; quote placement remains gated",
+        "strength": "Proof-led sales enablement",
+        "complexity": "Moderate",
+        "distinctiveness": "Editorial correction grammar",
+        "recommendation": "Separate proof-led derivative after the main film",
+        "scenes": [
+          {
+            "id": "I7.1",
+            "title": "Correction",
+            "time": "0:00–0:05",
+            "description": "A text-free record sheet holds one misaligned gray field; a blue rule corrects its position.",
+            "direction": "Use an abstract record only, never real borrower data.",
+            "transition": "The corrected rule creates the die-cut reveal.",
+            "purpose": "Translate bankruptcy risk into a controlled record correction.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I7.2",
+            "title": "Product reveal",
+            "time": "0:05–0:10",
+            "description": "A die-cut paper window opens to a handled Spectrum state and a blank proof field.",
+            "direction": "Any quote is short, approved, and added in post only.",
+            "transition": "Window expands into an editorial spread.",
+            "purpose": "Connect the correction metaphor to visible product proof.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I7.3",
+            "title": "Proof spread",
+            "time": "0:10–0:15",
+            "description": "Product and proof field align into one editorial spread with three blue rules.",
+            "direction": "Driveway logo or excerpt placement requires explicit approval.",
+            "transition": "Hold as a proof-led end frame.",
+            "purpose": "Package the three handled outcomes as sales evidence.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       },
       {
-        "number":"08","slug":"the-handled-orbit","title":"The Handled Orbit","concept":"A filing token crosses a blue ingress arc, resolves into three states, and leaves a persistent handled marker as the next event arrives.","status":"Supporting derivative","runtime":"15 seconds","sceneCount":3,"demoState":"Study prompt package ready; media not generated","approval":"Deployment derivative only; not the current production candidate","strength":"Loopable deployment format","complexity":"Moderate","distinctiveness":"Persistent orbital motion","recommendation":"Booth/site loop after the Final Demo is approved",
-        "scenes":[
-          {"id":"I8.1","title":"Continuous arrival","time":"0:00–0:05","description":"A white filing token orbits a Spectrum-derived plane while one completed blue marker remains visible.","direction":"Keep the metaphor silent-readable and abstract.","transition":"The orbit reaches the blue ingress arc.","purpose":"Establish recurring events around a stable Spectrum home base.","status":"Not generated","script":"Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"},
-          {"id":"I8.2","title":"Native crossing","time":"0:05–0:10","description":"The token crosses the blue ingress arc and enters the central plane.","direction":"No exact latency promise; the crossing represents native integration.","transition":"The crossing resolves into three settled states.","purpose":"Make the native handoff legible within a loopable system.","status":"Not generated","script":"real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."},
-          {"id":"I8.3","title":"Persistent handling","time":"0:10–0:15","description":"Three states settle; the completed marker remains while the next token reaches its opening position.","direction":"The loop continues without resetting the handled state.","transition":"Seamless loop to Scene 1 opening position.","purpose":"Show persistent handling and prepare a continuous booth or site loop.","status":"Not generated","script":"Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."}
+        "number": "08",
+        "slug": "the-handled-orbit",
+        "title": "The Handled Orbit",
+        "concept": "A filing token crosses a blue ingress arc, resolves into three states, and leaves a persistent handled marker as the next event arrives.",
+        "status": "Supporting derivative",
+        "runtime": "15 seconds",
+        "sceneCount": 3,
+        "demoState": "Study prompt package ready; media not generated",
+        "approval": "Deployment derivative only; not the current production candidate",
+        "strength": "Loopable deployment format",
+        "complexity": "Moderate",
+        "distinctiveness": "Persistent orbital motion",
+        "recommendation": "Booth/site loop after the Final Demo is approved",
+        "scenes": [
+          {
+            "id": "I8.1",
+            "title": "Continuous arrival",
+            "time": "0:00–0:05",
+            "description": "A white filing token orbits a Spectrum-derived plane while one completed blue marker remains visible.",
+            "direction": "Keep the metaphor silent-readable and abstract.",
+            "transition": "The orbit reaches the blue ingress arc.",
+            "purpose": "Establish recurring events around a stable Spectrum home base.",
+            "status": "Not generated",
+            "script": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring"
+          },
+          {
+            "id": "I8.2",
+            "title": "Native crossing",
+            "time": "0:05–0:10",
+            "description": "The token crosses the blue ingress arc and enters the central plane.",
+            "direction": "No exact latency promise; the crossing represents native integration.",
+            "transition": "The crossing resolves into three settled states.",
+            "purpose": "Make the native handoff legible within a loopable system.",
+            "status": "Not generated",
+            "script": "real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows."
+          },
+          {
+            "id": "I8.3",
+            "title": "Persistent handling",
+            "time": "0:10–0:15",
+            "description": "Three states settle; the completed marker remains while the next token reaches its opening position.",
+            "direction": "The loop continues without resetting the handled state.",
+            "transition": "Seamless loop to Scene 1 opening position.",
+            "purpose": "Show persistent handling and prepare a continuous booth or site loop.",
+            "status": "Not generated",
+            "script": "Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled."
+          }
         ]
       }
     ],
-    "source":"Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
+    "source": "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
   },
   "aiCapabilities": [
-    {"category":"Operations","name":"Rules-based API monitoring baseline","status":"active","detail":"Confirmed current automation baseline; this is not generative AI.","source":"BankruptcyWatch factual canon — AI Use Audit"},
-    {"category":"Operations","name":"Agentic case routing","status":"not","detail":"Opportunity only; no current adoption is recorded.","source":"BankruptcyWatch factual canon — Agentic Case Workflows"},
-    {"category":"Operations","name":"Exception triage copilot","status":"not","detail":"Proposed service opportunity for cases that fall outside rigid rules.","source":"Derived Third i opportunity from current rules-based limitations"},
-    {"category":"Marketing","name":"AI-assisted product content system","status":"unknown","detail":"No current marketing production workflow is documented.","source":"Approved memory contains no adoption evidence"},
-    {"category":"Marketing","name":"Role-specific campaign generation","status":"not","detail":"Recommended opportunity for compliance, servicing, and recovery audiences.","source":"Third i guidance; not a client adoption claim"},
-    {"category":"Marketing","name":"Film-to-sales-content repurposing","status":"partial","detail":"Film 1 is in creative development; no final media exists to repurpose.","source":"Film1 Working Memory — D2 complete, media not started"},
-    {"category":"Acquisition","name":"Account research briefs","status":"not","detail":"No AI-assisted account research process is confirmed.","source":"Approved memory contains no adoption evidence"},
-    {"category":"Acquisition","name":"Lead scoring and prioritization","status":"unknown","detail":"Funnel data, scoring model, and adoption state require confirmation.","source":"No client-safe acquisition baseline is recorded"},
-    {"category":"Acquisition","name":"Native-integration sales enablement","status":"partial","detail":"Film 1 and product-proof directions are in progress; public claims remain gated.","source":"Film1 Working Memory and factual canon"},
-    {"category":"Service","name":"Case status explanation assistant","status":"not","detail":"Opportunity only; no current client-facing assistant is documented.","source":"Third i guidance; not a client adoption claim"},
-    {"category":"Service","name":"Human-gated service response drafts","status":"not","detail":"Opportunity to draft clear responses while retaining specialist approval.","source":"Third i guidance; not a client adoption claim"},
-    {"category":"Service","name":"Support request classification","status":"unknown","detail":"Support tooling and ticket volume are not documented.","source":"Needs client confirmation"},
-    {"category":"Analytics","name":"Bankruptcy trend narratives","status":"unknown","detail":"Data reporting is documented, but AI-generated analysis adoption is not.","source":"BankruptcyWatch factual canon — leadership and AI audit"},
-    {"category":"Analytics","name":"Predictive case early warning","status":"not","detail":"Listed as a potential future capability, not current usage.","source":"BankruptcyWatch factual canon — Predictive Sentiment & Early Warning"},
-    {"category":"Analytics","name":"Portfolio anomaly detection","status":"not","detail":"Opportunity only; no confirmed deployed model is recorded.","source":"Third i guidance; not a client adoption claim"},
-    {"category":"Compliance","name":"District-level compliance copilot","status":"not","detail":"Proposed retrieval system across local rules for 94 districts.","source":"BankruptcyWatch factual canon — potential benefits"},
-    {"category":"Compliance","name":"Automatic-stay communication review","status":"not","detail":"Potential compliant-communications capability; not currently confirmed.","source":"BankruptcyWatch factual canon — potential benefits"},
-    {"category":"Compliance","name":"Claim citation and evidence checking","status":"partial","detail":"Film 1 uses manual source provenance and claim gates; automated checking is not deployed.","source":"Film1 claim-control workflow"},
-    {"category":"Film","name":"AI-assisted concept development","status":"partial","detail":"Final Demo and eight supporting studies are planned; generation has not started.","source":"Film1 Working Memory — 122 visual prompts ready"},
-    {"category":"Film","name":"Generated still production","status":"not","detail":"Zero generated stills are approved because media generation has not started.","source":"Film1 Working Memory — Session State"},
-    {"category":"Film","name":"Generated motion production","status":"not","detail":"Zero motion clips have been generated for current Film 1.","source":"Film1 Working Memory — Session State"},
-    {"category":"Web","name":"Personalized product education","status":"not","detail":"No AI-personalized web experience is confirmed.","source":"Approved memory contains no adoption evidence"},
-    {"category":"Web","name":"Portal status summarization","status":"partial","detail":"This sourced portal organizes status manually; no autonomous updater is deployed.","source":"Current portal architecture"},
-    {"category":"Web","name":"Natural-language product discovery","status":"not","detail":"Opportunity only; no product assistant is confirmed.","source":"Third i guidance; not a client adoption claim"},
-    {"category":"Communications","name":"Compliant borrower communication drafts","status":"not","detail":"Potential future capability requiring automatic-stay safeguards and human review.","source":"BankruptcyWatch factual canon — potential benefits"},
-    {"category":"Communications","name":"Executive operating briefs","status":"not","detail":"No AI-generated executive brief process is documented.","source":"Approved memory contains no adoption evidence"},
-    {"category":"Communications","name":"Approval-aware copy review","status":"partial","detail":"Film copy is manually gated by status and provenance; automated review is not deployed.","source":"Film1 Working Memory and procedural HITL discipline"},
-    {"category":"Product / workflow","name":"Multimodal bankruptcy document parsing","status":"not","detail":"Proposed replacement or supplement for rigid parsing, with human validation required.","source":"BankruptcyWatch factual canon — Intelligent Document Parsing"},
-    {"category":"Product / workflow","name":"Case-to-task orchestration agents","status":"not","detail":"Potential agentic workflow; current automation remains rules-based.","source":"BankruptcyWatch factual canon — Agentic Case Workflows"},
-    {"category":"Product / workflow","name":"Proof-of-Claim drafting assistant","status":"unknown","detail":"Response capability is documented, but AI assistance and exact live scope require confirmation.","source":"BankruptcyWatch factual canon — Automated Bankruptcy Response"}
+    {
+      "category": "Operations",
+      "name": "Rules-based API monitoring baseline",
+      "status": "active",
+      "detail": "Confirmed current automation baseline; this is not generative AI.",
+      "source": "BankruptcyWatch factual canon — AI Use Audit"
+    },
+    {
+      "category": "Operations",
+      "name": "Agentic case routing",
+      "status": "not",
+      "detail": "Opportunity only; no current adoption is recorded.",
+      "source": "BankruptcyWatch factual canon — Agentic Case Workflows"
+    },
+    {
+      "category": "Operations",
+      "name": "Exception triage copilot",
+      "status": "not",
+      "detail": "Proposed service opportunity for cases that fall outside rigid rules.",
+      "source": "Derived Third i opportunity from current rules-based limitations"
+    },
+    {
+      "category": "Marketing",
+      "name": "AI-assisted product content system",
+      "status": "unknown",
+      "detail": "No current marketing production workflow is documented.",
+      "source": "Approved memory contains no adoption evidence"
+    },
+    {
+      "category": "Marketing",
+      "name": "Role-specific campaign generation",
+      "status": "not",
+      "detail": "Recommended opportunity for compliance, servicing, and recovery audiences.",
+      "source": "Third i guidance; not a client adoption claim"
+    },
+    {
+      "category": "Marketing",
+      "name": "Film-to-sales-content repurposing",
+      "status": "partial",
+      "detail": "Film 1 is in creative development; no final media exists to repurpose.",
+      "source": "Film1 Working Memory — D2 complete, media not started"
+    },
+    {
+      "category": "Acquisition",
+      "name": "Account research briefs",
+      "status": "not",
+      "detail": "No AI-assisted account research process is confirmed.",
+      "source": "Approved memory contains no adoption evidence"
+    },
+    {
+      "category": "Acquisition",
+      "name": "Lead scoring and prioritization",
+      "status": "unknown",
+      "detail": "Funnel data, scoring model, and adoption state require confirmation.",
+      "source": "No client-safe acquisition baseline is recorded"
+    },
+    {
+      "category": "Acquisition",
+      "name": "Native-integration sales enablement",
+      "status": "partial",
+      "detail": "Film 1 and product-proof directions are in progress; public claims remain gated.",
+      "source": "Film1 Working Memory and factual canon"
+    },
+    {
+      "category": "Service",
+      "name": "Case status explanation assistant",
+      "status": "not",
+      "detail": "Opportunity only; no current client-facing assistant is documented.",
+      "source": "Third i guidance; not a client adoption claim"
+    },
+    {
+      "category": "Service",
+      "name": "Human-gated service response drafts",
+      "status": "not",
+      "detail": "Opportunity to draft clear responses while retaining specialist approval.",
+      "source": "Third i guidance; not a client adoption claim"
+    },
+    {
+      "category": "Service",
+      "name": "Support request classification",
+      "status": "unknown",
+      "detail": "Support tooling and ticket volume are not documented.",
+      "source": "Needs client confirmation"
+    },
+    {
+      "category": "Analytics",
+      "name": "Bankruptcy trend narratives",
+      "status": "unknown",
+      "detail": "Data reporting is documented, but AI-generated analysis adoption is not.",
+      "source": "BankruptcyWatch factual canon — leadership and AI audit"
+    },
+    {
+      "category": "Analytics",
+      "name": "Predictive case early warning",
+      "status": "not",
+      "detail": "Listed as a potential future capability, not current usage.",
+      "source": "BankruptcyWatch factual canon — Predictive Sentiment & Early Warning"
+    },
+    {
+      "category": "Analytics",
+      "name": "Portfolio anomaly detection",
+      "status": "not",
+      "detail": "Opportunity only; no confirmed deployed model is recorded.",
+      "source": "Third i guidance; not a client adoption claim"
+    },
+    {
+      "category": "Compliance",
+      "name": "District-level compliance copilot",
+      "status": "not",
+      "detail": "Proposed retrieval system across local rules for 94 districts.",
+      "source": "BankruptcyWatch factual canon — potential benefits"
+    },
+    {
+      "category": "Compliance",
+      "name": "Automatic-stay communication review",
+      "status": "not",
+      "detail": "Potential compliant-communications capability; not currently confirmed.",
+      "source": "BankruptcyWatch factual canon — potential benefits"
+    },
+    {
+      "category": "Compliance",
+      "name": "Claim citation and evidence checking",
+      "status": "partial",
+      "detail": "Film 1 uses manual source provenance and claim gates; automated checking is not deployed.",
+      "source": "Film1 claim-control workflow"
+    },
+    {
+      "category": "Film",
+      "name": "AI-assisted concept development",
+      "status": "partial",
+      "detail": "Final Demo and eight supporting studies are planned; generation has not started.",
+      "source": "Film1 Working Memory — 122 visual prompts ready"
+    },
+    {
+      "category": "Film",
+      "name": "Generated still production",
+      "status": "not",
+      "detail": "Zero generated stills are approved because media generation has not started.",
+      "source": "Film1 Working Memory — Session State"
+    },
+    {
+      "category": "Film",
+      "name": "Generated motion production",
+      "status": "not",
+      "detail": "Zero motion clips have been generated for current Film 1.",
+      "source": "Film1 Working Memory — Session State"
+    },
+    {
+      "category": "Web",
+      "name": "Personalized product education",
+      "status": "not",
+      "detail": "No AI-personalized web experience is confirmed.",
+      "source": "Approved memory contains no adoption evidence"
+    },
+    {
+      "category": "Web",
+      "name": "Portal status summarization",
+      "status": "partial",
+      "detail": "This sourced portal organizes status manually; no autonomous updater is deployed.",
+      "source": "Current portal architecture"
+    },
+    {
+      "category": "Web",
+      "name": "Natural-language product discovery",
+      "status": "not",
+      "detail": "Opportunity only; no product assistant is confirmed.",
+      "source": "Third i guidance; not a client adoption claim"
+    },
+    {
+      "category": "Communications",
+      "name": "Compliant borrower communication drafts",
+      "status": "not",
+      "detail": "Potential future capability requiring automatic-stay safeguards and human review.",
+      "source": "BankruptcyWatch factual canon — potential benefits"
+    },
+    {
+      "category": "Communications",
+      "name": "Executive operating briefs",
+      "status": "not",
+      "detail": "No AI-generated executive brief process is documented.",
+      "source": "Approved memory contains no adoption evidence"
+    },
+    {
+      "category": "Communications",
+      "name": "Approval-aware copy review",
+      "status": "partial",
+      "detail": "Film copy is manually gated by status and provenance; automated review is not deployed.",
+      "source": "Film1 Working Memory and procedural HITL discipline"
+    },
+    {
+      "category": "Product / workflow",
+      "name": "Multimodal bankruptcy document parsing",
+      "status": "not",
+      "detail": "Proposed replacement or supplement for rigid parsing, with human validation required.",
+      "source": "BankruptcyWatch factual canon — Intelligent Document Parsing"
+    },
+    {
+      "category": "Product / workflow",
+      "name": "Case-to-task orchestration agents",
+      "status": "not",
+      "detail": "Potential agentic workflow; current automation remains rules-based.",
+      "source": "BankruptcyWatch factual canon — Agentic Case Workflows"
+    },
+    {
+      "category": "Product / workflow",
+      "name": "Proof-of-Claim drafting assistant",
+      "status": "unknown",
+      "detail": "Response capability is documented, but AI assistance and exact live scope require confirmation.",
+      "source": "BankruptcyWatch factual canon — Automated Bankruptcy Response"
+    }
   ],
   "currentWork": {
-    "summary":"Film 1 is the active client-safe creative project in this release. The 22-second Final Demo is planned above eight supporting studies, but no current media should be presented as finished work.",
-    "milestone":"Third i locks the Final Demo plan; NEW FILING is generated with the rest of the film; Shaw provides sanitized Spectrum assets; exact composite keyframes are approved before generation.",
-    "deliverables":["Locked 45-word voiceover at 122.7 WPM","Final Demo six-scene storyboard","Twelve controlled motion segments","Thirty Final Demo still/anchor prompts","Twelve Final Demo motion prompts","Eight supporting-study packages","122-prompt project inventory","Claim, asset, and keyframe gates"],
-    "blockers":[{"title":"Final Demo plan approval","detail":"Approve the 22-second Final Demo plan and its corrected segment allocation — including confirmation that the live/showable Status, Tasks, and Credit behavior can be demonstrated — before any media is generated."},{"title":"Final CTA and logo hierarchy","detail":"Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene."}],
-    "legacy":"A prior vertical concept is retained only as an internal topology reference. It is not part of the current Film 1 presentation and is not shown as approved work.",
-    "source":"Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    "summary": "Film 1 is the active client-safe creative project in this release. The 22-second Final Demo is planned above eight supporting studies, but no current media should be presented as finished work.",
+    "milestone": "Third i locks the Final Demo plan; NEW FILING is generated with the rest of the film; Shaw provides sanitized Spectrum assets; exact composite keyframes are approved before generation.",
+    "deliverables": [
+      "Locked 45-word voiceover at 122.7 WPM",
+      "Final Demo six-scene storyboard",
+      "Twelve controlled motion segments",
+      "Thirty Final Demo still/anchor prompts",
+      "Twelve Final Demo motion prompts",
+      "Eight supporting-study packages",
+      "122-prompt project inventory",
+      "Claim, asset, and keyframe gates"
+    ],
+    "blockers": [
+      {
+        "title": "Final Demo plan approval",
+        "detail": "Approve the 22-second Final Demo plan and its corrected segment allocation — including confirmation that the live/showable Status, Tasks, and Credit behavior can be demonstrated — before any media is generated."
+      },
+      {
+        "title": "Final CTA and logo hierarchy",
+        "detail": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene."
+      }
+    ],
+    "legacy": "A prior vertical concept is retained only as an internal topology reference. It is not part of the current Film 1 presentation and is not shown as approved work.",
+    "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
   }
 }

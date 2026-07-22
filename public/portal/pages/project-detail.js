@@ -17,7 +17,7 @@ export function render(data, params) {
   const ideaCards = film ? film.ideas.map((idea) => `
     <a class="card card-feature card-link creative-direction-card" href="#/projects/${p.slug}/ideas/${idea.slug}">
       ${motif("grid")}
-      <div class="pc-meta creative-direction-badges">${idea.recommended ? statusLabel("Recommended", "ok", true) : statusLabel(idea.status, undefined, true)}<span class="chip"><span class="control-content">${esc(idea.number)}</span></span></div>
+      <div class="pc-meta creative-direction-badges">${idea.recommended ? statusLabel("Locked", "ok", true) : statusLabel(idea.status, undefined, true)}<span class="chip"><span class="control-content">${esc(idea.number)}</span></span></div>
       <h3 class="pc-title">${esc(idea.title)}</h3>
       <p class="pc-value">${esc(idea.concept)}</p>
       <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
@@ -61,6 +61,8 @@ export function render(data, params) {
         </div>
       </div>
     </section>
+
+    ${renderPromotedProduction(p, film)}
 
     ${(invoicing && p.status === "active") ? renderProjectValue(p, invoicing, projects.asOf) : ""}
 
@@ -124,7 +126,7 @@ function renderProjectValue(p, invoicing, asOf) {
     hours != null ? { value: hours, label: "hours" } : null,
     weeks != null ? { value: weeks, label: "weeks active" } : null,
     deliverables.length ? { value: `${ready}/${deliverables.length}`, label: "deliverables ready" } : null,
-    selectedIdea?.sceneCount ? { value: selectedIdea.sceneCount, label: "Final Demo scenes" } : null
+    selectedIdea?.sceneCount ? { value: selectedIdea.sceneCount, label: "selected demo scenes" } : null
   ].filter(Boolean);
   return `<section class="detail-block"><div class="value-panel">
     <h3>Effort &amp; value</h3>
@@ -133,6 +135,28 @@ function renderProjectValue(p, invoicing, asOf) {
       <div class="ai-value-actions"><a class="btn btn-sm btn-outline" href="#/value-results">View Value &amp; Results ${icon("arrowRight")}</a></div>
     </div>
   </div></section>`;
+}
+
+/** After demo approval, the canonical direction is promoted intact to the top
+ * of the project page. Its scene order, script, comments, and media/version
+ * history remain attached; the current bkWatch project is not at this gate yet. */
+function renderPromotedProduction(p, film) {
+  if (!film || p.productionLifecycle?.promotionState !== "promoted") return "";
+  const promotedId = p.productionLifecycle.promotedIdeaId || p.productionLifecycle.canonicalIdeaId;
+  const idea = film.ideas.find((item) => item.slug === promotedId);
+  if (!idea) return "";
+  const scenes = idea.scenes.map((scene) => {
+    const histories = (p.assets || []).filter((asset) => (scene.assetIds || []).includes(asset.id));
+    return `<article class="scene-block promoted-scene" id="production-${esc(scene.id)}">
+      <div class="scene-media">${mediaFrame({ mediaState: scene.mediaState, ratio: "16 / 9" })}${histories.map(versionHistory).join("")}</div>
+      <div class="scene-copy"><div class="scene-id">${esc(scene.id)} · ${esc(scene.time || "")}</div><h3 class="scene-title">${esc(scene.title)}</h3>
+        ${scene.description ? `<p class="reading">${esc(scene.description)}</p>` : ""}
+        ${scene.script ? `<div class="scene-script"><span class="lbl">Script</span><p>${esc(scene.script)}</p></div>` : ""}
+        ${addCommentButton({ scope: "scene", projectId: p.id, sceneId: scene.id, label: `Scene ${scene.id}`, route: `/bkwatch/projects/${p.slug}` }, "Comment on scene")}
+      </div>
+    </article>`;
+  }).join("");
+  return `<section class="detail-block promoted-production"><div class="section-head"><div><span class="eyebrow">Approved direction · full-film production</span><h2>${esc(idea.title)}</h2></div>${statusLabel("Promoted to production", "ok")}</div><p class="reading muted">The approved demo direction is now the canonical production record. Storyboard, script, scene comments, previews, and version history stay together here.</p><div class="scene-list">${scenes}</div></section>`;
 }
 
 function renderScope(s) {

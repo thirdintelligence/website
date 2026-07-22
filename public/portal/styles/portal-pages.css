@@ -38,6 +38,11 @@
 .detail-block { margin-top: var(--space-7); }
 .detail-block > h2 { font-size: var(--fs-h2); margin-bottom: var(--space-3); }
 .comparison-criteria { padding-block: var(--space-2); }
+.scene-block.scene-block-text-only { grid-template-columns: minmax(0, 1fr); }
+.scene-block-text-only .scene-copy { max-width: 860px; }
+.scene-text-action { margin-top: var(--space-3); }
+.idea-media-policy { margin-top: var(--space-3); max-width: 780px; }
+.promoted-production { border-color: var(--line-strong); }
 
 /* ── Film presentation: scene-by-scene ──────────────────────────────────────── */
 .idea-block { margin-top: var(--space-6); }
@@ -122,6 +127,7 @@
 .project-value-strip .ai-value-stat { min-width: 0; }
 .creative-direction-card { display: flex; flex-direction: column; }
 .creative-direction-card .card-action { margin-top: auto; }
+.creative-direction-card .pc-meta.muted { margin-bottom: var(--space-4); }
 
 /* ── Partnership roadmap infographic ────────────────────────────────────────── */
 .roadmap-section { margin-top: var(--space-6); }

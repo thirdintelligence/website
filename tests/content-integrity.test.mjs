@@ -18,7 +18,7 @@ test("bkWatch manifest is explicitly client-safe and tenant-scoped", () => {
 test("Film 1 current state is internally consistent", () => {
   assert.equal(manifest.film.runtime, "22 seconds");
   assert.equal(manifest.film.ideas.length, 9);
-  assert.equal(manifest.film.ideas[0].number, "FINAL");
+  assert.equal(manifest.film.ideas[0].number, "HYBRID");
   assert.equal(manifest.film.ideas[0].title, "Final Demo");
   assert.equal(manifest.film.ideas.reduce((sum, idea) => sum + idea.scenes.length, 0), 30);
   assert.equal(manifest.film.ideas[0].scenes.length, 6);
@@ -172,7 +172,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.doesNotMatch(projectDetail, /<th>Recommendation<\/th>/);
   assert.doesNotMatch(projectDetail, /esc\(i\.recommendation/);
   assert.match(projectDetail, /pc-meta creative-direction-badges/);
-  assert.match(projectDetail, /statusLabel\("Recommended", "ok", true\)/);
+  assert.match(projectDetail, /statusLabel\("Locked", "ok", true\)/);
   assert.match(projectDetail, /<span class="chip"><span class="control-content">/);
   assert.match(projectDetail, /reading muted comparison-criteria/);
   const scriptPosition = projectDetail.indexOf('${p.script ?');

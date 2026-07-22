@@ -17,13 +17,13 @@ export function render(data, params) {
   const idx = ideas.findIndex((i) => i.slug === idea.slug);
   const prev = ideas[idx - 1];
   const next = ideas[idx + 1];
-  const isFinal = idea.slug === "final-demo";
+  const showsMedia = idea.mediaPolicy !== "none";
 
-  const sceneBlock = (s) => `<div class="scene-block" id="${esc(s.id)}">
-    <div class="scene-media">
-      ${mediaFrame({ mediaState: s.mediaState, ratio: "16 / 9" })}
+  const sceneBlock = (s) => `<div class="scene-block${showsMedia ? "" : " scene-block-text-only"}" id="${esc(s.id)}">
+    ${showsMedia ? `<div class="scene-media">
+      ${mediaFrame({ mediaState: s.mediaState, label: idea.lifecycleState === "demo-production" ? "Demo in production" : undefined, ratio: "16 / 9" })}
       <div class="pc-meta" style="margin-top:10px">${addCommentButton({ scope: "scene", projectId: p.id, sceneId: s.id, label: "Scene " + s.id, route: `/bkwatch/projects/${p.slug}/ideas/${idea.slug}` }, "Comment on scene")}</div>
-    </div>
+    </div>` : ""}
     <div class="scene-copy">
       <div class="scene-id">${esc(s.id)} · ${esc(s.time || "")}</div>
       <h3 class="scene-title">${esc(s.title)}</h3>
@@ -35,6 +35,7 @@ export function render(data, params) {
         ${s.purpose ? `<dt>Purpose</dt><dd>${esc(s.purpose)}</dd>` : ""}
         ${s.duration ? `<dt>Duration</dt><dd>${esc(s.duration)}</dd>` : ""}
       </dl>
+      ${showsMedia ? "" : `<div class="pc-meta scene-text-action">${addCommentButton({ scope: "scene", projectId: p.id, sceneId: s.id, label: "Scene " + s.id, route: `/bkwatch/projects/${p.slug}/ideas/${idea.slug}` }, "Comment on scene")}</div>`}
     </div>
   </div>`;
 
@@ -44,12 +45,13 @@ export function render(data, params) {
     <section class="section" style="margin-top:16px">
       <div class="page-head-row">
         <div>
-          <div class="hero-metaline">${idea.recommended ? statusLabel("Recommended direction", "ok") : statusLabel(idea.status)}<span class="chip">${esc(idea.number)}</span></div>
+          <div class="hero-metaline">${idea.recommended ? statusLabel("Locked direction", "ok") : statusLabel(idea.status)}<span class="chip">${esc(idea.number)}</span></div>
           <h1 class="page-title" style="margin-top:8px">${esc(idea.title)}</h1>
         </div>
         <button class="btn btn-sm btn-outline" type="button" data-presentation-fullscreen aria-pressed="false">${icon("maximize")} Full screen</button>
       </div>
       <p class="page-lede">${esc(idea.concept)}</p>
+      ${showsMedia ? "" : `<p class="reading muted idea-media-policy">This is a brainstorm direction. Its storyboard and script are ready for comparison; media preview spaces appear only after a direction is selected for demo production.</p>`}
       <div class="hero-metaline">${chip(`${idea.sceneCount} scenes`, "film")}${idea.runtime ? chip(idea.runtime, "clock") : ""}${idea.demoState ? chip(idea.demoState) : ""}</div>
     </section>
 
