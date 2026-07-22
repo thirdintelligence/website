@@ -108,7 +108,8 @@ export function render(data, params) {
     ${sourceNote(p.source)}
   </div>`;
 
-  return { crumb: "Projects", title: p.title, html };
+  const hasDemo = film && film.ideas.some(isSelectedIdea);
+  return { crumb: "Projects", title: p.title, fullscreen: hasDemo, html };
 }
 
 function renderProjectValue(p, invoicing, asOf) {

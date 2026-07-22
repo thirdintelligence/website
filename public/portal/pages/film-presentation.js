@@ -79,5 +79,5 @@ export function render(data, params) {
     </section>
   </div>`;
 
-  return { crumb: p.title, title: idea.title, html };
+  return { crumb: p.title, title: idea.title, fullscreen: true, html };
 }

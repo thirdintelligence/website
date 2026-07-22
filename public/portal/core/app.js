@@ -147,7 +147,7 @@ function renderRoute() {
 
   contentEl.innerHTML = view.html;
   hydrateDesignerFrames();
-  setContext({ crumb: view.crumb || "", title: view.title || "", action: view.action || "" });
+  setContext({ crumb: view.crumb || "", title: view.title || "", action: view.action || "", fullscreen: view.fullscreen || false });
   setActiveNav(m.name);
   document.title = `${view.title || "Home"} · ${DATA.portal.client.shortName} · Third i`;
 

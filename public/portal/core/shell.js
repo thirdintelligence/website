@@ -52,6 +52,7 @@ export function renderShell(root, data) {
         </div>
         <div class="topbar-utilities">
           <span class="topbar-action" id="topbar-action"></span>
+          <button class="btn btn-sm btn-ghost" id="topbar-fullscreen" type="button" data-presentation-fullscreen aria-pressed="false" aria-label="Full screen" hidden>${icon("maximize")}<span>Full screen</span></button>
           <button class="btn btn-primary" id="add-comment-btn" type="button">${icon("comment")}<span>Add Comment</span></button>
           <button class="btn btn-icon btn-ghost mobile-search-trigger" id="mobile-search-trigger" type="button" aria-label="Search">${icon("search")}</button>
           <div class="search-utility">
@@ -130,11 +131,13 @@ export function setActiveNav(routeName) {
   });
 }
 
-export function setContext({ crumb = "", title = "", action = "" } = {}) {
+export function setContext({ crumb = "", title = "", action = "", fullscreen = false } = {}) {
   const c = document.getElementById("topbar-crumb");
   const t = document.getElementById("topbar-title");
   const a = document.getElementById("topbar-action");
+  const fs = document.getElementById("topbar-fullscreen");
   if (c) c.textContent = crumb;
   if (t) t.textContent = title;
   if (a) a.innerHTML = action;
+  if (fs) fs.hidden = !fullscreen;
 }
