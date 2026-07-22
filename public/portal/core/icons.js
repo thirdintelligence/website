@@ -49,7 +49,17 @@ const P = {
   clipboardCheck: '<rect x="8" y="4" width="8" height="4" rx="1"/><path d="M8 6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/>',
   worktree: '<circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8"/><path d="M6 12h6a4 4 0 0 0 4-4"/>',
   graph: '<path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="0.5"/><rect x="12" y="8" width="3" height="10" rx="0.5"/><rect x="17" y="5" width="3" height="13" rx="0.5"/>',
-  contract: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/><path d="M15 18l2 2 4-4"/>'
+  contract: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/><path d="M15 18l2 2 4-4"/>',
+  /* Clarified icons — each visually distinct from its neighbors. */
+  clockBolt: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="m13.5 13 3 3-3 3"/>',
+  dollar: '<path d="M12 2v20"/><path d="M17 6.5C17 5 15 4 12 4S7 5 7 7s2 3 5 3 5 1 5 3-2 3-5 3-5-1-5-2.5"/>',
+  muscle: '<path d="M5 14c0-3 2-5 5-5h4c1.5 0 3 1 3 3v4c0 1-1 2-2 2H8c-2 0-3-1-3-3Z"/><path d="M14 9c0-2 1-4 3-4s3 2 3 4"/><path d="M5 14c-1 0-2 1-2 2s1 2 2 2"/>',
+  cool: '<circle cx="12" cy="12" r="9"/><path d="M7 14c1.5 2 3.5 3 5 3s3.5-1 5-3"/><path d="M7.5 9h3l1 1.5L7.5 11Z"/><path d="M16.5 9h-3l-1 1.5L16.5 11Z"/><path d="M7.5 9.5h9"/>',
+  brain: '<path d="M12 5a3 3 0 0 0-5 2 3 3 0 0 0-1 5 3 3 0 0 0 2 5 3 3 0 0 0 4 0V5Z"/><path d="M12 5a3 3 0 0 1 5 2 3 3 0 0 1 1 5 3 3 0 0 1-2 5 3 3 0 0 1-4 0"/>',
+  lightbulb: '<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c1 1 1.5 2 1.5 3h5c0-1 .5-2 1.5-3a6 6 0 0 0-4-10Z"/>',
+  bookOpen: '<path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2"/><path d="M12 6c2-1.5 5-2 8-2v14c-3 0-6 .5-8 2"/><path d="M12 6v14"/>',
+  puzzle: '<path d="M10 4h4v3a2 2 0 0 0 4 0V4h2v6h-3a2 2 0 0 0 0 4h3v6h-6v-3a2 2 0 0 0-4 0v3H4v-6h3a2 2 0 0 0 0-4H4V4h2v3a2 2 0 0 0 4 0Z"/>',
+  wrench: '<path d="M14 7a4 4 0 0 1-5 5L4 17a2.5 2.5 0 0 0 3.5 3.5L12 16a4 4 0 0 1 5-5"/><path d="m14 7 4-4 2 2-4 4"/>'
 };
 
 export function icon(name, cls = "icon") {

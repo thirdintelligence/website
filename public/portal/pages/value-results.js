@@ -6,7 +6,7 @@ import { motif, sourceNote, chip } from "../components/cards.js";
 
 const STATUS_TONE = { active: "ok", "in-progress": "info", planned: "warn", available: "ok" };
 const STATUS_TEXT = { active: "Active", "in-progress": "In progress", planned: "Planned", available: "Active" };
-const CAP_TYPE_ICON = { tool: "layers", knowledge: "graduationCap", service: "handshake" };
+const CAP_TYPE_ICON = { tool: "wrench", knowledge: "graduationCap", service: "handshake" };
 const CAP_TYPE_LABEL = { tool: "Tool built", knowledge: "Knowledge transferred", service: "Service enabled" };
 const DEFAULT_THRESHOLD = 2;
 
@@ -191,8 +191,8 @@ export function render(data) {
     <section class="section vr-narrative">
       <div class="section-head"><h2 class="section-title">How the relationship grows</h2></div>
       <div class="vr-narrative-grid">
-        <div class="card vr-narrative-card">${icon("rocket")}<h3>Getting faster</h3><p class="reading">${esc(nar.faster)}</p></div>
-        <div class="card vr-narrative-card">${icon("sparkles")}<h3>Getting smarter</h3><p class="reading">${esc(nar.smarter)}</p></div>
+        <div class="card vr-narrative-card">${icon("clockBolt")}<h3>Getting faster</h3><p class="reading">${esc(nar.faster)}</p></div>
+        <div class="card vr-narrative-card">${icon("brain")}<h3>Getting smarter</h3><p class="reading">${esc(nar.smarter)}</p></div>
         <div class="card vr-narrative-card">${icon("handshake")}<h3>Expanding scope</h3><p class="reading">${esc(nar.expanding)}</p></div>
       </div>
     </section>

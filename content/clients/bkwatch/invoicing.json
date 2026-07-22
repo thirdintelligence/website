@@ -173,7 +173,7 @@
   "futureValueSections": [
     {
       "title": "Delivery speed",
-      "icon": "clock",
+      "icon": "clockBolt",
       "statusLabel": "Ready to track",
       "description": "Shows whether production becomes faster across completed projects.",
       "metrics": [
@@ -184,7 +184,7 @@
     },
     {
       "title": "Deliverable quality",
-      "icon": "checkCircle",
+      "icon": "sparkles",
       "statusLabel": "Ready to track",
       "description": "Uses approval evidence instead of an invented quality score.",
       "metrics": [
@@ -206,7 +206,7 @@
     },
     {
       "title": "Financial return",
-      "icon": "chart",
+      "icon": "dollar",
       "statusLabel": "Ready to track",
       "description": "Adds comparable financial context after project scope and billing are confirmed.",
       "metrics": [
@@ -217,7 +217,7 @@
     },
     {
       "title": "Compounding capability",
-      "icon": "sparkles",
+      "icon": "muscle",
       "statusLabel": "Ready to track",
       "description": "Shows the reusable systems and client-specific capabilities added by each project.",
       "metrics": [
@@ -228,7 +228,7 @@
     },
     {
       "title": "Project confidence",
-      "icon": "target",
+      "icon": "cool",
       "statusLabel": "Ready to track",
       "description": "Compares plans with completed results without exposing another client's records.",
       "metrics": [

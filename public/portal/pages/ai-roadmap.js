@@ -203,7 +203,7 @@ export function render(data) {
               <div><span class="ai-hero-point-label">Top improvement</span><p class="reading">${esc(ex.topImprovement)}</p></div>
             </div>
             <div class="ai-hero-point">
-              <span class="ai-hero-point-icon">${icon("rocket")}</span>
+              <span class="ai-hero-point-icon">${icon("lightbulb")}</span>
               <div><span class="ai-hero-point-label">Recommendation</span><p class="reading">${esc(ex.recommendation)}</p></div>
             </div>
             ${ex.risks ? `<div class="ai-hero-point">

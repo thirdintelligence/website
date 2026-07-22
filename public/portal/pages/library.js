@@ -6,7 +6,7 @@ import { icon } from "../core/icons.js";
 import { statusLabel, chip, motif, sourceNote, cardAction } from "../components/cards.js";
 import { commentThread, commentsWithProjectBlockers, addCommentButton } from "../components/feed.js";
 
-const CAT_ICON = { branding: "bookmark", products: "layers", features: "target", "integrations-partners": "users", "film-knowledge": "film", communication: "comment", "other-knowledge": "library" };
+const CAT_ICON = { branding: "bookmark", products: "layers", features: "puzzle", "integrations-partners": "users", "film-knowledge": "film", communication: "comment", "other-knowledge": "bookOpen" };
 
 export function render(data, params) {
   // Communication sub-page route (comments / emails / meetings)
@@ -199,7 +199,7 @@ function renderCategory(data, params) {
       </div>`;
   } else {
     const records = library.records.filter((r) => r.category === cat.id);
-    body = `<div class="record-list">${records.length ? records.map((r) => recordRow(r)).join("") : `<div class="empty-state">${icon("library")}<p>No records in this category yet.</p></div>`}</div>`;
+    body = `<div class="record-list">${records.length ? records.map((r) => recordRow(r)).join("") : `<div class="empty-state">${icon("bookOpen")}<p>No records in this category yet.</p></div>`}</div>`;
   }
 
   const html = `<div class="page">
