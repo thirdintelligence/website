@@ -191,7 +191,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(cardComponents, /opticalCenter \? `<span class="control-content">/);
   assert.match(cardComponents, /pc-meta project-card-badges[^\n]*statusLabel\(p\.statusLabel \|\| p\.status, undefined, true\)[^\n]*<span class="chip"><span class="control-content">\$\{esc\(p\.projectType\)\}/);
   assert.match(portalComponentsCss, /\.project-card-badges \.status,[\s\S]*?\.project-card-badges \.chip \{[^}]*height: 28px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
-  assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; transform: translateY\(-8px\); \}/);
+  assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; \}/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \.status,[\s\S]*?\.creative-direction-badges \.chip \{[^}]*height: 24px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalComponentsCss, /\.in-production \{ --ip-composition-shift: 11\.7%;[^}]*\}/);
   assert.match(portalApp, /values\.startsWith\("567\.071 665\.431"\)[\s\S]*567\.071 669\.431[\s\S]*animation\.remove\(\)/);
