@@ -1,7 +1,6 @@
 /* Project detail (plan 05): full hierarchy for creative + delivery work. */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
-import { href } from "../core/router.js";
 import { mediaFrame, draftNotice, versionHistory } from "../components/media.js";
 import { statusLabel, chip, motif, sourceNote, cardAction } from "../components/cards.js";
 import { commentThread, commentsWithProjectBlockers, addCommentButton } from "../components/feed.js";
@@ -24,7 +23,6 @@ export function render(data, params) {
       <h3 class="pc-title">${esc(idea.title)}</h3>
       <p class="pc-value">${esc(idea.concept)}</p>
       <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
-      <a class="btn btn-sm btn-outline direction-workspace-link" href="${href(`/projects/${p.slug}#selected-demo`)}">View demo above ${icon("arrowRight")}</a>
     </article>` : `
     <a class="card card-feature card-link creative-direction-card" href="#/projects/${p.slug}/ideas/${idea.slug}">
       ${motif("grid")}
@@ -69,7 +67,7 @@ export function render(data, params) {
         <div class="hero-metaline">
           ${addCommentButton(ctx, "Add Comment", "btn-sm btn-primary add-comment")}
           <button class="btn btn-sm btn-outline" type="button" data-project-pdf="${esc(p.id)}">${icon("download")} Download PDF</button>
-          ${film && film.ideas.some(isSelectedIdea) ? `<a class="btn btn-sm btn-ghost" href="${href(`/projects/${p.slug}#selected-demo`)}">${icon("maximize")} View demo</a>` : ""}
+          ${film && film.ideas.some(isSelectedIdea) ? `<button class="btn btn-sm btn-ghost" type="button" data-presentation-fullscreen aria-pressed="false">${icon("maximize")} Full screen</button>` : ""}
         </div>
       </div>
     </section>
@@ -110,8 +108,7 @@ export function render(data, params) {
     ${sourceNote(p.source)}
   </div>`;
 
-  const selectedDemo = film?.ideas.find(isSelectedIdea);
-  return { crumb: "Projects", title: p.title, action: selectedDemo ? `<a class="btn btn-sm btn-ghost" href="${href(`/projects/${p.slug}#selected-demo`)}">${icon("maximize")} View demo</a>` : "", html };
+  return { crumb: "Projects", title: p.title, html };
 }
 
 function renderProjectValue(p, invoicing, asOf) {
@@ -170,7 +167,7 @@ function renderSelectedDemo(p, film) {
     <div class="section-head"><div><span class="eyebrow">Locked demo · project workspace</span><h2>${esc(idea.title)}</h2></div>${statusLabel(lifecycleLabel, "warn")}</div>
     <p class="reading">${esc(idea.concept)}</p>
     <p class="reading muted selected-demo-policy">This locked HYBRID no longer has a separate direction page. Its storyboard, script, scene comments, preview placeholders, and every future still/video version live together here. Demo approval will advance this same record into full-film production without copying or losing its history.</p>
-    <div class="hero-metaline">${chip(`${idea.sceneCount} scenes`, "film")}${idea.runtime ? chip(idea.runtime, "clock") : ""}${idea.demoState ? chip(idea.demoState) : ""}<button class="btn btn-sm btn-outline" type="button" data-presentation-fullscreen aria-pressed="false">${icon("maximize")} Full screen</button></div>
+    <div class="hero-metaline">${chip(`${idea.sceneCount} scenes`, "film")}${idea.runtime ? chip(idea.runtime, "clock") : ""}${idea.demoState ? chip(idea.demoState) : ""}</div>
     <div class="section-head selected-demo-storyboard-head"><h3>Storyboard &amp; script</h3></div>
     <div class="scene-list">${scenes}</div>
   </section>`;

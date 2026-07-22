@@ -93,8 +93,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .portal-app[data-sidebar="collapsed"] { grid-template-columns: var(--sidebar-w-collapsed) minmax(0, 1fr); }
 .portal-app[data-fullscreen="true"] { grid-template-columns: 0 minmax(0, 1fr); }
-.portal-app[data-fullscreen="true"] .portal-sidebar,
+.portal-app[data-fullscreen="true"] .portal-sidebar { display: none; }
 .portal-app[data-fullscreen="true"] .topbar-utilities { display: none; }
+.portal-app[data-fullscreen="true"] .portal-main { grid-column: 2; width: 100%; }
+.portal-app[data-fullscreen="true"] .portal-content > .page { max-width: none; }
+.portal-app[data-fullscreen="true"] .portal-content { padding-inline: var(--space-5); }
 
 /* ── Sidebar ────────────────────────────────────────────────────────────────── */
 .portal-sidebar {
