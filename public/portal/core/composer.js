@@ -268,7 +268,7 @@ function render() {
       <button class="btn btn-icon btn-sm composer-min" id="cmp-min" type="button" aria-label="Minimize">${icon("minus")}</button>
     </div>
     <div class="composer-body">
-      ${ctxLabel && !isProject && ctxLabel !== "General comment" ? `<span class="ctx-chip">${icon("bookmark")} ${esc(ctxLabel)}</span>` : ""}
+      ${ctxLabel && !isProject ? `<span class="ctx-chip">${icon("bookmark")} ${esc(ctxLabel)}</span>` : ""}
       ${isProject ? `
         <div class="field"><label for="cmp-name">Project name</label><input id="cmp-name" type="text" value="${esc(state.fields.name || "")}" placeholder="e.g. Compliance explainer film" aria-describedby="cmp-name-error" /><span class="field-error" id="cmp-name-error"></span></div>
       ` : `
