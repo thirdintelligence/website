@@ -164,6 +164,7 @@
 @media (max-width: 680px) {
   .project-card { grid-template-columns: 1fr; }
   .project-card .thumb { height: auto; min-height: 0; aspect-ratio: 16 / 9 !important; }
+  .project-card .pc-body > .card-action { position: static; margin-top: var(--space-4); }
 }
 
 /* ── Media frame / thumbnails ───────────────────────────────────────────────── */
