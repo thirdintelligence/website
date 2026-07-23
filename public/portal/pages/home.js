@@ -175,7 +175,7 @@ function roadmapPreview(roadmap) {
 
   /* Legend: film production + each milestone type. */
   const legend = `<div class="rlegend">
-    <span class="rlegend-item"><span class="rcircle rc-film ring-film rc-sm">${icon("film", "rc-icon")}</span>Film production</span>
+    <span class="rlegend-item"><span class="rcircle rc-film ring-current rc-sm">${icon("film", "rc-icon")}</span>Film production</span>
     <span class="rlegend-item"><span class="rcircle rc-ms ring-ai rc-sm">${icon("worktree", "rc-icon")}</span>AI implementation</span>
     <span class="rlegend-item"><span class="rcircle rc-ms ring-audit rc-sm">${icon("graph", "rc-icon")}</span>Value audit</span>
     <span class="rlegend-item"><span class="rcircle rc-ms ring-extend rc-sm">${icon("contract", "rc-icon")}</span>Extend partnership</span>
