@@ -134,26 +134,52 @@ function communicationsPreview(communications, live) {
 }
 
 /* Roadmap preview — condensed 12-month infographic on the home page, clickable
-   to the full AI Roadmap page. Shows the partnership plan at a glance. */
+   to the full AI Roadmap page. Shows the partnership plan at a glance.
+
+   Each month is a circle with a film icon. Milestone months (2, 4, 6, 8, 10,
+   12) have a second circle connected below with the milestone's icon. Rings
+   are color-coded: blue = current, purple = AI implementation, yellow = value
+   audit, green = extend partnership, grey = film production. */
+const MILESTONE_META = {
+  "AI Implementation": { icon: "worktree", ring: "ai" },
+  "Value Audit": { icon: "graph", ring: "audit" },
+  "Extend Partnership": { icon: "contract", ring: "extend" },
+};
+
 function roadmapPreview(roadmap) {
   if (!roadmap || !roadmap.months) return "";
   const allMonths = roadmap.months;
+  /* Map month number → milestone metadata for quick lookup. */
+  const msByMonth = {};
+  (roadmap.milestones || []).forEach((ms) => { msByMonth[ms.month] = ms; });
 
-  /* Render every month as a node. Milestone months get a blue ring + M# label.
-     The current month gets a filled accent style. Non-milestone months are
-     plain dots. On mobile, only the first 6 are shown plus a "+6" indicator. */
-  const monthDots = allMonths.map((m) => {
-    const hasMilestone = m.items.some((i) => i.milestone);
+  /* Build each month node: a column with month label, film circle, and
+     optionally a milestone circle connected below. */
+  const monthNodes = allMonths.map((m) => {
     const statusClass = m.status === "done" ? "done" : m.status === "current" ? "current" : "upcoming";
-    const label = m.label.split(" ")[0]; // "July", "August", etc.
-    return `<div class="rdot ${statusClass} ${hasMilestone ? "milestone" : ""}" title="${esc(m.label)}">
-      <span class="rdot-label">${hasMilestone ? "M" + m.month : esc(label)}</span>
+    const abbr = m.label.split(" ")[0].slice(0, 3).toUpperCase();
+    const ms = msByMonth[m.month];
+    const msMeta = ms ? MILESTONE_META[ms.title] : null;
+
+    return `<div class="rmonth ${statusClass}">
+      <span class="rmonth-abbr">${esc(abbr)}</span>
+      <div class="rcircle rc-film ${statusClass === "current" ? "ring-current" : "ring-film"}" title="${esc(m.label)} — Film production">
+        ${icon("film", "rc-icon")}
+      </div>
+      ${ms && msMeta ? `<div class="rc-connector"></div>
+        <div class="rcircle rc-ms ring-${msMeta.ring}" title="${esc(ms.title)} (M${ms.month})">
+          ${icon(msMeta.icon, "rc-icon")}
+        </div>` : `<div class="rc-spacer"></div>`}
     </div>`;
   }).join("");
 
-  const milestones = (roadmap.milestones || []).slice(0, 6).map((ms) =>
-    `<div class="rmilestone"><span class="rmilestone-month">M${ms.month}</span><span class="rmilestone-title">${esc(ms.title)}</span></div>`
-  ).join("");
+  /* Legend: film production + each milestone type. */
+  const legend = `<div class="rlegend">
+    <span class="rlegend-item"><span class="rcircle rc-film ring-film rc-sm">${icon("film", "rc-icon")}</span>Film production</span>
+    <span class="rlegend-item"><span class="rcircle rc-ms ring-ai rc-sm">${icon("worktree", "rc-icon")}</span>AI implementation</span>
+    <span class="rlegend-item"><span class="rcircle rc-ms ring-audit rc-sm">${icon("graph", "rc-icon")}</span>Value audit</span>
+    <span class="rlegend-item"><span class="rcircle rc-ms ring-extend rc-sm">${icon("contract", "rc-icon")}</span>Extend partnership</span>
+  </div>`;
 
   return `<section class="section">
     <div class="section-head"><h2 class="section-title">Partnership roadmap</h2>
@@ -161,8 +187,8 @@ function roadmapPreview(roadmap) {
     <a class="card roadmap-prev-card card-link" href="#/ai-roadmap">
       ${motif("rings")}
       <div class="roadmap-prev-lede">${esc(roadmap.cadence.deliverable)} per month · 12-month partnership plan</div>
-      <div class="roadmap-prev-timeline">${monthDots}<span class="rdot more rdot-mobile"><span class="rdot-label">+6</span></span></div>
-      ${milestones ? `<div class="roadmap-prev-milestones">${milestones}</div>` : ""}
+      <div class="roadmap-prev-timeline">${monthNodes}</div>
+      ${legend}
       ${cardAction("Open roadmap")}
     </a>
   </section>`;

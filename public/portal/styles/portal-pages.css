@@ -329,44 +329,48 @@
 .roadmap-prev-card:hover { border-color: var(--line-strong); }
 .roadmap-prev-card .card-action { margin-top: var(--space-4); }
 .roadmap-prev-lede { font-size: var(--fs-small); color: var(--text-secondary); margin-bottom: var(--space-5); }
-/* Timeline: dots distribute evenly across the full card width, edge to edge. */
-.roadmap-prev-timeline { display: flex; align-items: center; justify-content: space-between; gap: 0; margin-bottom: var(--space-5); /* Break out of card padding to reach edges. */ margin-left: calc(-1 * var(--space-6)); margin-right: calc(-1 * var(--space-6)); padding: 0 var(--space-2); }
-/* Each dot is a circle. Milestone months get a blue ring + M# text.
-   Current month gets a filled accent style. Plain months are small dots. */
-.rdot { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--line-plain); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; position: relative; background: var(--bg-elevated); }
-/* Connector line between dots spans the gap. */
-.rdot:not(:last-child)::before { content: ""; position: absolute; left: calc(100% + 2px); top: 50%; width: calc(100vw / 12 - 36px); height: 2px; background: var(--line-plain); transform: translateY(-50%); }
-/* Current month: filled accent circle. */
-.rdot.current { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
-.rdot.current .rdot-label { color: #fff; font-weight: 700; }
-/* Done months: green ring. */
-.rdot.done { border-color: var(--green); background: color-mix(in srgb, var(--green) 10%, transparent); }
-.rdot.done .rdot-label { color: var(--green); }
-/* Milestone months: blue ring (thicker) + M# text. No corner dot. */
-.rdot.milestone { border: 3px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
-.rdot.milestone .rdot-label { color: var(--accent); font-weight: 700; font-size: 12px; }
-/* A milestone that is also current keeps the filled style but with thicker ring. */
-.rdot.current.milestone { border: 3px solid var(--accent); }
-/* "+6" indicator dot (mobile only). */
-.rdot.more { border-style: dotted; color: var(--text-tertiary); }
-.rdot.more .rdot-label { color: var(--text-tertiary); }
-.rdot-mobile { display: none; }
-/* Default dot label: month abbreviation. */
-.rdot-label { font-size: 11px; font-weight: 600; color: var(--text-tertiary); }
-/* Milestones list below the timeline. */
-.roadmap-prev-milestones { display: flex; flex-wrap: wrap; gap: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--line-plain); }
-.rmilestone { display: flex; align-items: center; gap: 6px; font-size: var(--fs-caption); }
-.rmilestone-month { font-weight: 700; color: var(--accent); }
-.rmilestone-title { color: var(--text-secondary); }
 
-/* Mobile: show only first 6 months + "+6" indicator. */
+/* Timeline: month columns distribute evenly across the full card width. */
+.roadmap-prev-timeline { display: flex; align-items: flex-start; justify-content: space-between; gap: 0; margin-bottom: var(--space-5); margin-left: calc(-1 * var(--space-6)); margin-right: calc(-1 * var(--space-6)); padding: 0 var(--space-2); }
+
+/* Each month is a vertical column: label → film circle → [connector → milestone circle] */
+.rmonth { display: flex; flex-direction: column; align-items: center; flex: 1 1 0; min-width: 0; position: relative; }
+/* Horizontal connector line between adjacent months (at the film circle row). */
+.rmonth:not(:last-child)::before { content: ""; position: absolute; top: 28px; left: 50%; right: -50%; height: 2px; background: var(--line-plain); z-index: 0; }
+
+/* Month abbreviation above the circle. */
+.rmonth-abbr { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 6px; }
+
+/* Circles — rings only, no fills. */
+.rcircle { width: 36px; height: 36px; border-radius: 50%; border: 2.5px solid var(--line-plain); display: flex; align-items: center; justify-content: center; flex: none; position: relative; z-index: 1; background: var(--bg-elevated); }
+.rc-icon { width: 18px; height: 18px; color: var(--text-tertiary); }
+.rc-sm { width: 24px; height: 24px; }
+.rc-sm .rc-icon { width: 14px; height: 14px; }
+
+/* Ring colors. */
+.ring-film { border-color: var(--line-plain); }                              /* grey — film production */
+.ring-current { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }  /* blue — current month */
+.ring-current .rc-icon { color: var(--accent); }
+.ring-ai { border-color: #b8a8ff; }                                          /* pastel purple — AI implementation */
+.ring-ai .rc-icon { color: #b8a8ff; }
+.ring-audit { border-color: #e7b451; }                                       /* banana yellow — value audit */
+.ring-audit .rc-icon { color: #e7b451; }
+.ring-extend { border-color: #57c98a; }                                      /* mint green — extend partnership */
+.ring-extend .rc-icon { color: #57c98a; }
+
+/* Vertical connector between film circle and milestone circle. */
+.rc-connector { width: 2px; height: 16px; background: var(--line-plain); margin: 2px 0; }
+/* Spacer for months without a milestone (keeps columns aligned). */
+.rc-spacer { height: 54px; }  /* 16px connector + 2px margin + 36px circle */
+
+/* Legend below the timeline. */
+.rlegend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--line-plain); margin-bottom: var(--space-2); }
+.rlegend-item { display: flex; align-items: center; gap: 8px; font-size: var(--fs-caption); color: var(--text-secondary); }
+.rlegend-item .rcircle { flex: none; }
+
+/* Mobile: show only first 6 months. */
 @media (max-width: 900px) {
-  /* Hide months 7-12 on mobile (dots 7-12). The "+6" indicator is the
-     last child and is shown via .rdot-mobile. */
-  .roadmap-prev-timeline .rdot:nth-child(n+7):not(.rdot-mobile) { display: none; }
-  .roadmap-prev-timeline .rdot-mobile { display: flex; }
-  /* Adjust connector line width for mobile. */
-  .rdot:not(:last-child):not(.rdot-mobile)::before { width: calc((100vw - 80px) / 6 - 36px); }
+  .roadmap-prev-timeline .rmonth:nth-child(n+7) { display: none; }
 }
 
 /* ── Service catalog (Value & Results) — clean lists, not card soup ────────── */
