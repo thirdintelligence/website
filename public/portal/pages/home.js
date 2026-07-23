@@ -65,14 +65,14 @@ export function render(data, _params) {
 
     ${communicationsPreview(communications, live)}
 
-    ${roadmapPreview(roadmap)}
-
     <section class="section">
       <div class="section-head"><h2 class="section-title">Recently completed</h2></div>
       ${completed.length
         ? commentThread(completed, null, projects?.projects || [])
         : `<div class="empty-state">${icon("check")}<p>Completed actions will appear here once Third i marks a comment complete.</p></div>`}
     </section>
+
+    ${roadmapPreview(roadmap)}
 
     <section class="section cols-2">
       <div>
@@ -133,21 +133,26 @@ function communicationsPreview(communications, live) {
   </section>`;
 }
 
-/* Roadmap preview — condensed 12-month infographic on the home page, clickable
-   to the full AI Roadmap page. Shows the partnership plan at a glance.
+/* Roadmap preview — condensed 12-month infographic, clickable to the full
+   AI Roadmap page when used on the home page. Shows the partnership plan at
+   a glance.
 
    Each month is a circle with a film icon. Milestone months (2, 4, 6, 8, 10,
    12) have a second circle connected below with the milestone's icon. Rings
    are color-coded: blue = current, purple = AI implementation, yellow = value
-   audit, green = extend partnership, grey = film production. */
+   audit, green = extend partnership, grey = film production.
+
+   opts.link — when true (default), wraps the card in a link to #/ai-roadmap
+   opts.showButton — when true (default), shows the "Full roadmap" button */
 const MILESTONE_META = {
   "AI Implementation": { icon: "worktree", ring: "ai" },
   "Value Audit": { icon: "graph", ring: "audit" },
   "Extend Partnership": { icon: "contract", ring: "extend" },
 };
 
-function roadmapPreview(roadmap) {
+export function roadmapPreview(roadmap, opts = {}) {
   if (!roadmap || !roadmap.months) return "";
+  const { link = true, showButton = true } = opts;
   const allMonths = roadmap.months;
   /* Map month number → milestone metadata for quick lookup. */
   const msByMonth = {};
@@ -181,14 +186,17 @@ function roadmapPreview(roadmap) {
     <span class="rlegend-item"><span class="rcircle rc-ms ring-extend rc-sm">${icon("contract", "rc-icon")}</span>Extend partnership</span>
   </div>`;
 
+  const button = showButton ? `<a class="btn btn-sm btn-ghost" href="#/ai-roadmap">Full roadmap ${icon("arrowRight")}</a>` : "";
+  const cardTag = link ? "a" : "div";
+  const cardAttrs = link ? ` class="card roadmap-prev-card card-link" href="#/ai-roadmap"` : ` class="card roadmap-prev-card"`;
+
   return `<section class="section">
-    <div class="section-head"><h2 class="section-title">Partnership roadmap</h2>
-      <a class="btn btn-sm btn-ghost" href="#/ai-roadmap">Full roadmap ${icon("arrowRight")}</a></div>
-    <a class="card roadmap-prev-card card-link" href="#/ai-roadmap">
+    <div class="section-head"><h2 class="section-title">Partnership roadmap</h2>${button}</div>
+    <${cardTag}${cardAttrs}>
       ${motif("rings")}
       <div class="roadmap-prev-lede">${esc(roadmap.cadence.deliverable)} per month · 12-month partnership plan</div>
       <div class="roadmap-prev-timeline">${monthNodes}</div>
       ${legend}
-    </a>
+    </${cardTag}>
   </section>`;
 }

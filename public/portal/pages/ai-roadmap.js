@@ -5,6 +5,7 @@
 import { esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { motif, sourceNote } from "../components/cards.js";
+import { roadmapPreview } from "./home.js";
 
 /* Illustrated SVG scene for each month card in the infographic. Each type gets
    a custom mini-illustration (not a generic icon) to make the roadmap visually
@@ -157,19 +158,7 @@ export function render(data) {
   const ex = ai.executiveSummary;
   const sc = invoicing && invoicing.serviceCatalog;
 
-  const roadmapHtml = roadmap ? `<section class="section roadmap-section">
-    <div class="section-head">
-      <h2 class="section-title">Partnership roadmap</h2>
-      <span class="muted">12-month plan · ${esc(roadmap.cadence.deliverable)} per month</span>
-    </div>
-    <p class="reading" style="margin-bottom:20px">This is Third i's plan for ${esc(portal.client.name)} over the next year — not just one project, but an ongoing partnership that grows in value each month.</p>
-
-    ${(roadmap.milestones && roadmap.milestones.length) ? `<div class="milestone-callouts">${roadmap.milestones.map(milestoneCallout).join("")}</div>` : ""}
-
-    <div class="roadmap-timeline">
-      ${roadmap.months.map((m) => monthCard(m, roadmap.cadence)).join("")}
-    </div>
-  </section>` : "";
+  const roadmapHtml = roadmapPreview(roadmap, { link: false, showButton: false });
 
   // Service catalog — the planned roadmap of services Third i can work into the
   // partnership. Highest-ROI services are outlined: green = planned, yellow =
