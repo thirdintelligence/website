@@ -36,8 +36,8 @@ export function renderShell(root, data) {
         ${NAV.map((n) => `<a class="nav-item" href="#${n.path}" data-nav="${n.name}" title="${n.label}">${icon(n.icon)}<span class="nav-label">${n.label}</span></a>`).join("")}
       </nav>
       <div class="sidebar-spacer"></div>
-      <button class="sidebar-collapse" id="sidebar-collapse" type="button" aria-label="Collapse sidebar">${icon("chevronLeft")}<span>Collapse</span></button>
       <div class="sidebar-foot">
+        <button class="sidebar-collapse" id="sidebar-collapse" type="button" aria-label="Collapse sidebar">${icon("chevronLeft")}<span>Collapse</span></button>
         <button class="btn logout-btn" id="logout-btn" type="button">${icon("logout")}<span>Log out</span></button>
         <div class="session-indicator"><span class="session-dot"></span><span>${c.shortName} session · secure</span></div>
         <div class="powered-by"><img src="${foot.poweredByFavicon || "/public/images/favicon.png"}" alt="Third i" /><span>${foot.poweredBy || "Powered by Third i"}</span></div>
