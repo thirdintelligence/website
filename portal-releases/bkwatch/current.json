@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "tenant": "bkwatch",
+  "releaseId": "bkwatch-2026-07-21-89ced3ba9288",
+  "inputHash": "89ced3ba9288c1c979a3e5b4d148853465656737c8561a5d914c66f564e584ab",
+  "status": "active",
+  "channel": "production",
+  "packagePath": "portal-releases/bkwatch/releases/bkwatch-2026-07-21-89ced3ba9288",
+  "evidencePath": "release-evidence/bkwatch/bkwatch-2026-07-21-89ced3ba9288",
+  "sourceCodeCommit": "866a48439e9f32de2cd9709c3a73f159ee85866e",
+  "rollbackCommit": "d7a071bf6531dbbe689bb28931ec521e4453b119",
+  "preview": {
+    "deployId": "6a62608cfab1f8fac19c068e",
+    "url": "https://6a62608cfab1f8fac19c068e--thirdintelligence.netlify.app",
+    "verified": true
+  },
+  "production": {
+    "deployId": "6a626104da70cb6e845d1bac",
+    "url": "https://thirdi.net",
+    "verified": true
+  },
+  "activation": {
+    "routeCreated": true,
+    "authConfigured": true,
+    "operationalWritesEnabled": true,
+    "mediaEnabled": false,
+    "ownerAggregationEnabled": true,
+    "notificationsEnabled": true
+  },
+  "promotedAt": "2026-07-23T18:45:49Z"
+}

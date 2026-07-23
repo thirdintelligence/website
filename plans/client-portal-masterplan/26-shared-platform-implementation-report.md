@@ -1,6 +1,6 @@
 # Shared client-portal platform implementation report
 
-Status: implemented and locally validated; bkWatch production release pending final deploy record
+Status: implemented, validated, and deployed; bkWatch production release recorded
 Date: 2026-07-23
 Branch: `client-portals`
 Rollback commit: `d7a071bf6531dbbe689bb28931ec521e4453b119`
@@ -74,7 +74,7 @@ The generator never emits HTML, a Netlify function, a redirect, a credential, or
 | Owner aggregation | on | off |
 | Notifications | on | off |
 | Shared shell | active | absent |
-| Release pointer | production record after deployment | absent |
+| Release pointer | `portal-releases/bkwatch/current.json` | absent |
 
 Tenant identity is always derived from an authenticated active route, never from a request body. Preview and production operational data use separate `_ops/portal-preview-v1/` and `_ops/portal-live-v1/` namespaces. Preview media uses `thirdi-media-preview`; production media remains under its production environment authority.
 
@@ -87,6 +87,10 @@ Tenant identity is always derived from an authenticated active route, never from
 - Package: `portal-releases/bkwatch/releases/bkwatch-2026-07-21-89ced3ba9288/`.
 - Content/design/publication baseline approvals: true.
 - Media feature remains false until the provider gate is complete.
+- Preview deploy: `6a62608cfab1f8fac19c068e`.
+- Production implementation deploy: `6a626104da70cb6e845d1bac` at `https://thirdi.net`.
+- Source commit: `866a48439e9f32de2cd9709c3a73f159ee85866e`.
+- Rollback commit: `d7a071bf6531dbbe689bb28931ec521e4453b119`.
 
 ### Shaw
 
@@ -110,6 +114,7 @@ The Shaw draft contains Films 1–4 with the confirmed states, places other enga
 - Formal axe audit covers nine routes. No new serious/critical issue exists. Three accepted visual-baseline findings remain explicitly recorded for a later design HITL.
 - Lighthouse: performance 93, accessibility 96, best practices 96.
 - Dependency audit: zero known vulnerabilities after the formal audit tooling update.
+- Production smoke verification passed for the public shell, protected bkWatch login, Shaw placeholder, inactive Shaw API denial, `designer.svg`, and shared portal application asset.
 
 Stored reports:
 
