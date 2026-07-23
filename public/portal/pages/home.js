@@ -189,7 +189,6 @@ function roadmapPreview(roadmap) {
       <div class="roadmap-prev-lede">${esc(roadmap.cadence.deliverable)} per month · 12-month partnership plan</div>
       <div class="roadmap-prev-timeline">${monthNodes}</div>
       ${legend}
-      ${cardAction("Open roadmap")}
     </a>
   </section>`;
 }

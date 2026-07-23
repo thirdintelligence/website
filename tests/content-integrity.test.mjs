@@ -88,7 +88,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260722-12"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260722-13"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -230,7 +230,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.doesNotMatch(libraryPage, /commentsWithProjectBlockers/);
   assert.match(dataJs, /kind: "comment",[\s\S]*blocker: true/);
   assert.doesNotMatch(feedComponents, /c\.readonly/);
-  assert.match(homePage, /cardAction\("Open roadmap"\)/);
+  assert.doesNotMatch(homePage, /cardAction\("Open roadmap"\)/);
   assert.match(libraryRecord, /cardAction\("View record"\)/);
   assert.match(search, /View result/);
   assert.match(portalComponentsCss, /\.card-link \{[^}]*color: inherit;[^}]*text-decoration: none;/);

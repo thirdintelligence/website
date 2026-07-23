@@ -349,7 +349,7 @@
 
 /* Ring colors. */
 .ring-film { border-color: var(--line-plain); }                              /* grey — film production */
-.ring-current { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }  /* blue — current month */
+.ring-current { border-color: var(--accent); }  /* blue — current month */
 .ring-current .rc-icon { color: var(--accent); }
 .ring-ai { border-color: #b8a8ff; }                                          /* pastel purple — AI implementation */
 .ring-ai .rc-icon { color: #b8a8ff; }
