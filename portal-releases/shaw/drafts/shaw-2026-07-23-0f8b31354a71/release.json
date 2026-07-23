@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseId": "shaw-2026-07-23-0f8b31354a71",
+  "tenant": "shaw",
+  "channel": "draft",
+  "inputHash": "0f8b31354a7145db97a47bce1f455ea88fc4b00661b75cab0bf9b2251310f6c8",
+  "manifestHashes": {
+    "portal.json": "9abdf718717b2c53689a880e058d4b2a34293c18874e5a889794fc191d08ef5c",
+    "home.json": "42ad0701f6de41f11b5ab289332972ccb20c21949236d7a93b622dcf1f92be99",
+    "projects.json": "962bba83a90f36ea6b228c8dc133bc109888b28788cf65226266805e477fc73a",
+    "library.json": "c7e6bf2a7090c17922b51c219e119b910bdaf3bc4bfd8fe6eb984cf503c2c727",
+    "ai-roadmap.json": "fb456bf0e9c14b9638c32e7fe11e039b2f078457097f5caeb5f88a49b3c07b4c",
+    "roadmap.json": "f1750b673284d040f8c306088e3babe25f58e5a2c7940f6997b72393761a85c7",
+    "invoicing.json": "ccfc79753e88ad3cb9d53be07e70caf63624d7e1bcd8a9a084769d46360d762b",
+    "communications.json": "cf53a20defeec6b0a2f11554d4a504e6dbcb45ec9dd574e0fc2b6db3bc06bb27",
+    "search-index.json": "61c1ab46d6204258e08691f0a6d56242b19f8d061c34f65d9a6b4c8c9a7dcc7c"
+  },
+  "approvals": {
+    "content": false,
+    "design": false,
+    "publication": false
+  },
+  "activation": {
+    "routeCreated": false,
+    "authConfigured": false,
+    "operationalWritesEnabled": false,
+    "mediaEnabled": false,
+    "ownerAggregationEnabled": false,
+    "notificationsEnabled": false
+  },
+  "immutable": true,
+  "promoted": false
+}

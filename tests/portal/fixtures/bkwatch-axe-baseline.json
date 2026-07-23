@@ -1,0 +1,21 @@
+{
+  "baseline": "accepted-bkwatch-v2-2026-07-23",
+  "reason": "Existing visual findings retained by the current portal visual-regression lock. Any visual correction requires a separate design HITL.",
+  "accepted": [
+    {
+      "route": "/",
+      "id": "color-contrast",
+      "scope": "comment metadata"
+    },
+    {
+      "route": "/projects/film1-shaw-bkwatch",
+      "id": "color-contrast",
+      "scope": "completed-comment metadata"
+    },
+    {
+      "route": "/value-results",
+      "id": "link-in-text-block",
+      "scope": "inline AI Roadmap link"
+    }
+  ]
+}

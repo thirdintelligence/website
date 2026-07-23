@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-23",
+  "entries": [
+    {
+      "id": "shaw-film1-conference",
+      "type": "project",
+      "title": "Film 1 - Shaw Integration",
+      "excerpt": "The official first Shaw film, completed as fixed-bid pre-contract conference work.",
+      "project": "Film 1 - Shaw Integration",
+      "status": "Complete",
+      "format": "project",
+      "date": "2026-07-23",
+      "route": "/shaw/projects/film1-shaw-integration"
+    },
+    {
+      "id": "shaw-film2-amplify",
+      "type": "project",
+      "title": "Film 2 - Amplify",
+      "excerpt": "Completed Amplify V1 and V2 establish the first part of the aligned Summit campaign loop.",
+      "project": "Film 2 - Amplify",
+      "status": "Complete — V1 and V2",
+      "format": "project",
+      "date": "2026-07-23",
+      "route": "/shaw/projects/film2-amplify"
+    },
+    {
+      "id": "shaw-film3-ai-advisor",
+      "type": "project",
+      "title": "Film 3 - AI Advisor",
+      "excerpt": "Creative brainstorming is complete; the selected story will align AI Advisor with Amplify, Insight, and the central Spectrum narrative.",
+      "project": "Film 3 - AI Advisor",
+      "status": "Awaiting direction lock",
+      "format": "project",
+      "date": "2026-07-23",
+      "route": "/shaw/projects/film3-ai-advisor"
+    },
+    {
+      "id": "shaw-film4-insight",
+      "type": "project",
+      "title": "Film 4 - Insight",
+      "excerpt": "Planned film for Insight, a Spectrum feature and capability, completing the coordinated three-film Summit loop.",
+      "project": "Film 4 - Insight",
+      "status": "Planned",
+      "format": "project",
+      "date": "2026-07-23",
+      "route": "/shaw/projects/film4-insight"
+    },
+    {
+      "id": "shaw-product-spectrum",
+      "type": "library",
+      "title": "Spectrum",
+      "excerpt": "Spectrum is the central lending platform story connecting Shaw's current film campaign.",
+      "category": "products",
+      "status": "Confirmed",
+      "format": "product",
+      "date": "2026-07-23",
+      "route": "/shaw/library/products/shaw-product-spectrum"
+    },
+    {
+      "id": "shaw-product-amplify",
+      "type": "library",
+      "title": "Amplify",
+      "excerpt": "Amplify is Shaw's AI-powered intelligence layer and decisioning engine.",
+      "category": "products",
+      "status": "Confirmed",
+      "format": "product",
+      "date": "2026-07-23",
+      "route": "/shaw/library/products/shaw-product-amplify"
+    },
+    {
+      "id": "shaw-product-ai-advisor",
+      "type": "library",
+      "title": "AI Advisor",
+      "excerpt": "AI Advisor is the subject of Film 3; Next Best Action is a core confirmed story element.",
+      "category": "products",
+      "status": "Creative planning",
+      "format": "feature",
+      "date": "2026-07-23",
+      "route": "/shaw/library/products/shaw-product-ai-advisor"
+    },
+    {
+      "id": "shaw-product-insight",
+      "type": "library",
+      "title": "Insight",
+      "excerpt": "Insight is a Spectrum feature and capability and the planned subject of Film 4.",
+      "category": "products",
+      "status": "Planned",
+      "format": "feature",
+      "date": "2026-07-23",
+      "route": "/shaw/library/products/shaw-product-insight"
+    },
+    {
+      "id": "shaw-summit-loop-alignment",
+      "type": "library",
+      "title": "Films 2–4 form one Summit campaign loop",
+      "excerpt": "Amplify, AI Advisor, and Insight must be planned and reviewed as one coordinated three-film loop.",
+      "category": "campaign",
+      "status": "Confirmed",
+      "format": "film-knowledge",
+      "date": "2026-07-23",
+      "route": "/shaw/library/campaign/shaw-summit-loop-alignment"
+    },
+    {
+      "id": "shaw-engagement-conference-av",
+      "type": "library",
+      "title": "Conference AV and live production",
+      "excerpt": "Completed live conference support is retained as a Value and Library record rather than a film project.",
+      "category": "engagements",
+      "status": "Complete",
+      "format": "other",
+      "date": "2026-07-23",
+      "route": "/shaw/library/engagements/shaw-engagement-conference-av"
+    },
+    {
+      "id": "shaw-engagement-training",
+      "type": "library",
+      "title": "Team training",
+      "excerpt": "Completed hands-on AI workflow training for Shaw's marketing team.",
+      "category": "engagements",
+      "status": "Complete",
+      "format": "other",
+      "date": "2026-07-23",
+      "route": "/shaw/library/engagements/shaw-engagement-training"
+    },
+    {
+      "id": "shaw-engagement-agent-architecture",
+      "type": "library",
+      "title": "Agent architecture",
+      "excerpt": "Completed workflow and agent architecture work is retained as relationship value, not a film project.",
+      "category": "engagements",
+      "status": "Complete",
+      "format": "other",
+      "date": "2026-07-23",
+      "route": "/shaw/library/engagements/shaw-engagement-agent-architecture"
+    },
+    {
+      "id": "shaw-engagement-loop-assets",
+      "type": "library",
+      "title": "Loop video assets",
+      "excerpt": "Completed reusable logo sequence assets for conferences and digital displays.",
+      "category": "engagements",
+      "status": "Complete",
+      "format": "asset",
+      "date": "2026-07-23",
+      "route": "/shaw/library/engagements/shaw-engagement-loop-assets"
+    },
+    {
+      "id": "shaw-summit-loop-system",
+      "type": "ai-capability",
+      "title": "Three-film Summit campaign system",
+      "excerpt": "Amplify, AI Advisor, and Insight build one cumulative Spectrum story.",
+      "category": "campaign-alignment",
+      "status": "active",
+      "format": "ai capability",
+      "date": "2026-07-23",
+      "route": "/shaw/ai-roadmap#shaw-summit-loop-system"
+    },
+    {
+      "id": "shaw-product-accuracy-gate",
+      "type": "ai-capability",
+      "title": "Product accuracy gate",
+      "excerpt": "Every film distinguishes confirmed behavior from planned or unverified behavior.",
+      "category": "product-proof",
+      "status": "active",
+      "format": "ai capability",
+      "date": "2026-07-23",
+      "route": "/shaw/ai-roadmap#shaw-product-accuracy-gate"
+    },
+    {
+      "id": "email:19f61baf4fd6117e",
+      "type": "email",
+      "title": "Re: Teams Meeting Transcription",
+      "excerpt": "[cid:9b885ff8-8de2-4344-b4cc-d34d2c07023a] Justin Gann Senior Vice President, Sales & Marketing Mobile: 281-610-4461 | www.shawsystems.com 10111 Richmond Ave, Suite 600 | Houston, ",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-14",
+      "route": "/shaw/communications/emails"
+    },
+    {
+      "id": "email:19f61aa23bd875cf",
+      "type": "email",
+      "title": "Teams Meeting Transcription",
+      "excerpt": "Hey Joe, Could I please have the meeting transcription? I guess it was joining me as a guest instead of under my Shaw teams account. I'll make sure that I'm joining with the right ",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-14",
+      "route": "/shaw/communications/emails"
+    },
+    {
+      "id": "email:19f5c504c2691429",
+      "type": "email",
+      "title": "Re: Amplify Video Update + Meeting Early Next Week",
+      "excerpt": "Thanks. Does 11 tomorrow work? [cid:c515ee3f-bea8-4303-b989-6073faec278d] Justin Gann Senior Vice President, Sales & Marketing Mobile: 281-610-4461 | www.shawsystems.com 10111 Rich",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-13",
+      "route": "/shaw/communications/emails"
+    },
+    {
+      "id": "meeting:_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6crj8ci16orjghho64p48h1g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g6sp34ha38p1jaca368r4cchk6h0jaghg74rkac9g71232c1p711g",
+      "type": "meeting",
+      "title": "Internal: AI Video Meeting",
+      "excerpt": "Tue, Jul 14, 11:00 AM CDT · Shaw team",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-07-14",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g8crk8gq36d138ghi60s48h1g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g8crj4ha38crj6c236gsj6ghk68sk8d9l64o3idhn6p1kada68ko0",
+      "type": "meeting",
+      "title": "Amplify Video Review",
+      "excerpt": "Wed, Jul 1, 10:00 AM CDT · Justin Gann",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-07-01",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:sha256-27a8c431e2619295e562568525a012fb082b97cc99f6277bed40a36c4915a14f",
+      "type": "meeting",
+      "title": "FW: Internal: Weekly Marketing Meeting",
+      "excerpt": "Wed, Jun 17, 10:30 AM CDT · Justin Gann + Emily",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-06-17",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:sha256-4934a94cb4ce3e8bc7e130135f54a05c3e8556391458791112ef90dbd35d7ea2",
+      "type": "meeting",
+      "title": "Internal: Weekly Marketing Meeting",
+      "excerpt": "Tue, Jun 9, 10:00 AM CDT · Justin Gann",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-06-09",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6l2jigq36krkcc228oqk8gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g74pjgdq26t130chk8h1jccpk6ssjic238gr44ci16t0jcdi16920",
+      "type": "meeting",
+      "title": "Amplify Video Discussion",
+      "excerpt": "Mon, Jun 8, 12:00 PM CDT · Justin Gann",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-06-08",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6cp32h216oo48d9m8l348gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g88r34ea66sr4aca38crkch9k690j0d1o85132d1i6h246dpn6os0",
+      "type": "meeting",
+      "title": "Amplify Video",
+      "excerpt": "Mon, Jun 1, 1:00 PM CDT · Justin Gann",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-06-01",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6h14cdq26orj6g9l8ks48gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g8533gg9l64q3gdpo8h2kcd1k8p0j6c9j712k8cpn64s46ea370pg",
+      "type": "meeting",
+      "title": "Justin & Justin Touchbase",
+      "excerpt": "Fri, May 22, 9:00 AM CDT · Justin Gann",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-05-22",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g84pk2cq16t2k8gq68h1k8gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g8crkadpj8d13ce9h710jcd9k8gs30gph8gq3cd1g6p142h9m6p20",
+      "type": "meeting",
+      "title": "Internal: Justin & Justin Go-Forward",
+      "excerpt": "Wed, May 6, 2:00 PM CDT · Justin Gann",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-05-06",
+      "route": "/shaw/communications/meetings"
+    },
+    {
+      "id": "meeting:_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6srk2gpm8gsj8h1i89148gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g711jgg9k7133ah1k891j6ghk6ksjagi18p2k2h1o74rj8h9m6opg",
+      "type": "meeting",
+      "title": "Review AI Video",
+      "excerpt": "Tue, Mar 24, 4:10 PM CDT · Justin Gann",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-03-24",
+      "route": "/shaw/communications/meetings"
+    }
+  ]
+}

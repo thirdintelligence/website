@@ -8,7 +8,7 @@
  *   node scripts/portal/check-tenant-readiness.mjs shaw
  *   node scripts/portal/check-tenant-readiness.mjs bkwatch --require-ready
  */
-import { access } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { PORTAL_TENANTS, REQUIRED_TENANT_MANIFESTS } from "../../config/portal-tenants.mjs";
 
@@ -31,6 +31,40 @@ async function exists(relativePath) {
   }
 }
 
+async function latestDraftRelease() {
+  const root = resolve(ROOT, "portal-releases", tenant.key, "drafts");
+  let entries;
+  try {
+    entries = await readdir(root, { withFileTypes: true });
+  } catch {
+    return null;
+  }
+  const releases = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort().reverse();
+  for (const releaseId of releases) {
+    try {
+      const release = JSON.parse(await readFile(resolve(root, releaseId, "release.json"), "utf8"));
+      const manifestChecks = await Promise.all(
+        REQUIRED_TENANT_MANIFESTS.map(async (file) => ({
+          file,
+          present: await exists(`portal-releases/${tenant.key}/drafts/${releaseId}/manifests/${file}`)
+        }))
+      );
+      return {
+        releaseId,
+        channel: release.channel,
+        inputHash: release.inputHash,
+        approvals: release.approvals,
+        manifestsComplete: manifestChecks.every((check) => check.present),
+        missingManifests: manifestChecks.filter((check) => !check.present).map((check) => check.file),
+        promoted: release.promoted
+      };
+    } catch {
+      // Ignore an incomplete directory and inspect the next immutable draft.
+    }
+  }
+  return null;
+}
+
 const manifestChecks = await Promise.all(
   REQUIRED_TENANT_MANIFESTS.map(async (file) => ({
     file,
@@ -41,6 +75,7 @@ const designPresent = await exists(tenant.designAuthority);
 const missingManifests = manifestChecks.filter((check) => !check.present).map((check) => check.file);
 const contentPackageComplete = missingManifests.length === 0;
 const activationReady = tenant.status === "active" && contentPackageComplete && designPresent;
+const draftRelease = await latestDraftRelease();
 
 const report = {
   tenant: tenant.key,
@@ -52,6 +87,7 @@ const report = {
     present: manifestChecks.filter((check) => check.present).map((check) => check.file),
     missing: missingManifests
   },
+  draftRelease,
   namespaces: {
     passwordHashEnv: tenant.passwordHashEnv,
     sessionCookie: tenant.sessionCookie,
@@ -59,7 +95,9 @@ const report = {
     cookiePath: tenant.cookiePath,
     operationalPrefix: tenant.operationalPrefix,
     mediaPrefix: tenant.mediaPrefix,
-    searchIndex: tenant.searchIndex
+    searchIndex: tenant.searchIndex,
+    releasePointer: tenant.releasePointer,
+    environments: tenant.environments
   },
   runtime: {
     ownerActionsEnabled: tenant.ownerActionsEnabled,

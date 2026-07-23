@@ -11,6 +11,7 @@ import {
 } from "../../config/portal-tenants.mjs";
 import { communicationSafetyIssues } from "../../lib/portal-content-safety.mjs";
 import { tenantFromPath } from "../../lib/portal-api-util.mjs";
+import inactiveTenant from "../../netlify/functions/portal-inactive.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..", "..");
 
@@ -47,6 +48,17 @@ test("operational APIs accept only active tenant-prefixed routes", () => {
   assert.equal(tenantFromPath(new Request("https://thirdi.net/bkwatch/api/live")), "bkwatch");
   assert.equal(tenantFromPath(new Request("https://thirdi.net/shaw/api/live")), "");
   assert.equal(tenantFromPath(new Request("https://thirdi.net/api/portal/live")), "");
+});
+
+test("deployed Shaw API paths are explicitly denied before the placeholder catch-all", async () => {
+  const config = await readFile(resolve(ROOT, "netlify.toml"), "utf8");
+  const denial = config.indexOf('from = "/shaw/api/*"');
+  const catchAll = config.indexOf('from = "/shaw/*"');
+  assert.ok(denial >= 0 && catchAll >= 0 && denial < catchAll);
+  assert.match(config.slice(denial, catchAll), /portal-inactive/);
+  const response = await inactiveTenant();
+  assert.equal(response.status, 404);
+  assert.deepEqual(await response.json(), { error: "inactive_tenant" });
 });
 
 test("communication safety rejects wrong-tenant participant routing", () => {

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-23",
+  "researchAsOf": "2026-07-23",
+  "executiveSummary": {
+    "currentState": "Shaw has completed films for its 2026 conference story and Amplify. AI Advisor is at direction selection and Insight is planned.",
+    "topImprovement": "Coordinate Films 2, 3, and 4 through one message hierarchy and continuity review.",
+    "risks": "Unverified product behavior must not be presented as confirmed functionality.",
+    "recommendation": "Lock Film 3 only after checking its role alongside the completed Amplify film and planned Insight film.",
+    "positioning": "Spectrum is the central platform story; Amplify, AI Advisor, and Insight should feel intentionally connected.",
+    "source": "Confirmed Shaw product, film, and portal canon — Jul 23, 2026"
+  },
+  "categories": [
+    {
+      "id": "campaign-alignment",
+      "title": "Campaign alignment",
+      "description": "Coordination across the three-film Summit loop."
+    },
+    {
+      "id": "product-proof",
+      "title": "Product proof",
+      "description": "Accurate, client-approved product behavior and messaging."
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "shaw-summit-loop-system",
+      "category": "campaign-alignment",
+      "name": "Three-film Summit campaign system",
+      "status": "active",
+      "outcome": "Amplify, AI Advisor, and Insight build one cumulative Spectrum story.",
+      "detail": "Film 2 is complete, Film 3 awaits direction lock, and Film 4 is planned.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Review message hierarchy, transitions, and visual continuity across all three films before each lock.",
+      "source": "Direct Third i campaign alignment instruction — Jul 23, 2026",
+      "researchAsOf": "2026-07-23"
+    },
+    {
+      "id": "shaw-product-accuracy-gate",
+      "category": "product-proof",
+      "name": "Product accuracy gate",
+      "status": "active",
+      "outcome": "Every film distinguishes confirmed behavior from planned or unverified behavior.",
+      "detail": "Client-safe product proof leads; unsupported integration claims remain excluded.",
+      "value": "High",
+      "effort": "Low",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Keep an approval record for product claims used in scripts, storyboards, and previews.",
+      "source": "Confirmed Shaw portal design canon — Jul 23, 2026",
+      "researchAsOf": "2026-07-23"
+    }
+  ],
+  "sources": [
+    {
+      "tier": 1,
+      "name": "Confirmed Shaw product and film canon",
+      "use": "Current project state, product relationships, and campaign alignment."
+    },
+    {
+      "tier": 1,
+      "name": "Direct Third i instructions",
+      "use": "Portal routing, lifecycle, and Summit loop requirements."
+    }
+  ]
+}

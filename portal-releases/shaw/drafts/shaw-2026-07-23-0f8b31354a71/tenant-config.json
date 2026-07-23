@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "tenant": {
+    "key": "shaw",
+    "displayName": "Shaw Systems",
+    "route": "/shaw",
+    "status": "planned"
+  },
+  "design": {
+    "authority": "memory/SHAW/DESIGN.md",
+    "logo": {
+      "publicPath": "/public/portal/tenants/shaw/logo-blue.png",
+      "darkPublicPath": "/public/portal/tenants/shaw/logo-white.png",
+      "sourceAuthority": "Approved current Shaw Systems blue and white wordmarks"
+    }
+  },
+  "auth": {
+    "passwordHashEnv": "SHAW_PORTAL_PASSWORD_HASH",
+    "sessionCookie": "thirdi_shaw_session",
+    "csrfCookie": "thirdi_shaw_csrf",
+    "cookiePath": "/shaw"
+  },
+  "storage": {
+    "preview": {
+      "dataStoreVersion": "portal-preview-v1",
+      "operationalPrefix": "_ops/portal-preview-v1/tenants/shaw/",
+      "mediaBucket": "thirdi-media-preview",
+      "mediaPrefix": "tenants/shaw/media/"
+    },
+    "production": {
+      "dataStoreVersion": "portal-live-v1",
+      "operationalPrefix": "_ops/portal-live-v1/tenants/shaw/",
+      "mediaBucket": "env:PORTAL_MEDIA_R2_BUCKET",
+      "mediaPrefix": "tenants/shaw/media/"
+    },
+    "searchIndex": "content/clients/shaw/search-index.json"
+  },
+  "features": {
+    "ownerActions": false,
+    "notifications": false,
+    "media": false
+  }
+}

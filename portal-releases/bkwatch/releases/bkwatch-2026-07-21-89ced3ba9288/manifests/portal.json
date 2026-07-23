@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "bkwatch",
+  "clientSafe": true,
+  "asOf": "2026-07-21",
+  "client": {
+    "key": "bkwatch",
+    "name": "BankruptcyWatch",
+    "shortName": "bkWatch",
+    "route": "/bkwatch",
+    "partner": "Third i",
+    "logo": "/public/portal/bkwatch-logo-black.png",
+    "logoDark": "/public/portal/bkwatch-logo-white.png",
+    "logoCollapsed": "/public/portal/bkwatch-icon-black.png",
+    "logoCollapsedDark": "/public/portal/bkwatch-icon-white.png"
+  },
+  "brand": {
+    "mission": "Make bankruptcy operations easy through live, automated tools that reduce compliance risk and effort at scale.",
+    "audience": "Lenders, servicers, bankruptcy operations teams, compliance leaders, and executives.",
+    "voice": "Restrained, highly credible, professional, protective, and proactive.",
+    "tagline": "Protect what manual processes can't.",
+    "differentiators": [
+      "Bankruptcy-only focus across collections, servicing, compliance, and recovery workflows.",
+      "Built to connect with other software, designed to fit existing servicing environments.",
+      "Coverage across all 94 United States Bankruptcy Courts.",
+      "Native Spectrum integration addresses the need to keep work inside the system teams already use."
+    ],
+    "communication": {
+      "confirmed": "Lead with operational protection, workflow continuity, credible product proof, and precise status labels. Avoid fear-driven bankruptcy imagery, unsupported absolutes, competitor names, and exact pricing.",
+      "currentAcquisition": "Needs confirmation. The approved memory does not document a complete current acquisition funnel, channel mix, conversion baseline, or account targets.",
+      "recommendedAcquisition": "Third i guidance: use the Shaw/Spectrum integration as focused proof for existing Spectrum users; build compliance-leader and servicing-operator education around native workflow continuity; add case-led product demonstrations only after live-function and CTA approval."
+    },
+    "source": "bkWatch Design System and BankruptcyWatch factual canon — updated Jul 16, 2026"
+  },
+  "theme": {
+    "profile": "bkwatch",
+    "canonicalColor": "#2B66AE",
+    "gradient": {
+      "from": "#79C4F5",
+      "to": "#2B66AE"
+    },
+    "defaultMode": "dark"
+  },
+  "relationship": {
+    "mission": "Make bankruptcy operations easy through live, automated tools that reduce compliance risk and effort at scale.",
+    "summary": "shaw-bkWatch is the active project. Its selected Final Demo is currently being built in the embedded project-page workspace above Creative Directions. This is demo production only; approval advances the same record into full-film production.",
+    "phase": "Demo production — building the selected demo",
+    "lastUpdate": "2026-07-21",
+    "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
+  },
+  "footer": {
+    "poweredBy": "Powered by Third i",
+    "poweredByFavicon": "/public/images/favicon.png"
+  }
+}

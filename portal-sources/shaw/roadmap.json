@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-23",
+  "startMonth": "2026-07",
+  "cadence": {
+    "deliverable": "Shaw partnership planning checkpoint",
+    "frequency": "monthly",
+    "amount": "Scope required"
+  },
+  "months": [
+    {
+      "month": 1,
+      "label": "July 2026",
+      "status": "current",
+      "items": [
+        {
+          "type": "film",
+          "title": "Film 3 direction lock",
+          "description": "Choose or hybridize an AI Advisor direction and align it with Films 2 and 4."
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "label": "August 2026",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "film",
+          "title": "Film 3 milestone",
+          "description": "Target Film 3 progress for the coordinated Summit campaign loop."
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "label": "September 2026",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "film",
+          "title": "Film 4 milestone",
+          "description": "Target Insight planning and production in continuity with Films 2 and 3."
+        }
+      ]
+    },
+    {
+      "month": 4,
+      "label": "October 2026",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "other",
+          "title": "Planning placeholder",
+          "description": "Future Shaw work remains uncommitted until scope and approval are confirmed."
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "label": "November 2026",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "other",
+          "title": "Planning placeholder",
+          "description": "Future Shaw work remains uncommitted until scope and approval are confirmed."
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "label": "December 2026",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "partnership",
+          "title": "Partnership review placeholder",
+          "description": "Review delivered value and confirm the next approved scope."
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "label": "January 2027",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "other",
+          "title": "Planning placeholder",
+          "description": "Future Shaw work remains uncommitted until scope and approval are confirmed."
+        }
+      ]
+    },
+    {
+      "month": 8,
+      "label": "February 2027",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "other",
+          "title": "Planning placeholder",
+          "description": "Future Shaw work remains uncommitted until scope and approval are confirmed."
+        }
+      ]
+    },
+    {
+      "month": 9,
+      "label": "March 2027",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "other",
+          "title": "Planning placeholder",
+          "description": "Future Shaw work remains uncommitted until scope and approval are confirmed."
+        }
+      ]
+    },
+    {
+      "month": 10,
+      "label": "April 2027",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "value-audit",
+          "title": "Value review placeholder",
+          "description": "Review verified delivery speed, quality evidence, and relationship value."
+        }
+      ]
+    },
+    {
+      "month": 11,
+      "label": "May 2027",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "other",
+          "title": "Planning placeholder",
+          "description": "Future Shaw work remains uncommitted until scope and approval are confirmed."
+        }
+      ]
+    },
+    {
+      "month": 12,
+      "label": "June 2027",
+      "status": "upcoming",
+      "items": [
+        {
+          "type": "partnership",
+          "title": "Partnership planning placeholder",
+          "description": "Confirm the next year of work only after Shaw and Third i approve scope."
+        }
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "month": 1,
+      "title": "Film 3 direction lock",
+      "description": "Select or hybridize the AI Advisor direction before demo production."
+    },
+    {
+      "month": 3,
+      "title": "Film 4 - Insight",
+      "description": "Plan Insight as the third coordinated film in the Summit campaign loop."
+    }
+  ],
+  "source": "Confirmed July–September film state plus client-safe planning placeholders; future roadmap requires Shaw approval"
+}

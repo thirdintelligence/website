@@ -58,6 +58,9 @@ test("public homepage contact and canonical route are wired", async () => {
   const netlify = await readFile(new URL("../netlify.toml", import.meta.url), "utf8");
   const portalHtml = await readFile(new URL("../bkWatch-os.html", import.meta.url), "utf8");
   const portalFunction = await readFile(new URL("../netlify/functions/bkwatch-portal.mjs", import.meta.url), "utf8");
+  const portalPlatform = await readFile(new URL("../lib/portal-platform.mjs", import.meta.url), "utf8");
+  const tenantRegistry = await readFile(new URL("../config/portal-tenants.mjs", import.meta.url), "utf8");
+  const portalRuntime = [portalFunction, portalPlatform, tenantRegistry].join("\n");
   const css = await readFile(new URL("../public/portal/bkwatch.css", import.meta.url), "utf8");
   const loginCss = await readFile(new URL("../public/portal/bkwatch-login.css", import.meta.url), "utf8");
   const lightTheme = await readFile(new URL("../public/portal/bkwatch-professional-light-20260714.css", import.meta.url), "utf8");
@@ -83,17 +86,17 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.doesNotMatch(portalHtml, /bkwatch-(?:blue-black|light-blue|black-blue)-2026071[34]\.css/);
   assert.match(portalHtml, /client-portal\.js\?v=__ASSET_RELEASE__/);
   assert.match(portalHtml, /bkwatch-logo\.png\?v=white-frame-20260714/);
-  assert.match(portalFunction, /bkwatch-theme-init\.js\?v=20260714-11/);
-  assert.match(portalFunction, /bkwatch-login-professional-light-20260714\.css\?v=20260714-11/);
-  assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
-  assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
-  assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260723-21"/);
+  assert.match(portalRuntime, /bkwatch-theme-init\.js\?v=20260714-11/);
+  assert.match(portalRuntime, /bkwatch-login-professional-light-20260714\.css\?v=20260714-11/);
+  assert.match(portalRuntime, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
+  assert.match(portalRuntime, /bkwatch-logo-white-frame-20260714\.css/);
+  assert.doesNotMatch(portalRuntime, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
+  assert.match(portalRuntime, /assetRelease: "20260723-21"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
-  assert.match(portalFunction, /id="portal-data" type="application\/json"/);
-  assert.match(portalFunction, /portal\/core\/app\.js/);
-  assert.match(portalFunction, /bkwatch-logo\.png\?v=white-frame-20260714/);
+  assert.match(portalPlatform, /id="portal-data" type="application\/json"/);
+  assert.match(portalPlatform, /portal\/core\/app\.js/);
+  assert.match(portalRuntime, /bkwatch-logo\.png\?v=white-frame-20260714/);
   assert.match(css, /--blue:#2B66AE/);
   assert.match(css, /--black:#214f88/);
   assert.doesNotMatch(css, /color-scheme:dark|bkWatch blue \+ black portal theme/);

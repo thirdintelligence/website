@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "tenant": "bkwatch",
+  "releaseId": "bkwatch-2026-07-21-89ced3ba9288",
+  "auditedUrl": "http://localhost:4599/",
+  "axe": {
+    "routeCount": 9,
+    "violationCount": 3,
+    "seriousOrCritical": 3,
+    "acceptedBaseline": 3,
+    "newSeriousOrCritical": 0
+  },
+  "lighthouse": {
+    "performance": 93,
+    "accessibility": 96,
+    "best-practices": 96
+  },
+  "thresholds": {
+    "performance": 90,
+    "accessibility": 90,
+    "best-practices": 90
+  },
+  "passed": true
+}

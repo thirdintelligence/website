@@ -1,8 +1,8 @@
 {
   "name": "Third i Client Portal Masterplan",
-  "version": "2.5",
+  "version": "3.0",
   "preparedAt": "2026-07-23",
-  "status": "bkwatch_v2_accepted_shared_platform_approved",
+  "status": "shared_platform_implemented_shaw_draft_publication_gated",
   "firstTenant": "bkwatch",
   "secondTenant": "shaw",
   "topLevelPages": [
@@ -39,7 +39,8 @@
     "22-source-of-truth-sync-operations.md",
     "23-shaw-portal-readiness.md",
     "24-approved-platform-operating-plan.md",
-    "25-r2-preview-bucket.md"
+    "25-r2-preview-bucket.md",
+    "26-shared-platform-implementation-report.md"
   ],
   "phases": [
     "plan-freeze",

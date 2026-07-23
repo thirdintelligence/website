@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "bkwatch",
+  "clientSafe": true,
+  "asOf": "2026-07-21",
+  "stats": [
+    {
+      "label": "Active projects",
+      "value": 1,
+      "source": "Derived from client-safe project manifest"
+    },
+    {
+      "label": "Open blocker comments",
+      "value": 2,
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "label": "Deliverables ready for review",
+      "value": 4,
+      "source": "shaw-bkWatch deliverable tracker — selected demo remains in production"
+    },
+    {
+      "label": "Approved generated media",
+      "value": 0,
+      "unit": "stills or clips",
+      "state": "not-started",
+      "source": "shaw-bkWatch Working Memory — media generation has not started"
+    },
+    {
+      "label": "Next milestone",
+      "value": "Complete the selected demo for review",
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
+    }
+  ],
+  "needsAttention": [
+    {
+      "id": "na-blocker-1",
+      "kind": "comment",
+      "blocker": true,
+      "title": "Demo product-accuracy confirmations",
+      "detail": "Confirm the live/showable Status, Tasks, and Credit behavior while Third i builds the selected 22-second demo. Full-film production has not started.",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "shaw-bkWatch",
+      "status": "Awaiting your approval",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
+    },
+    {
+      "id": "na-blocker-2",
+      "kind": "comment",
+      "blocker": true,
+      "title": "Final CTA and logo hierarchy",
+      "detail": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene.",
+      "projectId": "film1-shaw-bkwatch",
+      "projectLabel": "shaw-bkWatch",
+      "status": "Awaiting your approval",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
+    }
+  ],
+  "activeWork": [
+    {
+      "projectId": "film1-shaw-bkwatch",
+      "name": "shaw-bkWatch",
+      "purpose": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
+      "phase": "Demo production — building the selected demo",
+      "nextMilestone": "Third i completes the selected demo for bkWatch review. NEW FILING is generated with the rest of the selected demo; Shaw interface-use approval is already secured.",
+      "openCount": 2,
+      "latestUpdate": "The selected demo is being built. Full-film production begins only after bkWatch approves the demo.",
+      "thumbnailState": "in-production",
+      "route": "/bkwatch/projects/film1-shaw-bkwatch"
+    }
+  ],
+  "activity": [
+    {
+      "type": "project-update",
+      "title": "Brainstorm ideas",
+      "detail": "Demo directions were brainstormed with separate storyboards and scripts; Final Demo was selected for demo production.",
+      "date": "2026-07-01"
+    },
+    {
+      "type": "project-update",
+      "title": "Selected demo entered production",
+      "detail": "Final Demo was locked from the brainstorm slate and embedded in the main project page for demo production. Its scene previews are now being produced; the demo is not complete.",
+      "date": "2026-07-10"
+    },
+    {
+      "type": "project-update",
+      "title": "Storyboard + script",
+      "detail": "Six-scene storyboard and finalized voiceover script ready.",
+      "date": "2026-07-10"
+    },
+    {
+      "type": "project-update",
+      "title": "Prompts",
+      "detail": "122-item instruction inventory passed quality review.",
+      "date": "2026-07-12"
+    },
+    {
+      "type": "project-update",
+      "title": "Review audit",
+      "detail": "Planning and instruction quality review passed; demo production remains in progress.",
+      "date": "2026-07-16"
+    },
+    {
+      "type": "new-deliverable",
+      "title": "Client portal live",
+      "detail": "Private workspace for project collaboration, comments, and progress tracking.",
+      "date": "2026-07-16"
+    },
+    {
+      "type": "new-deliverable",
+      "title": "AI roadmap delivered",
+      "detail": "Research-backed plan showing where bkWatch can add AI to their operations.",
+      "date": "2026-07-16"
+    },
+    {
+      "type": "new-deliverable",
+      "title": "Brand knowledge library built",
+      "detail": "Searchable library of brand, products, features, and communication guidelines.",
+      "date": "2026-07-16"
+    }
+  ],
+  "opportunities": [
+    {
+      "title": "Approved in-product Spectrum walkthrough",
+      "outcome": "A sanctioned demo that shows the native bankruptcy workflow inside Spectrum without switching tools.",
+      "why": "Directly resolves the switching objection shaw-bkWatch is built to answer, using proof existing Spectrum users trust.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Lock live/showable functions and cleaned Spectrum assets, then produce a short role-specific walkthrough.",
+      "link": "/bkwatch/projects/film1-shaw-bkwatch",
+      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; shaw-bkWatch Working Memory"
+    },
+    {
+      "title": "Exception triage copilot for monitoring",
+      "outcome": "Human-reviewed AI assist that prioritizes filings the current rules-based pipeline flags as exceptions.",
+      "why": "Monitoring is confirmed as rules-based today; targeted AI reduces manual review effort without replacing controls.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Curated-discovery",
+      "recommendation": "Run a bounded pilot on a sample exception queue with clear human validation and success criteria.",
+      "link": "/bkwatch/ai-roadmap",
+      "source": "BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring and AI Use Audit"
+    },
+    {
+      "title": "Role-specific integration one-pager",
+      "outcome": "Concise enablement piece tailored to servicing, compliance, and recovery leaders evaluating the integration.",
+      "why": "Supports acquisition and retention conversations once claim/asset language is approved for publication.",
+      "value": "Medium",
+      "effort": "Low",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Draft after shaw-bkWatch claim lock so wording matches approved public language.",
+      "link": "/bkwatch/library/products",
+      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic"
+    }
+  ]
+}

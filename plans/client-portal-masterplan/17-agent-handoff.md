@@ -32,6 +32,8 @@ Read in this order before changing source:
 - bkWatch v2 is accepted as the reusable design/structure baseline. Communications is a separate sixth work area; Library remains the knowledge workspace.
 - The approved architecture is one shared portal core plus tenant configuration/content/auth/data/media/search. Never copy a client HTML page to create another tenant.
 - Shaw Film 1 is complete conference work (250 hours, fixed-bid/pre-contract); Film 2 V1 and V2 are complete; Film 3 is AI Advisor and awaiting direction lock; Film 4 is Insight. Films 2–4 form one aligned Summit loop.
+- The shared authenticated renderer and manifest-only tenant generator are implemented. Use `26-shared-platform-implementation-report.md` for the source map, release IDs, verification evidence, and remaining Shaw gates.
+- Shaw has a complete immutable nine-manifest draft but no promoted live release. Do not copy draft manifests into the live directory or activate a Shaw shell/API without its content, design, auth/data, preview, and production HITL gates.
 
 For bkWatch visual/content work also read:
 
@@ -55,7 +57,7 @@ For bkWatch visual/content work also read:
 | Git | `origin` resolves to `https://github.com/thirdintelligence/website.git`; the audited release is maintained on `client-portals` |
 | Local connectors | Local OS snapshot endpoint reachable; Sheets, Gmail, and Calendar reported active; refresh is separated from deployment |
 | Portal implementation | Six work areas, schemas, client-safe manifests, search, Value & Results, project lifecycle, comments/drafts/requests/actions/audit, and owner readback exist |
-| Existing tests | 63/63 Node tests pass, including auth, schema, tenant isolation, live operations, media contracts, notification reconciliation, and Value & Results privacy |
+| Existing tests | Final shared-platform release suite passes, including auth, schema, tenant/environment isolation, live operations, media contracts, notification reconciliation, generator immutability, exact visual lock, and Value & Results privacy |
 | Existing auth | bkWatch and owner OS server-side auth/tenant-isolation tests pass |
 
 ## Remaining activation and operations gates
@@ -100,7 +102,7 @@ The legacy `com.thirdi.auto-sync` job failed with exit `126` because macOS backg
 4. Run the complete QC matrix for every release; receive design HITL for any new visual decision.
 5. Keep memory mirror in dry-run until `MEM-01`; use the refresh-only local service and explicit tested releases.
 6. Build the shared platform/generator from `24-approved-platform-operating-plan.md`; keep current bkWatch UI unchanged unless a later visual HITL approves a change.
-7. Plan Shaw from the accepted bkWatch baseline and confirmed canon; activate Shaw tenant auth, storage, notifications, and deployment only through the named Shaw/data/deploy gates.
+7. Review the generated Shaw draft from the accepted bkWatch baseline and confirmed canon; activate Shaw tenant auth, storage, notifications, and deployment only through the named Shaw/data/deploy gates.
 
 ## Non-negotiable operational boundaries
 
@@ -115,4 +117,4 @@ The legacy `com.thirdi.auto-sync` job failed with exit `126` because macOS backg
 
 ## Handoff verdict
 
-The bkWatch v2 portal is the accepted, tested reusable design/structure template—not a mockup. The architecture decision and Shaw facts are resolved well enough to build the shared platform and generator. Shaw client publication still depends on tenant-specific content/design approval, separated preview/production media configuration, auth/data activation, full QC, and deployment HITL.
+The bkWatch v2 portal is the accepted, tested reusable design/structure template—not a mockup. The shared platform and generator are implemented with an exact bkWatch regression lock. The complete Shaw package remains a non-public draft. Shaw client publication still depends on tenant-specific content/design approval, separated preview/production media configuration, auth/data activation, full Shaw QC, and deployment HITL.

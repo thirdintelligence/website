@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/tenant-generator.schema.json",
+  "title": "Client portal tenant generator input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "tenant",
+    "design",
+    "auth",
+    "storage",
+    "features",
+    "recordSources",
+    "release"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "tenant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "displayName", "route", "status"],
+      "properties": {
+        "key": { "$ref": "common.schema.json#/$defs/tenant" },
+        "displayName": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "route": { "type": "string", "pattern": "^/[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "status": { "type": "string", "enum": ["planned", "active"] }
+      }
+    },
+    "design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "logo"],
+      "properties": {
+        "authority": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "logo": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["publicPath", "sourceAuthority"],
+          "properties": {
+            "publicPath": { "type": "string", "pattern": "^/public/" },
+            "darkPublicPath": { "type": "string", "pattern": "^/public/" },
+            "sourceAuthority": { "$ref": "common.schema.json#/$defs/nonEmptyText" }
+          }
+        }
+      }
+    },
+    "auth": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["passwordHashEnv", "sessionCookie", "csrfCookie", "cookiePath"],
+      "properties": {
+        "passwordHashEnv": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]+$" },
+        "sessionCookie": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "csrfCookie": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "cookiePath": { "type": "string", "pattern": "^/[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preview", "production", "searchIndex"],
+      "properties": {
+        "preview": { "$ref": "#/$defs/environment" },
+        "production": { "$ref": "#/$defs/environment" },
+        "searchIndex": { "$ref": "common.schema.json#/$defs/nonEmptyText" }
+      }
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ownerActions", "notifications", "media"],
+      "properties": {
+        "ownerActions": { "type": "boolean" },
+        "notifications": { "type": "boolean" },
+        "media": { "type": "boolean" }
+      }
+    },
+    "recordSources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "portal.json",
+        "home.json",
+        "projects.json",
+        "library.json",
+        "ai-roadmap.json",
+        "roadmap.json",
+        "invoicing.json",
+        "communications.json"
+      ],
+      "properties": {
+        "portal.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "home.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "projects.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "library.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "ai-roadmap.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "roadmap.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "invoicing.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "communications.json": { "$ref": "common.schema.json#/$defs/nonEmptyText" }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "contentApproved", "designApproved", "publicationApproved"],
+      "properties": {
+        "channel": { "type": "string", "enum": ["draft", "preview", "production"] },
+        "contentApproved": { "type": "boolean" },
+        "designApproved": { "type": "boolean" },
+        "publicationApproved": { "type": "boolean" },
+        "outputRoot": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dataStoreVersion", "operationalPrefix", "mediaBucket", "mediaPrefix"],
+      "properties": {
+        "dataStoreVersion": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "operationalPrefix": { "type": "string", "pattern": "^_ops/" },
+        "mediaBucket": { "$ref": "common.schema.json#/$defs/nonEmptyText" },
+        "mediaPrefix": { "type": "string", "pattern": "^tenants/[a-z0-9-]+/media/$" }
+      }
+    }
+  }
+}

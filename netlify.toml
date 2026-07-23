@@ -111,6 +111,14 @@
   status = 301
   force = true
 
+# Planned tenants fail closed at the API boundary. Replace this denial with
+# resource-specific shared API routes only after Shaw activation gates pass.
+[[redirects]]
+  from = "/shaw/api/*"
+  to = "/.netlify/functions/portal-inactive"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/shaw"
   to = "/.netlify/functions/shaw-portal"

@@ -1,0 +1,43 @@
+{
+  "baseline": "accepted-bkwatch-v2-2026-07-23",
+  "shell": {
+    "csrfFixture": "visual-lock-csrf",
+    "bytes": 155651,
+    "sha256": "d34d67d1edd004ea7fbad3d85884d869dcdefc47c5c85c09ceb3b0061d3e7131"
+  },
+  "nonVisualAdjustments": [
+    "value-results.js adds progressbar semantics without changing rendered layout or styling"
+  ],
+  "sources": {
+    "public/portal/core/app.js": "34926f02d135fb816427e5f386fe1d08ac108267cfb09c65638670984badd377",
+    "public/portal/core/composer.js": "a03585116fcdb4b607930342018b58407a2793fd918beba4a99cbdfb007cac97",
+    "public/portal/core/data.js": "c6eccb2c9cd78f022e5d41d79345858201d8246b168d9368930c82fb74ff358f",
+    "public/portal/core/icons.js": "004076a4058631d1b1fa5491358e84223bb84f34f7b3642c6c2c3b37b8c13344",
+    "public/portal/core/router.js": "4e51bec63473a2b493186bbe1b92d26e00be9c2606e4c1a781c24e7157f18cb0",
+    "public/portal/core/search.js": "0f6b5f8de6c1f7ebe40178b6968439d084babe1120cd5207dd24a15dc3976392",
+    "public/portal/core/shell.js": "95288be93a41d13ff4301f1fe2cce495b151d38d3790a79e59de095bee6bf495",
+    "public/portal/core/theme.js": "fd64e259dc069d8282fa0644903d6a739bf8dd190c3f5dd7505f354ae6c098a4",
+    "public/portal/core/util.js": "8b9e474d246c2d9adae336f55f93c98208cab589e65cd2fe86bf4e4eac0103aa",
+    "public/portal/components/cards.js": "7c21bb2151650ff76b33ec4369680921bf4aa590f73d661ee72b5bc632ec8754",
+    "public/portal/components/feed.js": "8122c97555c582dc8580d93354b06340c61d938518904c7f323caa180fcb22d5",
+    "public/portal/components/media.js": "21a639ab0ecaab5a404001743bbd9119cceb75c17e18fd9bb02f83c2ec55ebe3",
+    "public/portal/pages/ai-roadmap.js": "1ffa1c934cc7827d8a29db26ddb817c839556cf6954454124e2042668c65c64e",
+    "public/portal/pages/communications.js": "79016036715060da8df39dd85ca731851f165aaba4c761ae9a8505d948a395c5",
+    "public/portal/pages/film-presentation.js": "2f4ab6e13b061295bf3055eec5b9e3633afebee31fd17154f96c16735cda5574",
+    "public/portal/pages/home.js": "dea6f9290b7ad9306c3f1d9da89896aa2896d75ce02178a425403574b5a13d9f",
+    "public/portal/pages/library-record.js": "88c80cd9d212924a344a9b32611e8b3545220a07bbbea3878bfd14b0d759d7e6",
+    "public/portal/pages/library.js": "f037a97c41282c575e2737c914b9dff54681c38ee5203b31a7db76ad1e7491f9",
+    "public/portal/pages/project-detail.js": "6e1a64b2674e33d0dab3e2d36a1bf90200bbc258a38452acc6c0ee41fb8cf223",
+    "public/portal/pages/project-request.js": "06150745e9df94f3d6e7ebf0d0e30dc6c81886a78020691ad24de525799c576a",
+    "public/portal/pages/projects.js": "5e97cb0be79d4fd04d7d4e55b8fca73bbfa70082e7aeb726ae6a3a006a3fb642",
+    "public/portal/pages/value-results.js": "53ee233a35c5798cd6e70ef079235e3d606d25bdec9fc88e1d4d976fee9d1b81",
+    "public/portal/styles/portal-components.css": "c00d150a3c3bab710bcff38bcb9201f40dc33b8672894c4b6b6ab480573acaef",
+    "public/portal/styles/portal-motion.css": "e311160bb062f15ae4668982a5431e7a85e8de1bfe06c417af01ed8d938ba04a",
+    "public/portal/styles/portal-pages.css": "c960108bb85f5442eb4273c688ee254940cc7ade4c1dd0e7d858bbb4cc7ef828",
+    "public/portal/styles/portal-print.css": "efb55c332fb7f7e8a1e2d41e039ea3c51f21949008dd1a6ae8386d7739652452",
+    "public/portal/styles/portal-shell.css": "aa454a82d5a3750c050186c3081c430c9d91cc0f21632b5bb1233548c2ebbb15",
+    "public/portal/styles/portal-tokens.css": "6ad7407d6c38d332c6fbd1073c73a68635648eca01baaf4d06766bcbcc1fc79b",
+    "public/portal/styles/tenants/bkwatch.css": "e46f2d54d991f3d61b6715850642fb7d75e415ffd55c8862f303b06ef9447a01",
+    "public/portal/bkwatch-theme-init.js": "deada60f06037f8f5a93438eea0b9ea7fea9794ec727391dc05e3088cbd61835"
+  }
+}

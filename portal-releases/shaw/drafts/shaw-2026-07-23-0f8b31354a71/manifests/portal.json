@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-23",
+  "client": {
+    "key": "shaw",
+    "name": "Shaw Systems",
+    "shortName": "Shaw",
+    "route": "/shaw",
+    "partner": "Third i",
+    "logo": "/public/portal/tenants/shaw/logo-blue.png",
+    "logoDark": "/public/portal/tenants/shaw/logo-white.png"
+  },
+  "brand": {
+    "mission": "Shaw rebuilds ahead of the curve.",
+    "audience": "Bank C-suite executives, lending operators, and conference decision-makers.",
+    "voice": "Quiet competence: disciplined, credible, human-centered, and never gimmicky.",
+    "tagline": "Built to Evolve",
+    "differentiators": [
+      "Spectrum is the central lending platform story.",
+      "Amplify, AI Advisor, and Insight extend one aligned product and campaign narrative.",
+      "Shaw product proof and real project outputs lead over abstract decoration."
+    ],
+    "source": "Confirmed Shaw company and portal design canon — Jul 23, 2026"
+  },
+  "theme": {
+    "profile": "shaw",
+    "canonicalColor": "#216F9B",
+    "gradient": {
+      "from": "#4A93B8",
+      "to": "#216F9B"
+    },
+    "defaultMode": "light"
+  },
+  "relationship": {
+    "mission": "Connect Spectrum, Amplify, AI Advisor, and Insight into one evolving platform story.",
+    "summary": "Films 1 and 2 are complete. Film 3 creative brainstorming is complete and awaits direction lock. Film 4 is planned. Films 2, 3, and 4 form one aligned Summit campaign loop.",
+    "phase": "Film 3 direction selection",
+    "lastUpdate": "2026-07-23",
+    "source": "Confirmed Shaw film roadmap and direct Third i instructions — Jul 23, 2026"
+  },
+  "footer": {
+    "poweredBy": "Powered by Third i",
+    "poweredByFavicon": "/public/images/favicon.png"
+  }
+}

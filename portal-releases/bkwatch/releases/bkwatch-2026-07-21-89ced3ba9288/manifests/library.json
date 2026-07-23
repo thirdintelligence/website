@@ -1,0 +1,552 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "bkwatch",
+  "clientSafe": true,
+  "asOf": "2026-07-16",
+  "categories": [
+    {
+      "id": "branding",
+      "title": "Branding",
+      "description": "Mission, positioning, audience, voice, identity, and messaging.",
+      "subcategories": [
+        {
+          "id": "mission-positioning",
+          "title": "Mission & positioning"
+        },
+        {
+          "id": "audience",
+          "title": "Audience"
+        },
+        {
+          "id": "voice-communication",
+          "title": "Voice & communication"
+        },
+        {
+          "id": "visual-identity",
+          "title": "Visual identity"
+        },
+        {
+          "id": "differentiators",
+          "title": "Differentiators"
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "title": "Products",
+      "description": "Product families, value, audiences, and confirmed capabilities.",
+      "subcategories": []
+    },
+    {
+      "id": "features",
+      "title": "Features",
+      "description": "Confirmed capabilities tied to a parent product.",
+      "subcategories": []
+    },
+    {
+      "id": "integrations-partners",
+      "title": "Integrations & partners",
+      "description": "Relationships and confirmed interplay.",
+      "subcategories": []
+    },
+    {
+      "id": "film-knowledge",
+      "title": "Film knowledge",
+      "description": "Approved creative directions, decisions, and learned preferences.",
+      "subcategories": [
+        {
+          "id": "creative-directions",
+          "title": "Creative directions"
+        },
+        {
+          "id": "production-decisions",
+          "title": "Production decisions"
+        },
+        {
+          "id": "learned-preferences",
+          "title": "Learned preferences"
+        },
+        {
+          "id": "messaging-preferences",
+          "title": "Messaging preferences"
+        }
+      ]
+    },
+    {
+      "id": "other-knowledge",
+      "title": "Other knowledge",
+      "description": "Confirmed coverage, scale, and reliability facts.",
+      "subcategories": [
+        {
+          "id": "coverage-scale",
+          "title": "Coverage & scale"
+        },
+        {
+          "id": "reliability",
+          "title": "Reliability"
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "brand-mission",
+      "type": "brand",
+      "category": "branding",
+      "subcategory": "mission-positioning",
+      "title": "Mission & positioning",
+      "summary": "Make bankruptcy operations easy through live, automated, API-first tools that reduce compliance risk and effort at scale.",
+      "body": "Protect what manual processes can't.",
+      "status": "Confirmed",
+      "format": "branding",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "bkWatch Design System and BankruptcyWatch factual canon — updated Jul 16, 2026"
+      ],
+      "comment": {
+        "context": {
+          "scope": "library",
+          "recordId": "brand-mission",
+          "category": "branding",
+          "route": "/bkwatch/library/branding/brand-mission"
+        },
+        "count": 0
+      }
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "brand-audience",
+      "type": "brand",
+      "category": "branding",
+      "subcategory": "audience",
+      "title": "Audience",
+      "summary": "Lenders, servicers, bankruptcy operations teams, compliance leaders, and executives.",
+      "status": "Confirmed",
+      "format": "branding",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "bkWatch Design System and BankruptcyWatch factual canon — updated Jul 16, 2026"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "brand-voice",
+      "type": "brand",
+      "category": "branding",
+      "subcategory": "voice-communication",
+      "title": "Voice & communication",
+      "summary": "Restrained, highly credible, professional, protective, and proactive.",
+      "body": "Lead with operational protection, workflow continuity, credible product proof, and precise status labels. Avoid fear-driven bankruptcy imagery, unsupported absolutes, competitor names, and exact pricing.",
+      "status": "Confirmed",
+      "format": "branding",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "bkWatch Design System and BankruptcyWatch factual canon — updated Jul 16, 2026"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "brand-identity",
+      "type": "brand",
+      "category": "branding",
+      "subcategory": "visual-identity",
+      "title": "Visual identity",
+      "summary": "Primary blue #2B66AE, primary black #1A1A1A, primary white. Blue is used selectively for brand recognition, active paths, and confirmed states.",
+      "facts": [
+        "Primary Blue #2B66AE (corrected 2026-07-14)",
+        "Primary Black #1A1A1A",
+        "Primary White #FFFFFF",
+        "Portal dark mode workspace #080D14"
+      ],
+      "status": "Confirmed",
+      "format": "branding",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-14",
+      "sourceRefs": [
+        "bkWatch Design System — Brand Foundation"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "brand-differentiators",
+      "type": "brand",
+      "category": "branding",
+      "subcategory": "differentiators",
+      "title": "Differentiators",
+      "summary": "What sets BankruptcyWatch apart.",
+      "facts": [
+        "Bankruptcy-only focus across collections, servicing, compliance, and recovery workflows.",
+        "API-first, cloud-native automation designed to fit existing servicing environments.",
+        "Coverage across all 94 United States Bankruptcy Courts.",
+        "Native Spectrum integration addresses the need to keep work inside the system teams already use."
+      ],
+      "status": "Confirmed",
+      "format": "branding",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "bkWatch Design System and BankruptcyWatch factual canon — updated Jul 16, 2026"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "product-spectrum-integration",
+      "type": "product",
+      "category": "integrations-partners",
+      "title": "Spectrum Integration",
+      "summary": "Bring specialized bankruptcy automation into the loan management environment Spectrum users already trust.",
+      "body": "Reduces switching friction and manual case-information entry by keeping the bankruptcy workflow connected to existing servicing operations.",
+      "facts": [
+        "Shaw Systems and BankruptcyWatch partnered around native automation inside Spectrum.",
+        "Shaw approval for Spectrum UI use is secured; exact sanitized-asset delivery remains outstanding.",
+        "The integration message is the subject of the selected 22-second demo currently being built inside shaw-bkWatch."
+      ],
+      "status": "Active / confirmed context",
+      "format": "integration",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; shaw-bkWatch Working Memory"
+      ],
+      "relatedIds": [
+        "film1-shaw-bkwatch"
+      ],
+      "comment": {
+        "context": {
+          "scope": "library",
+          "recordId": "product-spectrum-integration",
+          "category": "integrations-partners",
+          "route": "/bkwatch/library/integrations-partners/product-spectrum-integration"
+        },
+        "count": 0
+      }
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "product-monitoring",
+      "type": "product",
+      "category": "products",
+      "title": "Bankruptcy Monitoring",
+      "summary": "Detect bankruptcy filings across active loan portfolios quickly enough for teams to protect compliance workflows.",
+      "body": "Supports timely awareness of filings and reduces manual monitoring effort across portfolio operations.",
+      "facts": [
+        "Coverage is recorded across all 94 U.S. Bankruptcy Courts.",
+        "Monitoring includes Chapters 7, 11, and 13.",
+        "Current architecture is primarily API calls, predefined rules, custom scrapers, and regex parsing."
+      ],
+      "status": "Active / confirmed",
+      "format": "product",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring and AI Use Audit"
+      ],
+      "relatedIds": [],
+      "comment": {
+        "context": {
+          "scope": "library",
+          "recordId": "product-monitoring",
+          "category": "products",
+          "route": "/bkwatch/library/products/product-monitoring"
+        },
+        "count": 0
+      }
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "product-research",
+      "type": "product",
+      "category": "products",
+      "title": "Advanced Bankruptcy Research",
+      "summary": "Turn docket-level court activity into accessible case intelligence for operating teams.",
+      "body": "Reduces the effort required to detect, import, parse, and log case events for review and action.",
+      "facts": [
+        "The confirmed capability detects, imports, parses, and logs docket-level case events.",
+        "Rigid layouts and unstructured files can still require manual intervention under the current rules-based approach."
+      ],
+      "status": "Active / confirmed",
+      "format": "product",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Advanced Bankruptcy Research and AI Use Audit"
+      ],
+      "relatedIds": [],
+      "comment": {
+        "context": {
+          "scope": "library",
+          "recordId": "product-research",
+          "category": "products",
+          "route": "/bkwatch/library/products/product-research"
+        },
+        "count": 0
+      }
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "product-response",
+      "type": "product",
+      "category": "products",
+      "title": "Automated Bankruptcy Response",
+      "summary": "Move teams from bankruptcy event awareness to controlled, compliant action.",
+      "body": "Connects case events to document preparation and servicing responses while preserving review gates.",
+      "facts": [
+        "Memory records Proof of Claim preparation and direct eFiling as product capabilities.",
+        "Loan restructuring and reaffirmation automation are marked coming soon.",
+        "Future features must not be presented as currently live."
+      ],
+      "status": "Partial / roadmap",
+      "format": "product",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Automated Bankruptcy Response; shaw-bkWatch claim gates"
+      ],
+      "relatedIds": [],
+      "comment": {
+        "context": {
+          "scope": "library",
+          "recordId": "product-response",
+          "category": "products",
+          "route": "/bkwatch/library/products/product-response"
+        },
+        "count": 0
+      }
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "product-pacer-uptime",
+      "type": "product",
+      "category": "products",
+      "title": "PACER Uptime Support",
+      "summary": "Make federal court service availability visible so downstream bankruptcy automation can be interpreted responsibly.",
+      "body": "Provides operational context for teams and systems that depend on PACER availability.",
+      "facts": [
+        "BankruptcyWatch operates PacerUptime.com.",
+        "The service tracks availability across all 94 federal bankruptcy courts."
+      ],
+      "status": "Active / confirmed",
+      "format": "product",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — PACER Uptime Support"
+      ],
+      "relatedIds": [],
+      "comment": {
+        "context": {
+          "scope": "library",
+          "recordId": "product-pacer-uptime",
+          "category": "products",
+          "route": "/bkwatch/library/products/product-pacer-uptime"
+        },
+        "count": 0
+      }
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "feature-poc",
+      "type": "feature",
+      "category": "features",
+      "title": "Proof of Claim preparation",
+      "summary": "Prepare Proof of Claim documents as part of the automated response workflow.",
+      "status": "Confirmed capability",
+      "format": "feature",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Automated Bankruptcy Response"
+      ],
+      "relatedIds": [
+        "product-response"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "feature-efiling",
+      "type": "feature",
+      "category": "features",
+      "title": "Direct eFiling",
+      "summary": "Direct electronic filing as part of the response workflow.",
+      "status": "Confirmed capability",
+      "format": "feature",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Automated Bankruptcy Response"
+      ],
+      "relatedIds": [
+        "product-response"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "feature-docket",
+      "type": "feature",
+      "category": "features",
+      "title": "Docket event detection & logging",
+      "summary": "Detect, import, parse, and log docket-level case events for review and action.",
+      "status": "Confirmed capability",
+      "format": "feature",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Advanced Bankruptcy Research"
+      ],
+      "relatedIds": [
+        "product-research"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "film-direction-final",
+      "type": "film-knowledge",
+      "category": "film-knowledge",
+      "subcategory": "creative-directions",
+      "title": "Selected creative direction — Final Demo",
+      "summary": "Final Demo is the selected demo currently being built for shaw-bkWatch. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain brainstorm studies with storyboard and script pages but no media placeholders.",
+      "status": "Selected — demo in production",
+      "format": "film-knowledge",
+      "projectId": "film1-shaw-bkwatch",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "shaw-bkWatch Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
+      ],
+      "relatedIds": [
+        "film1-shaw-bkwatch"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "film-script-lock",
+      "type": "film-knowledge",
+      "category": "film-knowledge",
+      "subcategory": "production-decisions",
+      "title": "Locked integration script",
+      "summary": "Original 45-word integration script preserved at 122.7 WPM across 22 seconds.",
+      "body": "Spectrum runs your lending operation. Bankruptcy does not wait. Shaw Systems and BankruptcyWatch bring real-time bankruptcy automation natively into Spectrum, so when a borrower files, your platform already knows. Status updated. Tasks queued. Credit reporting corrected. You already have Spectrum. Now it has bankruptcy handled.",
+      "status": "Locked",
+      "format": "film-knowledge",
+      "projectId": "film1-shaw-bkwatch",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "Final Demo Script Plan — original 45 words preserved at 122.7 WPM, Jul 16, 2026"
+      ],
+      "relatedIds": [
+        "film1-shaw-bkwatch"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "film-thesis",
+      "type": "film-knowledge",
+      "category": "film-knowledge",
+      "subcategory": "learned-preferences",
+      "title": "Creative thesis",
+      "summary": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
+      "status": "Confirmed",
+      "format": "film-knowledge",
+      "projectId": "film1-shaw-bkwatch",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "shaw-bkWatch Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
+      ],
+      "relatedIds": [
+        "film1-shaw-bkwatch"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "film-messaging",
+      "type": "film-knowledge",
+      "category": "film-knowledge",
+      "subcategory": "messaging-preferences",
+      "title": "Messaging preferences",
+      "summary": "Lead with operational protection, workflow continuity, credible product proof, and precise status labels. Avoid fear-driven bankruptcy imagery, unsupported absolutes, competitor names, and exact pricing.",
+      "status": "Confirmed",
+      "format": "film-knowledge",
+      "projectId": "film1-shaw-bkwatch",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "bkWatch Design System and BankruptcyWatch factual canon — updated Jul 16, 2026"
+      ],
+      "relatedIds": [
+        "film1-shaw-bkwatch"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "fact-court-coverage",
+      "type": "fact",
+      "category": "other-knowledge",
+      "subcategory": "coverage-scale",
+      "title": "Court coverage",
+      "summary": "Coverage across all 94 U.S. Bankruptcy Courts.",
+      "status": "Confirmed",
+      "format": "fact",
+      "projectId": "general",
+      "eventDate": "2026-07-13",
+      "lastReviewedAt": "2026-07-13",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Key Integration Features"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "fact-chapters",
+      "type": "fact",
+      "category": "other-knowledge",
+      "subcategory": "coverage-scale",
+      "title": "Chapters monitored",
+      "summary": "Monitoring covers Chapters 7, 11, and 13.",
+      "status": "Confirmed",
+      "format": "fact",
+      "projectId": "general",
+      "eventDate": "2026-07-13",
+      "lastReviewedAt": "2026-07-13",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring"
+      ]
+    },
+    {
+      "tenant": "bkwatch",
+      "clientSafe": true,
+      "id": "fact-pacer",
+      "type": "fact",
+      "category": "other-knowledge",
+      "subcategory": "reliability",
+      "title": "PACER uptime support",
+      "summary": "BankruptcyWatch operates PacerUptime.com, tracking availability across all 94 federal bankruptcy courts.",
+      "status": "Confirmed",
+      "format": "fact",
+      "projectId": "general",
+      "lastReviewedAt": "2026-07-16",
+      "sourceRefs": [
+        "BankruptcyWatch factual canon — PACER Uptime Support"
+      ]
+    }
+  ]
+}

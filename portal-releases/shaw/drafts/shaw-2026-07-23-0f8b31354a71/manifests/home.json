@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-23",
+  "stats": [
+    {
+      "label": "Films in the portal",
+      "value": 4,
+      "source": "Confirmed Shaw film roadmap — Jul 23, 2026"
+    },
+    {
+      "label": "Completed films",
+      "value": 2,
+      "source": "Film 1 and Film 2 completion confirmations — Jul 22, 2026"
+    },
+    {
+      "label": "Film 1 production effort",
+      "value": 250,
+      "unit": "hours",
+      "source": "Confirmed Film 1 fixed-bid conference record"
+    },
+    {
+      "label": "Current decision",
+      "value": "Film 3 direction lock",
+      "source": "Confirmed Film 3 working state — Jul 22, 2026"
+    }
+  ],
+  "needsAttention": [
+    {
+      "id": "shaw-film3-direction-lock",
+      "kind": "decision",
+      "blocker": false,
+      "title": "Choose or hybridize the Film 3 creative direction",
+      "detail": "Creative brainstorming is complete. The selected direction will be aligned with Films 2 and 4 before demo production begins.",
+      "projectId": "shaw-film3-ai-advisor",
+      "projectLabel": "Film 3 - AI Advisor",
+      "status": "Awaiting direction lock",
+      "route": "/shaw/projects/film3-ai-advisor",
+      "source": "Confirmed Film 3 working state — Jul 22, 2026"
+    }
+  ],
+  "activeWork": [
+    {
+      "projectId": "shaw-film3-ai-advisor",
+      "name": "Film 3 - AI Advisor",
+      "purpose": "Present AI Advisor as part of the Spectrum product story and one coordinated Summit campaign loop.",
+      "phase": "Creative brainstorming complete — awaiting direction lock",
+      "nextMilestone": "Lock or hybridize one direction, then align its storyboard and script with Films 2 and 4.",
+      "openCount": 1,
+      "latestUpdate": "Brainstorming completed; no demo media placeholders are active before direction selection.",
+      "thumbnailState": "not-started",
+      "route": "/shaw/projects/film3-ai-advisor"
+    }
+  ],
+  "activity": [
+    {
+      "type": "project-update",
+      "title": "Film 3 creative brainstorming completed",
+      "detail": "Direction selection is the next decision.",
+      "date": "2026-07-22",
+      "projectId": "shaw-film3-ai-advisor",
+      "route": "/shaw/projects/film3-ai-advisor"
+    },
+    {
+      "type": "completed-action",
+      "title": "Film 2 Amplify V1 and V2 completed",
+      "detail": "Film 2 is the first completed part of the aligned three-film Summit loop.",
+      "date": "2026-07-22",
+      "projectId": "shaw-film2-amplify",
+      "route": "/shaw/projects/film2-amplify"
+    }
+  ],
+  "opportunities": [
+    {
+      "title": "Align the Summit campaign loop",
+      "outcome": "Films 2, 3, and 4 read as one coordinated Spectrum product story.",
+      "why": "Each film must consider the other two before production decisions are locked.",
+      "value": "High",
+      "effort": "Medium",
+      "evidence": "Internal-confirmed",
+      "recommendation": "Use a shared message hierarchy and visual continuity check for all three films.",
+      "link": "/shaw/projects",
+      "source": "Confirmed Shaw Summit campaign instruction — Jul 23, 2026"
+    }
+  ]
+}

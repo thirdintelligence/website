@@ -1,7 +1,7 @@
 # Third i Client Portal Masterplan
 
-Status: bkWatch v2 accepted; shared-platform plan approved
-Version: 2.5
+Status: bkWatch v2 accepted; shared platform implemented; Shaw draft generated and publication-gated
+Version: 3.0
 Prepared: 2026-07-23
 First tenant: bkWatch
 Second tenant: Shaw Systems, planned from the accepted bkWatch template
@@ -71,6 +71,7 @@ The approved client-portal directions in this plan are a client-portal overlay. 
 | `23-shaw-portal-readiness.md` | Shaw design/content readiness, contradiction register, template boundary, and acceptance order |
 | `24-approved-platform-operating-plan.md` | Approved shared-core/tenant-config architecture, generator, update behavior, and Shaw facts |
 | `25-r2-preview-bucket.md` | Simple Cloudflare R2 deploy-preview bucket setup and current media policy |
+| `26-shared-platform-implementation-report.md` | Implemented source map, migration evidence, generator contract, releases, Shaw draft, verification, and rollback |
 | `plan-manifest.json` | Machine-readable phase and document index |
 
 ## Operating interpretation of “shared memory”
@@ -97,4 +98,4 @@ The portal and OS read the same hosted operational records immediately. A local 
 
 ## Current status
 
-The bkWatch v2 portal and operating architecture are accepted as the reusable baseline. Communications is now a separate sixth work area, while Library remains the knowledge system. The shared-platform decision, Shaw canon, minimal automation cadence, OS restructure direction, and preview-media setup are approved. New provider credentials, Shaw client publication, and visual-direction changes retain their specific gates.
+The bkWatch v2 portal and operating architecture are accepted as the reusable baseline. The authenticated renderer now lives in the shared platform, while the bkWatch wrapper is tenant-only and the exact accepted shell hash is preserved. The manifest-only generator has produced immutable bkWatch and Shaw release packages. Shaw remains `planned`; its complete draft package is not the live content directory and has no active shell, API routes, auth, operational writes, owner aggregation, notifications, media, or release pointer. See `26-shared-platform-implementation-report.md` for implementation and verification evidence.

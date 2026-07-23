@@ -33,6 +33,46 @@ export const PORTAL_TENANTS = Object.freeze({
     operationalPrefix: "tenants/bkwatch/",
     mediaPrefix: "tenants/bkwatch/media/",
     searchIndex: "content/clients/bkwatch/search-index.json",
+    releasePointer: "portal-releases/bkwatch/current.json",
+    environments: Object.freeze({
+      preview: Object.freeze({
+        dataStoreVersion: "portal-preview-v1",
+        operationalPrefix: "_ops/portal-preview-v1/tenants/bkwatch/",
+        mediaBucket: "thirdi-media-preview",
+        mediaPrefix: "tenants/bkwatch/media/"
+      }),
+      production: Object.freeze({
+        dataStoreVersion: "portal-live-v1",
+        operationalPrefix: "_ops/portal-live-v1/tenants/bkwatch/",
+        mediaBucketEnv: "PORTAL_MEDIA_R2_BUCKET",
+        mediaPrefix: "tenants/bkwatch/media/"
+      })
+    }),
+    shell: Object.freeze({
+      assetRelease: "20260723-21",
+      documentTitle: "bkWatch · Client workspace",
+      loginTitle: "bkWatch Client Portal",
+      favicon: "/public/images/favicon.png",
+      themeInit: "/public/portal/bkwatch-theme-init.js?v=20260714-11",
+      loginStyles: Object.freeze([
+        "/public/portal/bkwatch-login.css?v=20260714-11",
+        "/public/portal/bkwatch-login-professional-light-20260714.css?v=20260714-11",
+        "/public/portal/bkwatch-logo-white-frame-20260714.css",
+        "/public/portal/bkwatch-login-dark-mode-20260714.css?v=20260714-11"
+      ]),
+      logo: "/public/portal/bkwatch-logo.png?v=white-frame-20260714",
+      logoWidth: 432,
+      logoHeight: 114,
+      logoAlt: "BankruptcyWatch",
+      styles: Object.freeze([
+        "portal-tokens.css",
+        "tenants/bkwatch.css",
+        "portal-shell.css",
+        "portal-components.css",
+        "portal-pages.css",
+        "portal-motion.css"
+      ])
+    }),
     ownerActionsEnabled: true,
     notificationsEnabled: true
   }),
@@ -50,6 +90,22 @@ export const PORTAL_TENANTS = Object.freeze({
     operationalPrefix: "tenants/shaw/",
     mediaPrefix: "tenants/shaw/media/",
     searchIndex: "content/clients/shaw/search-index.json",
+    releasePointer: "portal-releases/shaw/current.json",
+    environments: Object.freeze({
+      preview: Object.freeze({
+        dataStoreVersion: "portal-preview-v1",
+        operationalPrefix: "_ops/portal-preview-v1/tenants/shaw/",
+        mediaBucket: "thirdi-media-preview",
+        mediaPrefix: "tenants/shaw/media/"
+      }),
+      production: Object.freeze({
+        dataStoreVersion: "portal-live-v1",
+        operationalPrefix: "_ops/portal-live-v1/tenants/shaw/",
+        mediaBucketEnv: "PORTAL_MEDIA_R2_BUCKET",
+        mediaPrefix: "tenants/shaw/media/"
+      })
+    }),
+    shell: null,
     ownerActionsEnabled: false,
     notificationsEnabled: false
   })

@@ -1,0 +1,18 @@
+{
+  "tenant": "shaw",
+  "wrongTenant": "bkwatch",
+  "route": "/shaw",
+  "sessionCookie": "thirdi_shaw_session",
+  "csrfCookie": "thirdi_shaw_csrf",
+  "previewOperationalPrefix": "_ops/portal-preview-v1/tenants/shaw/",
+  "productionOperationalPrefix": "_ops/portal-live-v1/tenants/shaw/",
+  "previewMediaPrefix": "tenants/shaw/media/",
+  "productionMediaPrefix": "tenants/shaw/media/",
+  "expectedManifestCount": 9,
+  "mustNotEmit": [
+    "html",
+    "netlify-function",
+    "redirect",
+    "credential"
+  ]
+}

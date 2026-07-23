@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-23",
+  "categories": [
+    {
+      "id": "products",
+      "title": "Products & capabilities",
+      "description": "Confirmed Shaw product context used across films."
+    },
+    {
+      "id": "engagements",
+      "title": "Other engagements",
+      "description": "Completed work that is not a separately scoped film project."
+    },
+    {
+      "id": "campaign",
+      "title": "Summit campaign",
+      "description": "Shared alignment rules for Films 2, 3, and 4."
+    }
+  ],
+  "records": [
+    {
+      "id": "shaw-product-spectrum",
+      "tenant": "shaw",
+      "type": "product",
+      "category": "products",
+      "title": "Spectrum",
+      "summary": "Spectrum is the central lending platform story connecting Shaw's current film campaign.",
+      "facts": [
+        "Amplify, AI Advisor, and Insight must be positioned in relation to the central Spectrum story.",
+        "Unverified integration behavior must not be claimed."
+      ],
+      "status": "Confirmed",
+      "projectId": "general",
+      "format": "product",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Shaw portal design canon — Jul 23, 2026"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-product-amplify",
+      "tenant": "shaw",
+      "type": "product",
+      "category": "products",
+      "title": "Amplify",
+      "summary": "Amplify is Shaw's AI-powered intelligence layer and decisioning engine.",
+      "status": "Confirmed",
+      "projectId": "shaw-film2-amplify",
+      "format": "product",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Shaw product canon"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-product-ai-advisor",
+      "tenant": "shaw",
+      "type": "product",
+      "category": "products",
+      "title": "AI Advisor",
+      "summary": "AI Advisor is the subject of Film 3; Next Best Action is a core confirmed story element.",
+      "status": "Creative planning",
+      "projectId": "shaw-film3-ai-advisor",
+      "format": "feature",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Film 3 planning state — Jul 22, 2026"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-product-insight",
+      "tenant": "shaw",
+      "type": "product",
+      "category": "products",
+      "title": "Insight",
+      "summary": "Insight is a Spectrum feature and capability and the planned subject of Film 4.",
+      "status": "Planned",
+      "projectId": "shaw-film4-insight",
+      "format": "feature",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Film 4 canon — Jul 23, 2026"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-summit-loop-alignment",
+      "tenant": "shaw",
+      "type": "campaign rule",
+      "category": "campaign",
+      "title": "Films 2–4 form one Summit campaign loop",
+      "summary": "Amplify, AI Advisor, and Insight must be planned and reviewed as one coordinated three-film loop.",
+      "facts": [
+        "Every film must consider the other two.",
+        "Message hierarchy and visual continuity should support one central marketing strategy."
+      ],
+      "status": "Confirmed",
+      "projectId": "general",
+      "format": "film-knowledge",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Direct Third i campaign alignment instruction — Jul 23, 2026"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-engagement-conference-av",
+      "tenant": "shaw",
+      "type": "engagement",
+      "category": "engagements",
+      "title": "Conference AV and live production",
+      "summary": "Completed live conference support is retained as a Value and Library record rather than a film project.",
+      "status": "Complete",
+      "projectId": "general",
+      "format": "other",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Shaw engagement history"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-engagement-training",
+      "tenant": "shaw",
+      "type": "engagement",
+      "category": "engagements",
+      "title": "Team training",
+      "summary": "Completed hands-on AI workflow training for Shaw's marketing team.",
+      "status": "Complete",
+      "projectId": "general",
+      "format": "other",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Shaw engagement history"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-engagement-agent-architecture",
+      "tenant": "shaw",
+      "type": "engagement",
+      "category": "engagements",
+      "title": "Agent architecture",
+      "summary": "Completed workflow and agent architecture work is retained as relationship value, not a film project.",
+      "status": "Complete",
+      "projectId": "general",
+      "format": "other",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Shaw engagement history"
+      ],
+      "clientSafe": true
+    },
+    {
+      "id": "shaw-engagement-loop-assets",
+      "tenant": "shaw",
+      "type": "engagement",
+      "category": "engagements",
+      "title": "Loop video assets",
+      "summary": "Completed reusable logo sequence assets for conferences and digital displays.",
+      "status": "Complete",
+      "projectId": "general",
+      "format": "asset",
+      "lastReviewedAt": "2026-07-23",
+      "sourceRefs": [
+        "Confirmed Shaw engagement history"
+      ],
+      "clientSafe": true
+    }
+  ]
+}

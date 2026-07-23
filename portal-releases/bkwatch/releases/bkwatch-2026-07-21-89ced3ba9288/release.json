@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseId": "bkwatch-2026-07-21-89ced3ba9288",
+  "tenant": "bkwatch",
+  "channel": "production",
+  "inputHash": "89ced3ba9288c1c979a3e5b4d148853465656737c8561a5d914c66f564e584ab",
+  "manifestHashes": {
+    "portal.json": "a4f76c6e9a806bc5f60c7fcdf9be06b68bce71516c9ac5fb146e9da90fa006d6",
+    "home.json": "9a27085653c9a4896b98f9030cd158a8c5976702d0e3ae3d9f2a72a3b3f2930a",
+    "projects.json": "881d8606dda472e3b116e7743a2d83ebc5d043564a9297a041876a3384679c6d",
+    "library.json": "d6ea0dae362ea9fb53636449e9cf872a3f95097ab65a309cc4bf2a09a96889ee",
+    "ai-roadmap.json": "2b87fd284d615b7fa3e61ba9b4d1a9669b8f2e186500ca168e1e365f209a41a6",
+    "roadmap.json": "c60bb4c2bdbfba1fe487d63e11ebbdb69dcdbd3c16285b94ec0feccaefde7c04",
+    "invoicing.json": "0fb15acd6954bc0fd8f49dfa8f2141c5daaf61751aa79bf0f0f639dace61dd9c",
+    "communications.json": "0f840c1a385bfed1dfa0736a68b83c80f4e524d863cfb2d333611e77556ad937",
+    "search-index.json": "eddd985695ed84f9424dc48f41c29f9c3cf4e9c8e7da18a24656776da6e1d2a3"
+  },
+  "approvals": {
+    "content": true,
+    "design": true,
+    "publication": true
+  },
+  "activation": {
+    "routeCreated": false,
+    "authConfigured": false,
+    "operationalWritesEnabled": false,
+    "mediaEnabled": false,
+    "ownerAggregationEnabled": false,
+    "notificationsEnabled": false
+  },
+  "immutable": true,
+  "promoted": false
+}

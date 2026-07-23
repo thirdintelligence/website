@@ -1,11 +1,11 @@
 # Shaw portal readiness and template plan
 
-Status: planning accepted; shared-platform/generator work authorized; client publication gated
-Updated: 2026-07-22
+Status: complete non-public draft generated; client publication gated
+Updated: 2026-07-23
 
 ## Verdict
 
-Yes: the accepted bkWatch v2 portal provides the design, six-workspace structure, lifecycle, schemas, interaction contracts, tests, and operating patterns needed to build Shaw content on the shared platform. There is no Shaw portal shell yet.
+Yes: the accepted bkWatch v2 portal provides the design, six-workspace structure, lifecycle, schemas, interaction contracts, tests, and operating patterns needed for Shaw. The shared platform and manifest-only generator are implemented. A complete nine-manifest Shaw draft exists, but there is intentionally no approved Shaw portal shell or live Shaw content release yet.
 
 ## Reuse boundary
 
@@ -46,21 +46,32 @@ Correctly routed Shaw communications and related information are considered clie
 5. **Communications:** correctly routed comments, sanitized email summaries, and meetings; no access codes or raw bodies.
 6. **Library:** products, features, integrations, film knowledge, decisions, and other confirmed work.
 
+## Generated Shaw draft
+
+- Generator input: `config/portal-generator/shaw.json`.
+- Reviewed source staging: `portal-sources/shaw/` plus existing sanitized Shaw communications/invoicing manifests.
+- Immutable draft: `portal-releases/shaw/drafts/shaw-2026-07-23-0f8b31354a71/`.
+- Release input hash: `0f8b31354a7145db97a47bce1f455ea88fc4b00661b75cab0bf9b2251310f6c8`.
+- All nine draft manifests validate and the generated search index is Shaw-only.
+- Mixed-client communication records are excluded from the Shaw draft and enforced by a cross-client-content assertion.
+- Projects contains Films 1–4 only. Other confirmed engagements are in Library/Value.
+- The draft approvals are `content=false`, `design=false`, and `publication=false`; it is not promoted.
+
 ## Data setup still required before publication
 
-- Generate the seven missing Shaw manifests from reviewed Shaw sources. `communications.json` and `invoicing.json` already exist; `portal.json`, `home.json`, `projects.json`, `library.json`, `ai-roadmap.json`, `roadmap.json`, and `search-index.json` remain.
+- Review and approve the complete generated Shaw draft. The seven previously missing manifests now exist only inside the immutable non-public draft; they have not been promoted into `content/clients/shaw/`.
 - Create a distinct Shaw auth/session/cookie/tenant/rate-limit namespace and wrong-tenant tests.
 - Create Shaw operational and media prefixes only after data/media setup approval.
 - Pull finance/time from Sheets/OS; pull communication context from correctly routed client-safe records.
 - Build a Shaw-only search index and deny cross-tenant references, secrets, raw prompts, and local paths.
 - Keep production and deploy-preview media buckets/credentials separate.
 
-The namespace contract is predeclared in `config/portal-tenants.mjs`, but Shaw remains `planned`: its owner-action and notification flags stay off, `/shaw/api/*` routes do not exist, and it is excluded from reconciliation until the activation gates pass. Run `npm run portal:readiness -- shaw` for the current file/namespace report.
+The namespace contract is predeclared in `config/portal-tenants.mjs`, but Shaw remains `planned`: its owner-action and notification flags stay off, `/shaw/api/*` fails closed through the inactive-tenant response, and it is excluded from reconciliation until the activation gates pass. Run `npm run portal:readiness -- shaw` for the live-versus-draft report.
 
 ## Acceptance order
 
-1. Shared platform/generator plan and source map.
-2. Shaw client-safe content and design review.
+1. Shared platform/generator implementation and source map. **Complete.**
+2. Shaw client-safe content and design review. **Next HITL gate.**
 3. Shaw auth/data/media/notification activation.
 4. Generator produces the tenant package without copying portal HTML.
 5. Unit/schema/API/auth/tenant/browser/accessibility/performance verification.

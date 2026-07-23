@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "tenant": {
+    "key": "bkwatch",
+    "displayName": "BankruptcyWatch",
+    "route": "/bkwatch",
+    "status": "active"
+  },
+  "design": {
+    "authority": "memory/BKWATCH/DESIGN.md",
+    "logo": {
+      "publicPath": "/public/portal/bkwatch-logo-black.png",
+      "darkPublicPath": "/public/portal/bkwatch-logo-white.png",
+      "sourceAuthority": "Accepted bkWatch v2 design baseline"
+    }
+  },
+  "auth": {
+    "passwordHashEnv": "BKWATCH_PORTAL_PASSWORD_HASH",
+    "sessionCookie": "thirdi_bkwatch_session",
+    "csrfCookie": "thirdi_bkwatch_csrf",
+    "cookiePath": "/bkwatch"
+  },
+  "storage": {
+    "preview": {
+      "dataStoreVersion": "portal-preview-v1",
+      "operationalPrefix": "_ops/portal-preview-v1/tenants/bkwatch/",
+      "mediaBucket": "thirdi-media-preview",
+      "mediaPrefix": "tenants/bkwatch/media/"
+    },
+    "production": {
+      "dataStoreVersion": "portal-live-v1",
+      "operationalPrefix": "_ops/portal-live-v1/tenants/bkwatch/",
+      "mediaBucket": "env:PORTAL_MEDIA_R2_BUCKET",
+      "mediaPrefix": "tenants/bkwatch/media/"
+    },
+    "searchIndex": "content/clients/bkwatch/search-index.json"
+  },
+  "features": {
+    "ownerActions": true,
+    "notifications": true,
+    "media": false
+  }
+}

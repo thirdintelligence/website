@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "bkwatch",
+  "clientSafe": true,
+  "asOf": "2026-07-16",
+  "emails": [
+    {
+      "id": "19f5d7eadde5d1b5",
+      "from": "Justin Brannon <justinbrannon95@gmail.com>",
+      "to": "Jessica Krobot <jessica.krobot@bankruptcywatch.com>",
+      "subject": "Re: BK Watch Agreement and Next Steps",
+      "date": "Mon, 13 Jul 2026 17:00:09 -0500",
+      "timestamp": 1783980009000,
+      "dateLabel": "Jul 13, 2026",
+      "snippet": "Here are those questions from today, but none of these are blockers for the demos, so anytime this week works. 1. Which Spectrum integration functions are live today and safe to show: filing notification, case status, credit reporting correction, task queues, dockets, claims registers, documents, re",
+      "preview": "Here are those questions from today, but none of these are blockers for the demos, so anytime this week works. 1. Which Spectrum integration functions are live today and safe to show:",
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "19f5cbaf674d92f3",
+      "from": "Jessica Krobot <jessica.krobot@bankruptcywatch.com>",
+      "to": "justinbrannon95@gmail.com, Dylan Morrison <dylan@bankruptcywatch.com>",
+      "subject": "Invitation: Justin Brannon - BKW Video Review @ Tue Jul 14, 2026 1:30pm - 2pm (CDT) (justinbrannon95@gmail.com)",
+      "date": "Mon, 13 Jul 2026 18:26:24 +0000",
+      "timestamp": 1783967184000,
+      "dateLabel": "Jul 13, 2026",
+      "snippet": "Justin Brannon - BKW Video Review Tuesday Jul 14, 2026 ⋅ 1:30pm – 2pm Central Time - Chicago Join with Google Meet [link removed] Join by phone (US) [phone removed] [meeting access removed][link removed] Organizer Jessica Krobot jessica.krobot@bankruptcywatch.com Guests Jessica Krobot - organizer Dy",
+      "preview": "Justin Brannon - BKW Video Review Tuesday Jul 14, 2026 ⋅ 1:30pm – 2pm Central Time - Chicago",
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "19f4e28153810b89",
+      "from": "Justin Brannon <justinbrannon95@gmail.com>",
+      "to": "Jessica Krobot <jessica.krobot@bankruptcywatch.com>",
+      "subject": "Re: BK Watch Agreement and Next Steps",
+      "date": "Fri, 10 Jul 2026 17:31:17 -0500",
+      "timestamp": 1783722677000,
+      "dateLabel": "Jul 10, 2026",
+      "snippet": "Hi Jessica, Thank you for sending this over. I think the script aligns perfectly with the demos I’ve been building, and I’ll make sure that comes through clearly when I showcase them on Monday. It gives me a strong direction to build around. Thanks again, Justin On Fri, Jul 10, 2026 at 1:14 PM Jessi",
+      "preview": "Hi Jessica, Thank you for sending this over. I think the script aligns perfectly with the demos I’ve been building, and I’ll make sure that comes through clearly",
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "19f4d3d19601f5a2",
+      "from": "Jessica Krobot <jessica.krobot@bankruptcywatch.com>",
+      "to": "Justin Brannon <justinbrannon95@gmail.com>",
+      "subject": "Re: BK Watch Agreement and Next Steps",
+      "date": "Fri, 10 Jul 2026 13:14:25 -0500",
+      "timestamp": 1783707265000,
+      "dateLabel": "Jul 10, 2026",
+      "snippet": "Hi Justin, I wanted to shoot over my idea for our 30-second BKW overview video script (doesn't have to be exact): Some platforms added bankruptcy as a feature. We built an entire company around it. Since 2007, it's all we do. Know the moment a filing affects your portfolio, so you can act quickly, a",
+      "preview": "Hi Justin, I wanted to shoot over my idea for our 30-second BKW overview video script (doesn't have to be exact):",
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "19f38c78172c068d",
+      "from": "Jessica Krobot <jessica.krobot@bankruptcywatch.com>",
+      "to": "justinbrannon95@gmail.com, Dylan Morrison <dylan@bankruptcywatch.com>",
+      "subject": "Invitation: Justin + BKW @ Mon Jul 13, 2026 1pm - 1:30pm (CDT) (justinbrannon95@gmail.com)",
+      "date": "Mon, 06 Jul 2026 18:53:45 +0000",
+      "timestamp": 1783364025000,
+      "dateLabel": "Jul 6, 2026",
+      "snippet": "Justin + BKW Monday Jul 13, 2026 ⋅ 1pm – 1:30pm Central Time - Chicago Join with Google Meet [link removed] Join by phone (US) [phone removed] [meeting access removed][link removed] Organizer Jessica Krobot jessica.krobot@bankruptcywatch.com Guests Jessica Krobot - organizer Dylan Morrison justinbra",
+      "preview": "Justin + BKW Monday Jul 13, 2026 ⋅ 1pm – 1:30pm Central Time - Chicago",
+      "contactLabel": "Jessica Krobot + Dylan"
+    }
+  ],
+  "meetings": [
+    {
+      "id": "7muvhqcak42nhc8sv44nnce1nd",
+      "summary": "Justin Brannon - BKW Video Review",
+      "start": "2026-07-14T13:30:00-05:00",
+      "end": "2026-07-14T14:00:00-05:00",
+      "startLabel": "Tue, Jul 14, 1:30 PM CDT",
+      "endLabel": "Tue, Jul 14, 2:00 PM CDT",
+      "location": "",
+      "attendees": [
+        "dylan@bankruptcywatch.com",
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com"
+      ],
+      "upcoming": false,
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "12u4im5ct82j27ssakngb0i604",
+      "summary": "Justin + BKW",
+      "start": "2026-07-13T13:00:00-05:00",
+      "end": "2026-07-13T13:30:00-05:00",
+      "startLabel": "Mon, Jul 13, 1:00 PM CDT",
+      "endLabel": "Mon, Jul 13, 1:30 PM CDT",
+      "location": "",
+      "attendees": [
+        "dylan@bankruptcywatch.com",
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com"
+      ],
+      "upcoming": false,
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "r9b07jq5rdm0gf8diepbc97um0",
+      "summary": "Justin Brannon and Jessica Krobot",
+      "start": "2026-07-06T13:30:00-05:00",
+      "end": "2026-07-06T14:00:00-05:00",
+      "startLabel": "Mon, Jul 6, 1:30 PM CDT",
+      "endLabel": "Mon, Jul 6, 2:00 PM CDT",
+      "location": "",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com",
+        "dylan@bankruptcywatch.com"
+      ],
+      "upcoming": false,
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "562r6p3ra0huemca73kpfv6to8",
+      "summary": "Justin Brannon and Jessica Krobot",
+      "start": "2026-06-11T11:00:00-05:00",
+      "end": "2026-06-11T11:30:00-05:00",
+      "startLabel": "Thu, Jun 11, 11:00 AM CDT",
+      "endLabel": "Thu, Jun 11, 11:30 AM CDT",
+      "location": "",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com",
+        "dylan@bankruptcywatch.com"
+      ],
+      "upcoming": false,
+      "contactLabel": "Jessica Krobot + Dylan"
+    },
+    {
+      "id": "3fcm2f2gs7u1q2obpjkpsuqavk",
+      "summary": "Justin Brannon and Jessica Krobot",
+      "start": "2026-06-05T11:00:00-05:00",
+      "end": "2026-06-05T11:15:00-05:00",
+      "startLabel": "Fri, Jun 5, 11:00 AM CDT",
+      "endLabel": "Fri, Jun 5, 11:15 AM CDT",
+      "location": "",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com",
+        "dylan@bankruptcywatch.com",
+        "ryan@bankruptcywatch.com",
+        "jgann@shawsystems.com"
+      ],
+      "upcoming": false,
+      "contactLabel": "Jessica Krobot + Dylan"
+    }
+  ],
+  "source": "Sanitized Gmail and Google Calendar summaries from the owner OS snapshot"
+}

@@ -68,7 +68,7 @@ export function efficiencyHero(invoicing, clientName) {
         <div><span class="eyebrow">Efficiency graph ready</span><h2>Live after ${threshold} completed projects</h2></div>
       </div>
       <p>Expected versus actual production efficiency will appear here after ${esc(clientName)} completes ${threshold} projects. Until then, Third i records the inputs without presenting a premature trend.</p>
-      <div class="efficiency-progress" aria-label="${completed} of ${threshold} completed projects">
+      <div class="efficiency-progress" role="progressbar" aria-label="Completed projects" aria-valuemin="0" aria-valuemax="${threshold}" aria-valuenow="${completed}">
         <span style="width:${progress}%"></span>
       </div>
       <div class="efficiency-readiness-meta"><strong>${completed} of ${threshold}</strong><span>completed projects</span><span>Hours, weeks, deliverables, and approval evidence are ready to track.</span></div>

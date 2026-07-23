@@ -1,7 +1,7 @@
 # Approved shared client-portal operating plan
 
-Status: approved; implementation prompt ready
-Updated: 2026-07-22
+Status: implemented; bkWatch regression locked; Shaw draft publication-gated
+Updated: 2026-07-23
 
 ## Decision
 
@@ -25,9 +25,9 @@ portal platform
 └── generator: validates inputs and creates a thin tenant package
 ```
 
-The generator accepts a tenant key, route, design authority, logo/assets, client-safe company/product/project records, auth namespace, storage namespace, and initial enabled features. It generates configuration/manifests/tests—not a copied portal page.
+The generator accepts a tenant key, route, design authority, logo/assets, client-safe company/product/project records, auth namespace, preview/production storage namespaces, and initial enabled features. It generates tenant configuration, nine manifests, an isolation fixture, and an immutable release record—not a copied portal page, function, route, or credential.
 
-The registry is implemented in `config/portal-tenants.mjs`. Active-tenant lists drive API path acceptance, owner action aggregation, and notification reconciliation. Shaw is predeclared with unique auth/cookie/operational/media/search namespaces but remains `planned`, so those runtime lists still contain bkWatch only.
+The registry is implemented in `config/portal-tenants.mjs`; the shared authenticated renderer is `lib/portal-platform.mjs`; and the generator is `scripts/portal/generate-tenant.mjs`. Active-tenant lists drive API path acceptance, owner action aggregation, and notification reconciliation. Shaw is predeclared with unique auth/cookie/operational/media/search/release namespaces but remains `planned`, so those runtime lists still contain bkWatch only.
 
 ## Update behavior
 
@@ -56,11 +56,19 @@ Agents should read one short context map first, then only the authority needed f
 - Films 2, 3, and 4 must be planned as one aligned Summit campaign; every film considers the other two.
 - Correctly routed Shaw communications are client-safe in the private Shaw portal. Cross-client content and internal workflow architecture remain excluded.
 
+## Implemented release packages
+
+- bkWatch baseline: `bkwatch-2026-07-21-89ced3ba9288`.
+- Shaw non-public draft: `shaw-2026-07-23-0f8b31354a71`.
+- Formal regression authority: `tests/portal/fixtures/bkwatch-visual-lock.json`.
+- Formal accessibility baseline: `tests/portal/fixtures/bkwatch-axe-baseline.json`.
+- Full implementation evidence: `26-shared-platform-implementation-report.md`.
+
 ## Gates that remain
 
 - Shaw content/design review before client-visible publication.
 - Separate Shaw auth/operational/media namespaces before activation.
-- Preview-media bucket creation and credential separation.
+- Preview-media bucket exists; its bucket-scoped key/secret and exact CORS rule remain.
 - Full verification and production deployment approval.
 
 The executable ThirdI_WEB superprompt lives in `os.html` as `actionPayloads.clientPortalPlatformPrompt`. OS source restructuring is deliberately a separate prompt.

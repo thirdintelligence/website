@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-23",
+  "projects": [
+    {
+      "id": "shaw-film1-conference",
+      "slug": "film1-shaw-integration",
+      "type": "film",
+      "title": "Film 1 - Shaw Integration",
+      "displayName": "Film 1 - Shaw Integration",
+      "status": "completed",
+      "statusLabel": "Complete",
+      "hoursInvested": 250,
+      "projectType": "2026 conference film",
+      "valueStatement": "The official first Shaw film, completed as fixed-bid pre-contract conference work.",
+      "objective": "Deliver Shaw's 2026 conference film.",
+      "phase": "Delivered",
+      "thumbnail": {
+        "mediaState": "approved",
+        "label": "Delivered film"
+      },
+      "productionLifecycle": {
+        "projectPhase": "delivered",
+        "demoPhase": "approved",
+        "fullFilmPhase": "delivered",
+        "selectedIdeaIds": [],
+        "promotionState": "promoted"
+      },
+      "deliverables": [
+        {
+          "title": "2026 conference film",
+          "state": "complete",
+          "detail": "Delivered as the official Film 1 record."
+        }
+      ],
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Film delivered"
+        }
+      ],
+      "blockers": [],
+      "scope": {
+        "ownerApproved": true,
+        "model": "Fixed-bid pre-contract engagement",
+        "effortRange": "250 production hours",
+        "note": "The engagement was billed as fixed-bid rather than hourly.",
+        "source": "Confirmed Film 1 commercial and effort record"
+      },
+      "source": "Confirmed Shaw Film 1 canon — Jul 23, 2026"
+    },
+    {
+      "id": "shaw-film2-amplify",
+      "slug": "film2-amplify",
+      "type": "film",
+      "title": "Film 2 - Amplify",
+      "displayName": "Film 2 - Amplify",
+      "status": "completed",
+      "statusLabel": "Complete — V1 and V2",
+      "hoursInvested": 119,
+      "projectType": "Summit campaign film",
+      "valueStatement": "Completed Amplify V1 and V2 establish the first part of the aligned Summit campaign loop.",
+      "objective": "Show Amplify as Shaw's AI-powered intelligence layer in the Spectrum story.",
+      "phase": "Delivered",
+      "thumbnail": {
+        "mediaState": "approved",
+        "label": "V1 and V2 complete"
+      },
+      "productionLifecycle": {
+        "projectPhase": "delivered",
+        "demoPhase": "approved",
+        "fullFilmPhase": "delivered",
+        "selectedIdeaIds": [],
+        "promotionState": "promoted"
+      },
+      "deliverables": [
+        {
+          "title": "Amplify V1",
+          "state": "complete"
+        },
+        {
+          "title": "Amplify V2",
+          "state": "complete"
+        }
+      ],
+      "timeline": [
+        {
+          "state": "done",
+          "title": "V1 and V2 completed"
+        },
+        {
+          "state": "current",
+          "title": "Maintain alignment with Films 3 and 4"
+        }
+      ],
+      "blockers": [],
+      "scope": {
+        "ownerApproved": false,
+        "model": "Completed engagement",
+        "note": "Client-visible commercial scope requires approval before publication.",
+        "source": "Confirmed Film 2 project state"
+      },
+      "source": "Confirmed Shaw Film 2 canon — Jul 23, 2026"
+    },
+    {
+      "id": "shaw-film3-ai-advisor",
+      "slug": "film3-ai-advisor",
+      "type": "film",
+      "title": "Film 3 - AI Advisor",
+      "displayName": "Film 3 - AI Advisor",
+      "status": "active",
+      "statusLabel": "Awaiting direction lock",
+      "projectType": "Summit campaign film",
+      "valueStatement": "Creative brainstorming is complete; the selected story will align AI Advisor with Amplify, Insight, and the central Spectrum narrative.",
+      "objective": "Explain AI Advisor as part of Shaw's coordinated product story.",
+      "phase": "Creative brainstorming complete — awaiting direction lock",
+      "nextMilestone": "Choose or hybridize at least one direction before demo production.",
+      "thumbnail": {
+        "mediaState": "not-started",
+        "label": "No demo selected"
+      },
+      "productionLifecycle": {
+        "projectPhase": "direction-selection",
+        "demoPhase": "selecting",
+        "fullFilmPhase": "not-started",
+        "selectedIdeaIds": [],
+        "promotionState": "not-selected"
+      },
+      "deliverables": [
+        {
+          "title": "Creative direction set",
+          "state": "complete",
+          "detail": "Brainstorming is complete; direction selection remains."
+        }
+      ],
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Creative brainstorming"
+        },
+        {
+          "state": "current",
+          "title": "Direction lock or hybrid"
+        },
+        {
+          "state": "pending",
+          "title": "Demo production"
+        },
+        {
+          "state": "pending",
+          "title": "Full-film production"
+        }
+      ],
+      "blockers": [],
+      "scope": {
+        "ownerApproved": false,
+        "model": "Scope required",
+        "note": "Commercial scope is not published until approved.",
+        "source": "Confirmed Film 3 project state"
+      },
+      "source": "Confirmed Shaw Film 3 canon — Jul 23, 2026"
+    },
+    {
+      "id": "shaw-film4-insight",
+      "slug": "film4-insight",
+      "type": "film",
+      "title": "Film 4 - Insight",
+      "displayName": "Film 4 - Insight",
+      "status": "proposed",
+      "statusLabel": "Planned",
+      "projectType": "Summit campaign film",
+      "valueStatement": "Planned film for Insight, a Spectrum feature and capability, completing the coordinated three-film Summit loop.",
+      "objective": "Present Insight in alignment with Amplify and AI Advisor.",
+      "phase": "Planned",
+      "nextMilestone": "Confirm scope and creative planning inputs.",
+      "thumbnail": {
+        "mediaState": "not-started",
+        "label": "Planned"
+      },
+      "productionLifecycle": {
+        "projectPhase": "brainstorming",
+        "demoPhase": "not-started",
+        "fullFilmPhase": "not-started",
+        "selectedIdeaIds": [],
+        "promotionState": "not-selected"
+      },
+      "deliverables": [],
+      "timeline": [
+        {
+          "state": "pending",
+          "title": "Creative brainstorming"
+        },
+        {
+          "state": "pending",
+          "title": "Direction selection"
+        }
+      ],
+      "blockers": [],
+      "scope": {
+        "ownerApproved": false,
+        "model": "Scope required",
+        "note": "Commercial scope is not published until approved.",
+        "source": "Confirmed Film 4 planning state"
+      },
+      "source": "Confirmed Shaw Film 4 canon — Jul 23, 2026"
+    }
+  ]
+}
