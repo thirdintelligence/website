@@ -220,6 +220,14 @@ async function submit() {
       const method = state.editingId && !isMergedBlocker ? "PATCH" : "POST";
       const r = await apiSend(dataRef.cfg, path, method, payload);
       if (!r.ok) { state.submitting = false; setSubmitState(false, ""); toast("Could not save comment (" + r.error + "). Your draft is kept."); return; }
+      /* When editing a merged blocker, also update the local comment in-place
+         so the page reflects the change immediately (the POST creates a new
+         API record, but the original blocker lives in projects.json and would
+         re-merge with the old scene if refreshLive has any issue). */
+      if (isMergedBlocker) {
+        const item = dataRef.live.comments.find((c) => c.id === state.editingId);
+        if (item) Object.assign(item, { title: f.title, blocker: f.blocker, projectId, description: f.description, context: ctx });
+      }
       await refreshLive();
       toast(state.editingId ? "Comment updated." : "Comment posted. Third i has been notified and will respond within 1-2 business days.");
     } else {
