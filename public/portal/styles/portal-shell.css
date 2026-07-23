@@ -183,19 +183,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .portal-app[data-sidebar="collapsed"] .sidebar-brand { justify-content: center; padding-inline: 0; }
 /* Collapsed: reduce sidebar padding so icons have more room. */
 .portal-app[data-sidebar="collapsed"] .portal-sidebar { padding-inline: 4px; }
-/* Collapsed bottom: 3 icons (collapse, logout, powered-by) in a centered
-   row at the bottom of the sidebar, equally spaced. */
+/* Collapsed bottom: 3 icons (collapse, logout, powered-by) stacked
+   vertically at the bottom of the sidebar, centered and equally spaced. */
 .portal-app[data-sidebar="collapsed"] .sidebar-spacer { flex: 1; }
 .portal-app[data-sidebar="collapsed"] .sidebar-foot {
-  flex-direction: row; justify-content: center; align-items: center;
-  gap: 4px; padding: var(--space-3) 0 0; border-top: 1px solid var(--line-plain);
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--line-plain);
 }
 .portal-app[data-sidebar="collapsed"] .sidebar-collapse {
-  width: auto; padding: 4px; justify-content: center; flex: none;
+  width: auto; padding: 6px; justify-content: center; flex: none;
 }
 .portal-app[data-sidebar="collapsed"] .sidebar-collapse .icon { width: 16px; height: 16px; }
 .portal-app[data-sidebar="collapsed"] .logout-btn {
-  width: auto; padding: 4px; justify-content: center; color: var(--text-tertiary); flex: none;
+  width: auto; padding: 6px; justify-content: center; color: var(--text-tertiary); flex: none;
 }
 .portal-app[data-sidebar="collapsed"] .logout-btn .icon { width: 16px; height: 16px; }
 .portal-app[data-sidebar="collapsed"] .powered-by { padding: 0; justify-content: center; flex: none; }
