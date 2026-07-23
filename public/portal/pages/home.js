@@ -137,18 +137,21 @@ function communicationsPreview(communications, live) {
    to the full AI Roadmap page. Shows the partnership plan at a glance. */
 function roadmapPreview(roadmap) {
   if (!roadmap || !roadmap.months) return "";
-  const months = roadmap.months.slice(0, 6); // Show first 6 months as preview
-  const milestoneMonths = roadmap.months.filter((m) => m.items.some((i) => i.milestone)).map((m) => m.month);
+  const allMonths = roadmap.months;
 
-  const monthDots = months.map((m) => {
+  /* Render every month as a node. Milestone months get a blue ring + M# label.
+     The current month gets a filled accent style. Non-milestone months are
+     plain dots. On mobile, only the first 6 are shown plus a "+6" indicator. */
+  const monthDots = allMonths.map((m) => {
     const hasMilestone = m.items.some((i) => i.milestone);
     const statusClass = m.status === "done" ? "done" : m.status === "current" ? "current" : "upcoming";
+    const label = m.label.split(" ")[0]; // "July", "August", etc.
     return `<div class="rdot ${statusClass} ${hasMilestone ? "milestone" : ""}" title="${esc(m.label)}">
-      <span class="rdot-label">${esc(m.label.split(" ")[0])}</span>
+      <span class="rdot-label">${hasMilestone ? "M" + m.month : esc(label)}</span>
     </div>`;
   }).join("");
 
-  const milestones = (roadmap.milestones || []).slice(0, 3).map((ms) => 
+  const milestones = (roadmap.milestones || []).slice(0, 6).map((ms) =>
     `<div class="rmilestone"><span class="rmilestone-month">M${ms.month}</span><span class="rmilestone-title">${esc(ms.title)}</span></div>`
   ).join("");
 
@@ -158,7 +161,7 @@ function roadmapPreview(roadmap) {
     <a class="card roadmap-prev-card card-link" href="#/ai-roadmap">
       ${motif("rings")}
       <div class="roadmap-prev-lede">${esc(roadmap.cadence.deliverable)} per month · 12-month partnership plan</div>
-      <div class="roadmap-prev-timeline">${monthDots}<span class="rdot more"><span class="rdot-label">+6</span></span></div>
+      <div class="roadmap-prev-timeline">${monthDots}<span class="rdot more rdot-mobile"><span class="rdot-label">+6</span></span></div>
       ${milestones ? `<div class="roadmap-prev-milestones">${milestones}</div>` : ""}
       ${cardAction("Open roadmap")}
     </a>
