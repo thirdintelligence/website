@@ -6,9 +6,11 @@
  * client session can never reach these routes (separate cookie + tenant check).
  */
 import { authenticate, verifyMutation } from "../../lib/portal-request-auth.mjs";
-import { getStore } from "../../lib/portal-store.mjs";
-import { listActions, patchAction } from "../../lib/portal-actions.mjs";
+import { getStore, key } from "../../lib/portal-store.mjs";
+import { listActions, patchAction, createFromComment } from "../../lib/portal-actions.mjs";
 import { listNotifications } from "../../lib/portal-notify.mjs";
+import { buildComment } from "../../lib/portal-validation.mjs";
+import { writeEvent } from "../../lib/portal-audit.mjs";
 import { json, apiError, readJson, idFromPath } from "../../lib/portal-api-util.mjs";
 
 const KNOWN_TENANTS = ["bkwatch"]; // shaw added after bkWatch acceptance
@@ -26,6 +28,23 @@ export default async (request) => {
     }
     const failedNotifications = KNOWN_TENANTS.reduce((n, t) => n + perTenant[t].notifications.filter((x) => x.status === "failed").length, 0);
     return json({ tenants: perTenant, connection: { portals: failedNotifications === 0 ? "ok" : "degraded", checkedAt: new Date().toISOString() } });
+  }
+
+  if (request.method === "POST" && path.endsWith("/api/comments")) { // /os/api/comments
+    if (!verifyMutation(request, "thirdi-os")) return apiError(403, "csrf_failed");
+    const body = await readJson(request);
+    const clientTenant = String(body.tenant || "");
+    if (!KNOWN_TENANTS.includes(clientTenant)) return apiError(400, "unknown_tenant");
+    /* Owner-created comments use a custom attribution (e.g. "Third i recommends")
+       so the client can distinguish owner guidance from their own comments. */
+    const attribution = String(body.attribution || "Third i recommends").slice(0, 200);
+    const built = await buildComment(body, { tenant: clientTenant, attribution });
+    if (!built.ok) return apiError(422, "invalid_comment", built.errors);
+    const rec = built.record;
+    await store.set(key(clientTenant, "comments", rec.id), rec);
+    const ev = await writeEvent(store, { tenant: clientTenant, type: "comment.created", subjectId: rec.id, actor: "owner", revision: 1 });
+    await createFromComment(store, clientTenant, rec, ev.id);
+    return json({ comment: rec }, 201);
   }
 
   if (request.method === "PATCH") { // /os/api/actions/<id>

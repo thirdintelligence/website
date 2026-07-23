@@ -4,7 +4,7 @@ import { authenticate, verifyMutation } from "../../lib/portal-request-auth.mjs"
 import { getStore, key } from "../../lib/portal-store.mjs";
 import { buildComment, applyCommentEdit } from "../../lib/portal-validation.mjs";
 import { writeEvent } from "../../lib/portal-audit.mjs";
-import { createFromComment } from "../../lib/portal-actions.mjs";
+import { createFromComment, updateFromComment } from "../../lib/portal-actions.mjs";
 import { queueNotification, buildCommentEmail } from "../../lib/portal-notify.mjs";
 import { json, apiError, readJson, tenantFromPath, idFromPath, tenantLabel } from "../../lib/portal-api-util.mjs";
 import { nowIso } from "../../lib/portal-ids.mjs";
@@ -54,6 +54,8 @@ export default async (request) => {
     if (!edited.ok) return apiError(422, "invalid_comment", edited.errors);
     await store.set(ck, edited.record);
     await writeEvent(store, { tenant, type: "comment.edited", subjectId: id, actor: "client", revision: edited.record.revision });
+    /* Sync the linked OS action so edits (title, project, scene) are reflected. */
+    await updateFromComment(store, tenant, id, edited.record);
     return json({ comment: edited.record });
   }
 
@@ -62,6 +64,16 @@ export default async (request) => {
     existing.deleted = true; existing.updatedAt = nowIso(); existing.revision = (existing.revision || 1) + 1;
     await store.set(ck, existing); // soft-delete: audit + record retained internally
     await writeEvent(store, { tenant, type: "comment.deleted", subjectId: id, actor: "client", revision: existing.revision });
+    /* Hide the linked OS action when the comment is deleted. */
+    const actionKeys = await store.list(key(tenant, "actions") + "/");
+    for (const ak of actionKeys) {
+      const action = await store.get(ak);
+      if (action && action.subjectId === id) {
+        action.status = "hidden"; action.updatedAt = nowIso();
+        await store.set(ak, action);
+        break;
+      }
+    }
     return json({ ok: true });
   }
 

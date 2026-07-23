@@ -140,6 +140,11 @@
   to = "/.netlify/functions/os-portal-actions"
   status = 200
   force = true
+[[redirects]]
+  from = "/os/api/comments"
+  to = "/.netlify/functions/os-portal-actions"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/os"

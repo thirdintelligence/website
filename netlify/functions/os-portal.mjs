@@ -84,6 +84,11 @@ async function osPage(csrfToken) {
       <div class="tp-lead"><span class="tp-eyebrow">Client portal</span><span class="tp-h2">Open comments</span></div>
       <div class="tp-strip"><span class="tp-chip on">Sheets</span><span class="tp-chip on">Gmail</span><span class="tp-chip on">Calendar</span><span class="tp-chip pending" id="tp-portals">Portals · checking</span></div>
     </div>
+    <div id="tp-recommend" class="tp-recommend">
+      <input id="tp-rec-title" type="text" placeholder="Recommendation title (visible to client)…" />
+      <textarea id="tp-rec-desc" placeholder="Details (optional)…" rows="2"></textarea>
+      <button class="tp-btn" id="tp-rec-send" type="button">Post as "Third i recommends"</button>
+    </div>
     <div id="tp-list" class="tp-list"><p class="tp-empty">Loading client activity…</p></div>
   </section>`;
 
@@ -108,7 +113,9 @@ function load(){fetch("/os/api/portal-events",{credentials:"same-origin",headers
  if(arch.length){html+='<div class="tp-divider">Archived ('+arch.length+')</div>'+arch.map(row).join("");}
  listEl.innerHTML=html;}).catch(function(){listEl.innerHTML='<p class="tp-empty">Could not load client activity.</p>';});}
 function send(b,body){b.disabled=true;var prev=b.textContent;b.textContent="…";fetch("/os/api/actions/"+encodeURIComponent(b.getAttribute("data-id")),{method:"PATCH",credentials:"same-origin",headers:{"content-type":"application/json","x-csrf-token":token},body:JSON.stringify(body)}).then(function(r){if(r.ok){load();}else{b.disabled=false;b.textContent=r.status===403?"Reload":prev;}}).catch(function(){b.disabled=false;b.textContent=prev;});}
+function sendRecommend(){var titleEl=document.getElementById("tp-rec-title"),descEl=document.getElementById("tp-rec-desc"),btn=document.getElementById("tp-rec-send");var title=titleEl.value.trim();if(!title)return;btn.disabled=true;btn.textContent="Posting…";fetch("/os/api/comments",{method:"POST",credentials:"same-origin",headers:{"content-type":"application/json","x-csrf-token":token},body:JSON.stringify({tenant:"bkwatch",title:title,description:descEl.value.trim(),attribution:"Third i recommends",projectId:"general"})}).then(function(r){if(r.ok){titleEl.value="";descEl.value="";btn.textContent="Posted ✓";setTimeout(function(){btn.textContent="Post as \"Third i recommends\"";},2000);load();}else{btn.textContent="Error — try again";setTimeout(function(){btn.textContent="Post as \"Third i recommends\"";},2000);}}).catch(function(){btn.textContent="Error — try again";setTimeout(function(){btn.textContent="Post as \"Third i recommends\"";},2000);}).finally(function(){btn.disabled=false;});}
 document.addEventListener("DOMContentLoaded",function(){listEl=document.getElementById("tp-list");
+ document.getElementById("tp-rec-send").addEventListener("click",sendRecommend);
  listEl.addEventListener("click",function(e){var b=e.target.closest("[data-op]");if(!b)return;var op=b.getAttribute("data-op"),t=b.getAttribute("data-t");
   if(op==="complete")send(b,{tenant:t,op:"complete"});else if(op==="reopen")send(b,{tenant:t,op:"reopen"});
   else if(op==="archive")send(b,{tenant:t,op:"archive"});else if(op==="unarchive")send(b,{tenant:t,op:"unarchive"});
@@ -122,6 +129,10 @@ function buildPages(){var os=document.querySelector(".os");if(!os||os.__paged)re
 
   const css = `<style nonce="${nonce}">.os-owner-logout{position:fixed;z-index:99998;right:18px;bottom:18px;margin:0}.os-owner-logout button{border:1px solid rgba(255,255,255,.2);border-radius:999px;background:#1a1a1a;color:#fff;padding:9px 14px;font:600 12px/1 Inter,sans-serif;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.25)}.os-owner-logout button:hover{border-color:#fff}
 #tp-dash{max-width:1180px;margin:16px auto 0;padding:18px 22px;background:#0d1218;border:1px solid rgba(121,196,245,.18);border-radius:16px;font-family:Inter,ui-sans-serif,-apple-system,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.tp-recommend{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;padding:14px;background:#111821;border:1px solid rgba(255,255,255,.08);border-radius:10px}
+.tp-recommend input,.tp-recommend textarea{background:#0a0e13;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;padding:9px 12px;font:14px/1.4 Inter,sans-serif;resize:vertical}
+.tp-recommend input:focus,.tp-recommend textarea:focus{outline:none;border-color:rgba(121,196,245,.4)}
+.tp-recommend button{align-self:flex-start}
 .tp-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
 .tp-eyebrow{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#79c4f5;font-weight:700}
 .tp-h2{font-size:1.25rem;font-weight:700;color:#fff}
