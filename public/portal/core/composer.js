@@ -102,6 +102,7 @@ function saveFields() {
     title: host.querySelector("#cmp-title")?.value || "",
     blocker: host.querySelector("#cmp-blocker")?.checked || false,
     project: host.querySelector("#cmp-project")?.value || "general",
+    scene: host.querySelector("#cmp-scene")?.value || "",
     name: host.querySelector("#cmp-name")?.value || "",
     description: host.querySelector("#cmp-desc")?.value || ""
   };
@@ -188,8 +189,28 @@ async function submit() {
 
   if (state.mode === "comment") {
     const projectId = state.context.projectId || (f.project === "general" ? "general" : f.project);
+    /* Build context from the composer's project + scene selection, falling
+       back to the original context for scene/timestamp comments opened inline. */
+    const project = (dataRef.projects?.projects || []).find((p) => p.id === projectId);
+    const sceneId = f.scene || state.context?.sceneId || undefined;
+    /* Look up the scene title for a readable context label. */
+    let sceneLabel = undefined;
+    if (sceneId && project?.film) {
+      const selectedIds = new Set(project.productionLifecycle?.selectedIdeaIds || []);
+      const idea = project.film.ideas?.find((i) => selectedIds.has(i.slug) || i.recommended);
+      const scene = idea?.scenes?.find((s) => s.id === sceneId);
+      sceneLabel = scene?.title;
+    }
+    const ctx = {
+      ...state.context,
+      scope: sceneId ? "scene" : (projectId === "general" ? "home" : "project"),
+      projectId,
+      ...(sceneId ? { sceneId } : {}),
+      label: sceneLabel || (sceneId ? `Scene ${sceneId}` : (project?.title || state.context?.label || "General comment")),
+      ...(project ? { route: `/bkwatch/projects/${project.slug}` } : {})
+    };
     if (live) {
-      const payload = { title: f.title, blocker: f.blocker, projectId, description: f.description, attachments, context: { ...state.context },
+      const payload = { title: f.title, blocker: f.blocker, projectId, description: f.description, attachments, context: ctx,
         ...(Number.isFinite(state.context.timestampMs) ? { timestampMs: state.context.timestampMs, rangeMs: state.context.rangeMs || 5000 } : {}) };
       const path = state.editingId ? `/api/comments/${encodeURIComponent(state.editingId)}` : "/api/comments";
       const method = state.editingId ? "PATCH" : "POST";
@@ -203,7 +224,7 @@ async function submit() {
         Object.assign(item || {}, { title: f.title, blocker: f.blocker, description: f.description });
       } else {
         dataRef.live.comments = dataRef.live.comments || [];
-        dataRef.live.comments.unshift({ id: "preview-" + Date.now(), tenant: dataRef.cfg.tenant, kind: "comment", title: f.title, blocker: f.blocker, projectId, description: f.description, attachments, context: { ...state.context }, status: "open", attribution: `${dataRef.portal.client.shortName} commented`, createdAt: new Date().toISOString(), revision: 1 });
+        dataRef.live.comments.unshift({ id: "preview-" + Date.now(), tenant: dataRef.cfg.tenant, kind: "comment", title: f.title, blocker: f.blocker, projectId, description: f.description, attachments, context: ctx, status: "open", attribution: `${dataRef.portal.client.shortName} commented`, createdAt: new Date().toISOString(), revision: 1 });
       }
       toast(state.editingId ? "Comment updated (preview)." : "Comment posted (preview). Production sends the owner notification.");
     }
@@ -256,6 +277,25 @@ function resetComposer() {
   renderDock();
 }
 
+/** Scene dropdown — shown when the selected project is a film with scenes. */
+function renderSceneDropdown(projects) {
+  const selectedProjectId = state.fields.project || state.context?.projectId || "general";
+  if (selectedProjectId === "general") return "";
+  const project = projects.find((p) => p.id === selectedProjectId);
+  if (!project || project.type !== "film" || !project.film) return "";
+  const selectedIds = new Set(project.productionLifecycle?.selectedIdeaIds || []);
+  const idea = project.film.ideas?.find((i) => selectedIds.has(i.slug) || i.recommended);
+  const scenes = idea?.scenes || [];
+  if (!scenes.length) return "";
+  const currentScene = state.fields.scene || state.context?.sceneId || "";
+  return `<div class="field"><label for="cmp-scene">Scene</label>
+    <select id="cmp-scene">
+      <option value="" ${!currentScene ? "selected" : ""}>General (no specific scene)</option>
+      ${scenes.map((s) => `<option value="${esc(s.id)}" ${currentScene === s.id ? "selected" : ""}>${esc(s.title)}</option>`).join("")}
+    </select>
+  </div>`;
+}
+
 function render() {
   const isProject = state.mode === "project";
   const isEditing = !!state.editingId;
@@ -280,6 +320,7 @@ function render() {
             ${projects.map((p) => `<option value="${esc(p.id)}" ${(state.fields.project || state.context?.projectId) === p.id ? "selected" : ""}>${esc(p.title)}</option>`).join("")}
           </select>
         </div>
+        ${renderSceneDropdown(projects)}
       `}
       <div class="field"><label for="cmp-desc">${isProject ? "Description / details" : "More details (optional)"}</label><textarea id="cmp-desc" placeholder="${isProject ? "Describe the idea, goals, and any assets." : "Add context…"}" aria-describedby="cmp-desc-error">${esc(state.fields.description || "")}</textarea><span class="field-error" id="cmp-desc-error"></span></div>
       ${isEditing ? "" : `<input id="cmp-file" class="visually-hidden" type="file" multiple accept="video/mp4,video/webm,video/quicktime,image/png,image/jpeg,image/webp,image/gif,application/pdf,text/plain,text/markdown,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
@@ -313,6 +354,8 @@ function render() {
     control.addEventListener("input", queueDraftSave);
     control.addEventListener("change", queueDraftSave);
   });
+  /* Re-render when project changes so the scene dropdown appears/disappears. */
+  host.querySelector("#cmp-project")?.addEventListener("change", () => { saveFields(); render(); });
   enableDrag(host.querySelector("#cmp-head"));
 }
 
