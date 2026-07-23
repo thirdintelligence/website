@@ -238,6 +238,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .portal-sidebar {
     position: fixed; left: 0; top: 0; width: min(84vw, var(--sidebar-w));
     transform: translateX(-100%); transition: transform var(--dur) var(--ease); box-shadow: var(--shadow-lg);
+    /* Push content below the fixed topbar so the logo and nav items
+       aren't cut off by the top ribbon. */
+    padding-top: calc(var(--topbar-h) + var(--space-3));
   }
   .portal-app[data-drawer="open"] .portal-sidebar { transform: translateX(0); }
   /* In mobile drawer mode, always show full labels regardless of collapsed state. */
@@ -258,6 +261,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-dark { display: block; }
   [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-light { display: none; }
   [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-dark { display: block; }
+  /* Hide the collapse button in mobile drawer mode — not needed. */
+  .sidebar-collapse { display: none; }
   .menu-trigger { display: inline-flex; }
   .search-utility { display: none; }
   .mobile-search-trigger { display: inline-flex; }
