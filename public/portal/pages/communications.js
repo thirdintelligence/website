@@ -66,7 +66,7 @@ export function render(data, params) {
       <div class="comms-sections">
         ${archivedComments.length ? `<div class="card comms-section-card">
           <div class="section-head"><h2 class="section-title">${icon("checkCircle")} Completed comments (${archivedComments.length})</h2></div>
-          ${commentThread(archivedComments) || `<div class="empty-state compact"><p>None.</p></div>`}
+          ${commentThread(archivedComments, null, data.projects?.projects || []) || `<div class="empty-state compact"><p>None.</p></div>`}
         </div>` : ""}
         ${pastMeetings.length ? `<div class="card comms-section-card">
           <div class="section-head"><h2 class="section-title">${icon("clock")} Past meetings (${pastMeetings.length})</h2></div>
@@ -90,7 +90,7 @@ function renderSubPage(data, sub) {
   let body = "";
 
   if (sub === "comments") {
-    body = commentThread(live?.comments || []) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
+    body = commentThread(live?.comments || [], null, data.projects?.projects || []) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
   } else if (sub === "emails") {
     const emails = communications?.emails || [];
     body = emails.length ? `<div class="email-list">${emails.map(emailFullRow).join("")}</div>` : `<div class="empty-state">${icon("mail")}<p>No emails yet. Emails related to ${esc(portal.client.name)} will appear here, synced from Gmail.</p></div>`;

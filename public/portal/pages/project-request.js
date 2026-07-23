@@ -36,7 +36,7 @@ export function render(data, params) {
       </section>
       <section class="detail-block">
         <div class="section-head"><h2>Comments</h2>${addCommentButton(ctx)}</div>
-        ${commentThread(comments) || `<div class="empty-state">${icon("comment")}<p>No comments on this request yet.</p></div>`}
+        ${commentThread(comments, null, data.projects?.projects || []) || `<div class="empty-state">${icon("comment")}<p>No comments on this request yet.</p></div>`}
       </section>
     </div>`
   };

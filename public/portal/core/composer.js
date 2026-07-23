@@ -143,7 +143,7 @@ function openEdit(id) {
   state = {
     ...emptyState(), open: true, mode: "comment", editingId: id,
     context: comment.context || {},
-    fields: { title: comment.title || "", description: comment.description || "", blocker: !!comment.blocker, project: comment.projectId || "general" }
+    fields: { title: comment.title || "", description: comment.description || "", blocker: !!comment.blocker, project: comment.projectId || "general", scene: comment.context?.sceneId || "" }
   };
   host.hidden = false;
   render();
@@ -221,7 +221,7 @@ async function submit() {
     } else {
       if (state.editingId) {
         const item = dataRef.live.comments.find((comment) => comment.id === state.editingId);
-        Object.assign(item || {}, { title: f.title, blocker: f.blocker, description: f.description });
+        Object.assign(item || {}, { title: f.title, blocker: f.blocker, projectId, description: f.description, context: ctx });
       } else {
         dataRef.live.comments = dataRef.live.comments || [];
         dataRef.live.comments.unshift({ id: "preview-" + Date.now(), tenant: dataRef.cfg.tenant, kind: "comment", title: f.title, blocker: f.blocker, projectId, description: f.description, attachments, context: ctx, status: "open", attribution: `${dataRef.portal.client.shortName} commented`, createdAt: new Date().toISOString(), revision: 1 });
@@ -315,7 +315,7 @@ function render() {
         <div class="field"><label for="cmp-title">Comment</label><input id="cmp-title" type="text" value="${esc(state.fields.title || "")}" placeholder="What should we look at?" aria-describedby="cmp-title-error" /><span class="field-error" id="cmp-title-error"></span></div>
         <label class="toggle"><input id="cmp-blocker" type="checkbox" ${state.fields.blocker ? "checked" : ""}/><span class="track"></span><span>Mark as blocker</span></label>
         <div class="field"><label for="cmp-project">Project</label>
-          <select id="cmp-project" ${isEditing ? "disabled" : ""}>
+          <select id="cmp-project">
             <option value="general" ${(state.fields.project || state.context?.projectId || "general") === "general" ? "selected" : ""}>General</option>
             ${projects.map((p) => `<option value="${esc(p.id)}" ${(state.fields.project || state.context?.projectId) === p.id ? "selected" : ""}>${esc(p.title)}</option>`).join("")}
           </select>

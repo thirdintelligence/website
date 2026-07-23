@@ -78,7 +78,7 @@ export function render(data, params) {
 
     <section class="detail-block">
       <div class="section-head"><h2>Comments</h2>${addCommentButton(ctx)}</div>
-      ${commentThread(projectComments, { projectId: p.id }) || `<div class="empty-state">${icon("comment")}<p>No open comments on this project. Use Add Comment to leave feedback anywhere.</p></div>`}
+      ${commentThread(projectComments, { projectId: p.id }, data.projects?.projects || []) || `<div class="empty-state">${icon("comment")}<p>No open comments on this project. Use Add Comment to leave feedback anywhere.</p></div>`}
     </section>
 
     ${p.script ? `<section class="detail-block">

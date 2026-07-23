@@ -37,19 +37,41 @@ export function addCommentButton(context, label = "Add Comment", variant = "btn-
 }
 
 /** Posted comments rendered as brand chat bubbles. */
-export function commentThread(comments, context) {
+export function commentThread(comments, context, projects = []) {
   const scoped = filterByContext(comments, context);
   if (!scoped.length) return "";
   return `<div class="comment-thread">
-    ${scoped.map(renderComment).join("")}
+    ${scoped.map((c) => renderComment(c, projects)).join("")}
   </div>`;
 }
 
-function renderComment(c) {
+/** Build a readable context label showing the exact project and scene. */
+function buildContextLabel(c, projects = []) {
+  const ctx = c.context || {};
+  const projectId = c.projectId || ctx.projectId || "general";
+  const sceneId = ctx.sceneId;
+  if (projectId === "general" && !sceneId) return "General";
+  const project = projects.find((p) => p.id === projectId);
+  const projectLabel = project?.title || ctx.label?.split(" · ")[0] || projectId;
+  if (!sceneId) return `${projectLabel} · no specific scene`;
+  /* Look up scene title from the project's selected idea. */
+  let sceneLabel = `Scene ${sceneId}`;
+  if (project?.film) {
+    const selectedIds = new Set(project.productionLifecycle?.selectedIdeaIds || []);
+    const idea = project.film.ideas?.find((i) => selectedIds.has(i.slug) || i.recommended);
+    const scene = idea?.scenes?.find((s) => s.id === sceneId);
+    if (scene) sceneLabel = scene.title;
+  }
+  return `${projectLabel} · ${sceneLabel}`;
+}
+
+function renderComment(c, projects = []) {
   const completed = c.status === "completed";
   const tsLabel = Number.isFinite(c.timestampMs) ? `${icon("clock")} ${fmtTimestamp(c.timestampMs)}${c.rangeMs ? "–" + fmtTimestamp(c.timestampMs + c.rangeMs) : ""}` : "";
   const ctx = c.context || {};
-  const ctxLabel = ctx.label || (ctx.sceneId ? "Scene " + ctx.sceneId : ctx.scope);
+  /* Build a readable context label from the project + scene, showing the
+     exact project and scene (or "General" / "no specific scene"). */
+  const ctxLabel = buildContextLabel(c, projects);
   return `<article class="comment ${c.blocker ? "is-blocker" : ""} ${completed ? "is-completed" : ""}" data-comment-id="${esc(c.id || "")}">
     <div class="comment-actions">
       <button type="button" class="btn btn-icon btn-sm comment-edit" data-comment-edit="${esc(c.id)}" title="Edit" aria-label="Edit comment">${icon("pencil")}</button>

@@ -70,7 +70,7 @@ export function render(data, _params) {
     <section class="section">
       <div class="section-head"><h2 class="section-title">Recently completed</h2></div>
       ${completed.length
-        ? commentThread(completed)
+        ? commentThread(completed, null, projects?.projects || [])
         : `<div class="empty-state">${icon("check")}<p>Completed actions will appear here once Third i marks a comment complete.</p></div>`}
     </section>
 

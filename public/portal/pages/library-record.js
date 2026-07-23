@@ -39,7 +39,7 @@ export function render(data, params) {
 
     <section class="detail-block">
       <div class="section-head"><h2>Comments</h2>${addCommentButton(ctx)}</div>
-      ${commentThread(live.comments, { recordId: r.id }) || `<div class="empty-state">${icon("comment")}<p>Submit a correction or question on this record — it becomes an action for Third i to review.</p></div>`}
+      ${commentThread(live.comments, { recordId: r.id }, data.projects?.projects || []) || `<div class="empty-state">${icon("comment")}<p>Submit a correction or question on this record — it becomes an action for Third i to review.</p></div>`}
     </section>
   </div>`;
 
