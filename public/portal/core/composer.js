@@ -212,8 +212,12 @@ async function submit() {
     if (live) {
       const payload = { title: f.title, blocker: f.blocker, projectId, description: f.description, attachments, context: ctx,
         ...(Number.isFinite(state.context.timestampMs) ? { timestampMs: state.context.timestampMs, rangeMs: state.context.rangeMs || 5000 } : {}) };
-      const path = state.editingId ? `/api/comments/${encodeURIComponent(state.editingId)}` : "/api/comments";
-      const method = state.editingId ? "PATCH" : "POST";
+      /* Merged blocker comments (from projects.json) don't exist in the API
+         store yet. When editing one, POST it as a new comment instead of
+         PATCHing the non-existent record. */
+      const isMergedBlocker = state.editingId && state.editingId.startsWith("blocker-");
+      const path = state.editingId && !isMergedBlocker ? `/api/comments/${encodeURIComponent(state.editingId)}` : "/api/comments";
+      const method = state.editingId && !isMergedBlocker ? "PATCH" : "POST";
       const r = await apiSend(dataRef.cfg, path, method, payload);
       if (!r.ok) { state.submitting = false; setSubmitState(false, ""); toast("Could not save comment (" + r.error + "). Your draft is kept."); return; }
       await refreshLive();
