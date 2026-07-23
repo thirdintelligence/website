@@ -332,8 +332,6 @@ function buildLibrary(v1) {
     { id: "film-knowledge", title: "Film knowledge", description: "Approved creative directions, decisions, and learned preferences.", subcategories: [
       { id: "creative-directions", title: "Creative directions" }, { id: "production-decisions", title: "Production decisions" },
       { id: "learned-preferences", title: "Learned preferences" }, { id: "messaging-preferences", title: "Messaging preferences" } ] },
-    { id: "communication", title: "Communication", description: "Client-visible comments, emails, and meetings.", subcategories: [
-      { id: "comments", title: "Comments" }, { id: "emails", title: "Emails" }, { id: "meetings", title: "Meetings" } ] },
     { id: "other-knowledge", title: "Other knowledge", description: "Confirmed coverage, scale, and reliability facts.", subcategories: [
       { id: "coverage-scale", title: "Coverage & scale" }, { id: "reliability", title: "Reliability" } ] }
   ];

@@ -12,6 +12,7 @@ const deviceCookie = (t, id) => `${deviceCookieName(t)}=${id}; Path=/${t}; Max-A
 
 export default async (request) => {
   const tenant = tenantFromPath(request);
+  if (!tenant) return apiError(404, "unknown_tenant");
   const auth = authenticate(request, tenant);
   if (!auth.ok) return apiError(auth.status, auth.error);
   const store = await getStore();

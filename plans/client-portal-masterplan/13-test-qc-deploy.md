@@ -41,7 +41,7 @@ Repeat for blocker, Library item, still, video timestamp, and project request.
 
 ### Draft behavior
 
-- Composer persists across all five top-level routes.
+- Composer persists across all six top-level routes.
 - Minimize/restore preserves fields.
 - Browser refresh preserves server-side draft.
 - Logout hides draft until reauthentication on the same device.
@@ -75,8 +75,9 @@ Repeat for blocker, Library item, still, video timestamp, and project request.
 - Search results use only current tenant data.
 - Result links open canonical route/anchor/timestamp.
 - Project/status/format/date filters render only when facets exist.
-- No `past activity` category appears.
-- Comments, emails, and meetings are distinct formats.
+- Communications is top-level and never reappears as a Library category.
+- Comments, emails, and meetings are distinct formats and their canonical routes live below `/communications`.
+- A Shaw-only participant fixture cannot enter bkWatch even when its body mentions bkWatch; an explicitly joint participant record may enter both sanitized tenant summaries.
 
 ## Browser and visual QA
 
@@ -156,7 +157,7 @@ Before production:
 
 1. Build and all automated tests pass.
 2. Netlify deploy preview uses non-production operational stores/providers.
-3. Third i reviews all five work areas in both themes.
+3. Third i reviews all six work areas in both themes.
 4. Third i reviews draft disclaimer, pricing treatment, comments, and in-production template.
 5. Third i approves final client-visible bkWatch content and assets.
 6. Data/security provider configuration is confirmed.
@@ -165,7 +166,7 @@ Before production:
 ## Production verification
 
 - `https://thirdi.net/bkwatch` login and authenticated Home.
-- Projects, Film 1 nested routes, Library, AI Roadmap, Value & Results.
+- Projects, Film 1 nested routes, Value & Results, AI Roadmap, Communications, and Library.
 - Global search and confirmed filters.
 - Post/edit/delete comment.
 - Timestamped video comment when test media is available.

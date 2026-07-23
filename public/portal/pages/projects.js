@@ -21,11 +21,13 @@ export function render(data) {
   </div>`;
 
   const html = `<div class="page filter-page">
-    <div>
-      <h1 class="page-title">Projects</h1>
-      <p class="page-lede">Active, completed, paused, and archived work for ${esc(portal.client.name)}. Open a project for its creative presentation, assets, and outcomes.</p>
+    <div class="page-head-row">
+      <div>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-lede">Active, completed, paused, and archived work for ${esc(portal.client.name)}. Open a project for its creative presentation, assets, and outcomes.</p>
+      </div>
+      <div class="new-project-action"><button class="btn btn-primary" id="new-project-btn" type="button" data-new-project="1"><span class="control-content">${icon("plus")}<span>Create a New Project</span></span></button></div>
     </div>
-    <div class="new-project-action"><button class="btn btn-primary" id="new-project-btn" type="button" data-new-project="1"><span class="control-content">${icon("plus")}<span>Create a New Project</span></span></button></div>
 
     ${filters}
 

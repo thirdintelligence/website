@@ -1,8 +1,8 @@
 # Third i Client Portal Masterplan
 
 Status: bkWatch v2 accepted; shared-platform plan approved
-Version: 2.4
-Prepared: 2026-07-22
+Version: 2.5
+Prepared: 2026-07-23
 First tenant: bkWatch
 Second tenant: Shaw Systems, planned from the accepted bkWatch template
 
@@ -47,7 +47,7 @@ The approved client-portal directions in this plan are a client-portal overlay. 
 | File | Controls |
 |---|---|
 | `01-approved-requirements.md` | Product definition, non-negotiables, approved and removed scope |
-| `02-information-architecture.md` | Five-area navigation, route map, global utilities, entity relationships |
+| `02-information-architecture.md` | Six-area navigation, route map, global utilities, entity relationships |
 | `03-portal-design-system.md` | Light/dark themes, accents, cards, abstract visuals, navigation, accessibility |
 | `04-home-today.md` | Home hierarchy, action and communication sections, completion behavior |
 | `05-projects-and-creative.md` | Project index/detail, Film 1, assets, versions, drafts, placeholders, downloads |
@@ -88,7 +88,7 @@ The portal and OS read the same hosted operational records immediately. A local 
 
 1. Freeze schemas and API contracts.
 2. Build the reusable portal shell and live operational layer.
-3. Maintain all five bkWatch work areas with real current content and Film 1 in its confirmed project/demo/full-production state.
+3. Maintain all six bkWatch work areas with real current content and Film 1 in its confirmed project/demo/full-production state.
 4. Build the connected OS views and completion flow.
 5. Pass local and preview QC.
 6. Maintain the accepted bkWatch v2 release as the regression baseline.
@@ -97,4 +97,4 @@ The portal and OS read the same hosted operational records immediately. A local 
 
 ## Current status
 
-The bkWatch v2 portal and operating architecture are accepted as the reusable baseline. The shared-platform decision, Shaw canon, minimal automation cadence, OS restructure direction, and preview-media setup are approved. This system pass intentionally leaves the current client portal UI unchanged. New provider credentials, Shaw client publication, and visual-direction changes retain their specific gates.
+The bkWatch v2 portal and operating architecture are accepted as the reusable baseline. Communications is now a separate sixth work area, while Library remains the knowledge system. The shared-platform decision, Shaw canon, minimal automation cadence, OS restructure direction, and preview-media setup are approved. New provider credentials, Shaw client publication, and visual-direction changes retain their specific gates.

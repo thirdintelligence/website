@@ -164,42 +164,9 @@
   status = 200
   force = true
 
-# ═══ Portal live APIs (operational; tenant-authorized in the function) ═══
-[[redirects]]
-  from = "/api/portal/comments"
-  to = "/.netlify/functions/portal-comments"
-  status = 200
-  force = true
-[[redirects]]
-  from = "/api/portal/comments/*"
-  to = "/.netlify/functions/portal-comments"
-  status = 200
-  force = true
-[[redirects]]
-  from = "/api/portal/drafts"
-  to = "/.netlify/functions/portal-drafts"
-  status = 200
-  force = true
-[[redirects]]
-  from = "/api/portal/drafts/*"
-  to = "/.netlify/functions/portal-drafts"
-  status = 200
-  force = true
-[[redirects]]
-  from = "/api/portal/project-requests"
-  to = "/.netlify/functions/portal-project-requests"
-  status = 200
-  force = true
-[[redirects]]
-  from = "/api/portal/live"
-  to = "/.netlify/functions/portal-live"
-  status = 200
-  force = true
-[[redirects]]
-  from = "/api/portal/media/*"
-  to = "/.netlify/functions/portal-media"
-  status = 200
-  force = true
+# Generic /api/portal/* routes are intentionally absent. Operational APIs live
+# below the authenticated tenant path (for example /bkwatch/api/*). Shaw gets
+# its own /shaw/api/* redirects only when the Shaw tenant is activated.
 [[redirects]]
   from = "/api/os/actions"
   to = "/.netlify/functions/os-portal-actions"

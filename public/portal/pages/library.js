@@ -1,11 +1,11 @@
 /* Library (plan 07): client-facing knowledge database with real memory mapping.
-   Communication category now shows real emails + meetings pulled from the OS
-   snapshot, with Comments, Emails, and Meetings as separate sub-pages. */
+   Communications is a separate top-level workspace; legacy Library routes
+   redirect there so old links remain useful without duplicating the taxonomy. */
 import { esc, fmtDate } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { statusLabel, chip, motif, cardAction } from "../components/cards.js";
 
-const CAT_ICON = { branding: "bookmark", products: "layers", features: "puzzle", "integrations-partners": "users", "film-knowledge": "film", communication: "comment", "other-knowledge": "bookOpen" };
+const CAT_ICON = { branding: "bookmark", products: "layers", features: "puzzle", "integrations-partners": "users", "film-knowledge": "film", "other-knowledge": "bookOpen" };
 
 export function render(data, params) {
   // Communication sub-page route — redirect to the standalone communications page
@@ -13,14 +13,10 @@ export function render(data, params) {
   if (params && params.category === "communication") return { redirect: "#/communications" };
   if (params && params.category) return renderCategory(data, params);
 
-  const { library, portal, live, communications } = data;
+  const { library, portal } = data;
 
   const counts = {};
   for (const r of library.records) counts[r.category] = (counts[r.category] || 0) + 1;
-  // Add communication counts from real data
-  if (communications) {
-    counts.communication = (communications.emails?.length || 0) + (communications.meetings?.length || 0) + (live.comments?.length || 0);
-  }
 
   const formats = [...new Set(library.records.map((r) => r.format))];
   const statuses = [...new Set(library.records.map((r) => r.status))];
@@ -29,15 +25,13 @@ export function render(data, params) {
 
   const dir = library.categories.map((c) => {
     const count = counts[c.id] || 0;
-    const countLabel = c.id === "communication" ? `${count} items` : `${count} records`;
-    const href = c.id === "communication" ? "#/communications" : `#/library/${c.id}`;
-    return `<a class="card card-feature lib-cat card-link" href="${href}">
+    return `<a class="card card-feature lib-cat card-link" href="#/library/${c.id}">
       ${motif("grid")}
-      <div class="pc-meta">${icon(CAT_ICON[c.id] || "library")}<span class="lc-count">${countLabel}</span></div>
+      <div class="pc-meta">${icon(CAT_ICON[c.id] || "library")}<span class="lc-count">${count} records</span></div>
       <h3 class="pc-title">${esc(c.title)}</h3>
       <p class="pc-value">${esc(c.description || "")}</p>
       ${c.subcategories && c.subcategories.length ? `<div class="lc-subs">${c.subcategories.map((s) => chip(s.title)).join("")}</div>` : ""}
-      ${cardAction(c.id === "communication" ? "Open communications" : "Open category")}
+      ${cardAction("Open category")}
     </a>`;
   }).join("");
 
@@ -63,7 +57,7 @@ export function render(data, params) {
 
   const html = `<div class="page filter-page">
     <h1 class="page-title">Library</h1>
-    <p class="page-lede">Everything Third i has learned and built for ${esc(portal.client.name)} — brand, products, features, integrations, film knowledge, and communication. Each record keeps its source.</p>
+    <p class="page-lede">Everything Third i has learned and built for ${esc(portal.client.name)} — brand, products, features, integrations, and film knowledge. Each record keeps its source.</p>
 
     <div class="filters" role="group" aria-label="Filter library">
       ${icon("filter")}
@@ -165,4 +159,3 @@ function renderCategory(data, params) {
 
   return { crumb: "Library", title: cat.title, html };
 }
-

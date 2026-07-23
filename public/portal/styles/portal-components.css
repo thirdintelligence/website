@@ -156,6 +156,7 @@
   align-items: center; justify-content: center;
 }
 .creative-direction-badges { margin-top: 0; }
+.creative-direction-card .creative-direction-badges { transform: translateY(-8px); }
 .creative-direction-badges .status,
 .creative-direction-badges .chip {
   height: 24px; padding-block: 0; line-height: 1;

@@ -88,7 +88,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260722-20"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260723-21"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);
@@ -186,6 +186,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.ok(scriptPosition >= 0 && scriptPosition < scopePosition && scopePosition < selectedDemoPosition && selectedDemoPosition < creativeDirectionsPosition);
   assert.equal(projectDetail.match(/\$\{scope\}/g)?.length, 1);
   assert.match(projectsPage, /id="new-project-btn"[\s\S]*?<span class="control-content">/);
+  assert.match(projectsPage, /<div class="page-head-row">[\s\S]*?<div class="new-project-action"><button/);
   assert.match(projectsPage, /<div class="new-project-action"><button/);
   assert.match(projectsPage, /<div class="page filter-page">/);
   assert.match(libraryPage, /<div class="page filter-page">/);
@@ -193,6 +194,7 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(cardComponents, /pc-meta project-card-badges[^\n]*statusLabel\(p\.statusLabel \|\| p\.status, undefined, true\)[^\n]*<span class="chip"><span class="control-content">\$\{esc\(p\.projectType\)\}/);
   assert.match(portalComponentsCss, /\.project-card-badges \.status,[\s\S]*?\.project-card-badges \.chip \{[^}]*height: 28px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \{ margin-top: 0; \}/);
+  assert.match(portalComponentsCss, /\.creative-direction-card \.creative-direction-badges \{ transform: translateY\(-8px\); \}/);
   assert.match(portalComponentsCss, /\.creative-direction-badges \.status,[\s\S]*?\.creative-direction-badges \.chip \{[^}]*height: 24px;[^}]*padding-block: 0;[^}]*line-height: 1;[^}]*align-items: center;[^}]*justify-content: center;/);
   assert.match(portalComponentsCss, /\.in-production \{ --ip-composition-shift: 11\.7%;[^}]*\}/);
   assert.match(portalApp, /values\.startsWith\("567\.071 665\.431"\)[\s\S]*567\.071 669\.431[\s\S]*animation\.remove\(\)/);
@@ -205,8 +207,9 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(portalPagesCss, /\.filter-page \.page-lede \{ margin-bottom: var\(--space-2\); \}/);
   assert.match(portalPagesCss, /\.filter-page \.filters \{ margin-bottom: 0; \}/);
   assert.match(portalPagesCss, /\.filter-page \.filters \+ \.section \{ margin-top: var\(--space-2\); \}/);
-  assert.match(portalPagesCss, /\.new-project-action \{ padding-block: var\(--space-3\) var\(--space-4\); \}/);
+  assert.match(portalPagesCss, /\.new-project-action \{ margin-top: -20px; padding-block: 4px; \}/);
   assert.match(portalPagesCss, /#new-project-btn \{ margin: 0; \}/);
+  assert.match(portalPagesCss, /#new-project-btn \.control-content \{ transform: translateY\(-2px\); \}/);
   assert.match(portalShellCss, /\.control-content \{[^}]*display: inline-flex;[^}]*align-items: center;[^}]*transform: translateY\(-1px\);/);
   assert.match(portalShellCss, /\.btn\.btn-primary \{[\s\S]*?color: #000000;[\s\S]*?\}/);
   assert.match(portalShellCss, /\.btn\.btn-primary:hover \{[\s\S]*?color: #ffffff;[\s\S]*?\}/);
@@ -224,13 +227,14 @@ test("project hero and primary button presentation contracts are enforced", asyn
   assert.match(filmPresentation, /return \{ redirect: href\(`\/projects\/\$\{p\.slug\}#selected-demo`\) \}/);
   assert.match(projectDetail, /function renderSelectedDemo/);
   assert.match(projectDetail, /This locked HYBRID no longer has a separate direction page/);
+  assert.match(projectDetail, /href="#\/projects\/\$\{p\.slug\}%anchor%selected-demo">Open demo workspace/);
   assert.doesNotMatch(projectDetail, /renderPromotedProduction/);
   assert.doesNotMatch(projectDetail, /<h2>Open blockers<\/h2>/);
   assert.doesNotMatch(projectDetail, /commentsWithProjectBlockers/);
   assert.doesNotMatch(libraryPage, /commentsWithProjectBlockers/);
   assert.match(dataJs, /kind: "comment",[\s\S]*blocker: true/);
   assert.doesNotMatch(feedComponents, /c\.readonly/);
-  assert.doesNotMatch(homePage, /cardAction\("Open roadmap"\)/);
+  assert.match(homePage, /cardAction\("Open roadmap"\)/);
   assert.match(libraryRecord, /cardAction\("View record"\)/);
   assert.match(search, /View result/);
   assert.match(portalComponentsCss, /\.card-link \{[^}]*color: inherit;[^}]*text-decoration: none;/);

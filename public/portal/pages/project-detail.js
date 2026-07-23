@@ -23,6 +23,7 @@ export function render(data, params) {
       <h3 class="pc-title">${esc(idea.title)}</h3>
       <p class="pc-value">${esc(idea.concept)}</p>
       <div class="pc-meta muted">${icon("film")} ${idea.sceneCount} scenes · ${esc(idea.runtime || "")}</div>
+      <div class="pc-meta"><a class="btn btn-sm btn-outline" href="#/projects/${p.slug}%anchor%selected-demo">Open demo workspace ${icon("arrowRight")}</a></div>
     </article>` : `
     <a class="card card-feature card-link creative-direction-card" href="#/projects/${p.slug}/ideas/${idea.slug}">
       ${motif("grid")}

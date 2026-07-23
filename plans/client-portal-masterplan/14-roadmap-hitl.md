@@ -19,7 +19,7 @@ Deliverables:
 - v2 schemas;
 - tenant-safe manifest split;
 - content validator;
-- reusable five-area router/shell;
+- reusable six-area router/shell;
 - dark-default paired themes;
 - flat collapsible sidebar;
 - meaningful utility bar;

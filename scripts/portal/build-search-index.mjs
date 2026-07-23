@@ -15,8 +15,12 @@ const TENANT = process.argv[2] || "bkwatch";
 const DIR = resolve(ROOT, "content", "clients", TENANT);
 const readJSON = async (name) => JSON.parse(await readFile(resolve(DIR, name), "utf8"));
 
-const [portal, projects, library, ai] = await Promise.all([
-  readJSON("portal.json"), readJSON("projects.json"), readJSON("library.json"), readJSON("ai-roadmap.json")
+const [portal, projects, library, ai, communications] = await Promise.all([
+  readJSON("portal.json"),
+  readJSON("projects.json"),
+  readJSON("library.json"),
+  readJSON("ai-roadmap.json"),
+  readJSON("communications.json")
 ]);
 
 const base = portal.client.route; // e.g. /bkwatch
@@ -45,6 +49,36 @@ for (const r of library.records) {
 
 for (const c of ai.capabilities) {
   push({ id: c.id, type: "ai-capability", title: c.name, excerpt: clip(c.outcome), category: c.category, status: c.status, format: "ai capability", date: c.researchAsOf, route: `${base}/ai-roadmap#${c.id}` });
+}
+
+for (const email of communications.emails || []) {
+  const date = Number.isFinite(email.timestamp) && email.timestamp > 0
+    ? new Date(email.timestamp).toISOString().slice(0, 10)
+    : undefined;
+  push({
+    id: `email:${email.id}`,
+    type: "email",
+    title: email.subject || "Email",
+    excerpt: clip(email.snippet || email.preview),
+    category: "communications",
+    format: "email",
+    ...(date ? { date } : {}),
+    route: `${base}/communications/emails`
+  });
+}
+
+for (const meeting of communications.meetings || []) {
+  const date = /^\d{4}-\d{2}-\d{2}/.test(meeting.start || "") ? meeting.start.slice(0, 10) : undefined;
+  push({
+    id: `meeting:${meeting.id}`,
+    type: "meeting",
+    title: meeting.summary || "Meeting",
+    excerpt: clip([meeting.startLabel, meeting.contactLabel].filter(Boolean).join(" · ")),
+    category: "communications",
+    format: "meeting",
+    ...(date ? { date } : {}),
+    route: `${base}/communications/meetings`
+  });
 }
 
 const index = { schemaVersion: "2.0.0", tenant: TENANT, clientSafe: true, asOf: portal.asOf, entries };

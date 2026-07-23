@@ -9,8 +9,9 @@
 .filter-page .page-lede { margin-bottom: var(--space-2); }
 .filter-page .filters { margin-bottom: 0; }
 .filter-page .filters + .section { margin-top: var(--space-2); }
-.new-project-action { padding-block: var(--space-3) var(--space-4); }
+.new-project-action { margin-top: -20px; padding-block: 4px; }
 #new-project-btn { margin: 0; }
+#new-project-btn .control-content { transform: translateY(-2px); }
 
 /* ── Home · relationship header ─────────────────────────────────────────────── */
 .relationship {
@@ -325,7 +326,7 @@
 .comm-prev-meta { font-size: var(--fs-caption); color: var(--text-tertiary); margin-top: 2px; }
 
 /* Home page roadmap preview */
-.roadmap-prev-card { display: block; text-decoration: none; color: inherit; padding: var(--space-5) var(--space-6); overflow: visible; }
+.roadmap-prev-card { display: block; text-decoration: none; color: inherit; padding: var(--space-5) var(--space-6); overflow: hidden; }
 .roadmap-prev-card:hover { border-color: var(--line-strong); }
 .roadmap-prev-card .card-action { margin-top: var(--space-4); }
 .roadmap-prev-lede { font-size: var(--fs-small); color: var(--text-secondary); margin-bottom: var(--space-5); }
@@ -432,7 +433,8 @@
   .project-value-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-value-strip .ai-value-actions { grid-column: 1 / -1; margin-left: 0; justify-content: flex-start; }
   .record-row { grid-template-columns: 1fr; }
-  .record-row-actions { justify-content: space-between; }
+  .record-row > * { min-width: 0; }
+  .record-row-actions { justify-content: space-between; flex-wrap: wrap; }
   .comm-preview-row, .comm-prev-item { align-items: flex-start; flex-wrap: wrap; }
   .comm-preview-row .card-action, .comm-prev-item .card-action { margin-left: 30px; }
 }

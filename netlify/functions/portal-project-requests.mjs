@@ -12,6 +12,7 @@ import { verifyAttachmentRefs } from "../../lib/portal-attachment-refs.mjs";
 
 export default async (request) => {
   const tenant = tenantFromPath(request);
+  if (!tenant) return apiError(404, "unknown_tenant");
   const auth = authenticate(request, tenant);
   if (!auth.ok) return apiError(auth.status, auth.error);
   if (request.method !== "POST") return apiError(405, "method_not_allowed");

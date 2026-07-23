@@ -29,7 +29,7 @@ Read in this order before changing source:
 - Once locked, the selected demo's complete storyboard/history/script/comments workspace lives directly above Creative Directions on the main project page and has no separate direction page. Its scenes use `designer.svg` during demo production; approval advances this same record into full-film production.
 - `NEW FILING` is generated with its filing object. Shaw interface-use approval is already secured; exact sanitized assets remain required.
 - The implementation now includes live portal operations and R2-compatible adapters; use `22-source-of-truth-sync-operations.md` to distinguish active configuration from gated/planned activation.
-- bkWatch v2 is accepted as the reusable design/structure baseline. This pass keeps its current UI unchanged.
+- bkWatch v2 is accepted as the reusable design/structure baseline. Communications is a separate sixth work area; Library remains the knowledge workspace.
 - The approved architecture is one shared portal core plus tenant configuration/content/auth/data/media/search. Never copy a client HTML page to create another tenant.
 - Shaw Film 1 is complete conference work (250 hours, fixed-bid/pre-contract); Film 2 V1 and V2 are complete; Film 3 is AI Advisor and awaiting direction lock; Film 4 is Insight. Films 2–4 form one aligned Summit loop.
 
@@ -54,7 +54,7 @@ For bkWatch visual/content work also read:
 | Production auth secrets | Keys present: `BKWATCH_PORTAL_PASSWORD_HASH`, `OS_PORTAL_PASSWORD_HASH`, `PORTAL_SESSION_SECRET`; values were not displayed |
 | Git | `origin` resolves to `https://github.com/thirdintelligence/website.git`; the audited release is maintained on `client-portals` |
 | Local connectors | Local OS snapshot endpoint reachable; Sheets, Gmail, and Calendar reported active; refresh is separated from deployment |
-| Portal implementation | Five work areas, schemas, client-safe manifests, search, Value & Results, project lifecycle, comments/drafts/requests/actions/audit, and owner readback exist |
+| Portal implementation | Six work areas, schemas, client-safe manifests, search, Value & Results, project lifecycle, comments/drafts/requests/actions/audit, and owner readback exist |
 | Existing tests | 63/63 Node tests pass, including auth, schema, tenant isolation, live operations, media contracts, notification reconciliation, and Value & Results privacy |
 | Existing auth | bkWatch and owner OS server-side auth/tenant-isolation tests pass |
 
@@ -72,7 +72,7 @@ The R2-backed `_ops/<version>/` adapter and tenant-scoped operational endpoints 
 
 The researched architecture is Cloudflare R2 Standard with direct signed multipart upload/download, a 2 GiB per-file product limit, and readable client filenames. The full cost/security/flow decision is in `18-asset-storage-delivery.md`.
 
-Signed upload/download and media-isolation contracts are implemented and tested; current limits/types and simple owner-review policy are approved. Create `thirdi-media-preview` with a preview-only token and Netlify deploy-preview variables before preview media testing. Defer quarantine/scanning, retention automation, and budget alerts until real volume or provider requirements justify them.
+Signed upload/download and media-isolation contracts are implemented and tested; current limits/types and simple owner-review policy are approved. `thirdi-media-preview`, the deploy-preview bucket override, operational store version, and media-origin allowlist are configured. Add the preview-only scoped token and matching R2 CORS policy before preview media testing. Defer quarantine/scanning, retention automation, and budget alerts until real volume or provider requirements justify them.
 
 ### EMAIL-01 — Approve outbound email provider
 

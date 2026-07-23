@@ -1,5 +1,4 @@
-/* Communications page — standalone page for all comments, emails, meetings,
-   and archived communications. Also accessible from the Library. */
+/* Communications page — standalone workspace for comments, emails, and meetings. */
 import { esc } from "../core/util.js";
 import { icon } from "../core/icons.js";
 import { commentThread, addCommentButton } from "../components/feed.js";
@@ -27,11 +26,6 @@ export function render(data, params) {
   // Recent meetings
   const recentMeetings = (communications?.meetings || []).slice(0, 5);
   const meetingPreview = recentMeetings.length ? recentMeetings.map(meetingPreviewRow).join("") : `<div class="empty-state compact">${icon("users")}<p>No meetings yet.</p></div>`;
-
-  // Archived: completed comments, deleted comments, past meetings
-  const archivedComments = (live?.comments || []).filter((c) => c.status === "completed" || c.status === "deleted");
-  const pastMeetings = (communications?.meetings || []).filter((m) => !m.upcoming);
-  const archivedCount = archivedComments.length + pastMeetings.length;
 
   const html = `<div class="page">
     <h1 class="page-title">Communications</h1>
@@ -61,20 +55,6 @@ export function render(data, params) {
       </div>
     </div>
 
-    ${archivedCount ? `<section class="section">
-      <div class="section-head"><h2 class="section-title">${icon("archive")} Archived &amp; completed (${archivedCount})</h2></div>
-      <div class="comms-sections">
-        ${archivedComments.length ? `<div class="card comms-section-card">
-          <div class="section-head"><h2 class="section-title">${icon("checkCircle")} Completed comments (${archivedComments.length})</h2></div>
-          ${commentThread(archivedComments, null, data.projects?.projects || []) || `<div class="empty-state compact"><p>None.</p></div>`}
-        </div>` : ""}
-        ${pastMeetings.length ? `<div class="card comms-section-card">
-          <div class="section-head"><h2 class="section-title">${icon("clock")} Past meetings (${pastMeetings.length})</h2></div>
-          ${pastMeetings.map(meetingPreviewRow).join("")}
-        </div>` : ""}
-      </div>
-    </section>` : ""}
-
     ${communications ? sourceNote(communications.source) : ""}
   </div>`;
 
@@ -90,7 +70,13 @@ function renderSubPage(data, sub) {
   let body = "";
 
   if (sub === "comments") {
-    body = commentThread(live?.comments || [], null, data.projects?.projects || []) || `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
+    const comments = live?.comments || [];
+    const active = comments.filter((comment) => comment.status !== "completed" && comment.status !== "deleted");
+    const completed = comments.filter((comment) => comment.status === "completed" || comment.status === "deleted");
+    body = comments.length ? `
+      ${active.length ? `<div class="detail-block"><h2>Active</h2>${commentThread(active, null, data.projects?.projects || [])}</div>` : ""}
+      ${completed.length ? `<div class="detail-block"><h2>Completed</h2>${commentThread(completed, null, data.projects?.projects || [])}</div>` : ""}`
+      : `<div class="empty-state">${icon("comment")}<p>No comments yet. Comments left on projects, scenes, and library records will appear here.</p></div>`;
   } else if (sub === "emails") {
     const emails = communications?.emails || [];
     body = emails.length ? `<div class="email-list">${emails.map(emailFullRow).join("")}</div>` : `<div class="empty-state">${icon("mail")}<p>No emails yet. Emails related to ${esc(portal.client.name)} will appear here, synced from Gmail.</p></div>`;
@@ -150,12 +136,15 @@ function meetingPreviewRow(m) {
 }
 
 function meetingFullRow(m) {
+  const attendees = Array.isArray(m.attendees)
+    ? m.attendees
+    : String(m.attendees || "").split(",").map((attendee) => attendee.trim()).filter(Boolean);
   return `<div class="meeting-row">
     <div class="meeting-icon">${icon("users")}</div>
     <div class="meeting-body">
       <div class="meeting-title">${esc(m.summary)}</div>
       <div class="meeting-meta">${esc(m.startLabel || "")} ${m.upcoming ? "· Upcoming" : "· Past"}</div>
-      ${m.attendees?.length ? `<div class="meeting-attendees">${m.attendees.map((a) => esc(a)).join(", ")}</div>` : ""}
+      ${attendees.length ? `<div class="meeting-attendees">${attendees.map((a) => esc(a)).join(", ")}</div>` : ""}
     </div>
   </div>`;
 }

@@ -3,7 +3,7 @@
    uploads land as "pending" (owner approval gates client visibility). */
 import { authenticate, verifyMutation } from "../../lib/portal-request-auth.mjs";
 import { getStore, key } from "../../lib/portal-store.mjs";
-import { validateIntent, PART_BYTES } from "../../lib/portal-media-policy.mjs";
+import { validateIntent, mediaOriginAllowed, PART_BYTES } from "../../lib/portal-media-policy.mjs";
 import * as r2 from "../../lib/portal-media-store.mjs";
 import { fromSceneRef, assetDownloadName, isSafeDownloadName } from "../../lib/portal-download-name.mjs";
 import { json, apiError, readJson, tenantFromPath, subPath } from "../../lib/portal-api-util.mjs";
@@ -14,6 +14,7 @@ const sanitize = (m) => m && ({ id: m.id, kind: m.kind, mime: m.mime, sizeBytes:
 
 export default async (request) => {
   const tenant = tenantFromPath(request);
+  if (!tenant) return apiError(404, "unknown_tenant");
   const auth = authenticate(request, tenant);
   if (!auth.ok) return apiError(auth.status, auth.error);
   const store = await getStore();
@@ -28,6 +29,7 @@ export default async (request) => {
 
   if (request.method !== "POST") return apiError(405, "method_not_allowed");
   if (!verifyMutation(request, tenant)) return apiError(403, "csrf_failed");
+  if (!mediaOriginAllowed(request)) return apiError(403, "media_origin_not_allowed");
   const body = await readJson(request);
 
   if (action === "upload/initiate") {

@@ -10,6 +10,7 @@ const csrfCookie = (t, token) => `thirdi_${t}_csrf=${token}; Path=/${t}; Max-Age
 
 export default async (request) => {
   const tenant = tenantFromPath(request);
+  if (!tenant) return apiError(404, "unknown_tenant");
   const auth = authenticate(request, tenant);
   if (!auth.ok) return apiError(auth.status, auth.error);
   if (request.method !== "GET") return apiError(405, "method_not_allowed");

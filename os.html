@@ -6934,7 +6934,7 @@ OUTPUT:
 SETTINGS: architecture/build mode, tenant isolation ON, browser verification ON, current portal visual regression lock ON, production deploy only after validation/HITL
 
 TASK:
-Build the approved shared client-portal platform and a reusable tenant generator from the accepted bkWatch v2 design/structure baseline. Keep the current bkWatch portal UI visually unchanged during migration. Prepare Shaw from confirmed Shaw content; do not copy a client HTML file or create a permanent tenant code fork.
+Build the approved shared client-portal platform and a reusable tenant generator from the accepted bkWatch v2 design/structure baseline. Preserve the accepted bkWatch visual system while maintaining Communications as its separate sixth work area. Prepare Shaw from confirmed Shaw content; do not copy a client HTML file or create a permanent tenant code fork.
 
 READ FIRST:
 1. AGENTS.md, .devin/workflows/web.md, .devin/rules/thirdi_web.md, design/skills/DESIGN.md
@@ -6972,7 +6972,7 @@ BUILD + VERIFY:
 3. Build the generator and schema/tenant isolation tests.
 4. Prepare Shaw config/content source map; stop before client-visible publication for its content/design/data gates.
 5. Verify all routes, buttons, search/filters, comments, lifecycle states, auth, tenant denial, responsive layouts, accessibility, performance, build, preview, and rollback.
-6. Use distinct preview/production operational and media namespaces. Do not activate media preview until thirdi-media-preview exists.
+6. Use distinct preview/production operational and media namespaces. thirdi-media-preview and its non-secret deploy-preview overrides exist; require its bucket-scoped preview key/secret and matching R2 CORS rule before media testing.
 7. Update plans, OS, and memory with release/version evidence.
 
 OUTPUT:
@@ -7072,7 +7072,7 @@ BRAND + DESIGN CONTRACT:
 - Approved logo candidates must be verified from Shaw memory before import. Never use legacy marks or “Associates LLC.”
 - Shaw is the primary brand; Third i appears as a discreet service partner.
 - Preserve the accepted bkWatch portal’s information hierarchy and interaction quality, then express it through Shaw’s design system. Any new visual direction requires Third i HITL before deployment.
-- Build five connected top-level work areas: Home, Projects, Library, AI Roadmap, and Value & Results. Every clickable destination has a clear action button and no hover-underlined body copy.
+- Build six connected top-level work areas: Home, Projects, Value & Results, AI Roadmap, Communications, and Library. Every clickable destination has a clear action button and no hover-underlined body copy. Communications owns comments, sanitized email summaries, and meetings; Library does not duplicate it as a category.
 
 FILM WORKFLOW CONTRACT FOR EVERY FUTURE PROJECT:
 1. Brainstorm demo directions. Every direction gets its own storyboard and script page; unselected brainstorm pages contain no still/video/demo preview placeholders.
@@ -7092,12 +7092,12 @@ SHAW CONTENT READINESS:
 - Keep client/private Shaw assets isolated from bkWatch. General production methods and quality controls may transfer; source files, prompts, knowledge, credentials, feedback, and media may not.
 
 DATA + LIVE CONNECTORS:
-- Create content/clients/shaw page manifests that validate against the reusable portal schemas and retain source/as-of/status fields.
+- Build the seven missing Shaw manifests—portal, home, projects, library, AI Roadmap, partnership roadmap, and search index—alongside the existing Shaw communications and invoicing manifests. Validate every file against the reusable portal schemas and retain source/as-of/status fields.
 - Use Git/build manifests for reviewed client-safe knowledge; use tenant-scoped hosted operational records for comments, blockers-as-comments, project requests, actions, notification state, and media metadata.
 - Use private R2 tenant prefixes for approved client media only after DATA-02. Sign direct browser transfers; Netlify authorizes but never proxies large bytes.
 - Pull finance/time metrics deterministically from the OS/Sheets snapshot through the metrics extractor. Reconcile conflicts before publication and show unavailable/needs-confirmation rather than guessing.
 - Rebuild the tenant search index from sanitized manifests. Never let browser code read the local vault or a local path.
-- Add Shaw to live OS action aggregation, reconciliation, audit events, notification queue, and tenant-isolation tests. Local memory mirroring stays dry-run until MEM-01.
+- Keep Shaw status "planned" in config/portal-tenants.mjs while content/auth/data/media routes are incomplete. Add Shaw to live OS action aggregation, reconciliation, audit events, and notification processing only when /shaw and /shaw/api/* are live and their wrong-tenant tests pass. Local memory mirroring stays dry-run until MEM-01.
 
 BUILD + ACCEPTANCE:
 1. Produce a source inventory, contradiction register, Shaw-safe content map, route map, and field-level provenance table.

@@ -1,21 +1,85 @@
 # Cloudflare R2 preview bucket
 
-Status: user setup required
-Updated: 2026-07-22
+Status: bucket/non-secret Netlify separation complete; preview token and R2 CORS require Cloudflare setup
+Updated: 2026-07-23
 
-Production and deploy previews currently point at the same media bucket. Create a separate preview bucket before testing client media in preview deployments.
+Production and deploy previews now use different bucket names and operational store versions. Production values were not changed.
 
-## Five-minute setup
+## Configured now
 
-1. In Cloudflare, open **R2 Object Storage** and choose **Create bucket**.
-2. Name it exactly `thirdi-media-preview`. Use the default/nearest location.
-3. In **R2 API Tokens**, create an object read/write token scoped only to `thirdi-media-preview`.
-4. In Netlify, open the Third i site's environment variables and set the deploy-preview context to:
-   - `PORTAL_MEDIA_R2_BUCKET=thirdi-media-preview`
-   - the preview bucket's scoped access key and secret
-   - `PORTAL_DATA_STORE_VERSION=portal-live-preview-v1`
-   - preview/local origins only in `PORTAL_MEDIA_ALLOWED_ORIGINS`
-5. Leave production bucket, credentials, and store version unchanged. Redeploy a preview and test upload, review, approval, download, and wrong-tenant denial.
+- Cloudflare bucket: `thirdi-media-preview`
+- Netlify deploy-preview `PORTAL_MEDIA_R2_BUCKET=thirdi-media-preview`
+- Netlify deploy-preview `PORTAL_DATA_STORE_VERSION=portal-live-preview-v1`
+- Netlify deploy-preview `PORTAL_MEDIA_ALLOWED_ORIGINS=https://portal-preview--thirdintelligence.netlify.app,http://localhost:8888,http://127.0.0.1:8888`
+- `PORTAL_MEDIA_R2_ACCOUNT_ID` may remain the same account ID in production and preview.
+- Application code now enforces the configured media-origin allowlist before signing media requests.
+
+## Remaining Cloudflare steps
+
+1. Open Cloudflare → **R2 Object Storage** → **Manage R2 API Tokens**.
+2. Create a token named `Third i portal media — deploy preview`.
+3. Choose **Object Read & Write** and scope it to **only** `thirdi-media-preview`. Do not choose all buckets or Admin Read & Write.
+4. Create the token. Copy both values immediately:
+   - **Access Key ID** (sometimes shown as Client ID)
+   - **Secret Access Key** (sometimes shown as Client Secret; visible only once)
+5. In Netlify → Third i project → Environment variables:
+   - edit `PORTAL_MEDIA_R2_ACCESS_KEY_ID`;
+   - add a **deploy-preview** value using the new preview Access Key ID;
+   - edit `PORTAL_MEDIA_R2_SECRET_ACCESS_KEY`;
+   - add a **deploy-preview** secret value using the new preview Secret Access Key;
+   - keep each variable available to Functions/runtime;
+   - leave the production values unchanged.
+6. Do not paste either credential into chat, Git, memory, `os.html`, or a shell command.
+
+Cloudflare documents that Object Read & Write tokens can be restricted to selected buckets, and that the Secret Access Key cannot be viewed again after creation: <https://developers.cloudflare.com/r2/api/tokens/>.
+
+## R2 CORS rule
+
+Presigned URLs authenticate the request, but the browser still requires an exact bucket CORS rule. In `thirdi-media-preview` → Settings → CORS policy, use:
+
+```json
+[
+  {
+    "AllowedOrigins": [
+      "https://portal-preview--thirdintelligence.netlify.app",
+      "http://localhost:8888",
+      "http://127.0.0.1:8888"
+    ],
+    "AllowedMethods": ["GET", "PUT", "HEAD"],
+    "AllowedHeaders": [
+      "Content-Type",
+      "Range",
+      "x-amz-content-sha256",
+      "x-amz-date",
+      "x-amz-security-token"
+    ],
+    "ExposeHeaders": [
+      "ETag",
+      "Content-Length",
+      "Content-Range",
+      "Accept-Ranges"
+    ],
+    "MaxAgeSeconds": 3600
+  }
+]
+```
+
+Cloudflare requires origins to match exactly and to contain only `scheme://host[:port]`: <https://developers.cloudflare.com/r2/buckets/cors/>.
+
+Use the stable preview alias `portal-preview--thirdintelligence.netlify.app` for media testing. Ordinary numbered PR deploy-preview URLs are intentionally not covered; add an exact origin temporarily if one must test media, then remove it.
+
+## Preview verification
+
+1. Deploy a stable preview with `netlify deploy --alias portal-preview`.
+2. Confirm the preview resolves:
+   - the preview bucket;
+   - the preview Access Key ID/Secret Access Key;
+   - `portal-live-preview-v1`;
+   - only the stable preview/local origins above.
+3. Test a small upload first, then multipart upload, owner approval, playback/download, and interrupted upload resume.
+4. Confirm the uploaded object appears only in `thirdi-media-preview`.
+5. Confirm production cannot read the preview object and preview cannot read production objects.
+6. Confirm an unapproved asset and a wrong-tenant request are denied.
 
 ## Simple current media policy
 

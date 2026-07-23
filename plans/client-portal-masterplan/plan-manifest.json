@@ -1,16 +1,17 @@
 {
   "name": "Third i Client Portal Masterplan",
-  "version": "2.4",
-  "preparedAt": "2026-07-22",
+  "version": "2.5",
+  "preparedAt": "2026-07-23",
   "status": "bkwatch_v2_accepted_shared_platform_approved",
   "firstTenant": "bkwatch",
   "secondTenant": "shaw",
   "topLevelPages": [
     "home",
     "projects",
-    "library",
+    "value-results",
     "ai-roadmap",
-    "value-results"
+    "communications",
+    "library"
   ],
   "documents": [
     "00-README.md",
@@ -43,7 +44,7 @@
   "phases": [
     "plan-freeze",
     "contracts-and-shell",
-    "bkwatch-five-areas",
+    "bkwatch-six-areas",
     "comments-and-intake",
     "os-redesign",
     "qc-and-preview",
@@ -52,7 +53,7 @@
     "learning"
   ],
   "productionChangesAuthorized": true,
-  "portalUiChangesAuthorized": false,
+  "portalUiChangesAuthorized": true,
   "memoryMutationsAuthorized": true,
-  "externalProviderSetupAuthorized": false
+  "externalProviderSetupAuthorized": true
 }

@@ -186,7 +186,7 @@ export function roadmapPreview(roadmap, opts = {}) {
     <span class="rlegend-item"><span class="rcircle rc-ms ring-extend rc-sm">${icon("contract", "rc-icon")}</span>Extend partnership</span>
   </div>`;
 
-  const button = showButton ? `<a class="btn btn-sm btn-ghost" href="#/ai-roadmap">Full roadmap ${icon("arrowRight")}</a>` : "";
+  const button = showButton && !link ? `<a class="btn btn-sm btn-ghost" href="#/ai-roadmap">Full roadmap ${icon("arrowRight")}</a>` : "";
   const cardTag = link ? "a" : "div";
   const cardAttrs = link ? ` class="card roadmap-prev-card card-link" href="#/ai-roadmap"` : ` class="card roadmap-prev-card"`;
 
@@ -197,6 +197,7 @@ export function roadmapPreview(roadmap, opts = {}) {
       <div class="roadmap-prev-lede">${esc(roadmap.cadence.deliverable)} per month · 12-month partnership plan</div>
       <div class="roadmap-prev-timeline">${monthNodes}</div>
       ${legend}
+      ${link && showButton ? cardAction("Open roadmap") : ""}
     </${cardTag}>
   </section>`;
 }

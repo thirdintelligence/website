@@ -2,7 +2,7 @@
   "schemaVersion": "2.0.0",
   "tenant": "shaw",
   "clientSafe": true,
-  "asOf": "2026-07-21",
+  "asOf": "2026-07-16",
   "emails": [
     {
       "id": "19f61baf4fd6117e",
@@ -12,8 +12,8 @@
       "date": "Tue, 14 Jul 2026 17:43:44 +0000",
       "timestamp": 1784051024000,
       "dateLabel": "Jul 14, 2026",
-      "snippet": "[cid:9b885ff8-8de2-4344-b4cc-d34d2c07023a] Justin Gann Senior Vice President, Sales & Marketing Mobile: 281-610-4461 | www.shawsystems.com 10111 Richmond Ave, Suite 600 | Houston, TX 77042 REGISTER NOW <https://whova.com/web/B1flcEf-qsA0bpMN4POV8n8OzdN6i9z3QWDcGLLBN-M%3D/> | Shaw Systems Conference ",
-      "preview": "[cid:9b885ff8-8de2-4344-b4cc-d34d2c07023a]\nJustin Gann\nSenior Vice President, Sales & Marketing",
+      "snippet": "[cid:9b885ff8-8de2-4344-b4cc-d34d2c07023a] Justin Gann Senior Vice President, Sales & Marketing Mobile: 281-610-4461 | www.shawsystems.com 10111 Richmond Ave, Suite 600 | Houston, TX 77042 REGISTER NOW <[link removed] | Shaw Systems Conference | April 29 – May 1, 2026 The information in this e-mail ",
+      "preview": "[cid:9b885ff8-8de2-4344-b4cc-d34d2c07023a] Justin Gann Senior Vice President, Sales & Marketing",
       "contactLabel": "Justin Gann + Emily"
     },
     {
@@ -25,7 +25,7 @@
       "timestamp": 1784049967000,
       "dateLabel": "Jul 14, 2026",
       "snippet": "Hey Joe, Could I please have the meeting transcription? I guess it was joining me as a guest instead of under my Shaw teams account. I'll make sure that I'm joining with the right account from now on. Thanks, Justin Brannon",
-      "preview": "Hey Joe,\nCould I please have the meeting transcription?\nI guess it was joining me as a guest instead of under my Shaw teams",
+      "preview": "Hey Joe, Could I please have the meeting transcription? I guess it was joining me as a guest instead of under my Shaw teams",
       "contactLabel": "Justin Gann + Emily"
     },
     {
@@ -36,8 +36,8 @@
       "date": "Mon, 13 Jul 2026 18:50:31 +0000",
       "timestamp": 1783968631000,
       "dateLabel": "Jul 13, 2026",
-      "snippet": "* Logistics * LinkedIn * Website * AFS * AI Advisor * BK Watch ________________________________________________________________________________ Microsoft Teams meeting Join: https://teams.microsoft.com/meet/250890441100618?p=1e5d5T9D09wIiAYOl9 Meeting ID: 250 890 441 100 618 Passcode: rM3c9Yg6 _____",
-      "preview": "*\nLogistics\n*",
+      "snippet": "* Logistics * LinkedIn * Website * AFS * AI Advisor * BK Watch ________________________________________________________________________________ Microsoft Teams meeting Join: [link removed] [meeting access removed]: rM3c9Yg6 ________________________________ Need help?<[link removed] | System referenc",
+      "preview": "* Logistics *",
       "contactLabel": "Justin Gann + Emily"
     },
     {
@@ -49,7 +49,7 @@
       "timestamp": 1783968044000,
       "dateLabel": "Jul 13, 2026",
       "snippet": "Yes sir, 11 works for me. Also just one more thing, who should we ask to get UI screenshots of bkWatch feature(s) working inside of Spectrum to use in their Shaw-bkWatch integration video? Thanks, Justin On Mon, Jul 13, 2026 at 11:29 AM Justin Gann <jgann@shawsystems.com> wrote: > Thanks. > > Does 1",
-      "preview": "Yes sir, 11 works for me.\nAlso just one more thing, who should we ask to get UI screenshots of\nbkWatch feature(s) working inside of Spectrum to use in their Shaw-bkWatch",
+      "preview": "Yes sir, 11 works for me. Also just one more thing, who should we ask to get UI screenshots of bkWatch feature(s) working inside of Spectrum to use in their Shaw-bkWatch",
       "contactLabel": "Justin Gann + Emily"
     },
     {
@@ -60,12 +60,29 @@
       "date": "Mon, 13 Jul 2026 16:29:41 +0000",
       "timestamp": 1783960181000,
       "dateLabel": "Jul 13, 2026",
-      "snippet": "Thanks. Does 11 tomorrow work? [cid:c515ee3f-bea8-4303-b989-6073faec278d] Justin Gann Senior Vice President, Sales & Marketing Mobile: 281-610-4461 | www.shawsystems.com 10111 Richmond Ave, Suite 600 | Houston, TX 77042 REGISTER NOW <https://whova.com/web/B1flcEf-qsA0bpMN4POV8n8OzdN6i9z3QWDcGLLBN-M%",
-      "preview": "Thanks.\nDoes 11 tomorrow work?\n[cid:c515ee3f-bea8-4303-b989-6073faec278d]",
+      "snippet": "Thanks. Does 11 tomorrow work? [cid:c515ee3f-bea8-4303-b989-6073faec278d] Justin Gann Senior Vice President, Sales & Marketing Mobile: 281-610-4461 | www.shawsystems.com 10111 Richmond Ave, Suite 600 | Houston, TX 77042 REGISTER NOW <[link removed] | Shaw Systems Conference | April 29 – May 1, 2026 ",
+      "preview": "Thanks. Does 11 tomorrow work? [cid:c515ee3f-bea8-4303-b989-6073faec278d]",
       "contactLabel": "Justin Gann + Emily"
     }
   ],
   "meetings": [
+    {
+      "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6crj8ci16orjghho64p48h1g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g6sp34ha38p1jaca368r4cchk6h0jaghg74rkac9g71232c1p711g",
+      "summary": "Internal: AI Video Meeting",
+      "start": "2026-07-14T11:00:00-05:00",
+      "end": "2026-07-14T12:00:00-05:00",
+      "startLabel": "Tue, Jul 14, 11:00 AM CDT",
+      "endLabel": "Tue, Jul 14, 12:00 PM CDT",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "eagnolucci@shawsystems.com",
+        "chwestern@shawsystems.com",
+        "jgann@shawsystems.com"
+      ],
+      "upcoming": false,
+      "contactLabel": "Shaw team"
+    },
     {
       "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g8crk8gq36d138ghi60s48h1g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g8crj4ha38crj6c236gsj6ghk68sk8d9l64o3idhn6p1kada68ko0",
       "summary": "Amplify Video Review",
@@ -74,8 +91,11 @@
       "startLabel": "Wed, Jul 1, 10:00 AM CDT",
       "endLabel": "Wed, Jul 1, 11:00 AM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, eagnolucci@shawsystems.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc4Y3JrOGdxMzZkMTM4Z2hpNjBzNDhoMWc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnOGNyajRoYTM4Y3JqNmMyMzZnc2o2Z2hrNjhzazhkOWw2NG8zaWRobjZwMWthZGE2OGtvMCBqdXN0aW5icmFubm9uOTVAbQ",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "eagnolucci@shawsystems.com",
+        "jgann@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann"
     },
@@ -87,8 +107,12 @@
       "startLabel": "Wed, Jun 17, 10:30 AM CDT",
       "endLabel": "Wed, Jun 17, 11:30 AM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, eagnolucci@shawsystems.com, chwestern@shawsystems.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2NG80YWNwbjc0c2plZ3BoNnNxNDhncGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnOGdvMzZnaTM2c29rY2QxZzhwMWtjY2hrNnQxMzRoOWs2bDJrMmUxZzg4bzQ4ZGk0NmNyMF8yMDI2MDYxNVQxNDAwMDBaIGp1c3RpbmJyYW5ub245NUBt",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "eagnolucci@shawsystems.com",
+        "chwestern@shawsystems.com",
+        "jgann@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann + Emily"
     },
@@ -100,8 +124,12 @@
       "startLabel": "Tue, Jun 9, 10:00 AM CDT",
       "endLabel": "Tue, Jun 9, 11:30 AM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, eagnolucci@shawsystems.com, chwestern@shawsystems.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2NG80YWNwbjc0c2plZ3BoNnNxNDhncGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnOGdvMzZnaTM2c29rY2QxZzhwMWtjY2hrNnQxMzRoOWs2bDJrMmUxZzg4bzQ4ZGk0NmNyMF8yMDI2MDYwOFQxNDAwMDBaIGp1c3RpbmJyYW5ub245NUBt",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "eagnolucci@shawsystems.com",
+        "chwestern@shawsystems.com",
+        "jgann@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann"
     },
@@ -113,10 +141,33 @@
       "startLabel": "Mon, Jun 8, 12:00 PM CDT",
       "endLabel": "Mon, Jun 8, 1:00 PM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, eagnolucci@shawsystems.com, jbrannon@shawsystems.com, jgann@shawsystems.com, mmoore@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2bDJqaWdxMzZrcmtjYzIyOG9xazhncGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnNzRwamdkcTI2dDEzMGNoazhoMWpjY3BrNnNzamljMjM4Z3I0NGNpMTZ0MGpjZGkxNjkyMCBqdXN0aW5icmFubm9uOTVAbQ",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "eagnolucci@shawsystems.com",
+        "jbrannon@shawsystems.com",
+        "jgann@shawsystems.com",
+        "mmoore@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann"
+    },
+    {
+      "id": "3fcm2f2gs7u1q2obpjkpsuqavk",
+      "summary": "Justin Brannon and Jessica Krobot",
+      "start": "2026-06-05T11:00:00-05:00",
+      "end": "2026-06-05T11:15:00-05:00",
+      "startLabel": "Fri, Jun 5, 11:00 AM CDT",
+      "endLabel": "Fri, Jun 5, 11:15 AM CDT",
+      "location": "",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com",
+        "dylan@bankruptcywatch.com",
+        "ryan@bankruptcywatch.com",
+        "jgann@shawsystems.com"
+      ],
+      "upcoming": false,
+      "contactLabel": "Shaw team"
     },
     {
       "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6cp32h216oo48d9m8l348gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g88r34ea66sr4aca38crkch9k690j0d1o85132d1i6h246dpn6os0",
@@ -126,8 +177,10 @@
       "startLabel": "Mon, Jun 1, 1:00 PM CDT",
       "endLabel": "Mon, Jun 1, 1:30 PM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2Y3AzMmgyMTZvbzQ4ZDltOGwzNDhncGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODhyMzRlYTY2c3I0YWNhMzhjcmtjaDlrNjkwajBkMW84NTEzMmQxaTZoMjQ2ZHBuNm9zMCBqdXN0aW5icmFubm9uOTVAbQ",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jgann@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann"
     },
@@ -139,8 +192,10 @@
       "startLabel": "Fri, May 22, 9:00 AM CDT",
       "endLabel": "Fri, May 22, 10:00 AM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2aDE0Y2RxMjZvcmo2ZzlsOGtzNDhncGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODUzM2dnOWw2NHEzZ2RwbzhoMmtjZDFrOHAwajZjOWo3MTJrOGNwbjY0czQ2ZWEzNzBwZyBqdXN0aW5icmFubm9uOTVAbQ",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jgann@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann"
     },
@@ -152,8 +207,10 @@
       "startLabel": "Wed, May 6, 2:00 PM CDT",
       "endLabel": "Wed, May 6, 2:30 PM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc4NHBrMmNxMTZ0Mms4Z3E2OGgxazhncGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnOGNya2FkcGo4ZDEzY2U5aDcxMGpjZDlrOGdzMzBncGg4Z3EzY2QxZzZwMTQyaDltNnAyMCBqdXN0aW5icmFubm9uOTVAbQ",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jgann@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann"
     },
@@ -165,11 +222,14 @@
       "startLabel": "Tue, Mar 24, 4:10 PM CDT",
       "endLabel": "Tue, Mar 24, 4:35 PM CDT",
       "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, jgann@shawsystems.com, sbrannon@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2c3JrMmdwbThnc2o4aDFpODkxNDhncGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnNzExamdnOWs3MTMzYWgxazg5MWo2Z2hrNmtzamFnaTE4cDJrMmgxbzc0cmo4aDltNm9wZyBqdXN0aW5icmFubm9uOTVAbQ",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jgann@shawsystems.com",
+        "sbrannon@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Justin Gann"
     }
   ],
-  "source": "Extracted from OS snapshot (Gmail + Google Calendar) via extract-communications.mjs"
+  "source": "Sanitized Gmail and Google Calendar summaries from the owner OS snapshot"
 }

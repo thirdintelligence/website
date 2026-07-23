@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thirdi.net/schemas/portal/communications.schema.json",
+  "title": "Client-safe communications file",
+  "description": "Sanitized communication summaries routed by actual client participants. Raw bodies, meeting access details, and calendar links are not published.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tenant", "clientSafe", "asOf", "emails", "meetings", "source"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "2.0.0" },
+    "tenant": { "$ref": "common.schema.json#/$defs/tenant" },
+    "clientSafe": { "type": "boolean", "const": true },
+    "asOf": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "emails": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "from", "to", "subject", "date", "timestamp", "dateLabel", "snippet", "preview", "contactLabel"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "from": { "type": "string", "maxLength": 1000 },
+          "to": { "type": "string", "maxLength": 2000 },
+          "subject": { "type": "string", "maxLength": 300 },
+          "date": { "type": "string", "maxLength": 200 },
+          "timestamp": { "type": ["integer", "null"], "minimum": 0 },
+          "dateLabel": { "type": "string", "maxLength": 100 },
+          "snippet": { "type": "string", "maxLength": 300 },
+          "preview": { "type": "string", "maxLength": 600 },
+          "contactLabel": { "type": "string", "maxLength": 200 }
+        }
+      }
+    },
+    "meetings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "summary", "start", "end", "startLabel", "endLabel", "location", "attendees", "upcoming", "contactLabel"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "summary": { "type": "string", "maxLength": 300 },
+          "start": { "type": "string", "maxLength": 100 },
+          "end": { "type": "string", "maxLength": 100 },
+          "startLabel": { "type": "string", "maxLength": 100 },
+          "endLabel": { "type": "string", "maxLength": 100 },
+          "location": { "type": "string", "maxLength": 200 },
+          "attendees": {
+            "type": "array",
+            "items": { "type": "string", "maxLength": 320 },
+            "uniqueItems": true
+          },
+          "upcoming": { "type": "boolean" },
+          "contactLabel": { "type": "string", "maxLength": 200 }
+        }
+      }
+    },
+    "source": { "$ref": "common.schema.json#/$defs/source" }
+  }
+}

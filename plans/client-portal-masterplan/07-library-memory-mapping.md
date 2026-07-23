@@ -53,14 +53,6 @@ The Library is the client-facing database of everything Third i has worked on or
 - Reusable scene/film lessons
 - Film-specific facts remain connected to their source project
 
-### Communication
-
-- Comments
-- Emails
-- Meetings
-
-Each communication type is a distinct subcategory. “Past activity” is not an accepted label.
-
 ### Other knowledge
 
 Remaining client-safe facts are split into named subcategories before publishing. `Other` is permitted only as a temporary internal normalization state and should not become a large client-facing bucket.
@@ -75,9 +67,6 @@ Remaining client-safe facts are split into named subcategories before publishing
 | Integrations/partners | semantic memory and approved product/project facts |
 | Film decisions | `memory/[CLIENT]/[CLIENT]_FILM#/FILM#_EPISODIC.md` |
 | Film preferences/patterns | `memory/[CLIENT]/[CLIENT]_FILM#/FILM#_REFLECTIONS.md` |
-| Comments | hosted operational events mirrored to `memory/[CLIENT]/[CLIENT]_COMMS/comments/` |
-| Emails | `memory/[CLIENT]/[CLIENT]_COMMS/emails/` client-safe summaries/records |
-| Meetings | `memory/[CLIENT]/[CLIENT]_COMMS/meetings/` client-safe summaries/records |
 | Other memory | explicitly routed and client-safe records from the remaining client silo |
 
 ## Current vault reality
@@ -128,20 +117,31 @@ Build fails if tenant, client-safety approval, source reference, or required fac
 - Recent by event/update date.
 - Record detail.
 - Related records list.
-- Communication chronology.
-
 The relationship/knowledge map is future scope.
 
 ## Comments on knowledge
 
 Every Library record has Add Comment. Context automatically includes record ID, category, project/general, and canonical route. Corrections do not directly edit curated knowledge; they create an action for Third i to review and update memory.
 
-## Communication display
+## Top-level Communications workspace
+
+Communications is not a Library category. It is a separate top-level page with three canonical subviews:
 
 - Comments may display their full client-visible content and status.
 - Emails display approved summaries, participants, date, subject, decisions, and actions; raw email bodies require explicit approval.
 - Meetings display approved summary, attendees, date, decisions, and actions; private notes remain internal.
-- F14 meeting briefs/summaries live in memory and surface here.
+- Participant domains route communication records before content/body mentions are considered.
+- A joint record appears only for tenants with an actual participant from that tenant.
+- Meeting URLs, calendar links, phone numbers, PINs, and access codes never enter the client manifest.
+- F14 meeting briefs/summaries live in memory and surface in Communications.
+
+Local authorities remain:
+
+| Communication type | Local source of truth |
+|---|---|
+| Comments | hosted operational events mirrored to `memory/[CLIENT]/[CLIENT]_COMMS/comments/` |
+| Emails | `memory/[CLIENT]/[CLIENT]_COMMS/emails/` client-safe summaries/records |
+| Meetings | `memory/[CLIENT]/[CLIENT]_COMMS/meetings/` client-safe summaries/records |
 
 ## Filters
 

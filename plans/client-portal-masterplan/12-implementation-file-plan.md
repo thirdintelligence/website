@@ -11,7 +11,7 @@ This file describes the intended source layout. It does not authorize the change
 | `netlify/functions/os-portal.mjs` | Preserve isolated owner auth; connect OS renderer to live portal APIs |
 | `content/clients/bkwatch.json` | Migrate into schema-v2 split manifests; retain migration snapshot |
 | `content/clients/shaw.json` | Generate from approved Shaw sources; keep client publication gated by Shaw content/design/data approval |
-| `portal-template.html` | Replace with the approved five-work-area reusable shell |
+| `portal-template.html` | Replace with the approved six-work-area reusable shell |
 | `bkWatch-os.html` | Migrate content to template/renderer; keep as a rollback artifact until production acceptance |
 | `public/portal/client-portal.js` | Split into focused ES modules; temporary compatibility wrapper during migration |
 | `public/portal/bkwatch.css` | Consolidate into token/profile plus shared components |
@@ -28,7 +28,7 @@ This file describes the intended source layout. It does not authorize the change
 ```text
 public/portal/core/
   portal-app.js              # bootstrap, route state, errors, live refresh
-  portal-router.js           # five-work-area and nested-route matching
+  portal-router.js           # six-work-area and nested-route matching
   portal-shell.js            # sidebar, top utility bar, footer/session
   portal-theme.js            # dark-default theme state and accessible toggle
   portal-search.js           # tenant-only search UI and result navigation
@@ -46,6 +46,7 @@ public/portal/pages/
   projects.js
   project-detail.js
   film-presentation.js
+  communications.js
   library.js
   library-record.js
   ai-roadmap.js
@@ -88,6 +89,8 @@ schemas/portal/
   action.schema.json
   audit-event.schema.json
   ai-capability.schema.json
+  communications.schema.json
+  roadmap.schema.json
 ```
 
 All schemas require a tenant, version, stable ID, status vocabulary, dates, client-safety state where applicable, and explicit optionality. Unknown fields do not silently become empty strings.
@@ -101,6 +104,9 @@ content/clients/bkwatch/
   projects.json
   library.json
   ai-roadmap.json
+  roadmap.json
+  invoicing.json
+  communications.json
   search-index.json
 
 content/clients/shaw/
@@ -109,6 +115,9 @@ content/clients/shaw/
   projects.json
   library.json
   ai-roadmap.json
+  roadmap.json
+  invoicing.json
+  communications.json
   search-index.json
 ```
 
@@ -118,6 +127,7 @@ The `search-index.json` contains only sanitized text already present in the tena
 
 ```text
 lib/portal-live-store.mjs       # tenant-prefixed strong-consistency records
+config/portal-tenants.mjs       # active/planned tenant namespaces and activation flags
 lib/portal-request-auth.mjs     # tenant/owner authorization for APIs
 lib/portal-validation.mjs       # JSON/file validation and normalization
 lib/portal-audit.mjs            # immutable event writer
@@ -160,6 +170,7 @@ scripts/portal/
   verify-memory-isolation.mjs     # cross-client and local-path audit
   publish-client-portal.mjs       # build/test/diff; never hides prod gate
   reconcile-portal-live.mjs       # retry email/mirror inconsistencies
+  check-tenant-readiness.mjs      # read-only manifest/namespace/gate report
 ```
 
 Memory mirror targets:

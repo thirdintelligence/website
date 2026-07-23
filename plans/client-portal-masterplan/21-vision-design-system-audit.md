@@ -15,7 +15,7 @@ The portal is a client-branded operating workspace and relationship record: one 
 | Honest state | Draft, missing, in-production, blocker, selected, active, planned, and unknown states are textual and not color-only. |
 | Client identity | Tenant tokens, client logos, light/dark modes, and restrained Third i attribution keep the workspace client-first. |
 | Review continuity | Scene comments, blockers-as-comments, draft persistence, stable routes, version structures, and owner actions form a useful review loop. |
-| Knowledge depth | Library taxonomy, provenance, search, AI Roadmap, and Value & Results make the relationship more valuable than a file-delivery portal. |
+| Knowledge depth | Library taxonomy, a dedicated Communications workspace, provenance, search, AI Roadmap, and Value & Results make the relationship more valuable than a file-delivery portal. |
 | Privacy architecture | Server-side sessions, tenant derivation, CSRF, rate limits, no-store responses, client-safe manifests, and private media contracts create a sound base. |
 | Reuse | Schemas, modular portal pages/components, a tenant generator, and a masterplan can support Shaw and future clients without content copying. |
 
@@ -53,6 +53,7 @@ The portal is a client-branded operating workspace and relationship record: one 
 - `designer.svg` has no bounce and remains optically centered with its phase label.
 - Unselected brainstorm ideas contain no media preview placeholder.
 - A locked demo has one client-facing home: its complete workspace on the main project page immediately above Creative Directions.
+- Communications has one client-facing home outside Library; legacy Library communication links redirect without duplicating content.
 - Project name and production phase remain unambiguous at card, hero, search, roadmap, Library, OS, and PDF surfaces.
 - Mobile widths preserve reading order, button access, media fit, and no horizontal overflow.
 

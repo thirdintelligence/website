@@ -129,7 +129,7 @@ All abstract assets are CSS/SVG, decorative, low contrast, non-interactive, resp
 - Sidebar items never expand.
 - Active route uses gradient line/icon emphasis plus a text or shape state.
 - Inactive items are quieter than main content.
-- Top bar stays compact and predictable across all five work areas.
+- Top bar stays compact and predictable across all six work areas.
 - Utilities keep consistent positions across routes.
 - Full-screen mode removes sidebar, utility bar, and global search while retaining presentation controls.
 

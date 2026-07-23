@@ -52,7 +52,7 @@ export async function apiSend(cfg, path, method, body) {
 
 /** Merge curated project blockers into a comments array so they are treated as
     real comments everywhere. Deduplicates by title+projectId. */
-export function mergeBlockerComments(comments, projectsData) {
+export function mergeBlockerComments(comments, projectsData, routeBase = "/bkwatch") {
   const existingKeys = new Set((comments || []).map((c) => `${c.projectId || c.context?.projectId || "general"}:${String(c.title || "").trim().toLowerCase()}`));
   const blockerComments = (projectsData?.projects || []).flatMap((project) => (project.blockers || []).map((blocker, index) => {
     const title = typeof blocker === "string" ? blocker : blocker.title;
@@ -71,7 +71,7 @@ export function mergeBlockerComments(comments, projectsData) {
       status: "open",
       attribution: "Third i flagged",
       ...(createdAt ? { createdAt } : {}),
-      context: { scope, projectId: project.id, ...(sceneId ? { sceneId } : {}), label, route: `/bkwatch/projects/${project.slug}` }
+      context: { scope, projectId: project.id, ...(sceneId ? { sceneId } : {}), label, route: `${routeBase}/projects/${project.slug}` }
     };
   }).filter((c) => c.title && !existingKeys.has(`${c.projectId}:${c.title.trim().toLowerCase()}`)));
   return [...(comments || []), ...blockerComments];
@@ -117,7 +117,7 @@ export async function loadPortalData() {
 
   // Merge curated project blockers into live comments so they are treated as
   // real comments everywhere (home preview, project detail, library, counts).
-  live.comments = mergeBlockerComments(live.comments || [], projects);
+  live.comments = mergeBlockerComments(live.comments || [], projects, cfg.routeBase);
 
   return { cfg, portal, home, projects, library, aiRoadmap, roadmap, invoicing, communications, search, live };
 }

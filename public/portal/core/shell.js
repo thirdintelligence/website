@@ -1,4 +1,4 @@
-/* App shell: collapsible flat sidebar (4 links, no nested items), meaningful top
+/* App shell: collapsible flat sidebar (six links, no nested items), meaningful top
    utility bar (context · Add Comment · search · theme), footer session/logout. */
 import { icon } from "./icons.js";
 import { themeToggleButton } from "./theme.js";
@@ -13,7 +13,7 @@ const NAV = [
   { name: "library", label: "Library", icon: "bookOpen", path: "/library" }
 ];
 /* Route-name → active nav-name mapping (detail routes light up their parent). */
-const ACTIVE = { home: "home", projects: "projects", project: "projects", projectRequest: "projects", idea: "projects", communications: "communications", communicationsSub: "communications", library: "library", libraryCategory: "library", libraryComms: "library", libraryQuicklinks: "library", libraryRecord: "library", aiRoadmap: "aiRoadmap", valueResults: "valueResults" };
+const ACTIVE = { home: "home", projects: "projects", project: "projects", projectRequest: "projects", idea: "projects", communications: "communications", communicationsSub: "communications", libraryComms: "communications", library: "library", libraryCategory: "library", libraryQuicklinks: "library", libraryRecord: "library", aiRoadmap: "aiRoadmap", valueResults: "valueResults" };
 
 export function renderShell(root, data) {
   const { portal } = data;

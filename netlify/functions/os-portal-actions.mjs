@@ -12,8 +12,7 @@ import { listNotifications } from "../../lib/portal-notify.mjs";
 import { buildComment } from "../../lib/portal-validation.mjs";
 import { writeEvent } from "../../lib/portal-audit.mjs";
 import { json, apiError, readJson, idFromPath } from "../../lib/portal-api-util.mjs";
-
-const KNOWN_TENANTS = ["bkwatch"]; // shaw added after bkWatch acceptance
+import { OWNER_ACTION_TENANTS } from "../../config/portal-tenants.mjs";
 
 export default async (request) => {
   const auth = authenticate(request, "thirdi-os");
@@ -23,10 +22,10 @@ export default async (request) => {
 
   if (request.method === "GET") { // /os/api/portal-events
     const perTenant = {};
-    for (const t of KNOWN_TENANTS) {
+    for (const t of OWNER_ACTION_TENANTS) {
       perTenant[t] = { actions: await listActions(store, t), notifications: await listNotifications(store, t) };
     }
-    const failedNotifications = KNOWN_TENANTS.reduce((n, t) => n + perTenant[t].notifications.filter((x) => x.status === "failed").length, 0);
+    const failedNotifications = OWNER_ACTION_TENANTS.reduce((n, t) => n + perTenant[t].notifications.filter((x) => x.status === "failed").length, 0);
     return json({ tenants: perTenant, connection: { portals: failedNotifications === 0 ? "ok" : "degraded", checkedAt: new Date().toISOString() } });
   }
 
@@ -34,7 +33,7 @@ export default async (request) => {
     if (!verifyMutation(request, "thirdi-os")) return apiError(403, "csrf_failed");
     const body = await readJson(request);
     const clientTenant = String(body.tenant || "");
-    if (!KNOWN_TENANTS.includes(clientTenant)) return apiError(400, "unknown_tenant");
+    if (!OWNER_ACTION_TENANTS.includes(clientTenant)) return apiError(400, "unknown_tenant");
     /* Owner-created comments use a custom attribution (e.g. "Third i recommends")
        so the client can distinguish owner guidance from their own comments. */
     const attribution = String(body.attribution || "Third i recommends").slice(0, 200);
@@ -52,7 +51,7 @@ export default async (request) => {
     const id = idFromPath(request);
     const body = await readJson(request);
     const clientTenant = String(body.tenant || "");
-    if (!KNOWN_TENANTS.includes(clientTenant)) return apiError(400, "unknown_tenant");
+    if (!OWNER_ACTION_TENANTS.includes(clientTenant)) return apiError(400, "unknown_tenant");
     const res = await patchAction(store, clientTenant, id, { op: body.op, note: body.note, priority: body.priority });
     if (!res.ok) return apiError(res.status, res.error);
     return json({ action: res.action });

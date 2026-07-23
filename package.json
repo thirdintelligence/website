@@ -11,6 +11,7 @@
     "portal:validate": "node scripts/portal/validate-client-content.mjs",
     "portal:build": "node scripts/portal/build-client-manifest.mjs",
     "portal:search": "node scripts/portal/build-search-index.mjs",
+    "portal:readiness": "node scripts/portal/check-tenant-readiness.mjs",
     "portal:preview": "node scripts/portal/preview-server.mjs"
   },
   "devDependencies": {

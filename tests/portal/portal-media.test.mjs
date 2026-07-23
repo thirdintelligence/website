@@ -5,7 +5,7 @@ import test, { beforeEach, afterEach } from "node:test";
 import assert from "node:assert/strict";
 import { setupEnv, freshStore, authedReq } from "./helpers.mjs";
 import { getStore, key } from "../../lib/portal-store.mjs";
-import { validateIntent, MULTIPART_THRESHOLD } from "../../lib/portal-media-policy.mjs";
+import { validateIntent, mediaOriginAllowed, MULTIPART_THRESHOLD } from "../../lib/portal-media-policy.mjs";
 import { fromSceneRef, assetDownloadName, isSafeDownloadName } from "../../lib/portal-download-name.mjs";
 import media from "../../netlify/functions/portal-media.mjs";
 
@@ -13,7 +13,10 @@ const U = "http://localhost:8888";
 const mUrl = (p) => `${U}/bkwatch/api/media/${p}`;
 let cleanup;
 beforeEach(async () => { await setupEnv(); ({ cleanup } = await freshStore()); });
-afterEach(async () => { await cleanup?.(); });
+afterEach(async () => {
+  delete process.env.PORTAL_MEDIA_ALLOWED_ORIGINS;
+  await cleanup?.();
+});
 
 test("validateIntent enforces type, size, and multipart threshold", () => {
   assert.equal(validateIntent({ filename: "a.mp4", sizeBytes: 1024, contentType: "video/mp4" }).ok, true);
@@ -55,6 +58,18 @@ test("download authorize denies non-approved media and unknown ids", async () =>
 test("media requires authentication and CSRF", async () => {
   assert.equal((await media(authedReq(mUrl("upload/initiate"), "POST", { anon: true, body: {} }))).status, 401);
   assert.equal((await media(authedReq(mUrl("upload/initiate"), "POST", { csrf: false, body: {} }))).status, 403);
+});
+
+test("media signing honors the context-specific origin allowlist", async () => {
+  process.env.PORTAL_MEDIA_ALLOWED_ORIGINS = "http://localhost:8888,http://127.0.0.1:8888";
+  assert.equal(mediaOriginAllowed(new Request(mUrl("upload/initiate"), { headers: { origin: U } })), true);
+  assert.equal(mediaOriginAllowed(new Request(mUrl("upload/initiate"), { headers: { origin: "https://other.example" } })), false);
+  process.env.PORTAL_MEDIA_ALLOWED_ORIGINS = "https://portal-preview--thirdintelligence.netlify.app";
+  const denied = await media(authedReq(mUrl("upload/initiate"), "POST", {
+    body: { filename: "clip.mp4", sizeBytes: 1024, contentType: "video/mp4" }
+  }));
+  assert.equal(denied.status, 403);
+  assert.equal((await denied.json()).error, "media_origin_not_allowed");
 });
 
 test("multipart completion validates ordered parts before storage calls", async () => {

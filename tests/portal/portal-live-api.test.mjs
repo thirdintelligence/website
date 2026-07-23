@@ -109,9 +109,10 @@ test("tenant isolation: bkWatch session cannot use another tenant's cookie names
   // A Shaw session presented to the /bkwatch endpoint has no bkwatch cookie → denied.
   const crossed = await comments(authedReq(cUrl, "GET", { tenant: "shaw" }));
   assert.equal(crossed.status, 401);
-  // Shaw's own list is empty and never contains bkWatch records.
-  const shawList = await (await comments(authedReq(U + "/shaw/api/comments", "GET", { tenant: "shaw" }))).json();
-  assert.equal(shawList.comments.length, 0);
+  // Shaw APIs do not exist until the planned tenant is activated.
+  const shawResponse = await comments(authedReq(U + "/shaw/api/comments", "GET", { tenant: "shaw" }));
+  assert.equal(shawResponse.status, 404);
+  assert.equal((await shawResponse.json()).error, "unknown_tenant");
 });
 
 test("drafts persist server-side per device cookie", async () => {

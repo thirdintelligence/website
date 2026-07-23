@@ -552,7 +552,7 @@
       "id": "film-direction-final",
       "type": "library",
       "title": "Selected creative direction — Final Demo",
-      "excerpt": "Final Demo is the selected demo currently being built for shaw-bkWatch. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashbo",
+      "excerpt": "Final Demo is the selected demo currently being built for shaw-bkWatch. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architect",
       "category": "film-knowledge",
       "status": "Selected — demo in production",
       "format": "film-knowledge",
@@ -954,6 +954,106 @@
       "format": "ai capability",
       "date": "2026-07-16",
       "route": "/bkwatch/ai-roadmap#ai-product-workflow-30"
+    },
+    {
+      "id": "email:19f5d7eadde5d1b5",
+      "type": "email",
+      "title": "Re: BK Watch Agreement and Next Steps",
+      "excerpt": "Here are those questions from today, but none of these are blockers for the demos, so anytime this week works. 1. Which Spectrum integration functions are live today and safe to sh",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-13",
+      "route": "/bkwatch/communications/emails"
+    },
+    {
+      "id": "email:19f5cbaf674d92f3",
+      "type": "email",
+      "title": "Invitation: Justin Brannon - BKW Video Review @ Tue Jul 14, 2026 1:30pm - 2pm (CDT) (justinbrannon95@gmail.com)",
+      "excerpt": "Justin Brannon - BKW Video Review Tuesday Jul 14, 2026 ⋅ 1:30pm – 2pm Central Time - Chicago Join with Google Meet [link removed] Join by phone (US) [phone removed] [meeting access",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-13",
+      "route": "/bkwatch/communications/emails"
+    },
+    {
+      "id": "email:19f4e28153810b89",
+      "type": "email",
+      "title": "Re: BK Watch Agreement and Next Steps",
+      "excerpt": "Hi Jessica, Thank you for sending this over. I think the script aligns perfectly with the demos I’ve been building, and I’ll make sure that comes through clearly when I showcase th",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-10",
+      "route": "/bkwatch/communications/emails"
+    },
+    {
+      "id": "email:19f4d3d19601f5a2",
+      "type": "email",
+      "title": "Re: BK Watch Agreement and Next Steps",
+      "excerpt": "Hi Justin, I wanted to shoot over my idea for our 30-second BKW overview video script (doesn't have to be exact): Some platforms added bankruptcy as a feature. We built an entire c",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-10",
+      "route": "/bkwatch/communications/emails"
+    },
+    {
+      "id": "email:19f38c78172c068d",
+      "type": "email",
+      "title": "Invitation: Justin + BKW @ Mon Jul 13, 2026 1pm - 1:30pm (CDT) (justinbrannon95@gmail.com)",
+      "excerpt": "Justin + BKW Monday Jul 13, 2026 ⋅ 1pm – 1:30pm Central Time - Chicago Join with Google Meet [link removed] Join by phone (US) [phone removed] [meeting access removed][link removed",
+      "category": "communications",
+      "format": "email",
+      "date": "2026-07-06",
+      "route": "/bkwatch/communications/emails"
+    },
+    {
+      "id": "meeting:7muvhqcak42nhc8sv44nnce1nd",
+      "type": "meeting",
+      "title": "Justin Brannon - BKW Video Review",
+      "excerpt": "Tue, Jul 14, 1:30 PM CDT · Jessica Krobot + Dylan",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-07-14",
+      "route": "/bkwatch/communications/meetings"
+    },
+    {
+      "id": "meeting:12u4im5ct82j27ssakngb0i604",
+      "type": "meeting",
+      "title": "Justin + BKW",
+      "excerpt": "Mon, Jul 13, 1:00 PM CDT · Jessica Krobot + Dylan",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-07-13",
+      "route": "/bkwatch/communications/meetings"
+    },
+    {
+      "id": "meeting:r9b07jq5rdm0gf8diepbc97um0",
+      "type": "meeting",
+      "title": "Justin Brannon and Jessica Krobot",
+      "excerpt": "Mon, Jul 6, 1:30 PM CDT · Jessica Krobot + Dylan",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-07-06",
+      "route": "/bkwatch/communications/meetings"
+    },
+    {
+      "id": "meeting:562r6p3ra0huemca73kpfv6to8",
+      "type": "meeting",
+      "title": "Justin Brannon and Jessica Krobot",
+      "excerpt": "Thu, Jun 11, 11:00 AM CDT · Jessica Krobot + Dylan",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-06-11",
+      "route": "/bkwatch/communications/meetings"
+    },
+    {
+      "id": "meeting:3fcm2f2gs7u1q2obpjkpsuqavk",
+      "type": "meeting",
+      "title": "Justin Brannon and Jessica Krobot",
+      "excerpt": "Fri, Jun 5, 11:00 AM CDT · Jessica Krobot + Dylan",
+      "category": "communications",
+      "format": "meeting",
+      "date": "2026-06-05",
+      "route": "/bkwatch/communications/meetings"
     }
   ]
 }

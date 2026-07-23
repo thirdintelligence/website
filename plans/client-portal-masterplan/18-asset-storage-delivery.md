@@ -1,6 +1,6 @@
 # Large Asset Storage and Client Delivery
 
-Decision status: architecture and current policy approved; signed-transfer implementation tested; separate preview bucket pending
+Decision status: architecture/current policy approved; preview bucket and non-secret Netlify overrides configured; preview credential/CORS pending
 Prepared: 2026-07-16
 Primary decision: private Cloudflare R2 Standard storage with tenant-authorized, short-lived direct upload/download URLs
 
@@ -281,7 +281,7 @@ Approved now:
 - signed direct transfers, owner approval before client access, short-lived URLs, and tenant prefixes;
 - simple operations for now, with quarantine/scanning, retention automation, and budget alerts added only when volume/provider requirements justify them.
 
-The only immediate setup item is the separate `thirdi-media-preview` bucket, scoped preview credential, and Netlify deploy-preview context in `25-r2-preview-bucket.md`. Production values remain unchanged.
+`thirdi-media-preview`, its deploy-preview bucket override, distinct operational store version, and exact preview/local origin allowlist are configured. The remaining setup is a bucket-scoped preview Access Key ID/Secret Access Key plus the matching R2 bucket CORS rule in `25-r2-preview-bucket.md`. Production values remain unchanged.
 
 ## Re-evaluation triggers
 

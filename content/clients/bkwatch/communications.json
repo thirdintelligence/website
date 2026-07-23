@@ -2,7 +2,7 @@
   "schemaVersion": "2.0.0",
   "tenant": "bkwatch",
   "clientSafe": true,
-  "asOf": "2026-07-21",
+  "asOf": "2026-07-16",
   "emails": [
     {
       "id": "19f5d7eadde5d1b5",
@@ -13,7 +13,7 @@
       "timestamp": 1783980009000,
       "dateLabel": "Jul 13, 2026",
       "snippet": "Here are those questions from today, but none of these are blockers for the demos, so anytime this week works. 1. Which Spectrum integration functions are live today and safe to show: filing notification, case status, credit reporting correction, task queues, dockets, claims registers, documents, re",
-      "preview": "Here are those questions from today, but none of these are blockers for the\ndemos, so anytime this week works.\n1. Which Spectrum integration functions are live today and safe to show:",
+      "preview": "Here are those questions from today, but none of these are blockers for the demos, so anytime this week works. 1. Which Spectrum integration functions are live today and safe to show:",
       "contactLabel": "Jessica Krobot + Dylan"
     },
     {
@@ -24,8 +24,8 @@
       "date": "Mon, 13 Jul 2026 18:26:24 +0000",
       "timestamp": 1783967184000,
       "dateLabel": "Jul 13, 2026",
-      "snippet": "Justin Brannon - BKW Video Review Tuesday Jul 14, 2026 ⋅ 1:30pm – 2pm Central Time - Chicago Join with Google Meet https://meet.google.com/rtk-kesr-bwc?hs=224 Join by phone (US) +1 620-399-6046 PIN: 244647283 More phone numbers https://tel.meet/rtk-kesr-bwc?pin=7368026159364&hs=0 Organizer Jessica K",
-      "preview": "Justin Brannon - BKW Video Review\nTuesday Jul 14, 2026 ⋅ 1:30pm – 2pm\nCentral Time - Chicago",
+      "snippet": "Justin Brannon - BKW Video Review Tuesday Jul 14, 2026 ⋅ 1:30pm – 2pm Central Time - Chicago Join with Google Meet [link removed] Join by phone (US) [phone removed] [meeting access removed][link removed] Organizer Jessica Krobot jessica.krobot@bankruptcywatch.com Guests Jessica Krobot - organizer Dy",
+      "preview": "Justin Brannon - BKW Video Review Tuesday Jul 14, 2026 ⋅ 1:30pm – 2pm Central Time - Chicago",
       "contactLabel": "Jessica Krobot + Dylan"
     },
     {
@@ -37,7 +37,7 @@
       "timestamp": 1783722677000,
       "dateLabel": "Jul 10, 2026",
       "snippet": "Hi Jessica, Thank you for sending this over. I think the script aligns perfectly with the demos I’ve been building, and I’ll make sure that comes through clearly when I showcase them on Monday. It gives me a strong direction to build around. Thanks again, Justin On Fri, Jul 10, 2026 at 1:14 PM Jessi",
-      "preview": "Hi Jessica,\nThank you for sending this over. I think the script aligns perfectly with\nthe demos I’ve been building, and I’ll make sure that comes through clearly",
+      "preview": "Hi Jessica, Thank you for sending this over. I think the script aligns perfectly with the demos I’ve been building, and I’ll make sure that comes through clearly",
       "contactLabel": "Jessica Krobot + Dylan"
     },
     {
@@ -49,7 +49,7 @@
       "timestamp": 1783707265000,
       "dateLabel": "Jul 10, 2026",
       "snippet": "Hi Justin, I wanted to shoot over my idea for our 30-second BKW overview video script (doesn't have to be exact): Some platforms added bankruptcy as a feature. We built an entire company around it. Since 2007, it's all we do. Know the moment a filing affects your portfolio, so you can act quickly, a",
-      "preview": "Hi Justin,\nI wanted to shoot over my idea for our 30-second BKW overview video script\n(doesn't have to be exact):",
+      "preview": "Hi Justin, I wanted to shoot over my idea for our 30-second BKW overview video script (doesn't have to be exact):",
       "contactLabel": "Jessica Krobot + Dylan"
     },
     {
@@ -60,8 +60,8 @@
       "date": "Mon, 06 Jul 2026 18:53:45 +0000",
       "timestamp": 1783364025000,
       "dateLabel": "Jul 6, 2026",
-      "snippet": "Justin + BKW Monday Jul 13, 2026 ⋅ 1pm – 1:30pm Central Time - Chicago Join with Google Meet https://meet.google.com/xtp-dcpy-ejx?hs=224 Join by phone (US) +1 219-316-1026 PIN: 564474117 More phone numbers https://tel.meet/xtp-dcpy-ejx?pin=6923963845926&hs=0 Organizer Jessica Krobot jessica.krobot@b",
-      "preview": "Justin + BKW\nMonday Jul 13, 2026 ⋅ 1pm – 1:30pm\nCentral Time - Chicago",
+      "snippet": "Justin + BKW Monday Jul 13, 2026 ⋅ 1pm – 1:30pm Central Time - Chicago Join with Google Meet [link removed] Join by phone (US) [phone removed] [meeting access removed][link removed] Organizer Jessica Krobot jessica.krobot@bankruptcywatch.com Guests Jessica Krobot - organizer Dylan Morrison justinbra",
+      "preview": "Justin + BKW Monday Jul 13, 2026 ⋅ 1pm – 1:30pm Central Time - Chicago",
       "contactLabel": "Jessica Krobot + Dylan"
     }
   ],
@@ -74,21 +74,11 @@
       "startLabel": "Tue, Jul 14, 1:30 PM CDT",
       "endLabel": "Tue, Jul 14, 2:00 PM CDT",
       "location": "",
-      "attendees": "dylan@bankruptcywatch.com, justinbrannon95@gmail.com, jessica.krobot@bankruptcywatch.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=N211dmhxY2FrNDJuaGM4c3Y0NG5uY2UxbmQganVzdGluYnJhbm5vbjk1QG0",
-      "upcoming": false,
-      "contactLabel": "Jessica Krobot + Dylan"
-    },
-    {
-      "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6crj8ci16orjghho64p48h1g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g6sp34ha38p1jaca368r4cchk6h0jaghg74rkac9g71232c1p711g",
-      "summary": "Internal: AI Video Meeting",
-      "start": "2026-07-14T11:00:00-05:00",
-      "end": "2026-07-14T12:00:00-05:00",
-      "startLabel": "Tue, Jul 14, 11:00 AM CDT",
-      "endLabel": "Tue, Jul 14, 12:00 PM CDT",
-      "location": "Microsoft Teams Meeting",
-      "attendees": "justinbrannon95@gmail.com, eagnolucci@shawsystems.com, chwestern@shawsystems.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2Y3JqOGNpMTZvcmpnaGhvNjRwNDhoMWc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnNnNwMzRoYTM4cDFqYWNhMzY4cjRjY2hrNmgwamFnaGc3NHJrYWM5ZzcxMjMyYzFwNzExZyBqdXN0aW5icmFubm9uOTVAbQ",
+      "attendees": [
+        "dylan@bankruptcywatch.com",
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com"
+      ],
       "upcoming": false,
       "contactLabel": "Jessica Krobot + Dylan"
     },
@@ -100,8 +90,11 @@
       "startLabel": "Mon, Jul 13, 1:00 PM CDT",
       "endLabel": "Mon, Jul 13, 1:30 PM CDT",
       "location": "",
-      "attendees": "dylan@bankruptcywatch.com, justinbrannon95@gmail.com, jessica.krobot@bankruptcywatch.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MTJ1NGltNWN0ODJqMjdzc2FrbmdiMGk2MDQganVzdGluYnJhbm5vbjk1QG0",
+      "attendees": [
+        "dylan@bankruptcywatch.com",
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com"
+      ],
       "upcoming": false,
       "contactLabel": "Jessica Krobot + Dylan"
     },
@@ -113,8 +106,11 @@
       "startLabel": "Mon, Jul 6, 1:30 PM CDT",
       "endLabel": "Mon, Jul 6, 2:00 PM CDT",
       "location": "",
-      "attendees": "justinbrannon95@gmail.com, jessica.krobot@bankruptcywatch.com, dylan@bankruptcywatch.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=cjliMDdqcTVyZG0wZ2Y4ZGllcGJjOTd1bTAganVzdGluYnJhbm5vbjk1QG0",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com",
+        "dylan@bankruptcywatch.com"
+      ],
       "upcoming": false,
       "contactLabel": "Jessica Krobot + Dylan"
     },
@@ -126,8 +122,11 @@
       "startLabel": "Thu, Jun 11, 11:00 AM CDT",
       "endLabel": "Thu, Jun 11, 11:30 AM CDT",
       "location": "",
-      "attendees": "justinbrannon95@gmail.com, jessica.krobot@bankruptcywatch.com, dylan@bankruptcywatch.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NTYycjZwM3JhMGh1ZW1jYTcza3BmdjZ0bzgganVzdGluYnJhbm5vbjk1QG0",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com",
+        "dylan@bankruptcywatch.com"
+      ],
       "upcoming": false,
       "contactLabel": "Jessica Krobot + Dylan"
     },
@@ -139,11 +138,16 @@
       "startLabel": "Fri, Jun 5, 11:00 AM CDT",
       "endLabel": "Fri, Jun 5, 11:15 AM CDT",
       "location": "",
-      "attendees": "justinbrannon95@gmail.com, jessica.krobot@bankruptcywatch.com, dylan@bankruptcywatch.com, ryan@bankruptcywatch.com, jgann@shawsystems.com",
-      "htmlLink": "https://www.google.com/calendar/event?eid=M2ZjbTJmMmdzN3UxcTJvYnBqa3BzdXFhdmsganVzdGluYnJhbm5vbjk1QG0",
+      "attendees": [
+        "justinbrannon95@gmail.com",
+        "jessica.krobot@bankruptcywatch.com",
+        "dylan@bankruptcywatch.com",
+        "ryan@bankruptcywatch.com",
+        "jgann@shawsystems.com"
+      ],
       "upcoming": false,
       "contactLabel": "Jessica Krobot + Dylan"
     }
   ],
-  "source": "Extracted from OS snapshot (Gmail + Google Calendar) via extract-communications.mjs"
+  "source": "Sanitized Gmail and Google Calendar summaries from the owner OS snapshot"
 }

@@ -4,13 +4,12 @@
    succeed; comments are durable regardless of email state. */
 import { getStore } from "../../lib/portal-store.mjs";
 import { processPending } from "../../lib/portal-notify.mjs";
-
-const KNOWN_TENANTS = ["bkwatch"];
+import { NOTIFICATION_TENANTS } from "../../config/portal-tenants.mjs";
 
 export default async () => {
   const store = await getStore();
   const results = {};
-  for (const t of KNOWN_TENANTS) results[t] = await processPending(store, t);
+  for (const t of NOTIFICATION_TENANTS) results[t] = await processPending(store, t);
   return new Response(JSON.stringify({ ok: true, results }), { headers: { "content-type": "application/json" } });
 };
 

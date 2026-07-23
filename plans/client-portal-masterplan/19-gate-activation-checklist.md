@@ -39,7 +39,7 @@ tenant activation.
 
 **Architecture approved and implemented:** private R2, signed direct transfers, tenant prefixes, owner approval before client access, 2 GiB owner/512 MiB client limits, current allowed types, and short-lived URLs.
 
-**Only current setup task:** create `thirdi-media-preview`, give it a preview-only scoped token, and set the Netlify deploy-preview environment values in `25-r2-preview-bucket.md`. Production and preview currently have distinct operational store versions but still report the same media bucket.
+**Current state:** `thirdi-media-preview` exists. Netlify deploy previews now resolve the preview bucket, a distinct operational store version, and a stable preview/local origin allowlist. Add the bucket-scoped preview Access Key ID/Secret Access Key and matching Cloudflare R2 CORS rule described in `25-r2-preview-bucket.md`; production credentials remain untouched.
 
 Do not add quarantine/scanning, new retention automation, or budget alerts until real upload volume/provider requirements justify them. Review those policies when client-originated media becomes common.
 

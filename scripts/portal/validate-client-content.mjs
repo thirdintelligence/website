@@ -10,6 +10,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { createSchemaRegistry, getContentValidator, CONTENT_FILE_SCHEMA, formatErrors } from "../../lib/portal-schemas.mjs";
+import { communicationSafetyIssues, genericContentSafetyIssues } from "../../lib/portal-content-safety.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..", "..");
 const TENANT = process.argv[2] || "bkwatch";
@@ -18,9 +19,6 @@ const DIR = resolve(ROOT, "content", "clients", TENANT);
 const ajv = await createSchemaRegistry();
 let failures = 0;
 const fail = (msg) => { console.error("  ✗ " + msg); failures++; };
-
-// Leaked-path detector: any absolute /Users/... path or memory/ reference in output.
-const LOCAL_PATH = /\/Users\/|\/home\/|memory\/[A-Z]/;
 
 for (const file of Object.keys(CONTENT_FILE_SCHEMA)) {
   const path = resolve(DIR, file);
@@ -40,7 +38,10 @@ for (const file of Object.keys(CONTENT_FILE_SCHEMA)) {
   }
   if (data.tenant !== TENANT) fail(`${file}: tenant "${data.tenant}" != "${TENANT}"`);
   if (data.clientSafe !== true) fail(`${file}: clientSafe must be true`);
-  if (LOCAL_PATH.test(raw)) fail(`${file}: contains a local filesystem path`);
+  for (const issue of genericContentSafetyIssues(raw)) fail(`${file}: ${issue}`);
+  if (file === "communications.json") {
+    for (const issue of communicationSafetyIssues(data, TENANT)) fail(`${file}: ${issue}`);
+  }
 
   if (failures === 0 || true) console.log(`  ✓ ${file}`);
 }

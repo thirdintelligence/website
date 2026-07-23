@@ -15,23 +15,24 @@ It must answer, quickly:
 
 ## Final client-facing pages
 
-Five top-level portal pages are in scope:
+Six top-level portal pages are in scope:
 
 1. Home / Today
 2. Projects
-3. Library
+3. Value & Results
 4. AI Roadmap
-5. Value & Results
+5. Communications
+6. Library
 
-Project detail, creative presentation, reports, outcomes, deliverables, and assets are nested views inside Projects. Brand, products, integrations, features, film knowledge, meetings, email, and comments are Library categories or detail views, not additional top-level pages.
+Project detail, creative presentation, reports, outcomes, deliverables, and assets are nested views inside Projects. Brand, products, integrations, features, and film knowledge remain Library categories. Comments, email summaries, and meetings have one canonical top-level Communications workspace.
 
 ## Approved global features
 
 - Dark mode is the default; light mode remains available.
-- A collapsible desktop sidebar has five flat links and no nested dropdowns.
+- A collapsible desktop sidebar has six flat links and no nested dropdowns.
 - A meaningful top utility bar contains global search, Add Comment, theme control, and contextual utilities.
 - Global search remains visible at the top right except in full-screen presentation mode.
-- Comments may be added from the Home page, any project or asset, and any Library item.
+- Comments may be added from Home, Communications, any project or asset, and any Library item.
 - Comments and new-project intake use a movable, minimizable persistent composer.
 - Drafts persist across route changes until posted or explicitly deleted.
 - Timestamped video comments capture the current playback position now.
@@ -89,7 +90,7 @@ The 2 GiB limit is guaranteed for owner-published/client-downloadable deliverabl
 
 ## Privacy and tenancy
 
-- Every live record includes exactly one tenant key.
+- Every live record includes exactly one tenant key. A joint communication may produce a separately sanitized summary in each participant tenant, but a client mention without an actual participant never grants that tenant a copy.
 - The server derives authorization from the session; the browser cannot choose a different tenant.
 - All media, uploads, comments, drafts, and operational APIs are tenant-protected.
 - Shaw and bkWatch content cannot share namespaces, search indexes, caches, downloads, or API results.

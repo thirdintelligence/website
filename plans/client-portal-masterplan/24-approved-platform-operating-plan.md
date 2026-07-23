@@ -27,6 +27,8 @@ portal platform
 
 The generator accepts a tenant key, route, design authority, logo/assets, client-safe company/product/project records, auth namespace, storage namespace, and initial enabled features. It generates configuration/manifests/tests—not a copied portal page.
 
+The registry is implemented in `config/portal-tenants.mjs`. Active-tenant lists drive API path acceptance, owner action aggregation, and notification reconciliation. Shaw is predeclared with unique auth/cookie/operational/media/search namespaces but remains `planned`, so those runtime lists still contain bkWatch only.
+
 ## Update behavior
 
 | Change | Path |

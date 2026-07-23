@@ -2,12 +2,13 @@
    Attaches to the desktop utility-bar input and the mobile full-width sheet. */
 import { esc, fmtDate } from "./util.js";
 import { icon } from "./icons.js";
+import { href } from "./router.js";
 
 export function initSearch(data) {
   const entries = () => [
     ...(data.search.entries || []),
-    ...(data.live?.projectRequests || []).map((request) => ({ id: request.id, type: "project request", title: request.name, excerpt: request.description, status: request.status, route: `/bkwatch/projects/requests/${request.id}` })),
-    ...(data.live?.comments || []).map((comment) => ({ id: comment.id, type: comment.blocker ? "blocker comment" : "comment", title: comment.title, excerpt: comment.description || "", project: comment.projectId, status: comment.status, date: comment.createdAt, route: comment.context?.route || "/bkwatch/library/communication/comments" }))
+    ...(data.live?.projectRequests || []).map((request) => ({ id: request.id, type: "project request", title: request.name, excerpt: request.description, status: request.status, route: `${data.cfg.routeBase}/projects/requests/${request.id}` })),
+    ...(data.live?.comments || []).map((comment) => ({ id: comment.id, type: comment.blocker ? "blocker comment" : "comment", title: comment.title, excerpt: comment.description || "", project: comment.projectId, status: comment.status, date: comment.createdAt, route: comment.context?.route || `${data.cfg.routeBase}/communications/comments` }))
   ];
   const shortName = data.portal.client.shortName;
 
@@ -54,7 +55,7 @@ function attach(input, panel, entries, shortName, onNavigate) {
       (e.title + " " + (e.excerpt || "") + " " + (e.keywords || "") + " " + (e.category || "") + " " + (e.project || "")).toLowerCase().includes(q)
     ).slice(0, 12);
     panel.innerHTML = results.length
-      ? results.map((r) => `<a class="record-row card-link" href="${toHash(r.route)}" style="margin-bottom:6px">
+      ? results.map((r) => `<a class="record-row card-link" href="${href(r.route)}" style="margin-bottom:6px">
           <span><span class="rr-title">${esc(r.title)}</span>
             <span class="rr-summary">${esc(r.excerpt || "")}</span>
             <span class="feed-date">${esc(r.type)}${r.project ? " · " + esc(r.project) : ""}${r.category ? " · " + esc(r.category) : ""}${r.date ? " · " + fmtDate(r.date) : ""}</span></span>
@@ -69,10 +70,4 @@ function attach(input, panel, entries, shortName, onNavigate) {
     if (e.key === "Enter") { const a = panel.querySelector("a"); if (a) { location.hash = a.getAttribute("href").slice(1); panel.hidden = true; onNavigate?.(); } }
   });
   panel.addEventListener("click", (e) => { if (e.target.closest("a")) { panel.hidden = true; onNavigate?.(); } });
-}
-
-function toHash(route) {
-  let p = String(route).replace(/^\/bkwatch/, "");
-  if (!p.startsWith("/")) p = "/" + p;
-  return "#" + p.replace("#", "%anchor%");
 }

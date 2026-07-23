@@ -5,11 +5,11 @@ Updated: 2026-07-22
 
 ## Verdict
 
-Yes: the accepted bkWatch v2 portal provides the design, structure, lifecycle, schemas, interaction contracts, tests, and operating patterns needed to build Shaw content on the shared platform. There is no Shaw portal shell yet, and this system pass intentionally leaves the current portal UI unchanged.
+Yes: the accepted bkWatch v2 portal provides the design, six-workspace structure, lifecycle, schemas, interaction contracts, tests, and operating patterns needed to build Shaw content on the shared platform. There is no Shaw portal shell yet.
 
 ## Reuse boundary
 
-Reuse the shared renderer, five work areas, components/tokens architecture, responsive behavior, project/demo lifecycle, schemas, sanitizer, search, auth/API/store/media/audit/notification contracts, tests, release gates, and generator.
+Reuse the shared renderer, six work areas, components/tokens architecture, responsive behavior, project/demo lifecycle, schemas, sanitizer, search, auth/API/store/media/audit/notification contracts, tests, release gates, and generator.
 
 Never reuse bkWatch brand/content, credentials, prompts, feedback, assets, generated media, communications, or private knowledge. New tenants are configuration/content/data namespaces on one platform—not copied HTML or permanent code forks.
 
@@ -37,22 +37,25 @@ Shaw Projects will show Films 1–4. Other engagements—including training, AV,
 
 Correctly routed Shaw communications and related information are considered client-safe inside the private Shaw portal. Exclude cross-client content, public/internal Third i workflow architecture, credentials, raw prompts, local paths, and anything explicitly marked private or blocked. Do not treat automatic email footer language as a publishing blocker.
 
-## Five work areas
+## Six work areas
 
 1. **Home:** current work, required actions, recent activity, relationship summary, and sourced opportunities.
 2. **Projects:** horizontal cards for Films 1–4; exact version/project/demo/full-production states and request-new-project workflow.
-3. **Library:** products, features, integrations, film knowledge, approved communications, decisions, and other confirmed work.
+3. **Value & Results:** completed-film efficiency/quality trend once comparable projects exist, current metrics, capabilities, private learning explanation, and future placeholders.
 4. **AI Roadmap:** current adoption/opportunities with source, value, effort, evidence, and refresh status.
-5. **Value & Results:** completed-film efficiency/quality trend once comparable projects exist, current metrics, capabilities, private learning explanation, and future placeholders.
+5. **Communications:** correctly routed comments, sanitized email summaries, and meetings; no access codes or raw bodies.
+6. **Library:** products, features, integrations, film knowledge, decisions, and other confirmed work.
 
 ## Data setup still required before publication
 
-- Generate `content/clients/shaw/` from reviewed Shaw sources.
+- Generate the seven missing Shaw manifests from reviewed Shaw sources. `communications.json` and `invoicing.json` already exist; `portal.json`, `home.json`, `projects.json`, `library.json`, `ai-roadmap.json`, `roadmap.json`, and `search-index.json` remain.
 - Create a distinct Shaw auth/session/cookie/tenant/rate-limit namespace and wrong-tenant tests.
 - Create Shaw operational and media prefixes only after data/media setup approval.
 - Pull finance/time from Sheets/OS; pull communication context from correctly routed client-safe records.
 - Build a Shaw-only search index and deny cross-tenant references, secrets, raw prompts, and local paths.
 - Keep production and deploy-preview media buckets/credentials separate.
+
+The namespace contract is predeclared in `config/portal-tenants.mjs`, but Shaw remains `planned`: its owner-action and notification flags stay off, `/shaw/api/*` routes do not exist, and it is excluded from reconciliation until the activation gates pass. Run `npm run portal:readiness -- shaw` for the current file/namespace report.
 
 ## Acceptance order
 

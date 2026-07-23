@@ -126,13 +126,25 @@ test("AI Roadmap carries all 30 capabilities and never shows an opportunity as a
   }
 });
 
-test("Library uses distinct communication subcategories and no 'past activity'", async () => {
+test("Communications is a top-level workspace, not a Library category", async () => {
   const lib = await read("library.json");
-  const comms = lib.categories.find((c) => c.id === "communication");
-  const subs = comms.subcategories.map((s) => s.id);
-  assert.deepEqual(subs, ["comments", "emails", "meetings"]);
+  assert.equal(lib.categories.some((category) => category.id === "communication"), false);
+  assert.equal(lib.records.some((record) => record.category === "communication"), false);
   const raw = JSON.stringify(lib).toLowerCase();
   assert.doesNotMatch(raw, /past activity/);
+});
+
+test("communications are sanitized, correctly tenant-routed, and searchable", async () => {
+  const communications = await read("communications.json");
+  assert.equal(communications.emails.length, 5);
+  assert.equal(communications.meetings.length, 5);
+  assert.equal(communications.meetings.some((meeting) => meeting.summary === "Internal: AI Video Meeting"), false);
+  assert.equal(communications.meetings.every((meeting) => Array.isArray(meeting.attendees)), true);
+  assert.doesNotMatch(JSON.stringify(communications), /https?:\/\/|teams\.microsoft\.com|meet\.google\.com|\bpasscode\s*:|\bpin\s*:/i);
+
+  const idx = await read("search-index.json");
+  assert.ok(idx.entries.some((entry) => entry.type === "email" && entry.route === "/bkwatch/communications/emails"));
+  assert.ok(idx.entries.some((entry) => entry.type === "meeting" && entry.route === "/bkwatch/communications/meetings"));
 });
 
 test("every Library record keeps at least one source reference", async () => {

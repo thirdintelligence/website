@@ -73,25 +73,6 @@
       ]
     },
     {
-      "id": "communication",
-      "title": "Communication",
-      "description": "Client-visible comments, emails, and meetings.",
-      "subcategories": [
-        {
-          "id": "comments",
-          "title": "Comments"
-        },
-        {
-          "id": "emails",
-          "title": "Emails"
-        },
-        {
-          "id": "meetings",
-          "title": "Meetings"
-        }
-      ]
-    },
-    {
       "id": "other-knowledge",
       "title": "Other knowledge",
       "description": "Confirmed coverage, scale, and reliability facts.",

@@ -9,12 +9,14 @@ import {
   readCookie,
   verifyPassword,
 } from "../../lib/portal-auth.mjs";
+import { getPortalTenant } from "../../config/portal-tenants.mjs";
 
-const TENANT = "bkwatch";
-const COOKIE_NAME = "thirdi_bkwatch_session";
-const CSRF_COOKIE_NAME = "thirdi_bkwatch_csrf";
+const TENANT_CONFIG = getPortalTenant("bkwatch");
+const TENANT = TENANT_CONFIG.key;
+const COOKIE_NAME = TENANT_CONFIG.sessionCookie;
+const CSRF_COOKIE_NAME = TENANT_CONFIG.csrfCookie;
 const SESSION_SECONDS = 60 * 60 * 24 * 30;
-const ASSET_RELEASE = "20260722-20";
+const ASSET_RELEASE = "20260723-21";
 const manifestDir = fileURLToPath(new URL("../../content/clients/bkwatch/", import.meta.url));
 // v2 tenant manifests → the keys the frontend expects (see core/data.js).
 const MANIFEST_FILES = { portal: "portal.json", home: "home.json", projects: "projects.json", library: "library.json", aiRoadmap: "ai-roadmap.json", roadmap: "roadmap.json", invoicing: "invoicing.json", communications: "communications.json", search: "search-index.json" };
@@ -107,11 +109,11 @@ ${styles}<link rel="stylesheet" href="/public/portal/styles/portal-print.css?v=$
 }
 
 function cookieFor(token, maxAge = SESSION_SECONDS) {
-  return `${COOKIE_NAME}=${token}; Path=/bkwatch; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Strict`;
+  return `${COOKIE_NAME}=${token}; Path=${TENANT_CONFIG.cookiePath}; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Strict`;
 }
 
 function csrfCookie(token) {
-  return `${CSRF_COOKIE_NAME}=${token}; Path=/bkwatch; Max-Age=600; HttpOnly; Secure; SameSite=Strict`;
+  return `${CSRF_COOKIE_NAME}=${token}; Path=${TENANT_CONFIG.cookiePath}; Max-Age=600; HttpOnly; Secure; SameSite=Strict`;
 }
 
 function newCsrfToken() {
@@ -139,7 +141,7 @@ export default async function handler(request) {
     return new Response("Method Not Allowed", { status: 405, headers: { Allow: "GET, HEAD, POST", ...securityHeaders } });
   }
 
-  const passwordHash = Netlify.env.get("BKWATCH_PORTAL_PASSWORD_HASH");
+  const passwordHash = Netlify.env.get(TENANT_CONFIG.passwordHashEnv);
   const sessionSecret = Netlify.env.get("PORTAL_SESSION_SECRET");
   if (!passwordHash || !sessionSecret) {
     const csrfToken = newCsrfToken();

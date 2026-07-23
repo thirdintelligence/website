@@ -5,7 +5,7 @@
 ### Desktop
 
 - Collapsible left sidebar.
-- Flat navigation only: Home, Projects, Library, AI Roadmap.
+- Flat navigation only: Home, Projects, Value & Results, AI Roadmap, Communications, Library.
 - No accordions, dropdowns, or hidden page groups inside the sidebar.
 - Logo and tenant name remain visible in expanded mode.
 - Collapsed mode uses accessible labeled icons and tooltips.
@@ -27,7 +27,7 @@ Search is the rightmost large utility and is absent only in full-screen presenta
 
 ### Mobile
 
-- Sidebar becomes an off-canvas drawer with the same five flat links.
+- Sidebar becomes an off-canvas drawer with the same six flat links.
 - Top utility bar keeps page title, Add Comment, search trigger, and theme toggle.
 - Search expands to a full-width overlay/sheet.
 - Comment/new-project composer becomes a full-height non-modal working sheet that can minimize to a bottom dock.
@@ -44,10 +44,13 @@ Examples use bkWatch; the template substitutes the tenant route.
 | `/bkwatch/projects/:projectSlug/presentation` | Full project presentation |
 | `/bkwatch/projects/:projectSlug/ideas/:ideaSlug` | Film idea presentation |
 | `/bkwatch/projects/:projectSlug/assets/:assetId` | Protected asset detail/version view |
+| `/bkwatch/value-results` | Value & Results |
+| `/bkwatch/ai-roadmap` | AI Roadmap |
+| `/bkwatch/communications` | Communication overview |
+| `/bkwatch/communications/:type` | Comments, email summaries, or meetings |
 | `/bkwatch/library` | Library directory |
 | `/bkwatch/library/:category` | Filtered category |
 | `/bkwatch/library/:category/:recordSlug` | Knowledge record detail |
-| `/bkwatch/ai-roadmap` | AI Roadmap |
 | `/bkwatch/search?q=` | Search result view/state |
 
 Routes are rendered by the protected portal function. No protected route is a public static HTML file.
@@ -93,10 +96,10 @@ If a field is missing from any record type, that record receives a truthful `gen
 | Completed project outcomes | Project detail → Reports & outcomes |
 | Assets and versions | Project detail → Assets |
 | Brand/product/integration knowledge | Library |
-| Communication history | Library → Communication |
+| Communication history | Communications |
 | Film preferences and learned patterns | Library → Film Knowledge |
 | Practical AI adoption guidance | AI Roadmap |
-| Comment completion | Project/Library record plus Home completion feed |
+| Comment completion | Contextual project/Library record, Communications, and Home completion feed |
 
 Information may be summarized elsewhere, but every record has one canonical detail route.
 
