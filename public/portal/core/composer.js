@@ -188,11 +188,19 @@ async function submit() {
   }
 
   if (state.mode === "comment") {
-    const projectId = state.context.projectId || (f.project === "general" ? "general" : f.project);
-    /* Build context from the composer's project + scene selection, falling
-       back to the original context for scene/timestamp comments opened inline. */
+    /* The form selections (project + scene dropdowns) are the source of truth.
+       state.context is only a fallback for new comments opened inline (e.g.
+       "Comment on scene" from a project page) where the dropdowns are
+       pre-selected to match. When editing, the dropdowns are pre-selected
+       with the comment's current values, and any user changes must be
+       respected — state.context must NOT override the form. */
+    const projectId = f.project || state.context?.projectId || "general";
     const project = (dataRef.projects?.projects || []).find((p) => p.id === projectId);
-    const sceneId = f.scene || state.context?.sceneId || undefined;
+    /* If the scene dropdown exists, the user's selection is authoritative
+       (including "" = "no specific scene" → cleared). If it doesn't exist
+       (non-film project or General), the scene is always cleared. */
+    const hasSceneDropdown = !!host.querySelector("#cmp-scene");
+    const sceneId = hasSceneDropdown ? (f.scene || undefined) : undefined;
     /* Look up the scene title for a readable context label. */
     let sceneLabel = undefined;
     if (sceneId && project?.film) {
@@ -201,14 +209,18 @@ async function submit() {
       const scene = idea?.scenes?.find((s) => s.id === sceneId);
       sceneLabel = scene?.title;
     }
+    /* Build context from scratch (preserving recordId/category/assetId from
+       the original context for library record comments), then explicitly
+       set or delete sceneId so the old value doesn't persist. */
     const ctx = {
       ...state.context,
       scope: sceneId ? "scene" : (projectId === "general" ? "home" : "project"),
       projectId,
-      ...(sceneId ? { sceneId } : {}),
       label: sceneLabel || (sceneId ? `Scene ${sceneId}` : (project?.title || state.context?.label || "General comment")),
       ...(project ? { route: `/bkwatch/projects/${project.slug}` } : {})
     };
+    if (sceneId) ctx.sceneId = sceneId;
+    else delete ctx.sceneId;
     if (live) {
       const payload = { title: f.title, blocker: f.blocker, projectId, description: f.description, attachments, context: ctx,
         ...(Number.isFinite(state.context.timestampMs) ? { timestampMs: state.context.timestampMs, rangeMs: state.context.rangeMs || 5000 } : {}) };
