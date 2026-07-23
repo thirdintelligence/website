@@ -127,6 +127,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-light { display: block; }
 [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-light { display: none; }
 [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-dark { display: block; }
+/* When collapsed: center the icon logo in the narrow sidebar */
+.portal-app[data-sidebar="collapsed"] .sidebar-brand { justify-content: center; padding-left: 0; padding-right: 0; gap: 0; }
+.portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed { height: 36px; width: 36px; }
 .sidebar-brand .brand-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
 .sidebar-brand .brand-name { font-family: var(--font-head); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; }
 .sidebar-brand .brand-sub { font-size: var(--fs-caption); color: var(--text-tertiary); }
