@@ -98,7 +98,7 @@ function communicationsPreview(communications, live) {
   const meetings = (communications.meetings || []).slice(0, 3);
   if (!comments.length && !emails.length && !meetings.length) return "";
 
-  const commentItems = comments.map((c) => `<a class="comm-prev-item card-link" href="#/library/communication/comments">
+  const commentItems = comments.map((c) => `<a class="comm-prev-item card-link" href="#/communications/comments">
     ${icon("comment")}
     <div class="comm-prev-body">
       <div class="comm-prev-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div>
@@ -106,7 +106,7 @@ function communicationsPreview(communications, live) {
     </div>
   </a>`).join("");
 
-  const emailItems = emails.map((e) => `<a class="comm-prev-item card-link" href="#/library/communication/emails">
+  const emailItems = emails.map((e) => `<a class="comm-prev-item card-link" href="#/communications/emails">
     ${icon("mail")}
     <div class="comm-prev-body">
       <div class="comm-prev-title">${esc(e.subject)}</div>
@@ -114,7 +114,7 @@ function communicationsPreview(communications, live) {
     </div>
   </a>`).join("");
 
-  const meetingItems = meetings.map((m) => `<a class="comm-prev-item card-link" href="#/library/communication/meetings">
+  const meetingItems = meetings.map((m) => `<a class="comm-prev-item card-link" href="#/communications/meetings">
     ${icon("users")}
     <div class="comm-prev-body">
       <div class="comm-prev-title">${esc(m.summary)}</div>
@@ -124,7 +124,7 @@ function communicationsPreview(communications, live) {
 
   return `<section class="section">
     <div class="section-head"><h2 class="section-title">Recent communications</h2>
-      <a class="btn btn-sm btn-ghost" href="#/library/communication">View all ${icon("arrowRight")}</a></div>
+      <a class="btn btn-sm btn-ghost" href="#/communications">View all ${icon("arrowRight")}</a></div>
     <div class="comm-prev-grid">
       ${comments.length ? `<div class="comm-prev-col"><div class="comm-prev-col-head">${icon("comment")} Comments (${live.comments.length})</div>${commentItems}</div>` : ""}
       ${emails.length ? `<div class="comm-prev-col"><div class="comm-prev-col-head">${icon("mail")} Emails (${communications.emails.length})</div>${emailItems}</div>` : ""}

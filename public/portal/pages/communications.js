@@ -18,7 +18,7 @@ export function render(data, params) {
   // Active comments (not completed/deleted)
   const activeComments = (live?.comments || []).filter((c) => c.status !== "completed" && c.status !== "deleted");
   const recentComments = activeComments.slice(0, 5);
-  const commentPreview = recentComments.length ? recentComments.map((c) => `<div class="comm-preview-row"><span class="comm-rail"></span><div><div class="comm-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div><div class="comm-meta">${esc(c.attribution || "Client commented")} · ${esc(c.createdAt?.split("T")[0] || "")}</div></div></div>`).join("") : `<div class="empty-state compact">${icon("comment")}<p>No active comments.</p></div>`;
+  const commentPreview = recentComments.length ? recentComments.map((c) => `<a class="comm-preview-row card-link" href="#/communications/comments"><span class="comm-rail"></span><div><div class="comm-title">${esc(c.title || c.text?.substring(0, 60) || "Comment")}</div><div class="comm-meta">${esc(c.attribution || "Client commented")} · ${esc(c.createdAt?.split("T")[0] || "")}</div></div></a>`).join("") : `<div class="empty-state compact">${icon("comment")}<p>No active comments.</p></div>`;
 
   // Recent emails
   const recentEmails = (communications?.emails || []).slice(0, 5);
