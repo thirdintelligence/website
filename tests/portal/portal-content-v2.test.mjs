@@ -104,7 +104,7 @@ test("Value & Results uses privacy-safe tenant evidence and future metric placeh
 test("film lifecycle separates brainstorm directions, demo production, and full-film production", async () => {
   const projects = await read("projects.json");
   const film = projects.projects.find((p) => p.type === "film");
-  assert.equal(film.title, "Film 1 - Shaw Integration");
+  assert.equal(film.title, "shaw-bkWatch");
   assert.equal(film.productionLifecycle.projectPhase, "demo-production");
   assert.equal(film.productionLifecycle.demoPhase, "building");
   assert.equal(film.productionLifecycle.fullFilmPhase, "not-started");

@@ -5,7 +5,7 @@
   "asOf": "2026-07-16",
   "researchAsOf": "2026-07-16",
   "executiveSummary": {
-    "currentState": "bkWatch's current automation is rule-based — software connections, predefined rules, custom data collectors, and pattern matching. Third i has already delivered a client portal, this AI roadmap, and a brand knowledge library. Film 1 - Shaw Integration is in the demo-production phase: its selected demo is being built, while full-film production has not started. This roadmap plans the next phase: working AI into daily operations, marketing, and automation across the whole business — not just films, but an ongoing AI partnership that compounds in value each month.",
+    "currentState": "bkWatch's current automation is rule-based — software connections, predefined rules, custom data collectors, and pattern matching. Third i has already delivered a client portal, this AI roadmap, and a brand knowledge library. shaw-bkWatch is in the demo-production phase: its selected demo is being built, while full-film production has not started. This roadmap plans the next phase: working AI into daily operations, marketing, and automation across the whole business — not just films, but an ongoing AI partnership that compounds in value each month.",
     "topImprovement": "Start with human-approved AI assistance in bankruptcy monitoring exception handling, where the confirmed rule-based process already produces reviewable exceptions — then expand into daily use workflows, marketing asset generation, and ongoing film production.",
     "risks": "Product accuracy, compliance review, and data privacy boundaries must be reviewed at a checkpoint before any AI that creates content goes live. No capability is presented as adopted before it is confirmed.",
     "recommendation": "Third i evaluates the workflow first and the tool second. Start with one limited-scope, high-value trial with explicit human review and success criteria, then work AI into more of bkWatch's operations each month. Every recommendation below is backed by real production data and independent research — not guesses.",
@@ -190,8 +190,8 @@
       "category": "marketing",
       "name": "Film-to-sales-content repurposing",
       "status": "partial",
-      "outcome": "Film 1 - Shaw Integration is building its selected demo; no approved film media exists to repurpose.",
-      "detail": "Film 1 - Shaw Integration is building its selected demo; full-film production has not started and no approved film media exists to repurpose.",
+      "outcome": "shaw-bkWatch is building its selected demo; no approved film media exists to repurpose.",
+      "detail": "shaw-bkWatch is building its selected demo; full-film production has not started and no approved film media exists to repurpose.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
@@ -200,7 +200,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 Working Memory — D2 complete, media not started",
+      "source": "shaw-bkWatch Working Memory — D2 complete, media not started",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -268,8 +268,8 @@
       "category": "acquisition",
       "name": "Native-integration sales enablement",
       "status": "partial",
-      "outcome": "The Film 1 - Shaw Integration demo and product-proof directions are in progress; public claims remain reviewed at a checkpoint.",
-      "detail": "The Film 1 - Shaw Integration demo and product-proof directions are in progress; public claims remain reviewed at a checkpoint.",
+      "outcome": "The shaw-bkWatch demo and product-proof directions are in progress; public claims remain reviewed at a checkpoint.",
+      "detail": "The shaw-bkWatch demo and product-proof directions are in progress; public claims remain reviewed at a checkpoint.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
@@ -278,7 +278,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 Working Memory and factual canon",
+      "source": "shaw-bkWatch Working Memory and factual canon",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -502,8 +502,8 @@
       "category": "compliance",
       "name": "Claim citation and evidence checking",
       "status": "partial",
-      "outcome": "Film 1 - Shaw Integration uses manual source provenance and claim checkpoints; automated checking is not deployed.",
-      "detail": "Film 1 - Shaw Integration uses manual source provenance and claim checkpoints; automated checking is not deployed.",
+      "outcome": "shaw-bkWatch uses manual source provenance and claim checkpoints; automated checking is not deployed.",
+      "detail": "shaw-bkWatch uses manual source provenance and claim checkpoints; automated checking is not deployed.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
@@ -512,7 +512,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 claim-control workflow",
+      "source": "shaw-bkWatch claim-control workflow",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -538,7 +538,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 Working Memory — 122 visual prompts ready",
+      "source": "shaw-bkWatch Working Memory — 122 visual prompts ready",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -564,7 +564,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 Working Memory — Session State",
+      "source": "shaw-bkWatch Working Memory — Session State",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -580,8 +580,8 @@
       "category": "film",
       "name": "Generated motion production",
       "status": "not-in-use",
-      "outcome": "Zero motion clips have been generated for current Film 1.",
-      "detail": "Zero motion clips have been generated for current Film 1.",
+      "outcome": "Zero motion clips have been generated for current shaw-bkWatch.",
+      "detail": "Zero motion clips have been generated for current shaw-bkWatch.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Curated-discovery",
@@ -590,7 +590,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 Working Memory — Session State",
+      "source": "shaw-bkWatch Working Memory — Session State",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {
@@ -746,7 +746,7 @@
         "offered": false,
         "investment": "Scope required"
       },
-      "source": "Film1 Working Memory and procedural human review discipline",
+      "source": "shaw-bkWatch Working Memory and procedural human review discipline",
       "researchAsOf": "2026-07-16",
       "comment": {
         "context": {

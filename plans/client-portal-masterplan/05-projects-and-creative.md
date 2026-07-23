@@ -66,7 +66,7 @@ Asset comments inherit project, asset ID, version ID, scene ID, and playback tim
 
 ## Film 1 preservation
 
-The project is `Film 1 - Shaw Integration`. `Final Demo` is the selected demo currently being built inside it. The demo is not complete, in review, approved, or in full-film production. The plan, six-scene selected demo, supporting ideas, locked script, instruction counts, and approval checkpoints may be represented only as supported by sanitized memory.
+The project is `shaw-bkWatch`. `Final Demo` is the selected demo currently being built inside it. The demo is not complete, in review, approved, or in full-film production. The plan, six-scene selected demo, supporting ideas, locked script, instruction counts, and approval checkpoints may be represented only as supported by sanitized memory.
 
 No still, motion clip, completed video, approval, or production progress is invented.
 

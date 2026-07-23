@@ -45,7 +45,7 @@
       "source": "BankruptcyWatch factual canon — Comprehensive Bankruptcy Monitoring"
     },
     {
-      "label": "Film 1 target runtime",
+      "label": "shaw-bkWatch target runtime",
       "value": "22",
       "unit": "seconds",
       "asOf": "2026-07-16",
@@ -58,7 +58,7 @@
       "unit": "words · 122.7 WPM",
       "asOf": "2026-07-16",
       "state": "locked",
-      "source": "Film1 Working Memory — Final Demo"
+      "source": "shaw-bkWatch Working Memory — Final Demo"
     },
     {
       "label": "Creative directions",
@@ -82,7 +82,7 @@
       "unit": "visual prompts",
       "asOf": "2026-07-16",
       "state": "ready",
-      "source": "Film1 prompt inventory — 86 still/anchor + 36 motion prompts"
+      "source": "shaw-bkWatch prompt inventory — 86 still/anchor + 36 motion prompts"
     },
     {
       "label": "Approved generated media",
@@ -90,7 +90,7 @@
       "unit": "stills or motion clips",
       "asOf": "2026-07-16",
       "state": "not-started",
-      "source": "Film1 Working Memory — media generation has not started"
+      "source": "shaw-bkWatch Working Memory — media generation has not started"
     },
     {
       "label": "Current project phase",
@@ -137,7 +137,7 @@
       "facts": [
         "Shaw Systems and BankruptcyWatch partnered around native automation inside Spectrum.",
         "Shaw approval for Spectrum UI use is secured; exact sanitized-asset delivery remains outstanding.",
-        "The integration message is the subject of the selected 22-second demo currently being built inside Film 1 - Shaw Integration."
+        "The integration message is the subject of the selected 22-second demo currently being built inside shaw-bkWatch."
       ],
       "state": "Confirmed integration story; exact live/showable function wording remains gated before public publication.",
       "timeline": [
@@ -172,7 +172,7 @@
         "Role-specific integration one-pager",
         "Sales enablement film cutdowns after claim lock"
       ],
-      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
+      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; shaw-bkWatch Working Memory"
     },
     {
       "slug": "monitoring",
@@ -299,7 +299,7 @@
         "Case-to-task orchestration",
         "Review-ready audit trail summaries"
       ],
-      "source": "BankruptcyWatch factual canon — Automated Bankruptcy Response; Film1 claim gates"
+      "source": "BankruptcyWatch factual canon — Automated Bankruptcy Response; shaw-bkWatch claim gates"
     },
     {
       "slug": "pacer-uptime",
@@ -345,8 +345,8 @@
   ],
   "film": {
     "slug": "film1-shaw-bkwatch",
-    "name": "Film 1 - Shaw Integration",
-    "displayName": "Film 1 - Shaw Integration",
+    "name": "shaw-bkWatch",
+    "displayName": "shaw-bkWatch",
     "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
     "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
     "coreMessage": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
@@ -370,7 +370,7 @@
       {
         "state": "done",
         "title": "D0 / project split",
-        "detail": "Film 1 integration brief separated from future Film 2"
+        "detail": "shaw-bkWatch integration brief separated from future Film 2"
       },
       {
         "state": "done",
@@ -908,7 +908,7 @@
         ]
       }
     ],
-    "source": "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
+    "source": "shaw-bkWatch Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
   },
   "aiCapabilities": [
     {
@@ -950,8 +950,8 @@
       "category": "Marketing",
       "name": "Film-to-sales-content repurposing",
       "status": "partial",
-      "detail": "Film 1 is in creative development; no final media exists to repurpose.",
-      "source": "Film1 Working Memory — D2 complete, media not started"
+      "detail": "shaw-bkWatch is in creative development; no final media exists to repurpose.",
+      "source": "shaw-bkWatch Working Memory — D2 complete, media not started"
     },
     {
       "category": "Acquisition",
@@ -971,8 +971,8 @@
       "category": "Acquisition",
       "name": "Native-integration sales enablement",
       "status": "partial",
-      "detail": "Film 1 and product-proof directions are in progress; public claims remain gated.",
-      "source": "Film1 Working Memory and factual canon"
+      "detail": "shaw-bkWatch and product-proof directions are in progress; public claims remain gated.",
+      "source": "shaw-bkWatch Working Memory and factual canon"
     },
     {
       "category": "Service",
@@ -1034,29 +1034,29 @@
       "category": "Compliance",
       "name": "Claim citation and evidence checking",
       "status": "partial",
-      "detail": "Film 1 uses manual source provenance and claim gates; automated checking is not deployed.",
-      "source": "Film1 claim-control workflow"
+      "detail": "shaw-bkWatch uses manual source provenance and claim gates; automated checking is not deployed.",
+      "source": "shaw-bkWatch claim-control workflow"
     },
     {
       "category": "Film",
       "name": "AI-assisted concept development",
       "status": "partial",
       "detail": "Final Demo and eight supporting studies are planned; generation has not started.",
-      "source": "Film1 Working Memory — 122 visual prompts ready"
+      "source": "shaw-bkWatch Working Memory — 122 visual prompts ready"
     },
     {
       "category": "Film",
       "name": "Generated still production",
       "status": "not",
       "detail": "Zero generated stills are approved because media generation has not started.",
-      "source": "Film1 Working Memory — Session State"
+      "source": "shaw-bkWatch Working Memory — Session State"
     },
     {
       "category": "Film",
       "name": "Generated motion production",
       "status": "not",
-      "detail": "Zero motion clips have been generated for current Film 1.",
-      "source": "Film1 Working Memory — Session State"
+      "detail": "Zero motion clips have been generated for current shaw-bkWatch.",
+      "source": "shaw-bkWatch Working Memory — Session State"
     },
     {
       "category": "Web",
@@ -1098,7 +1098,7 @@
       "name": "Approval-aware copy review",
       "status": "partial",
       "detail": "Film copy is manually gated by status and provenance; automated review is not deployed.",
-      "source": "Film1 Working Memory and procedural HITL discipline"
+      "source": "shaw-bkWatch Working Memory and procedural HITL discipline"
     },
     {
       "category": "Product / workflow",
@@ -1123,7 +1123,7 @@
     }
   ],
   "currentWork": {
-    "summary": "Film 1 - Shaw Integration is the active project. Its selected 22-second Final Demo is being built now; full-film production has not started. The eight unselected ideas retain storyboard and script pages without media placeholders.",
+    "summary": "shaw-bkWatch is the active project. Its selected 22-second Final Demo is being built now; full-film production has not started. The eight unselected ideas retain storyboard and script pages without media placeholders.",
     "milestone": "Third i completes the selected demo for bkWatch review. NEW FILING is generated with the rest of the demo, Shaw interface-use approval is already secured, and exact composite frames remain demo-production checkpoints.",
     "deliverables": [
       "Locked 45-word voiceover at 122.7 WPM",
@@ -1145,7 +1145,7 @@
         "detail": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene."
       }
     ],
-    "legacy": "A prior vertical concept is retained only as an internal topology reference. It is not part of the current Film 1 presentation and is not shown as approved work.",
-    "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+    "legacy": "A prior vertical concept is retained only as an internal topology reference. It is not part of the current shaw-bkWatch presentation and is not shown as approved work.",
+    "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
   }
 }

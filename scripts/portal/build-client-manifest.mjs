@@ -49,13 +49,13 @@ const HOME_OPPORTUNITIES = [
   {
     title: "Approved in-product Spectrum walkthrough",
     outcome: "A sanctioned demo that shows the native bankruptcy workflow inside Spectrum without switching tools.",
-    why: "Directly resolves the switching objection Film 1 is built to answer, using proof existing Spectrum users trust.",
+    why: "Directly resolves the switching objection shaw-bkWatch is built to answer, using proof existing Spectrum users trust.",
     value: "High",
     effort: "Medium",
     evidence: "Internal-confirmed",
     recommendation: "Lock live/showable functions and sanitized Spectrum assets, then produce a short role-specific walkthrough.",
     link: "/bkwatch/projects/film1-shaw-bkwatch",
-    source: "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
+    source: "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; shaw-bkWatch Working Memory"
   },
   {
     title: "Exception triage copilot for monitoring",
@@ -75,7 +75,7 @@ const HOME_OPPORTUNITIES = [
     value: "Medium",
     effort: "Low",
     evidence: "Internal-confirmed",
-    recommendation: "Draft after Film 1 claim lock so wording matches approved public language.",
+    recommendation: "Draft after shaw-bkWatch claim lock so wording matches approved public language.",
     link: "/bkwatch/library/products",
     source: "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic"
   }
@@ -157,7 +157,7 @@ function buildHome(v1, projects) {
     { label: "Active projects", value: projects.filter((p) => p.status === "active").length, source: "Derived from client-safe project manifest" },
     { label: "Open blocker comments", value: openBlockers, source: v1.currentWork.source },
     { label: "Deliverables ready for review", value: (v1.currentWork.deliverables || []).length, source: v1.currentWork.source },
-    { label: "Approved generated media", value: v1.film.approvedMedia, unit: "stills or clips", state: "not-started", source: "Film1 Working Memory — media generation has not started" },
+    { label: "Approved generated media", value: v1.film.approvedMedia, unit: "stills or clips", state: "not-started", source: "shaw-bkWatch Working Memory — media generation has not started" },
     { label: "Next milestone", value: "Complete selected demo for review", source: v1.currentWork.source }
   ];
 
@@ -254,7 +254,7 @@ function buildProjects(v1) {
     status: "active",
     statusLabel: "Active — Demo in production",
     // Confirmed relationship metrics: invoicing summary as of 2026-07-21 and
-    // first Film 1 activity recorded on 2026-07-01.
+    // first shaw-bkWatch activity recorded on 2026-07-01.
     startedAt: "2026-07-01",
     hoursInvested: 20,
     projectType: "Integration film · Shaw × bkWatch",

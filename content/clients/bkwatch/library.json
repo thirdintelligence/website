@@ -228,14 +228,14 @@
       "facts": [
         "Shaw Systems and BankruptcyWatch partnered around native automation inside Spectrum.",
         "Shaw approval for Spectrum UI use is secured; exact sanitized-asset delivery remains outstanding.",
-        "The integration message is the subject of the selected 22-second demo currently being built inside Film 1 - Shaw Integration."
+        "The integration message is the subject of the selected 22-second demo currently being built inside shaw-bkWatch."
       ],
       "status": "Active / confirmed context",
       "format": "integration",
       "projectId": "general",
       "lastReviewedAt": "2026-07-16",
       "sourceRefs": [
-        "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
+        "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; shaw-bkWatch Working Memory"
       ],
       "relatedIds": [
         "film1-shaw-bkwatch"
@@ -332,7 +332,7 @@
       "projectId": "general",
       "lastReviewedAt": "2026-07-16",
       "sourceRefs": [
-        "BankruptcyWatch factual canon — Automated Bankruptcy Response; Film1 claim gates"
+        "BankruptcyWatch factual canon — Automated Bankruptcy Response; shaw-bkWatch claim gates"
       ],
       "relatedIds": [],
       "comment": {
@@ -441,13 +441,13 @@
       "category": "film-knowledge",
       "subcategory": "creative-directions",
       "title": "Selected creative direction — Final Demo",
-      "summary": "Final Demo is the selected demo currently being built for Film 1 - Shaw Integration. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain brainstorm studies with storyboard and script pages but no media placeholders.",
+      "summary": "Final Demo is the selected demo currently being built for shaw-bkWatch. It combines real Spectrum recognition, a human lender floor, the filing object, physical dashboard architecture, the internal BankruptcyWatch reveal, and three sequential handled outcomes. The eight earlier ideas remain brainstorm studies with storyboard and script pages but no media placeholders.",
       "status": "Selected — demo in production",
       "format": "film-knowledge",
       "projectId": "film1-shaw-bkwatch",
       "lastReviewedAt": "2026-07-16",
       "sourceRefs": [
-        "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
+        "shaw-bkWatch Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
       ],
       "relatedIds": [
         "film1-shaw-bkwatch"
@@ -488,7 +488,7 @@
       "projectId": "film1-shaw-bkwatch",
       "lastReviewedAt": "2026-07-16",
       "sourceRefs": [
-        "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
+        "shaw-bkWatch Working Memory, Final Demo Plan, D2 Comparative Storyboards, and prompt inventory — updated Jul 16, 2026"
       ],
       "relatedIds": [
         "film1-shaw-bkwatch"

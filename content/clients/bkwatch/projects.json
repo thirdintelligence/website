@@ -8,13 +8,13 @@
       "id": "film1-shaw-bkwatch",
       "slug": "film1-shaw-bkwatch",
       "type": "film",
-      "title": "Film 1 - Shaw Integration",
-      "displayName": "Film 1 - Shaw Integration",
+      "title": "shaw-bkWatch",
+      "displayName": "shaw-bkWatch",
       "status": "active",
       "statusLabel": "Active",
       "startedAt": "2026-07-01",
       "hoursInvested": 20,
-      "projectType": "Shaw Integration",
+      "projectType": "shaw-bkWatch",
       "valueStatement": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "objective": "Resolve the switching objection by showing that BankruptcyWatch automation arrives natively inside Spectrum.",
       "audience": "Existing Spectrum users and the servicing, collections, compliance, and recovery leaders who evaluate bankruptcy workflow risk.",
@@ -87,7 +87,7 @@
         {
           "state": "done",
           "title": "Phase 1 — Brainstorming",
-          "detail": "Film 1 integration brief separated from future Film 2"
+          "detail": "shaw-bkWatch integration brief separated from future Film 2"
         },
         {
           "state": "done",
@@ -1052,7 +1052,7 @@
         },
         "count": 0
       },
-      "source": "Film1 Working Memory, Final Demo Plan, D2 Comparative Storyboards, and instruction inventory — updated Jul 16, 2026",
+      "source": "shaw-bkWatch Working Memory, Final Demo Plan, D2 Comparative Storyboards, and instruction inventory — updated Jul 16, 2026",
       "creativeVision": "Show real Spectrum first, reveal the bankruptcy-specialized mechanism working beneath it, deliver three visible handled outcomes, then return to the same specialist and real Spectrum workflow.",
       "keyMessaging": [
         {

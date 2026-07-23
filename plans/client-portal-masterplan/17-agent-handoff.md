@@ -23,7 +23,7 @@ Read in this order before changing source:
 
 ## Current-state addendum
 
-- The bkWatch project is named `Film 1 - Shaw Integration`; `Final Demo` is its selected demo, not its project name.
+- The bkWatch project is named `shaw-bkWatch`; `Final Demo` is its selected demo, not its project name.
 - Current phase is `demo-production/building`; full-film production has not started.
 - Brainstorm/unselected directions have storyboard/script pages and no media placeholders.
 - Once locked, the selected demo's complete storyboard/history/script/comments workspace lives directly above Creative Directions on the main project page and has no separate direction page. Its scenes use `designer.svg` during demo production; approval advances this same record into full-film production.

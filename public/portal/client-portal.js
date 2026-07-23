@@ -104,9 +104,9 @@
 
     const products = `<section class="section"><div class="section-head"><div><h2>Product and integration surfaces</h2><p>Confirmed capabilities remain separate from roadmap and opportunities.</p></div>${routeLink(`${route}/products`, "View all products")}</div><div class="grid-3">${data.products.slice(0, 3).map(productCard).join("")}</div></section>`;
 
-    const work = `<section class="section"><div class="section-head"><div><h2>Current work and approval health</h2><p>Film 1 - Shaw Integration is in demo production; full-film production has not started.</p></div>${routeLink(`${route}/current-work`, "Open work area")}</div><div class="grid-2"><article class="card card-accent"><h3>${e(data.film.name)}</h3><p>${e(data.film.objective)}</p><div class="card-footer"><span>${e(data.film.phase)}</span>${routeLink(`${route}/films/${data.film.slug}`, "Open film →")}</div></article><article class="card"><h3>Next milestone</h3><p>${e(data.currentWork.milestone)}</p>${source(data.currentWork.source)}</article></div></section>`;
+    const work = `<section class="section"><div class="section-head"><div><h2>Current work and approval health</h2><p>shaw-bkWatch is in demo production; full-film production has not started.</p></div>${routeLink(`${route}/current-work`, "Open work area")}</div><div class="grid-2"><article class="card card-accent"><h3>${e(data.film.name)}</h3><p>${e(data.film.objective)}</p><div class="card-footer"><span>${e(data.film.phase)}</span>${routeLink(`${route}/films/${data.film.slug}`, "Open film →")}</div></article><article class="card"><h3>Next milestone</h3><p>${e(data.currentWork.milestone)}</p>${source(data.currentWork.source)}</article></div></section>`;
 
-    main.innerHTML = pageHead("Client operations", "bkWatch workspace", "A sourced operating view of brand, products, Film 1, approvals, and practical AI opportunities.") + hero + stats + brand + products + work;
+    main.innerHTML = pageHead("Client operations", "bkWatch workspace", "A sourced operating view of brand, products, shaw-bkWatch, approvals, and practical AI opportunities.") + hero + stats + brand + products + work;
   }
 
   function renderProducts() {
@@ -123,20 +123,20 @@
   }
 
   function renderFilm() {
-    context.textContent = "Film 1 - Shaw Integration";
+    context.textContent = "shaw-bkWatch";
     const film = data.film;
     const hero = `<section class="film-hero"><div><p class="eyebrow">Film project / current state</p><h1>${e(film.displayName)}</h1><p>${e(film.objective)}</p><div class="film-kpis"><div><strong>${e(film.runtime)}</strong><span>Runtime</span></div><div><strong>${e(film.ideas.length)}</strong><span>Directions</span></div><div><strong>${e(film.sceneCount)}</strong><span>Scene presentations</span></div><div><strong>${e(film.approvedMedia)}</strong><span>Generated media</span></div></div></div><div class="film-side">${status("partial")}<h2>${e(film.phase)}</h2><p>${e(film.approval)}</p></div></section>`;
     const playable = `<section class="section"><div class="section-head"><div><h2>Playable work</h2><p>Presented before the scene breakdown when approved media exists.</p></div></div><div class="media-empty"><span class="media-icon" aria-hidden="true">▶</span><strong>Selected demo in production</strong><p>The Final Demo is being built now. Full-film production begins only after bkWatch approves the completed demo.</p></div></section>`;
     const overview = `<section class="section split-card"><div><p class="eyebrow">Creative thesis</p><h2>${e(film.creativeThesis)}</h2><h3 class="section">Audience</h3><p>${e(film.audience)}</p><h3 class="section">Core message</h3><p>${e(film.coreMessage)}</p>${source(film.source)}</div><div><h3>Milestone timeline</h3>${timeline(film.timeline)}</div></section>`;
-    const script = `<section class="section"><div class="section-head"><div><h2>Locked voiceover</h2><p>Exact 45-word Film 1 script. Copy changes require Third i approval.</p></div></div><div class="script-block"><blockquote>“${e(film.script)}”</blockquote>${source(film.scriptSource)}</div></section>`;
+    const script = `<section class="section"><div class="section-head"><div><h2>Locked voiceover</h2><p>Exact 45-word shaw-bkWatch script. Copy changes require Third i approval.</p></div></div><div class="script-block"><blockquote>“${e(film.script)}”</blockquote>${source(film.scriptSource)}</div></section>`;
     const ideas = `<section class="section"><div class="section-head"><div><h2>Complete idea slate</h2><p>Select any direction for its full scene-by-scene presentation.</p></div></div><div class="recommendation"><strong>Creative recommendation — Third i guidance</strong>${e(film.recommendation)}</div><div class="idea-grid section">${film.ideas.map(ideaCard).join("")}</div></section>`;
     const compare = `<section class="section"><div class="section-head"><div><h2>Idea comparison</h2><p>Confirmed production attributes; formal scoring is awaiting client review.</p></div></div><div class="data-table-wrap"><table class="data-table"><thead><tr><th>Direction</th><th>Message clarity / strength</th><th>Emotional impact</th><th>Production complexity</th><th>Distinctiveness</th><th>Current guidance</th></tr></thead><tbody>${film.ideas.map((idea) => `<tr><td><strong>${e(idea.number)} · ${e(idea.title)}</strong></td><td>${e(idea.strength)}</td><td>${e(idea.number === "HYBRID" ? "Controlled power" : idea.number === "06" ? "Protected attention" : idea.number === "04" ? "Controlled confidence" : "Needs scored review")}</td><td>${e(idea.complexity)}</td><td>${e(idea.distinctiveness)}</td><td>${e(idea.recommendation)}</td></tr>`).join("")}</tbody></table></div></section>`;
-    const approvals = `<section class="section grid-2"><article class="card"><h3>Approval needs</h3>${list(film.approvals, "decision-list")}</article><article class="card card-accent"><h3>Related product system</h3><p>Film 1 is confirmed to support the Shaw Systems Spectrum integration story. No other product integration is inferred.</p><div class="card-footer"><span>Confirmed relationship</span>${routeLink(`${route}/products/spectrum-integration`, "View integration →")}</div></article></section>`;
+    const approvals = `<section class="section grid-2"><article class="card"><h3>Approval needs</h3>${list(film.approvals, "decision-list")}</article><article class="card card-accent"><h3>Related product system</h3><p>shaw-bkWatch is confirmed to support the Shaw Systems Spectrum integration story. No other product integration is inferred.</p><div class="card-footer"><span>Confirmed relationship</span>${routeLink(`${route}/products/spectrum-integration`, "View integration →")}</div></article></section>`;
     main.innerHTML = hero + playable + overview + script + ideas + compare + approvals;
   }
 
   function renderIdea(idea) {
-    context.textContent = `Film 1 / ${idea.title}`;
+    context.textContent = `shaw-bkWatch / ${idea.title}`;
     const ideas = data.film.ideas;
     const index = ideas.findIndex((entry) => entry.slug === idea.slug);
     const previous = ideas[(index - 1 + ideas.length) % ideas.length];
@@ -162,7 +162,7 @@
   function renderCurrentWork() {
     context.textContent = "Current work";
     const work = data.currentWork;
-    main.innerHTML = pageHead("Demos and delivery", "Current work", work.summary, routeLink(`${route}/films/${data.film.slug}`, "Open Film 1", "button")) +
+    main.innerHTML = pageHead("Demos and delivery", "Current work", work.summary, routeLink(`${route}/films/${data.film.slug}`, "Open shaw-bkWatch", "button")) +
       `<section class="grid-4">${data.metrics.slice(4, 10).map(metricCard).join("")}</section>` +
       `<section class="section split-card"><div><p class="eyebrow">Next milestone</p><h2>${e(work.milestone)}</h2><h3 class="section">Prepared deliverables</h3>${list(work.deliverables)}${source(work.source)}</div><div><h3>Open blockers and approvals</h3>${list(work.blockers, "decision-list")}</div></section>` +
       `<section class="section"><div class="media-empty"><span class="media-icon" aria-hidden="true">▶</span><strong>No current client-review video is available</strong><p>${e(work.legacy)}</p></div></section>`;

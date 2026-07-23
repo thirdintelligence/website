@@ -15,8 +15,8 @@ test("bkWatch manifest is explicitly client-safe and tenant-scoped", () => {
   assert.doesNotMatch(manifestText, /100% accuracy/i);
 });
 
-test("Film 1 current state is internally consistent", () => {
-  assert.equal(manifest.film.name, "Film 1 - Shaw Integration");
+test("shaw-bkWatch current state is internally consistent", () => {
+  assert.equal(manifest.film.name, "shaw-bkWatch");
   assert.equal(manifest.film.phase, "Demo production — building selected demo");
   assert.equal(manifest.film.runtime, "22 seconds");
   assert.equal(manifest.film.ideas.length, 9);
@@ -88,7 +88,7 @@ test("public homepage contact and canonical route are wired", async () => {
   assert.match(portalFunction, /bkwatch-login-dark-mode-20260714\.css\?v=20260714-11/);
   assert.match(portalFunction, /bkwatch-logo-white-frame-20260714\.css/);
   assert.doesNotMatch(portalFunction, /bkwatch-(?:login-blue-black|light-blue|login-black-blue)-2026071[34]\.css/);
-  assert.match(portalFunction, /const ASSET_RELEASE = "20260722-19"/);
+  assert.match(portalFunction, /const ASSET_RELEASE = "20260722-20"/);
   // The authenticated route now serves the redesigned shell: embedded (private)
   // manifests + live operational config, with the login page unchanged above.
   assert.match(portalFunction, /id="portal-data" type="application\/json"/);

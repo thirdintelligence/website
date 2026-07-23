@@ -5,7 +5,7 @@ Updated: 2026-07-21
 
 ## Canonical naming
 
-- A **project** has a stable client-facing name. Current bkWatch project: `Film 1 - Shaw Integration`.
+- A **project** has a stable client-facing name. Current bkWatch project: `shaw-bkWatch`.
 - A **demo direction** is an idea inside a project. Current selected direction: `Final Demo`.
 - Never use a demo title as the project title.
 - Store `projectPhase`, `demoPhase`, and `fullFilmPhase` separately. A project can be active while its demo is building and its full film is not started.
@@ -54,7 +54,7 @@ Demo approval later changes the same record to `promotionState=promoted`, `proje
 
 ## Current bkWatch truth
 
-- Project: `Film 1 - Shaw Integration`
+- Project: `shaw-bkWatch`
 - Selected demo: `Final Demo`
 - `projectPhase`: `demo-production`
 - `demoPhase`: `building`

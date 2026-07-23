@@ -12,24 +12,24 @@
     {
       "label": "Open blocker comments",
       "value": 2,
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
     },
     {
       "label": "Deliverables ready for review",
       "value": 4,
-      "source": "Film 1 - Shaw Integration deliverable tracker — selected demo remains in production"
+      "source": "shaw-bkWatch deliverable tracker — selected demo remains in production"
     },
     {
       "label": "Approved generated media",
       "value": 0,
       "unit": "stills or clips",
       "state": "not-started",
-      "source": "Film1 Working Memory — media generation has not started"
+      "source": "shaw-bkWatch Working Memory — media generation has not started"
     },
     {
       "label": "Next milestone",
       "value": "Complete the selected demo for review",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
     }
   ],
   "needsAttention": [
@@ -40,10 +40,10 @@
       "title": "Demo product-accuracy confirmations",
       "detail": "Confirm the live/showable Status, Tasks, and Credit behavior while Third i builds the selected 22-second demo. Full-film production has not started.",
       "projectId": "film1-shaw-bkwatch",
-      "projectLabel": "Film 1 - Shaw Integration",
+      "projectLabel": "shaw-bkWatch",
       "status": "Awaiting your approval",
       "route": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
     },
     {
       "id": "na-blocker-2",
@@ -52,16 +52,16 @@
       "title": "Final CTA and logo hierarchy",
       "detail": "Confirm the closing call-to-action and the final Shaw + BankruptcyWatch logo lockup and hierarchy used in the end scene.",
       "projectId": "film1-shaw-bkwatch",
-      "projectLabel": "Film 1 - Shaw Integration",
+      "projectLabel": "shaw-bkWatch",
       "status": "Awaiting your approval",
       "route": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "Film1 Working Memory and Final Demo Plan — Jul 16, 2026"
+      "source": "shaw-bkWatch Working Memory and Final Demo Plan — Jul 16, 2026"
     }
   ],
   "activeWork": [
     {
       "projectId": "film1-shaw-bkwatch",
-      "name": "Film 1 - Shaw Integration",
+      "name": "shaw-bkWatch",
       "purpose": "Teams can add specialized bankruptcy automation without leaving the loan management platform they already use.",
       "phase": "Demo production — building the selected demo",
       "nextMilestone": "Third i completes the selected demo for bkWatch review. NEW FILING is generated with the rest of the selected demo; Shaw interface-use approval is already secured.",
@@ -125,13 +125,13 @@
     {
       "title": "Approved in-product Spectrum walkthrough",
       "outcome": "A sanctioned demo that shows the native bankruptcy workflow inside Spectrum without switching tools.",
-      "why": "Directly resolves the switching objection Film 1 is built to answer, using proof existing Spectrum users trust.",
+      "why": "Directly resolves the switching objection shaw-bkWatch is built to answer, using proof existing Spectrum users trust.",
       "value": "High",
       "effort": "Medium",
       "evidence": "Internal-confirmed",
       "recommendation": "Lock live/showable functions and cleaned Spectrum assets, then produce a short role-specific walkthrough.",
       "link": "/bkwatch/projects/film1-shaw-bkwatch",
-      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; Film1 Working Memory"
+      "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic; shaw-bkWatch Working Memory"
     },
     {
       "title": "Exception triage copilot for monitoring",
@@ -151,7 +151,7 @@
       "value": "Medium",
       "effort": "Low",
       "evidence": "Internal-confirmed",
-      "recommendation": "Draft after Film 1 claim lock so wording matches approved public language.",
+      "recommendation": "Draft after shaw-bkWatch claim lock so wording matches approved public language.",
       "link": "/bkwatch/library/products",
       "source": "BankruptcyWatch factual canon — Shaw Systems & BankruptcyWatch Dynamic"
     }

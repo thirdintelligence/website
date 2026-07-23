@@ -23,7 +23,7 @@
       "title": "Please confirm we can show the live Status field",
       "blocker": true, "projectId": "film1-shaw-bkwatch",
       "description": "We want to be sure the Status update shown is an approved, showable function before the demo goes wider.",
-      "context": { "scope": "project", "projectId": "film1-shaw-bkwatch", "label": "Film 1", "route": "/bkwatch/projects/film1-shaw-bkwatch" },
+      "context": { "scope": "project", "projectId": "film1-shaw-bkwatch", "label": "shaw-bkWatch", "route": "/bkwatch/projects/film1-shaw-bkwatch" },
       "status": "open", "attribution": "bkWatch commented", "createdAt": "2026-07-16T19:02:00Z", "revision": 1
     },
     {

@@ -39,7 +39,7 @@
           "properties": {
             "hours": { "type": "number", "minimum": 0, "description": "Total Third i hours in the relationship." },
             "descriptor": { "type": "string", "description": "Short label next to the number, normally 'hours'." },
-            "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English context (e.g., '20 hours on Film 1 Final Demo')." }
+            "label": { "$ref": "common.schema.json#/$defs/nonEmptyText", "description": "Plain-English context (e.g., '20 hours on shaw-bkWatch Final Demo')." }
           }
         },
         "capabilitiesDelivered": {

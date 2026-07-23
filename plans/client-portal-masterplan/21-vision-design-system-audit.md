@@ -21,7 +21,7 @@ The portal is a client-branded operating workspace and relationship record: one 
 
 ## Corrections applied in this release
 
-- Replaced the ambiguous project identity with `Film 1 - Shaw Integration`.
+- Replaced the ambiguous project identity with `shaw-bkWatch`.
 - Separated demo production from full-film production in schema, data, UI, memory, OS, and agent instructions.
 - Removed media preview containers from unselected brainstorm directions.
 - Limited `designer.svg` to selected demo production and added the precise label `Demo in production`.
