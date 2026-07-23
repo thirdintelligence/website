@@ -240,6 +240,24 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     transform: translateX(-100%); transition: transform var(--dur) var(--ease); box-shadow: var(--shadow-lg);
   }
   .portal-app[data-drawer="open"] .portal-sidebar { transform: translateX(0); }
+  /* In mobile drawer mode, always show full labels regardless of collapsed state. */
+  .portal-app[data-sidebar="collapsed"] .nav-label,
+  .portal-app[data-sidebar="collapsed"] .brand-name,
+  .portal-app[data-sidebar="collapsed"] .brand-sub,
+  .portal-app[data-sidebar="collapsed"] .session-indicator,
+  .portal-app[data-sidebar="collapsed"] .powered-by span,
+  .portal-app[data-sidebar="collapsed"] .logout-btn span,
+  .portal-app[data-sidebar="collapsed"] .sidebar-collapse span { display: block; }
+  .portal-app[data-sidebar="collapsed"] .nav-item,
+  .portal-app[data-sidebar="collapsed"] .logout-btn,
+  .portal-app[data-sidebar="collapsed"] .sidebar-collapse { justify-content: flex-start; }
+  .portal-app[data-sidebar="collapsed"] .sidebar-collapse .icon { transform: none; }
+  .portal-app[data-sidebar="collapsed"] .sidebar-brand { justify-content: flex-start; padding: var(--space-2) var(--space-2) var(--space-4); }
+  .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed { display: none; }
+  .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-light,
+  .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-dark { display: block; }
+  [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-light { display: none; }
+  [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-dark { display: block; }
   .menu-trigger { display: inline-flex; }
   .search-utility { display: none; }
   .mobile-search-trigger { display: inline-flex; }
