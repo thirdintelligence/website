@@ -97,8 +97,14 @@ function wireShell(data) {
 
   const menu = document.getElementById("menu-trigger");
   const scrim = document.getElementById("scrim");
-  menu?.addEventListener("click", () => { app.dataset.drawer = "open"; scrim.classList.add("open"); });
-  scrim?.addEventListener("click", () => { app.dataset.drawer = "closed"; scrim.classList.remove("open"); });
+  /* Menu trigger toggles the drawer open/closed in mobile view. */
+  menu?.addEventListener("click", () => {
+    const isOpen = app.dataset.drawer === "open";
+    app.dataset.drawer = isOpen ? "closed" : "open";
+    scrim.classList.toggle("open", !isOpen);
+    menu.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+  });
+  scrim?.addEventListener("click", () => { app.dataset.drawer = "closed"; scrim.classList.remove("open"); menu.setAttribute("aria-label", "Open navigation"); });
 
   const logout = document.getElementById("logout-btn");
   logout?.addEventListener("click", () => {
@@ -120,7 +126,10 @@ function wireShell(data) {
 
   // Close the mobile drawer whenever a nav link is used.
   document.querySelector(".sidebar-nav")?.addEventListener("click", (e) => {
-    if (e.target.closest(".nav-item")) { app.dataset.drawer = "closed"; document.getElementById("scrim")?.classList.remove("open"); }
+    if (e.target.closest(".nav-item")) {
+      app.dataset.drawer = "closed"; document.getElementById("scrim")?.classList.remove("open");
+      menu?.setAttribute("aria-label", "Open navigation");
+    }
   });
 }
 

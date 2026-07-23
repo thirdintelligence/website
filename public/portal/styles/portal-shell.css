@@ -275,7 +275,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .portal-app[data-sidebar="collapsed"] .sidebar-brand { justify-content: flex-start; padding: var(--space-2) var(--space-2) var(--space-4); }
   .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed,
   .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-light,
-  .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-dark { display: none; }
+  .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-dark,
+  [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-light,
+  [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-collapsed-dark { display: none; }
   .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-light,
   .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-dark { display: block; }
   [data-theme="dark"] .portal-app[data-sidebar="collapsed"] .sidebar-brand .brand-logo-light { display: none; }
