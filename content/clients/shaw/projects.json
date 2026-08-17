@@ -1177,8 +1177,8 @@
           "detail": "The first demo should connect productivity and dollars collected with better servicing and borrower outcomes."
         }
       ],
-      "phase": "Demo production — 8 scene stills and VO V1 approved",
-      "nextMilestone": "Confirm the first lane, scenario, role language, abstraction level, UI reference plan, and output depth.",
+      "phase": "Demo production — 8 of 14 scene stills approved, VO V1 approved, motion not started",
+      "nextMilestone": "Complete remaining scene stills (2.1, 2.2, 3.3, 4.1–4.3), then produce motion renders from the approved storyboard.",
       "runtime": "Target approximately 60 seconds",
       "thumbnail": {
         "mediaState": "approved",
@@ -1772,7 +1772,7 @@
           "projectId": "shaw-film3-ai-advisor",
           "label": "Film 3 - AI Advisor"
         },
-        "openBlockers": 1
+        "openBlockers": 0
       },
       "source": "Film 3 working and episodic authority corrected 2026-07-26; portal reviewed 2026-07-27",
       "assets": [
@@ -1975,7 +1975,10 @@
           ],
           "source": "Shaw Film 3 — Two Weeks Early voiceover"
         }
-      ]
+      ],
+      "sceneMediaPolicy": "scene-previews",
+      "startedAt": "2026-07-14",
+      "hoursInvested": 95
     },
     {
       "id": "shaw-film4-insight",

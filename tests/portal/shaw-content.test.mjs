@@ -69,8 +69,12 @@ test("Shaw projects preserve completed work, honest gates, scenes, and version h
   assert.equal(productionIdea.recommended, true);
   assert.match(film3.phase, /demo production/i);
   assert.deepEqual(film3.blockers, []);
-  assert.notEqual(film3.sceneMediaPolicy, "hero-only");
+  assert.equal(film3.sceneMediaPolicy, "scene-previews");
+  assert.equal(film3.startedAt, "2026-07-14");
+  assert.ok(film3.hoursInvested >= 95, "film3 should track invested hours from accounting");
+  assert.equal(film3.comment?.openBlockers, 0, "openBlockers should match actual blocker count");
   assert.ok(film3.assets && film3.assets.length >= 9, "film3 should have 9 assets (8 stills + 1 VO)");
+  assert.ok(!film3.assets.some((a) => a.kind === "video"), "film3 should have no video assets until motion is produced");
   const scenesWithMedia = productionIdea.scenes.filter((s) => s.assetIds && s.assetIds.length > 0);
   assert.equal(scenesWithMedia.length, 8, "8 scenes should have approved stills");
 
