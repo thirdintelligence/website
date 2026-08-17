@@ -1,0 +1,2088 @@
+{
+  "schemaVersion": "2.0.0",
+  "tenant": "shaw",
+  "clientSafe": true,
+  "asOf": "2026-07-28",
+  "projects": [
+    {
+      "id": "shaw-film1-conference",
+      "slug": "film1-conference",
+      "type": "film",
+      "title": "Film 1 — 2026 Conference Video",
+      "displayName": "Built to Evolve",
+      "status": "completed",
+      "statusLabel": "Delivered",
+      "hoursInvested": 365,
+      "projectType": "2026 conference opening film",
+      "valueStatement": "The first Shaw film turns nearly six decades of operational evolution into a credible, human company story for the 2026 conference.",
+      "objective": "Show how Shaw repeatedly rebuilt ahead of each technology shift while preserving its discipline, people, and client commitment.",
+      "audience": "Shaw employees, clients, partners, and conference decision-makers.",
+      "creativeVision": "A cinematic progression from ledgers to software, scale, cloud, and AI—using recurring human behavior to show that the tools changed while Shaw's discipline did not.",
+      "keyMessaging": [
+        {
+          "title": "Built to Evolve",
+          "detail": "Shaw's longevity is presented as active reinvention, not nostalgia."
+        },
+        {
+          "title": "People and clients matter",
+          "detail": "The origin story begins with Roy Shaw's operational discipline and the belief that every number, employee, and client matters."
+        },
+        {
+          "title": "Readiness before demand",
+          "detail": "Each era shows Shaw rebuilding before the next shift becomes unavoidable."
+        }
+      ],
+      "phase": "Delivered",
+      "runtime": "202 seconds",
+      "sceneMediaPolicy": "hero-only",
+      "thumbnail": {
+        "mediaState": "approved",
+        "assetId": "shaw-film1-final",
+        "label": "Delivered final film"
+      },
+      "productionLifecycle": {
+        "projectPhase": "delivered",
+        "demoPhase": "approved",
+        "fullFilmPhase": "delivered",
+        "selectedIdeaIds": [
+          "built-to-evolve"
+        ],
+        "canonicalIdeaId": "built-to-evolve",
+        "promotedIdeaId": "built-to-evolve",
+        "promotionState": "promoted"
+      },
+      "filmProductionPhases": [
+        {
+          "number": 1,
+          "id": "meet-and-brainstorm",
+          "state": "done"
+        },
+        {
+          "number": 2,
+          "id": "create-demos",
+          "state": "done"
+        },
+        {
+          "number": 3,
+          "id": "meet-and-refine",
+          "state": "done"
+        },
+        {
+          "number": 4,
+          "id": "create-final-demos",
+          "state": "done"
+        },
+        {
+          "number": 5,
+          "id": "meet-and-finalize",
+          "state": "done"
+        },
+        {
+          "number": 6,
+          "id": "create-final-film",
+          "state": "done"
+        },
+        {
+          "number": 7,
+          "id": "meet-and-review",
+          "state": "done"
+        },
+        {
+          "number": 8,
+          "id": "final-edits",
+          "state": "done"
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "2026 conference opening film",
+          "state": "complete",
+          "detail": "Approved final master."
+        },
+        {
+          "title": "Five-era visual system",
+          "state": "complete",
+          "detail": "Ledgers, software, expansion, cloud, and AI."
+        },
+        {
+          "title": "Voiceover and closing brand card",
+          "state": "complete",
+          "detail": "Delivered with the Shaw Systems identity and Built to Evolve line."
+        }
+      ],
+      "assets": [
+        {
+          "id": "shaw-film1-final",
+          "kind": "video",
+          "title": "Built to Evolve — final master",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "shaw-film1-final-v1",
+          "versions": [
+            {
+              "id": "shaw-film1-final-v1",
+              "label": "Final",
+              "mediaId": "ast_ms5drrsqd1b7d054e320",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-04-17",
+              "downloadName": "film1.final.mov",
+              "sizeLabel": "1.12 GB",
+              "note": "Approved conference master; secure client playback and download are active."
+            }
+          ],
+          "source": "Approved Film 1 final-delivery inventory, reviewed 2026-07-27"
+        }
+      ],
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Historical and creative foundation",
+          "detail": "Company history, narrative arc, and era language established."
+        },
+        {
+          "state": "done",
+          "title": "Storyboard, script, and production",
+          "detail": "Five-era story produced with human continuity and Shaw product context."
+        },
+        {
+          "state": "done",
+          "title": "Conference delivery",
+          "detail": "Final film approved and delivered."
+        }
+      ],
+      "blockers": [],
+      "reports": [
+        {
+          "title": "Production outcome",
+          "body": "Film 1 established the cinematic and strategic foundation for the current Shaw film relationship. It also produced reusable learning about historical accuracy, quiet executive tone, and showing AI as an extension of human judgment.",
+          "source": "Shaw Film 1 working and reflection records, reviewed 2026-07-27"
+        }
+      ],
+      "related": [
+        "shaw-film2-amplify",
+        "shaw-film3-ai-advisor",
+        "shaw-film4-insight"
+      ],
+      "scope": {
+        "ownerApproved": true,
+        "model": "Fixed-bid pre-contract engagement",
+        "effortRange": "365 total project-related hours",
+        "priceStatement": "$2,500 fixed bid",
+        "note": "The engagement was billed as a fixed bid rather than an hourly production rate.",
+        "source": "Approved Shaw value ledger, reviewed 2026-07-27"
+      },
+      "film": {
+        "coreMessage": "Shaw has continually rebuilt ahead of the curve while keeping its discipline, people, and clients at the center.",
+        "creativeThesis": "The same pattern repeats across every era: pressure creates a signal, Shaw acts, and a stronger operating system emerges.",
+        "script": "The delivered film uses restrained narration across grouped scene sequences. Exact approved narration is reproduced beneath each narrated sequence; silent sequences are labeled explicitly.",
+        "scriptSource": "Approved Film 1 final script and master plan, reviewed 2026-07-27",
+        "comparisonCriteria": [
+          "Historical accuracy",
+          "Message clarity",
+          "Human credibility",
+          "Product accuracy",
+          "Executive tone"
+        ],
+        "recommendation": "Delivered and approved; retain as the narrative and tonal foundation for future Shaw films.",
+        "approvals": [
+          "Final conference film delivered",
+          "Current Shaw Systems identity used",
+          "Built to Evolve closing line retained"
+        ],
+        "ideas": [
+          {
+            "number": "Final",
+            "slug": "built-to-evolve",
+            "title": "Built to Evolve",
+            "acts": [
+              {
+                "number": 1,
+                "title": "Foundations"
+              },
+              {
+                "number": 2,
+                "title": "Software Takes Hold"
+              },
+              {
+                "number": 3,
+                "title": "Enterprise Scale"
+              },
+              {
+                "number": 4,
+                "title": "Cloud Operations"
+              },
+              {
+                "number": 5,
+                "title": "Intelligence at Work"
+              },
+              {
+                "number": 6,
+                "title": "Built to Evolve"
+              }
+            ],
+            "concept": "A five-era human story in which Shaw repeatedly recognizes the next operating shift and rebuilds before the market demands it.",
+            "status": "Delivered",
+            "recommended": true,
+            "lifecycleState": "promoted",
+            "mediaPolicy": "real-media",
+            "runtime": "202 seconds",
+            "sceneCount": 18,
+            "demoState": "Final master delivered",
+            "approval": "Approved",
+            "strength": "Strong company history, human continuity, and a clear strategic reason for Shaw's longevity.",
+            "complexity": "High — multi-era production, character continuity, historical detail, and an extended edit.",
+            "distinctiveness": "A company origin film structured around recurring operational reinvention rather than a conventional corporate timeline.",
+            "recommendation": "Use as the brand and storytelling reference for future film work.",
+            "scenes": [
+              {
+                "id": "F1-01",
+                "title": "Manual operations and corrections",
+                "time": "Act 1 · opening",
+                "duration": "10 seconds",
+                "description": "Roy Shaw's 1967 operating world is established through disciplined manual loan work and the physical weight of every number.",
+                "direction": "Period-authentic office detail; patient, tactile close-ups; grounded human performance.",
+                "transition": "Hold for a one-second breath before the client-trust sequence.",
+                "purpose": "Establish Shaw's origin, discipline, and people-first operating values.",
+                "status": "Delivered",
+                "script": "In 1967, Roy Shaw built Shaw Systems to help financial institutions manage loans. Every number matters. Every employee matters. And every client matters.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-02",
+                "title": "Client meeting and accumulation",
+                "time": "Act 1",
+                "duration": "10 seconds",
+                "description": "Client trust grows alongside visible workload pressure as the manual system reaches its practical limit.",
+                "direction": "Let expressions, ledgers, and accumulating work carry the story without explanatory graphics.",
+                "transition": "Pressure builds into the signal for change.",
+                "purpose": "Show why evolution became necessary without portraying the original system as careless.",
+                "status": "Delivered",
+                "script": "No narration — visual storytelling.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-03",
+                "title": "The signal and software idea",
+                "time": "Act 1",
+                "duration": "10 seconds",
+                "description": "The workload creates an unmistakable signal; Roy recognizes that software can change the operating model.",
+                "direction": "Move from controlled pressure to a restrained aha moment; the decision matters more than spectacle.",
+                "transition": "Continue into the physical act of making the call.",
+                "purpose": "Turn operational pain into Shaw's first major reinvention.",
+                "status": "Delivered",
+                "script": "And when the workload kept pushing, Roy pushed back with an idea that would change everything: software.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-04",
+                "title": "Commitment in motion",
+                "time": "Act 1",
+                "duration": "5 seconds",
+                "description": "A rotary-phone action converts insight into commitment.",
+                "direction": "One clean action; the physical phone carries the period and the decision.",
+                "transition": "Dissolve into the first time-lapse.",
+                "purpose": "Show that Shaw acts on signals rather than merely recognizing them.",
+                "status": "Delivered",
+                "script": "No narration — visual action.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-05",
+                "title": "Ledgers to software",
+                "time": "Act 1 → Act 2",
+                "duration": "10 seconds",
+                "description": "Day-and-night time-lapse moves the company from manual work into a growing software organization.",
+                "direction": "Technology arrives gradually while the workplace remains human and believable.",
+                "transition": "Resolve into active software operations.",
+                "purpose": "Bridge decades without reducing change to a date-card montage.",
+                "status": "Delivered",
+                "script": "No narration — visual transition.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-06",
+                "title": "Software operations and build culture",
+                "time": "Act 2",
+                "duration": "15 seconds",
+                "description": "Software development, team coordination, and client-side implementation establish Shaw as an operating partner rather than a detached vendor.",
+                "direction": "Balance technical work, collaboration, and real client environments.",
+                "transition": "Allow demand to gather in the final shots.",
+                "purpose": "Show systems taking shape around disciplined service.",
+                "status": "Delivered",
+                "script": "No narration — visual storytelling.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-07",
+                "title": "Demand builds",
+                "time": "Act 2",
+                "duration": "5 seconds",
+                "description": "Adoption accelerates and the company confronts a second growth threshold.",
+                "direction": "Use operational scale and Roy's phone action as the hinge into expansion.",
+                "transition": "One-second visual breath into office growth.",
+                "purpose": "Connect successful software delivery to the need for a larger company system.",
+                "status": "Delivered",
+                "script": "The software worked. Retail and commercial lenders moved manual ledgers to the mainframe. And when demand arrived all at once, the company had to grow. The systems had to evolve.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-08",
+                "title": "Software to enterprise scale",
+                "time": "Act 2 → Act 3",
+                "duration": "10 seconds",
+                "description": "The workplace expands and a more mature enterprise organization emerges.",
+                "direction": "Use spatial growth, team density, and technology change as one continuous transformation.",
+                "transition": "Land on enterprise operations.",
+                "purpose": "Signal growth without losing the sense of one evolving company.",
+                "status": "Delivered",
+                "script": "No narration — visual transition.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-09",
+                "title": "Trust at scale",
+                "time": "Act 3",
+                "duration": "20 seconds",
+                "description": "Enterprise operations, implementation work, executive conversations, and infrastructure show the maturity required to serve larger financial institutions.",
+                "direction": "Quietly confident institutional scale; no generic success montage.",
+                "transition": "Move from infrastructure detail into the cloud decision.",
+                "purpose": "Demonstrate that growth increased both capability and responsibility.",
+                "status": "Delivered",
+                "script": "No narration — visual storytelling.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-10",
+                "title": "The cloud decision",
+                "time": "Act 3",
+                "duration": "5 seconds",
+                "description": "A whiteboard decision turns accumulated enterprise experience toward cloud delivery and the modern Spectrum platform.",
+                "direction": "Keep the insight grounded in a real working discussion.",
+                "transition": "Infrastructure modernizes through time-lapse.",
+                "purpose": "Connect Shaw's enterprise era to the next deliberate rebuild.",
+                "status": "Delivered",
+                "script": "Shaw was prepared when clients moved to PC systems with graphical n-tier architectures. But Shaw didn't stop there — we created more IT value by taking them to the cloud. Spectrum became the darling of the fintech world. And in the last couple years, we've embraced AI agents.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-11",
+                "title": "Enterprise to cloud",
+                "time": "Act 3 → Act 4",
+                "duration": "10 seconds",
+                "description": "Infrastructure and interface language modernize into a cloud-ready operating environment.",
+                "direction": "Use practical systems evolution rather than weightless digital abstraction.",
+                "transition": "Resolve into mature cloud operations.",
+                "purpose": "Make reliability and modernization feel like the same story.",
+                "status": "Delivered",
+                "script": "No narration — visual transition.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-12",
+                "title": "Reliability as innovation",
+                "time": "Act 4",
+                "duration": "20 seconds",
+                "description": "Cloud operations, security, data work, and client service demonstrate innovation as dependable execution.",
+                "direction": "Cinematic product-adjacent proof with calm operational stakes.",
+                "transition": "Data analysis reveals the next signal.",
+                "purpose": "Define cloud maturity through trust, not novelty.",
+                "status": "Delivered",
+                "script": "No narration — visual storytelling.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-13",
+                "title": "The intelligence decision",
+                "time": "Act 4",
+                "duration": "5 seconds",
+                "description": "Deeper data and growing connections reveal patterns that can support better human judgment.",
+                "direction": "Patterns emerge inside a credible working context; avoid magical AI imagery.",
+                "transition": "Move directly into the AI integration time-lapse.",
+                "purpose": "Frame AI as the next operational signal, not a disconnected trend.",
+                "status": "Delivered",
+                "script": "The data deepened. The connections grew. And the patterns began asking to be understood.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-14",
+                "title": "Cloud to AI",
+                "time": "Act 4 → Act 5",
+                "duration": "10 seconds",
+                "description": "The interface and team evolve into an AI-enhanced workflow while the operators remain visibly in control.",
+                "direction": "Show augmentation through continuity of people, posture, and task.",
+                "transition": "Land on the AI-enhanced operations hero.",
+                "purpose": "Make the final evolution feel earned and connected.",
+                "status": "Delivered",
+                "script": "No narration — visual transition.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-15",
+                "title": "AI-enhanced operations",
+                "time": "Act 5",
+                "duration": "5 seconds",
+                "description": "A Spectrum-centered AI operations moment introduces the current era.",
+                "direction": "Product proof and operator utility lead the frame.",
+                "transition": "Continue into human-AI collaboration.",
+                "purpose": "Show the present operating capability without claiming unverified behavior.",
+                "status": "Delivered",
+                "script": "No narration — visual storytelling.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-16",
+                "title": "Human-AI collaboration",
+                "time": "Act 5",
+                "duration": "5 seconds",
+                "description": "Operators and AI work together, with human review and decision-making remaining visible.",
+                "direction": "Natural interaction; intelligence supports the work rather than replacing the worker.",
+                "transition": "The closing narration begins across the visual echo.",
+                "purpose": "State Shaw's human-centered AI philosophy visually.",
+                "status": "Delivered",
+                "script": "No narration at the start; closing narration begins late in the sequence.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-17",
+                "title": "The pattern repeats",
+                "time": "Act 5 · closing",
+                "duration": "10 seconds",
+                "description": "Visual echoes connect the current AI era back to Shaw's earlier operating decisions.",
+                "direction": "Use matched human behavior and composed final frames; let continuity carry the emotional payoff.",
+                "transition": "Hold before the logo resolve.",
+                "purpose": "Unify the film's full historical thesis.",
+                "status": "Delivered",
+                "script": "The tools have changed. The discipline hasn't. Intelligence that surfaces what matters before you have to ask. AI that works alongside operators — proposing, learning, adapting. And when the next shift comes, Shaw will be ready — because we always rebuild before the world asks us to.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              },
+              {
+                "id": "F1-18",
+                "title": "Shaw Systems — Built to Evolve",
+                "time": "Act 6",
+                "duration": "10 seconds",
+                "description": "The current Shaw Systems identity resolves the history into one forward-looking brand statement.",
+                "direction": "Clean blue-and-white finish with enough hold for conference viewing.",
+                "transition": "Final hold.",
+                "purpose": "Leave the audience with the company identity and strategic line.",
+                "status": "Delivered",
+                "script": "Shaw hasn't built one company for sixty years. They've built six different companies — a new one every decade, to get in front of the shift. Shaw Systems. Built to Evolve.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film1-final"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "context": {
+          "scope": "project",
+          "route": "/shaw/projects/film1-conference",
+          "projectId": "shaw-film1-conference",
+          "label": "Film 1 — 2026 Conference Video"
+        }
+      },
+      "source": "Approved Shaw Film 1 canon and delivery inventory, reviewed 2026-07-27"
+    },
+    {
+      "id": "shaw-film2-amplify",
+      "slug": "film2-amplify",
+      "type": "film",
+      "title": "Film 2 - Amplify",
+      "displayName": "Amplify",
+      "status": "completed",
+      "statusLabel": "Delivered — V1 and V2",
+      "hoursInvested": 237,
+      "projectType": "Summit campaign film",
+      "valueStatement": "Amplify establishes the borrower-facing movement in the coordinated Spectrum campaign and preserves two delivered cuts as separate version history.",
+      "objective": "Show how a borrower action in Amplify becomes a coordinated Spectrum workflow that supports both the borrower and the financial institution.",
+      "audience": "Bank C-suite executives, servicing leaders, and Summit attendees.",
+      "creativeVision": "Three human moments send warm signals into one central Spectrum intelligence core; Shaw-blue resolutions return to the same people with visible operational relief.",
+      "keyMessaging": [
+        {
+          "title": "Life does not wait for business hours",
+          "detail": "Amplify gives borrowers a direct path into servicing workflows when life changes."
+        },
+        {
+          "title": "Spectrum remains the core",
+          "detail": "The film connects borrower self-service to the central servicing platform rather than presenting Amplify as an isolated product."
+        },
+        {
+          "title": "Human outcomes and institutional control",
+          "detail": "The same workflow improves borrower clarity while giving the institution a consistent, auditable response."
+        }
+      ],
+      "phase": "Delivered",
+      "runtime": "160 seconds combined across both final versions",
+      "sceneMediaPolicy": "hero-only",
+      "thumbnail": {
+        "mediaState": "approved",
+        "assetId": "shaw-film2-v2",
+        "label": "V1 and V2 delivered"
+      },
+      "productionLifecycle": {
+        "projectPhase": "delivered",
+        "demoPhase": "approved",
+        "fullFilmPhase": "delivered",
+        "selectedIdeaIds": [
+          "three-acts-one-core"
+        ],
+        "canonicalIdeaId": "three-acts-one-core",
+        "promotedIdeaId": "three-acts-one-core",
+        "promotionState": "promoted"
+      },
+      "filmProductionPhases": [
+        {
+          "number": 1,
+          "id": "meet-and-brainstorm",
+          "state": "done"
+        },
+        {
+          "number": 2,
+          "id": "create-demos",
+          "state": "done"
+        },
+        {
+          "number": 3,
+          "id": "meet-and-refine",
+          "state": "done"
+        },
+        {
+          "number": 4,
+          "id": "create-final-demos",
+          "state": "done"
+        },
+        {
+          "number": 5,
+          "id": "meet-and-finalize",
+          "state": "done"
+        },
+        {
+          "number": 6,
+          "id": "create-final-film",
+          "state": "done"
+        },
+        {
+          "number": 7,
+          "id": "meet-and-review",
+          "state": "done"
+        },
+        {
+          "number": 8,
+          "id": "final-edits",
+          "state": "done"
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Amplify V1",
+          "state": "complete",
+          "assetId": "shaw-film2-v1"
+        },
+        {
+          "title": "Amplify V2",
+          "state": "complete",
+          "assetId": "shaw-film2-v2"
+        },
+        {
+          "title": "Reusable Spectrum Core visual system",
+          "state": "complete",
+          "detail": "Warm request signals, one core reveal, and Shaw-blue resolutions."
+        }
+      ],
+      "assets": [
+        {
+          "id": "shaw-film2-v1",
+          "kind": "video",
+          "title": "Amplify — delivered cut V1",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "shaw-film2-v1-file",
+          "versions": [
+            {
+              "id": "shaw-film2-v1-file",
+              "label": "V1",
+              "mediaId": "ast_ms5dz0qodc6705c6832f",
+              "state": "approved",
+              "current": false,
+              "createdAt": "2026-07-22",
+              "downloadName": "film2.final.V1.mov",
+              "sizeLabel": "413 MB",
+              "note": "Delivered V1; preserved as approved history with secure client playback and download."
+            }
+          ],
+          "source": "Approved Film 2 final-delivery inventory, reviewed 2026-07-27"
+        },
+        {
+          "id": "shaw-film2-v2",
+          "kind": "video",
+          "title": "Amplify — delivered cut V2",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "shaw-film2-v2-file",
+          "versions": [
+            {
+              "id": "shaw-film2-v2-file",
+              "label": "V2",
+              "mediaId": "ast_ms5dz77090b8a1c7f9d0",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-07-22",
+              "downloadName": "film2.final.V2.mov",
+              "sizeLabel": "472 MB",
+              "note": "Delivered V2; current approved portal version with secure client playback and download."
+            }
+          ],
+          "source": "Approved Film 2 final-delivery inventory, reviewed 2026-07-27"
+        }
+      ],
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Three-act campaign structure",
+          "detail": "Life events, one Spectrum Core sequence, and paired resolutions."
+        },
+        {
+          "state": "done",
+          "title": "Scenario and visual-system production",
+          "detail": "Hurricane, address-change, SCRA, beam, core, and resolution work completed."
+        },
+        {
+          "state": "done",
+          "title": "V1 and V2 delivery",
+          "detail": "Both delivered cuts remain available as version history."
+        },
+        {
+          "state": "current",
+          "title": "Campaign continuity reference",
+          "detail": "Film 2 now anchors the visual and message review for AI Advisor and Insight."
+        }
+      ],
+      "blockers": [],
+      "reports": [
+        {
+          "title": "Campaign contribution",
+          "body": "Film 2 established the first delivered segment of the three-film Summit loop. Its one-core structure, warm-to-cool signal system, and borrower-to-platform interplay are the continuity reference—not a requirement to repeat the same hero visual in every film.",
+          "source": "Shaw Film 2 working and episodic records, reviewed 2026-07-27"
+        }
+      ],
+      "related": [
+        "shaw-film1-conference",
+        "shaw-film3-ai-advisor",
+        "shaw-film4-insight"
+      ],
+      "scope": {
+        "ownerApproved": true,
+        "model": "Completed production engagement",
+        "effortRange": "237 total project hours across V1 and V2",
+        "priceStatement": "$14,150 billed",
+        "source": "Approved Shaw value ledger, reviewed 2026-07-27"
+      },
+      "film": {
+        "coreMessage": "When life changes, Amplify connects the borrower to Spectrum so the institution can respond with speed, consistency, and control.",
+        "creativeThesis": "Three different lives send requests into one central operating core; the system returns coordinated responses to the same people.",
+        "script": "The final cuts are delivered. The historical line-level script source was lost from the plan folder, so this portal reproduces only lines preserved in approved memory and labels the remaining final audio as awaiting transcription confirmation.",
+        "scriptSource": "Film 2 completion record plus preserved approved script decisions, reviewed 2026-07-27",
+        "comparisonCriteria": [
+          "Borrower clarity",
+          "Spectrum product accuracy",
+          "Emotional credibility",
+          "Campaign continuity",
+          "Production distinctiveness"
+        ],
+        "recommendation": "Use the delivered V2 as the current portal version while preserving V1 as approved history.",
+        "approvals": [
+          "V1 complete",
+          "V2 complete",
+          "Three-act one-core structure delivered"
+        ],
+        "ideas": [
+          {
+            "number": "V1",
+            "versionLabel": "V1",
+            "slug": "accident-disasters-v1",
+            "title": "V1 - Accident+Disasters",
+            "acts": [
+              {
+                "number": 1,
+                "title": "Accidents + Disasters"
+              },
+              {
+                "number": 2,
+                "title": "One Spectrum Core"
+              },
+              {
+                "number": 3,
+                "title": "Responses + Relief"
+              }
+            ],
+            "concept": "Three urgent borrower events—a flooded home, an overnight hurricane, and a vehicle accident—send requests through Amplify into one Spectrum core before coordinated responses return to each person.",
+            "status": "Delivered",
+            "recommended": false,
+            "lifecycleState": "promoted",
+            "mediaPolicy": "history",
+            "runtime": "Delivered V1; included in the confirmed 160-second combined final-version total",
+            "sceneCount": 9,
+            "demoState": "V1 delivered",
+            "approval": "Approved historical final",
+            "strength": "Immediate stakes make Amplify's after-hours borrower access and response value easy to understand.",
+            "complexity": "High — three disaster environments, one shared system core, paired returns, and multiple continuity-sensitive characters.",
+            "distinctiveness": "A human disaster-response structure turns an invisible servicing workflow into a visible request-and-resolution system.",
+            "recommendation": "Preserve as approved V1 history and use V2 as the current direction.",
+            "scenes": [
+              {
+                "id": "F2-V1-01",
+                "actNumber": 1,
+                "sceneNumber": 1,
+                "title": "Flooded home",
+                "time": "Act 1 · first emergency",
+                "duration": "Approximately 7 seconds in the production plan",
+                "description": "A borrower unlocks his front door and discovers water rushing from the flooded home before turning to Amplify.",
+                "direction": "Begin tactile and close, reveal the restrained shock of the flooding, then follow the warm request signal upward from the phone.",
+                "transition": "Pull outward from the home into the next emergency.",
+                "purpose": "Open with a concrete after-hours event and establish the borrower request pattern.",
+                "status": "Delivered",
+                "script": "Emergencies don't wait for business hours.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-02",
+                "actNumber": 1,
+                "sceneNumber": 2,
+                "title": "Hurricane at 4 AM",
+                "time": "Act 1 · second emergency",
+                "duration": "Approximately 7 seconds in the production plan",
+                "description": "A borrower faces an overnight hurricane from her apartment and uses Amplify while ordinary business channels are closed.",
+                "direction": "Use weather-news glow, severe conditions outside, restrained concern, and the same warm request signal.",
+                "transition": "Carry the signal language into the final emergency.",
+                "purpose": "Reinforce round-the-clock access with a different borrower and environment.",
+                "status": "Delivered",
+                "script": "When the worst happens, one tap on Amplify—",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-03",
+                "actNumber": 1,
+                "sceneNumber": 3,
+                "title": "Car accident at sunset",
+                "time": "Act 1 · third emergency",
+                "duration": "Approximately 7 seconds in the production plan",
+                "description": "A borrower deals with a vehicle accident at sunset and sends the third Amplify request toward Spectrum.",
+                "direction": "Keep the accident aftermath controlled and credible; use the phone action and beam chase to bridge directly into the core.",
+                "transition": "Follow the third warm signal into Spectrum.",
+                "purpose": "Complete the three-event pattern and carry the film into the platform reveal.",
+                "status": "Delivered",
+                "script": "The exact delivered V1 narration for this scene needs transcription confirmation.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-04",
+                "actNumber": 2,
+                "sceneNumber": 1,
+                "title": "Signals converge",
+                "time": "Act 2 · core entry",
+                "duration": "Production timing retained in the delivered V1 master",
+                "description": "The three warm borrower requests arrive at the shared Spectrum Core.",
+                "direction": "Make the system legible in one clean reveal; Spectrum reads as infrastructure and intelligence rather than fantasy.",
+                "transition": "Move from arrival into internal processing.",
+                "purpose": "Connect every Amplify action to the central servicing platform.",
+                "status": "Delivered",
+                "script": "—sends the request to Spectrum.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-05",
+                "actNumber": 2,
+                "sceneNumber": 2,
+                "title": "One operating core",
+                "time": "Act 2 · hero",
+                "duration": "Production timing retained in the delivered V1 master",
+                "description": "One Spectrum Core processes the three different needs as coordinated servicing workflows.",
+                "direction": "Use controlled symmetry, credible technical detail, and restrained Shaw branding.",
+                "transition": "Resolve the internal energy into Shaw-blue responses.",
+                "purpose": "Show institutional coordination behind borrower self-service.",
+                "status": "Delivered",
+                "script": "The exact delivered V1 narration for this scene needs transcription confirmation.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-06",
+                "actNumber": 2,
+                "sceneNumber": 3,
+                "title": "Responses emerge",
+                "time": "Act 2 · core exit",
+                "duration": "Production timing retained in the delivered V1 master",
+                "description": "Three cool response signals leave the core and return toward the original borrower environments.",
+                "direction": "Keep the outbound paths visually distinct so each response maps back to its originating need.",
+                "transition": "Match each signal to its paired outcome.",
+                "purpose": "Turn platform processing into visible borrower-facing results.",
+                "status": "Delivered",
+                "script": "The exact delivered V1 narration for this scene needs transcription confirmation.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-07",
+                "actNumber": 3,
+                "sceneNumber": 1,
+                "title": "Flood recovery underway",
+                "time": "Act 3 · first resolution",
+                "duration": "Approximately 6 seconds in the production plan",
+                "description": "A restoration crew arrives with concrete recovery equipment while the borrower receives the system response.",
+                "direction": "Show operational proof—people and equipment already moving—before the borrower's restrained relief.",
+                "transition": "Continue in the same order established in Act 1.",
+                "purpose": "Close the flooded-home loop with a grounded servicing outcome.",
+                "status": "Delivered",
+                "script": "The disaster deferment—auto-approved.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-08",
+                "actNumber": 3,
+                "sceneNumber": 2,
+                "title": "Hurricane support arrives",
+                "time": "Act 3 · second resolution",
+                "duration": "Approximately 6 seconds in the production plan",
+                "description": "The overnight borrower receives the response as practical storm support reaches the apartment.",
+                "direction": "Keep the relief human and specific; visible supplies and response activity carry the result.",
+                "transition": "Move from overnight relief to the sunset accident resolution.",
+                "purpose": "Close the hurricane loop with a concrete after-hours response.",
+                "status": "Delivered",
+                "script": "The hardship deferment—approved while she sleeps.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              },
+              {
+                "id": "F2-V1-09",
+                "actNumber": 3,
+                "sceneNumber": 3,
+                "title": "Payoff quote settled",
+                "time": "Act 3 · final resolution",
+                "duration": "Approximately 6 seconds in the production plan",
+                "description": "The accident workflow resolves before the borrower reaches home, completing the film's third servicing loop.",
+                "direction": "Use calm human relief and a composed final hold before the Shaw close.",
+                "transition": "Hold and resolve to the final brand line.",
+                "purpose": "End V1 with speed, practical value, and a complete borrower outcome.",
+                "status": "Delivered",
+                "script": "The payoff quote—settled before he reaches home. Spectrum Amplify. Built to Evolve.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1"
+                ]
+              }
+            ]
+          },
+          {
+            "number": "V2",
+            "versionLabel": "V2",
+            "slug": "three-acts-one-core",
+            "title": "V2 - Life Events",
+            "acts": [
+              {
+                "number": 1,
+                "title": "Life Events"
+              },
+              {
+                "number": 2,
+                "title": "One Spectrum Core"
+              },
+              {
+                "number": 3,
+                "title": "Responses + Outcomes"
+              }
+            ],
+            "concept": "Three life events send signals through Amplify into one Spectrum core; three paired resolutions show the system's coordinated value.",
+            "status": "Delivered",
+            "recommended": true,
+            "lifecycleState": "promoted",
+            "mediaPolicy": "real-media",
+            "runtime": "160 seconds combined across both final versions",
+            "sceneCount": 9,
+            "demoState": "V1 and V2 delivered",
+            "approval": "Approved",
+            "strength": "Clear problem-system-resolution architecture with strong product interplay.",
+            "complexity": "High — multiple people, environments, transitions, a core hero object, and versioned edits.",
+            "distinctiveness": "One central platform processes multiple human moments rather than repeating a product demonstration.",
+            "recommendation": "Retain V2 as current and use the visual grammar as a continuity reference for Films 3 and 4.",
+            "scenes": [
+              {
+                "id": "F2-01",
+                "title": "Hurricane at 4 AM",
+                "time": "Act 1 · first life event",
+                "duration": "Approximately 7 seconds in the production plan",
+                "description": "A borrower confronts hurricane disruption during the night and uses Amplify rather than waiting for business hours.",
+                "direction": "Grounded interior, authentic weather-news light, restrained concern, and a phone action that launches the warm request signal.",
+                "transition": "Pull outward into the next human moment.",
+                "purpose": "Establish the always-available borrower path.",
+                "status": "Delivered",
+                "script": "Life doesn't wait for business hours.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-02",
+                "title": "Address change",
+                "time": "Act 1 · second life event",
+                "duration": "Approximately 7 seconds in the production plan",
+                "description": "A family in the middle of a move submits an address change through Amplify.",
+                "direction": "Positive life transition, busy but controlled; show the action as useful self-service rather than distress.",
+                "transition": "The warm signal joins the growing system.",
+                "purpose": "Show routine servicing automation with human relevance.",
+                "status": "Delivered",
+                "script": "When life changes, one tap on Amplify—",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-03",
+                "title": "SCRA enlistment",
+                "time": "Act 1 · third life event",
+                "duration": "Approximately 7 seconds in the production plan",
+                "description": "A new servicemember uses Amplify as a path into SCRA-related servicing protection.",
+                "direction": "Respectful, specific, and calm; the compliance implication is serious without becoming a crisis montage.",
+                "transition": "Follow the third warm signal into the core reveal.",
+                "purpose": "Connect borrower action to a complex regulated servicing workflow.",
+                "status": "Delivered",
+                "script": "Final line in the delivered master needs transcription confirmation.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-04",
+                "title": "Signals converge",
+                "time": "Act 2 · core entry",
+                "duration": "Production timing retained in delivered master",
+                "description": "Three warm request signals converge on the central Spectrum visual system.",
+                "direction": "One clean systems reveal; the central object reads as infrastructure and intelligence, not fantasy.",
+                "transition": "Move from arrival to internal processing.",
+                "purpose": "Make Spectrum visibly central to every borrower-facing Amplify action.",
+                "status": "Delivered",
+                "script": "—sends the request to Spectrum.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-05",
+                "title": "One operating core",
+                "time": "Act 2 · hero",
+                "duration": "Production timing retained in delivered master",
+                "description": "The Spectrum Core processes multiple needs as one coordinated servicing system.",
+                "direction": "Symmetrical, controlled hero framing with credible technical detail and restrained Shaw branding.",
+                "transition": "Internal energy resolves into Shaw-blue outbound signals.",
+                "purpose": "Show institutional scale and coordinated workflow execution.",
+                "status": "Delivered",
+                "script": "Final narration in the delivered master needs transcription confirmation.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-06",
+                "title": "Responses emerge",
+                "time": "Act 2 · core exit",
+                "duration": "Production timing retained in delivered master",
+                "description": "Cool, Shaw-blue resolution signals leave the core and return to the three servicing moments.",
+                "direction": "Maintain directional clarity so each outbound response maps back to a human need.",
+                "transition": "Match each response to its paired resolution.",
+                "purpose": "Turn invisible processing into a legible result.",
+                "status": "Delivered",
+                "script": "Final narration in the delivered master needs transcription confirmation.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-07",
+                "title": "Hurricane response",
+                "time": "Act 3 · first resolution",
+                "duration": "Approximately 6 seconds in the production plan",
+                "description": "The nighttime borrower receives a concrete servicing response as the immediate weather threat begins to ease.",
+                "direction": "Relief is restrained and operationally credible, not sentimental.",
+                "transition": "Continue in the same order established in Act 1.",
+                "purpose": "Close the first borrower loop.",
+                "status": "Delivered",
+                "script": "Final capability line in the delivered master needs transcription confirmation.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-08",
+                "title": "Address update complete",
+                "time": "Act 3 · second resolution",
+                "duration": "Approximately 6 seconds in the production plan",
+                "description": "The family is settled into the new home, and the servicing system reflects the address change.",
+                "direction": "Warm afternoon proof of a positive transition; avoid a generic success pose.",
+                "transition": "Move from domestic stability to the final servicemember image.",
+                "purpose": "Show a complete self-service workflow, not just form submission.",
+                "status": "Delivered",
+                "script": "The address change—auto-processed.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              },
+              {
+                "id": "F2-09",
+                "title": "SCRA protection confirmed",
+                "time": "Act 3 · final resolution",
+                "duration": "Approximately 6 seconds in the production plan",
+                "description": "The servicemember stands on a carrier deck with the protection confirmed before deployment.",
+                "direction": "Wide maritime scale and composed human relief; this is the final emotional image.",
+                "transition": "Hold and resolve to the Shaw close.",
+                "purpose": "Close the film with both human and compliance value.",
+                "status": "Delivered",
+                "script": "The SCRA protection—confirmed before he ships out. Spectrum Amplify. Built to Evolve.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "shaw-film2-v1",
+                  "shaw-film2-v2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "context": {
+          "scope": "project",
+          "route": "/shaw/projects/film2-amplify",
+          "projectId": "shaw-film2-amplify",
+          "label": "Film 2 - Amplify"
+        }
+      },
+      "source": "Approved Shaw Film 2 completion canon and delivery inventory, reviewed 2026-07-27"
+    },
+    {
+      "id": "shaw-film3-ai-advisor",
+      "slug": "film3-ai-advisor",
+      "type": "film",
+      "title": "Film 3 - AI Advisor",
+      "displayName": "AI Advisor",
+      "status": "active",
+      "statusLabel": "Active",
+      "projectType": "Summit campaign film",
+      "valueStatement": "Film 3 will make AI Advisor visibly useful inside Spectrum while showing how it strengthens people, servicing outcomes, and institutional performance.",
+      "objective": "Select the first business-credible AI Advisor demo lane, review stills, then develop the approved direction into the next Summit film.",
+      "audience": "Bank C-suite executives, servicing leaders, Spectrum users, and Summit decision-makers.",
+      "creativeVision": "AI Advisor should feel unmistakably intelligent while remaining grounded in the daily work of a Spectrum user or servicing agent.",
+      "keyMessaging": [
+        {
+          "title": "Next Best Action is the core",
+          "detail": "The system surfaces a useful action with supporting talk-off, predictive context, scoring, and pattern awareness."
+        },
+        {
+          "title": "Enable people, do not replace them",
+          "detail": "AI Advisor supports judgment, faster ramp, consistency, and service quality."
+        },
+        {
+          "title": "Business and borrower value",
+          "detail": "The first demo should connect productivity and dollars collected with better servicing and borrower outcomes."
+        }
+      ],
+      "phase": "Demo production — 8 scene stills and VO V1 approved",
+      "nextMilestone": "Confirm the first lane, scenario, role language, abstraction level, UI reference plan, and output depth.",
+      "runtime": "Target approximately 60 seconds",
+      "thumbnail": {
+        "mediaState": "approved",
+        "label": "Scene 1.1 — Reality before the advisor",
+        "assetId": "still-1-1"
+      },
+      "productionLifecycle": {
+        "projectPhase": "demo-production",
+        "demoPhase": "building",
+        "fullFilmPhase": "not-started",
+        "selectedIdeaIds": [
+          "two-weeks-early"
+        ],
+        "promotionState": "embedded"
+      },
+      "filmProductionPhases": [
+        {
+          "number": 1,
+          "id": "meet-and-brainstorm",
+          "state": "done"
+        },
+        {
+          "number": 2,
+          "id": "create-demos",
+          "state": "blocked"
+        },
+        {
+          "number": 3,
+          "id": "meet-and-refine",
+          "state": "pending"
+        },
+        {
+          "number": 4,
+          "id": "create-final-demos",
+          "state": "pending"
+        },
+        {
+          "number": 5,
+          "id": "meet-and-finalize",
+          "state": "pending"
+        },
+        {
+          "number": 6,
+          "id": "create-final-film",
+          "state": "pending"
+        },
+        {
+          "number": 7,
+          "id": "meet-and-review",
+          "state": "pending"
+        },
+        {
+          "number": 8,
+          "id": "final-edits",
+          "state": "pending"
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Internal AI Video Meeting digest",
+          "state": "complete",
+          "detail": "Newest creative authority integrated."
+        },
+        {
+          "title": "Clarification answers",
+          "state": "awaiting client input",
+          "detail": "Blocking the first client-review demo."
+        },
+        {
+          "title": "Demo still set",
+          "state": "not-started",
+          "detail": "Begins after the clarification gate."
+        },
+        {
+          "title": "Storyboard and script",
+          "state": "not-started",
+          "detail": "Written after the first demo lane is confirmed."
+        }
+      ],
+      "timeline": [
+        {
+          "state": "done",
+          "title": "Product and competitive research",
+          "detail": "Spectrum interplay, AI Advisor behavior, and competitive context assembled."
+        },
+        {
+          "state": "done",
+          "title": "July 14 meeting transcript ingested",
+          "detail": "The transcript supersedes the earlier brainstorm as the newest creative authority."
+        },
+        {
+          "state": "blocked",
+          "title": "Clarification gate",
+          "detail": "Justin must choose the first lane and scenario before client-review demo stills are created."
+        },
+        {
+          "state": "pending",
+          "title": "Demo still review",
+          "detail": "Review stills before motion generation."
+        },
+        {
+          "state": "pending",
+          "title": "Storyboard, script, and full production",
+          "detail": "Begin only after the demo direction is approved."
+        }
+      ],
+      "blockers": [],
+      "reports": [
+        {
+          "title": "Current creative guardrails",
+          "body": "Use Spectrum user or servicing agent as broad role language. Make AI Advisor visibly AI. Keep the first demo business-credible and avoid a gloomy borrower-hardship-only story. Autopay disruption, a Day 3 hire, and positive servicing examples are the strongest current scenario inputs. Do not lead with cartoon or personified domino imagery unless that direction is explicitly revived.",
+          "source": "July 14 Internal AI Video Meeting digest, integrated 2026-07-26"
+        }
+      ],
+      "related": [
+        "shaw-film2-amplify",
+        "shaw-film4-insight"
+      ],
+      "scope": {
+        "ownerApproved": false,
+        "model": "Scope required",
+        "assumptions": [
+          "Approximately 60-second booth-loop target",
+          "Stills reviewed before motion production",
+          "Final effort depends on the selected scenario and UI depth"
+        ],
+        "note": "Third i will confirm effort and investment after the first demo lane and output depth are selected.",
+        "source": "Current Film 3 clarification-gate record, reviewed 2026-07-27"
+      },
+      "film": {
+        "coreMessage": "AI Advisor helps Spectrum users see what matters, understand why, and take the next best action with greater confidence.",
+        "creativeThesis": "The strongest first demo will prove intelligence through a specific servicing outcome—not through a generic glowing assistant.",
+        "script": "Not written. The July 14 meeting is the active brief, and the first script will be written only after the clarification gate is answered.",
+        "scriptSource": "Film 3 working authority correction dated 2026-07-26",
+        "comparisonCriteria": [
+          "Business value",
+          "Human credibility",
+          "Product accuracy",
+          "Visible AI behavior",
+          "Production complexity",
+          "Campaign continuity"
+        ],
+        "recommendation": "Third i creative guidance: begin with a grounded servicing scenario, review stills first, and add abstraction only where it makes the AI behavior easier to understand.",
+        "approvals": [
+          "Official project name confirmed",
+          "Demo-first workflow confirmed",
+          "No direction selected",
+          "No storyboard or script approved"
+        ],
+        "ideas": [
+          {
+            "number": "Production",
+            "slug": "two-weeks-early",
+            "title": "Two Weeks Early",
+            "concept": "AI Advisor identifies an autopay disruption pattern two weeks before payment, walks through the evidence, and recommends a proactive check-in — all on a new hire's third day.",
+            "status": "Demo in production",
+            "recommended": true,
+            "lifecycleState": "demo-production",
+            "mediaPolicy": "real-media",
+            "runtime": "60 seconds",
+            "sceneCount": 14,
+            "demoState": "8 of 13 scene stills approved; VO V1 approved",
+            "approval": "Demo stills in review",
+            "strength": "Concrete servicing scenario with a clear before/after evidence chain.",
+            "complexity": "High — four-act structure with cumulative holographic panels and UI states.",
+            "distinctiveness": "Shows AI as an invisible partner that becomes visible, not a chatbot.",
+            "recommendation": "Selected production direction. Storyboard and script are final.",
+            "scenes": [
+              {
+                "id": "F3-1.1",
+                "title": "Reality Before the Advisor",
+                "time": "0–4s",
+                "description": "Ordinary workstation with Spectrum on the monitor; the Shaw-blue advisor begins rising from behind the bezel.",
+                "direction": "Locked wide context; reality before the advisor becomes visible.",
+                "transition": "The rise continues.",
+                "purpose": "Establish ordinary physical reality, then begin the Film 3 signature as a visible gain.",
+                "status": "Approved still",
+                "script": "Quiet floor bed; no VO.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-1-1"
+                ]
+              },
+              {
+                "id": "F3-1.2",
+                "title": "The Rise Completes",
+                "time": "4–8s",
+                "description": "The advisor rise completes into the full sphere and planar HUD behind the monitor bezel.",
+                "direction": "Same fixed layer; monitor and Spectrum screen do not change.",
+                "transition": "Camera shifts to over-shoulder.",
+                "purpose": "AI Advisor becomes visible inside real Spectrum work.",
+                "status": "Approved still",
+                "script": "Inside Spectrum, AI Advisor is already working.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-1-2"
+                ]
+              },
+              {
+                "id": "F3-1.3",
+                "title": "Third Day on the Job",
+                "time": "8–12s",
+                "description": "Over-shoulder user and floor context; Jarvis remains spatially present but cropped.",
+                "direction": "Readable caption: THIRD DAY ON THE JOB.",
+                "transition": "Push into the score-trend modal.",
+                "purpose": "Make the human premise explicit.",
+                "status": "Approved still",
+                "script": "It is her third day on the job.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-1-3"
+                ]
+              },
+              {
+                "id": "F3-2.1",
+                "title": "Account Score Trend",
+                "time": "12–18s",
+                "description": "Score-trend push-in showing reliable AutoPay, then disabled 14 days before payment, not restored.",
+                "direction": "Tight crop excludes Jarvis; readable: ACCOUNT SCORE TREND.",
+                "transition": "Modal closes.",
+                "purpose": "Show the reliable pattern and recent decline.",
+                "status": "Storyboard only — uses Scene 1.3 frame",
+                "script": "Reliable AutoPay → disabled 14 days before payment → not restored.",
+                "mediaState": "not-started",
+                "assetIds": []
+              },
+              {
+                "id": "F3-2.2",
+                "title": "Camera Rediscovers Jarvis",
+                "time": "18–21s",
+                "description": "Modal closes; camera rediscovers the persistent Jarvis field.",
+                "direction": "Protected silent beat — no VO.",
+                "transition": "First analysis panel appears.",
+                "purpose": "Evidence turns into analysis without a second activation.",
+                "status": "Storyboard only — no separate still",
+                "script": "No VO — protected silent beat.",
+                "mediaState": "not-started",
+                "assetIds": []
+              },
+              {
+                "id": "F3-2.3",
+                "title": "Behavior Change Confirmed",
+                "time": "21–24s",
+                "description": "First analysis panel appears on the left: BEHAVIOR CHANGE CONFIRMED.",
+                "direction": "One holographic panel; Jarvis remains.",
+                "transition": "Second panel joins.",
+                "purpose": "AI Advisor confirms a change in behavior.",
+                "status": "Approved still (1 panel)",
+                "script": "AI Advisor confirms a change in behavior.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-2-3"
+                ]
+              },
+              {
+                "id": "F3-2.4",
+                "title": "Account Context Weighed",
+                "time": "24–27s",
+                "description": "Second analysis panel joins: ACCOUNT CONTEXT WEIGHED.",
+                "direction": "Two holographic panels; first panel persists.",
+                "transition": "Third panel joins.",
+                "purpose": "AI Advisor weighs account history, policy, and risk.",
+                "status": "Approved still (2 panels)",
+                "script": "It weighs account history, policy, and risk.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-2-4"
+                ]
+              },
+              {
+                "id": "F3-2.5",
+                "title": "Payment Uncertainty Increasing",
+                "time": "27–30s",
+                "description": "Third analysis panel joins: PAYMENT UNCERTAINTY INCREASING. All panels clear at 30s.",
+                "direction": "Three holographic panels; Jarvis remains after clear.",
+                "transition": "NBA panel appears.",
+                "purpose": "AI Advisor predicts increasing payment uncertainty.",
+                "status": "Approved still (3 panels)",
+                "script": "Then predicts increasing payment uncertainty.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-2-5"
+                ]
+              },
+              {
+                "id": "F3-3.1",
+                "title": "Next Best Action",
+                "time": "30–36s",
+                "description": "Central NBA panel appears inside Spectrum: a proactive AutoPay check-in before the due date.",
+                "direction": "Readable: NEXT BEST ACTION and action copy.",
+                "transition": "Talk-off panel joins on the left.",
+                "purpose": "The exact next action and timing dominate.",
+                "status": "Approved still",
+                "script": "Next Best Action: a proactive AutoPay check-in before the due date.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-3-1"
+                ]
+              },
+              {
+                "id": "F3-3.2",
+                "title": "Talk-Off Opening",
+                "time": "36–41s",
+                "description": "Left Talk-Off panel joins the NBA: acknowledge reliable payments, ask whether the change was intentional.",
+                "direction": "Readable: TALK-OFF OPENING. New camera angle.",
+                "transition": "Help panel appears.",
+                "purpose": "A positive, non-assumptive opening.",
+                "status": "Approved still (new angle)",
+                "script": "Acknowledge reliable payments. Ask whether the change was intentional.",
+                "mediaState": "approved",
+                "assetIds": [
+                  "still-3-2"
+                ]
+              },
+              {
+                "id": "F3-3.3",
+                "title": "Help, Review, and Approval",
+                "time": "41–48s",
+                "description": "Help panel appears, user reviews, clicks; manager approaches and gives one recognizing nod.",
+                "direction": "Readable: PREPARE OUTREACH → OUTREACH READY after click. Heritage line begins at 45.2s.",
+                "transition": "Contained floor pullback.",
+                "purpose": "Human authority and Shaw expertise land together.",
+                "status": "Storyboard only — no separate still",
+                "script": "With AI Advisor, nearly sixty years of servicing expertise is at her side.",
+                "mediaState": "not-started",
+                "assetIds": []
+              },
+              {
+                "id": "F3-4.1",
+                "title": "Contained Floor Pullback",
+                "time": "48–54s",
+                "description": "Wide floor pullback; Spectrum glow at every desk, Jarvis only at the original workstation.",
+                "direction": "Heritage tail, then: At every desk on this floor. The decision stays human.",
+                "transition": "Recommendation card.",
+                "purpose": "Relevance scales through people, not metrics.",
+                "status": "Storyboard only — no separate still",
+                "script": "At every desk on this floor. The decision stays human.",
+                "mediaState": "not-started",
+                "assetIds": []
+              },
+              {
+                "id": "F3-4.2",
+                "title": "Recommendation Card",
+                "time": "54–57s",
+                "description": "Recommendation card: SEE THE CHANGE. CHOOSE WHAT COMES NEXT.",
+                "direction": "Deterministic card render.",
+                "transition": "Brand card.",
+                "purpose": "See the change. Choose what comes next.",
+                "status": "Storyboard only — no separate still",
+                "script": "See the change. Choose what comes next.",
+                "mediaState": "not-started",
+                "assetIds": []
+              },
+              {
+                "id": "F3-4.3",
+                "title": "Brand Card",
+                "time": "57–60s",
+                "description": "Brand card: AI Advisor by Shaw Systems.",
+                "direction": "Approved current Shaw mark.",
+                "transition": "End.",
+                "purpose": "AI Advisor by Shaw Systems.",
+                "status": "Storyboard only — no separate still",
+                "script": "AI Advisor by Shaw Systems.",
+                "mediaState": "not-started",
+                "assetIds": []
+              }
+            ]
+          },
+          {
+            "number": "Lane A",
+            "slug": "autopay-disruption",
+            "title": "Autopay Disruption",
+            "concept": "AI Advisor identifies an account pattern before a servicing issue compounds, explains the signal, and gives the Spectrum user a clear next action.",
+            "status": "Needs clarification",
+            "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
+            "runtime": "Target approximately 60 seconds",
+            "sceneCount": 4,
+            "demoState": "No media generated",
+            "approval": "Not approved",
+            "strength": "Specific, business-credible, and easy to connect to measurable servicing value.",
+            "complexity": "Medium — requires a credible account pattern and approved UI abstraction.",
+            "distinctiveness": "Shows AI through proactive pattern recognition rather than a chatbot exchange.",
+            "recommendation": "Strong candidate for the first still test if the account pattern and product presentation are confirmed.",
+            "scenes": [
+              {
+                "id": "F3-A1",
+                "title": "A normal queue",
+                "time": "Opening",
+                "duration": "Unknown until lane approval",
+                "description": "A Spectrum user begins with a credible daily servicing workload; one account does not yet look urgent by conventional rules.",
+                "direction": "Grounded workstation and real servicing context; no futuristic overlay before the audience understands the task.",
+                "transition": "A subtle pattern signal surfaces.",
+                "purpose": "Create a believable baseline and show why the insight matters.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-A2",
+                "title": "The pattern appears",
+                "time": "Development",
+                "duration": "Unknown until lane approval",
+                "description": "AI Advisor connects account behavior and flags a possible autopay disruption before the issue becomes obvious.",
+                "direction": "Make the AI behavior legible through evidence and relationship—not an unexplained red alert.",
+                "transition": "The insight expands into supporting context.",
+                "purpose": "Prove predictive value.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-A3",
+                "title": "Next Best Action",
+                "time": "Decision",
+                "duration": "Unknown until lane approval",
+                "description": "AI Advisor presents the recommended action with talk-off guidance and the reason it fits this account.",
+                "direction": "Human review remains visible; the recommendation supports a decision rather than executing invisibly.",
+                "transition": "Move from action to portfolio implication.",
+                "purpose": "Show the core product promise.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-A4",
+                "title": "One account, portfolio-scale learning",
+                "time": "Close",
+                "duration": "Unknown until lane approval",
+                "description": "The action resolves into a broader view of how similar signals can support consistent work across the servicing organization.",
+                "direction": "Controlled scale reveal; do not claim autonomous outcomes or unsupported portfolio numbers.",
+                "transition": "Shaw Systems close.",
+                "purpose": "Connect individual assistance to institutional value.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              }
+            ]
+          },
+          {
+            "number": "Lane B",
+            "slug": "day-three-hire",
+            "title": "The Day 3 Hire",
+            "concept": "A new servicing team member handles a difficult account with the benefit of AI Advisor's context, talk-off guidance, and next-step recommendation.",
+            "status": "Needs clarification",
+            "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
+            "runtime": "Target approximately 60 seconds",
+            "sceneCount": 4,
+            "demoState": "No media generated",
+            "approval": "Not approved",
+            "strength": "Makes faster ramp, lower turnover pressure, and service consistency immediately human.",
+            "complexity": "Medium — requires careful role language and credible guidance.",
+            "distinctiveness": "Shows veteran intelligence becoming available to a new employee without pretending expertise is automated away.",
+            "recommendation": "Use if the primary goal is to communicate workforce enablement and consistent service quality.",
+            "scenes": [
+              {
+                "id": "F3-B1",
+                "title": "Third day on the job",
+                "time": "Opening",
+                "duration": "Unknown until lane approval",
+                "description": "A new Spectrum user receives a difficult servicing situation earlier than expected in their ramp.",
+                "direction": "Professional tension, not incompetence; the user understands the basics but lacks years of pattern memory.",
+                "transition": "AI Advisor organizes the case context.",
+                "purpose": "Frame the real cost of experience gaps.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-B2",
+                "title": "Veteran context, visible",
+                "time": "Development",
+                "duration": "Unknown until lane approval",
+                "description": "AI Advisor surfaces the account pattern, recent events, scoring, and relevant servicing context in a usable order.",
+                "direction": "Avoid claiming a literal database of veteran minds; show accumulated domain logic through the quality of the guidance.",
+                "transition": "Context becomes a talk-off and next action.",
+                "purpose": "Demonstrate accelerated understanding.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-B3",
+                "title": "The conversation",
+                "time": "Decision",
+                "duration": "Unknown until lane approval",
+                "description": "The servicing agent uses the guidance while staying present and human in the customer interaction.",
+                "direction": "The person leads; AI remains a quiet operational support layer.",
+                "transition": "The case resolves into team-level impact.",
+                "purpose": "Show service quality and human control.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-B4",
+                "title": "Ramp without lowering the standard",
+                "time": "Close",
+                "duration": "Unknown until lane approval",
+                "description": "The new employee returns to the flow of work with confidence while the organization maintains a consistent servicing standard.",
+                "direction": "Finish on competence and momentum, not applause or exaggerated transformation.",
+                "transition": "Shaw Systems close.",
+                "purpose": "Connect AI Advisor to ramp time, retention pressure, and quality.",
+                "status": "Brainstorm only",
+                "script": "Unknown — script begins after clarification.",
+                "mediaState": "not-started"
+              }
+            ]
+          },
+          {
+            "number": "Lane C",
+            "slug": "positive-servicing",
+            "title": "Positive Servicing",
+            "concept": "AI Advisor identifies a constructive servicing opportunity and helps an experienced user deliver a better outcome without relying on a hardship-only narrative.",
+            "status": "Needs product validation",
+            "recommended": false,
+            "lifecycleState": "brainstorm",
+            "mediaPolicy": "none",
+            "runtime": "Target approximately 60 seconds",
+            "sceneCount": 4,
+            "demoState": "No media generated",
+            "approval": "Not approved",
+            "strength": "Broadens the story beyond collections and borrower distress.",
+            "complexity": "Medium to high — the specific positive scenario must be validated before writing.",
+            "distinctiveness": "Positions intelligence as continuous service improvement, not only intervention.",
+            "recommendation": "Validate a specific positive scenario before selecting this lane.",
+            "scenes": [
+              {
+                "id": "F3-C1",
+                "title": "A healthy account relationship",
+                "time": "Opening",
+                "duration": "Unknown until lane approval",
+                "description": "The film opens on a normal servicing relationship rather than a crisis.",
+                "direction": "Warm, credible, and operational; avoid vague lifestyle imagery.",
+                "transition": "AI Advisor notices a constructive opportunity.",
+                "purpose": "Reset expectations for what servicing intelligence can support.",
+                "status": "Brainstorm only",
+                "script": "Unknown — scenario and script require validation.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-C2",
+                "title": "Opportunity signal",
+                "time": "Development",
+                "duration": "Unknown until lane approval",
+                "description": "AI Advisor identifies a relevant opportunity from the approved account context.",
+                "direction": "The signal must be specific and supported by confirmed product behavior.",
+                "transition": "The servicing user reviews the recommended next action.",
+                "purpose": "Show value beyond risk detection.",
+                "status": "Brainstorm only",
+                "script": "Unknown — scenario and script require validation.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-C3",
+                "title": "Helpful next action",
+                "time": "Decision",
+                "duration": "Unknown until lane approval",
+                "description": "The user applies a recommendation that improves the servicing interaction.",
+                "direction": "Keep the recommendation explainable, reviewable, and human-led.",
+                "transition": "The single interaction expands into an operating principle.",
+                "purpose": "Demonstrate service quality and appropriate personalization.",
+                "status": "Brainstorm only",
+                "script": "Unknown — scenario and script require validation.",
+                "mediaState": "not-started"
+              },
+              {
+                "id": "F3-C4",
+                "title": "Better service at scale",
+                "time": "Close",
+                "duration": "Unknown until lane approval",
+                "description": "A portfolio-level view suggests how repeated, well-supported decisions can improve the customer relationship.",
+                "direction": "Avoid unsupported performance figures; keep the close strategic and credible.",
+                "transition": "Shaw Systems close.",
+                "purpose": "Connect one positive outcome to organizational service quality.",
+                "status": "Brainstorm only",
+                "script": "Unknown — scenario and script require validation.",
+                "mediaState": "not-started"
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "context": {
+          "scope": "project",
+          "route": "/shaw/projects/film3-ai-advisor",
+          "projectId": "shaw-film3-ai-advisor",
+          "label": "Film 3 - AI Advisor"
+        },
+        "openBlockers": 1
+      },
+      "source": "Film 3 working and episodic authority corrected 2026-07-26; portal reviewed 2026-07-27",
+      "assets": [
+        {
+          "id": "still-1.1",
+          "kind": "still",
+          "title": "Reality before the advisor",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-1.1-v1",
+          "versions": [
+            {
+              "id": "still-1.1-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-1-1-reality-before-advisor.png",
+              "sizeLabel": "3.1 MB",
+              "mediaId": "ast_msxlikxs2079a6f9e034"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "still-1.2",
+          "kind": "still",
+          "title": "The rise completes",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-1.2-v1",
+          "versions": [
+            {
+              "id": "still-1.2-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-1-2-rise-completes.png",
+              "sizeLabel": "5.5 MB",
+              "mediaId": "ast_msxliuxb14863c5c99b4"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "still-1.3",
+          "kind": "still",
+          "title": "Third day on the job",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-1.3-v1",
+          "versions": [
+            {
+              "id": "still-1.3-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-1-3-third-day.png",
+              "sizeLabel": "7.4 MB",
+              "mediaId": "ast_msxlj3jva9731ccb9e19"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "still-2.3",
+          "kind": "still",
+          "title": "Behavior change confirmed",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-2.3-v1",
+          "versions": [
+            {
+              "id": "still-2.3-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-2-3-behavior-change.png",
+              "sizeLabel": "5.5 MB",
+              "mediaId": "ast_msxljd50cc97bac8b2a5"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "still-2.4",
+          "kind": "still",
+          "title": "Account context weighed",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-2.4-v1",
+          "versions": [
+            {
+              "id": "still-2.4-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-2-4-context-weighed.png",
+              "sizeLabel": "5.4 MB",
+              "mediaId": "ast_msxljm45905ea6099b0f"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "still-2.5",
+          "kind": "still",
+          "title": "Payment uncertainty increasing",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-2.5-v1",
+          "versions": [
+            {
+              "id": "still-2.5-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-2-5-uncertainty-increasing.png",
+              "sizeLabel": "5.5 MB",
+              "mediaId": "ast_msxljue98b2bd6c9adf8"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "still-3.1",
+          "kind": "still",
+          "title": "Next Best Action",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-3.1-v1",
+          "versions": [
+            {
+              "id": "still-3.1-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-3-1-nba.png",
+              "sizeLabel": "5.4 MB",
+              "mediaId": "ast_msxlk389962962c993f6"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "still-3.2",
+          "kind": "still",
+          "title": "Talk-off opening",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "still-3.2-v1",
+          "versions": [
+            {
+              "id": "still-3.2-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "scene-3-2-talkoff-opening.png",
+              "sizeLabel": "5.6 MB",
+              "mediaId": "ast_msxlkbkha873f59d034a"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early production stills"
+        },
+        {
+          "id": "demo-voiceover",
+          "kind": "audio",
+          "title": "Voiceover",
+          "mediaState": "approved",
+          "downloadable": true,
+          "versioned": true,
+          "currentVersionId": "demo-voiceover-v1",
+          "versions": [
+            {
+              "id": "demo-voiceover-v1",
+              "label": "V1",
+              "state": "approved",
+              "current": true,
+              "createdAt": "2026-08-17",
+              "downloadName": "voiceover-V1.mp3",
+              "sizeLabel": "1.0 MB",
+              "note": "Hank deep narrator read of the locked script.",
+              "mediaId": "ast_msxlkkm7f80aeabc0957"
+            }
+          ],
+          "source": "Shaw Film 3 — Two Weeks Early voiceover"
+        }
+      ]
+    },
+    {
+      "id": "shaw-film4-insight",
+      "slug": "film4-insight",
+      "type": "film",
+      "title": "Film 4 - Insight",
+      "displayName": "Insight",
+      "status": "proposed",
+      "statusLabel": "Planned — scope not approved",
+      "projectType": "Summit campaign film",
+      "valueStatement": "Film 4 is the planned Insight chapter of the coordinated Spectrum campaign; its exact product story and creative direction remain unapproved.",
+      "objective": "Present Insight as a Spectrum feature or capability in deliberate continuity with Amplify and AI Advisor.",
+      "audience": "Bank C-suite executives, servicing and analytics leaders, and Summit attendees.",
+      "creativeVision": "Not yet defined. The film should complete the three-film loop without copying the visual mechanism of either Amplify or AI Advisor.",
+      "phase": "Planned",
+      "nextMilestone": "Confirm product brief, scope, schedule, approved claims, and creative starting inputs.",
+      "thumbnail": {
+        "mediaState": "not-started",
+        "label": "No approved direction or media"
+      },
+      "productionLifecycle": {
+        "projectPhase": "brainstorming",
+        "demoPhase": "not-started",
+        "fullFilmPhase": "not-started",
+        "selectedIdeaIds": [],
+        "promotionState": "not-selected"
+      },
+      "filmProductionPhases": [
+        {
+          "number": 1,
+          "id": "meet-and-brainstorm",
+          "state": "current"
+        },
+        {
+          "number": 2,
+          "id": "create-demos",
+          "state": "pending"
+        },
+        {
+          "number": 3,
+          "id": "meet-and-refine",
+          "state": "pending"
+        },
+        {
+          "number": 4,
+          "id": "create-final-demos",
+          "state": "pending"
+        },
+        {
+          "number": 5,
+          "id": "meet-and-finalize",
+          "state": "pending"
+        },
+        {
+          "number": 6,
+          "id": "create-final-film",
+          "state": "pending"
+        },
+        {
+          "number": 7,
+          "id": "meet-and-review",
+          "state": "pending"
+        },
+        {
+          "number": 8,
+          "id": "final-edits",
+          "state": "pending"
+        }
+      ],
+      "deliverables": [],
+      "timeline": [
+        {
+          "state": "pending",
+          "title": "Product and campaign brief",
+          "detail": "Confirm what Insight is, which claims are approved, and how it completes the Summit loop."
+        },
+        {
+          "state": "pending",
+          "title": "Creative directions and demo stills",
+          "detail": "Begin after the brief and scope are approved."
+        },
+        {
+          "state": "pending",
+          "title": "Storyboard, script, and production",
+          "detail": "No production work is represented as complete."
+        }
+      ],
+      "blockers": [],
+      "related": [
+        "shaw-film2-amplify",
+        "shaw-film3-ai-advisor"
+      ],
+      "scope": {
+        "ownerApproved": false,
+        "model": "Scope required",
+        "note": "No Film 4 production scope or investment is published yet.",
+        "source": "Confirmed Film 4 planning state, reviewed 2026-07-27"
+      },
+      "comment": {
+        "context": {
+          "scope": "project",
+          "route": "/shaw/projects/film4-insight",
+          "projectId": "shaw-film4-insight",
+          "label": "Film 4 - Insight"
+        }
+      },
+      "source": "Confirmed Shaw Film 4 planning canon, reviewed 2026-07-27"
+    }
+  ]
+}
