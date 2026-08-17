@@ -78,7 +78,6 @@ async function authorizePlayback(button) {
   button.disabled = true;
   const id = button.getAttribute("data-media-playback");
   const kind = button.getAttribute("data-media-kind");
-  console.log("[playback] authorizePlayback clicked", { id, kind, csrfToken: DATA.cfg?.csrfToken ? "present" : "MISSING" });
   try {
     const response = await fetch(DATA.cfg.routeBase + "/api/media/playback/authorize", {
       method: "POST", credentials: "include",
@@ -86,17 +85,17 @@ async function authorizePlayback(button) {
       body: JSON.stringify({ assetId: id })
     });
     const result = await response.json().catch(() => ({}));
-    console.log("[playback] API response", { status: response.status, ok: response.ok, error: result.error, hasUrl: !!result.url, kind: result.kind });
     if (!response.ok) throw new Error(result.error || `http_${response.status}`);
-    /* Audio (voiceover) plays in place through an <audio> element so the
-       surrounding frame keeps its label and version controls. */
     const isAudio = kind === "audio";
     const frame = button.closest(isAudio ? ".media-audio" : ".media-approved");
-    console.log("[playback] DOM lookup", { isAudio, frameFound: !!frame, frameClass: frame?.className });
     if (!frame) throw new Error("playback_frame_not_found");
+    /* Insert a native media player with controls. The async fetch breaks the
+       browser user-gesture chain, so auto-play is unreliable — instead we
+       show the native controls and focus the element so the user can press
+       play immediately. */
     const player = document.createElement(isAudio ? "audio" : "video");
     player.controls = true;
-    player.preload = "metadata";
+    player.preload = "auto";
     if (!isAudio) player.playsInline = true;
     player.src = result.url;
     player.setAttribute("aria-label", button.querySelector("strong")?.textContent || (isAudio ? "Approved voiceover" : "Approved video"));
@@ -107,10 +106,11 @@ async function authorizePlayback(button) {
     } else {
       frame.replaceChildren(player);
     }
-    player.play().catch((playErr) => console.log("[playback] play() rejected (likely autoplay policy — user can press play on the control)", playErr?.name));
-    console.log("[playback] audio element inserted, src set");
+    /* Try to play; if the browser blocks it (AbortError after async fetch),
+       the native controls are visible for the user to press play. */
+    player.play().catch(() => {});
+    player.focus({ preventScroll: true });
   } catch (error) {
-    console.error("[playback] FAILED", error);
     const isAudio = kind === "audio";
     appToast(error.message === "not_client_visible"
       ? `This ${isAudio ? "voiceover" : "video"} is awaiting Third i approval before it can be played.`

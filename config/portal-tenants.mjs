@@ -49,7 +49,7 @@ export const PORTAL_TENANTS = Object.freeze({
       })
     }),
     shell: Object.freeze({
-      assetRelease: "20260817-1",
+      assetRelease: "20260817-2",
       documentTitle: "bkWatch · Client workspace",
       loginTitle: "bkWatch Client Portal",
       favicon: "/public/images/favicon.png",
@@ -107,7 +107,7 @@ export const PORTAL_TENANTS = Object.freeze({
       })
     }),
     shell: Object.freeze({
-      assetRelease: "20260817-1",
+      assetRelease: "20260817-2",
       documentTitle: "Shaw Systems · Client workspace",
       loginTitle: "Shaw Systems Client Portal",
       favicon: "/public/images/favicon.png",
