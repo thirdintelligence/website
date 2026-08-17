@@ -21,7 +21,7 @@ export const REQUIRED_TENANT_MANIFESTS = Object.freeze([
 export const PORTAL_TENANTS = Object.freeze({
   bkwatch: Object.freeze({
     key: "bkwatch",
-    displayName: "BankruptcyWatch",
+    displayName: "bkWatch",
     route: "/bkwatch",
     status: "active",
     contentDir: "content/clients/bkwatch",
@@ -49,7 +49,7 @@ export const PORTAL_TENANTS = Object.freeze({
       })
     }),
     shell: Object.freeze({
-      assetRelease: "20260723-21",
+      assetRelease: "20260817-1",
       documentTitle: "bkWatch · Client workspace",
       loginTitle: "bkWatch Client Portal",
       favicon: "/public/images/favicon.png",
@@ -63,7 +63,7 @@ export const PORTAL_TENANTS = Object.freeze({
       logo: "/public/portal/bkwatch-logo.png?v=white-frame-20260714",
       logoWidth: 432,
       logoHeight: 114,
-      logoAlt: "BankruptcyWatch",
+      logoAlt: "bkWatch",
       styles: Object.freeze([
         "portal-tokens.css",
         "tenants/bkwatch.css",
@@ -74,13 +74,14 @@ export const PORTAL_TENANTS = Object.freeze({
       ])
     }),
     ownerActionsEnabled: true,
-    notificationsEnabled: true
+    notificationsEnabled: true,
+    mediaEnabled: true
   }),
   shaw: Object.freeze({
     key: "shaw",
     displayName: "Shaw Systems",
     route: "/shaw",
-    status: "planned",
+    status: "active",
     contentDir: "content/clients/shaw",
     designAuthority: "memory/SHAW/DESIGN.md",
     passwordHashEnv: "SHAW_PORTAL_PASSWORD_HASH",
@@ -105,9 +106,31 @@ export const PORTAL_TENANTS = Object.freeze({
         mediaPrefix: "tenants/shaw/media/"
       })
     }),
-    shell: null,
-    ownerActionsEnabled: false,
-    notificationsEnabled: false
+    shell: Object.freeze({
+      assetRelease: "20260817-1",
+      documentTitle: "Shaw Systems · Client workspace",
+      loginTitle: "Shaw Systems Client Portal",
+      favicon: "/public/images/favicon.png",
+      themeInit: "/public/portal/shaw-theme-init.js?v=20260727-1",
+      loginStyles: Object.freeze([
+        "/public/portal/shaw-login.css?v=20260727-1"
+      ]),
+      logo: "/public/portal/tenants/shaw/logo-blue.png?v=20260727-1",
+      logoWidth: 512,
+      logoHeight: 512,
+      logoAlt: "Shaw Systems",
+      styles: Object.freeze([
+        "portal-tokens.css",
+        "tenants/shaw.css",
+        "portal-shell.css",
+        "portal-components.css",
+        "portal-pages.css",
+        "portal-motion.css"
+      ])
+    }),
+    ownerActionsEnabled: true,
+    notificationsEnabled: true,
+    mediaEnabled: true
   })
 });
 

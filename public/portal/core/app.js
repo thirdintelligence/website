@@ -49,10 +49,12 @@ async function boot() {
   document.addEventListener("click", (e) => {
     if (e.target.closest("#theme-toggle")) { toggleTheme(); syncToggle(); }
     const download = e.target.closest("[data-media-download]");
+    const playback = e.target.closest("[data-media-playback]");
     const timestamp = e.target.closest("[data-comment-timestamp]");
     const printProject = e.target.closest("[data-project-pdf]");
     const fullscreen = e.target.closest("[data-presentation-fullscreen]");
-    if (download) { e.preventDefault(); authorizeDownload(download); }
+    if (playback) { e.preventDefault(); authorizePlayback(playback); }
+    else if (download) { e.preventDefault(); authorizeDownload(download); }
     else if (timestamp) { e.preventDefault(); seekComment(timestamp); }
     else if (printProject) { e.preventDefault(); window.print(); }
     else if (fullscreen) { e.preventDefault(); togglePresentation(fullscreen); }
@@ -69,6 +71,52 @@ async function boot() {
 
   onRouteChange(renderRoute);
   renderRoute();
+}
+
+async function authorizePlayback(button) {
+  if (button.disabled) return;
+  button.disabled = true;
+  const id = button.getAttribute("data-media-playback");
+  const kind = button.getAttribute("data-media-kind");
+  console.log("[playback] authorizePlayback clicked", { id, kind, csrfToken: DATA.cfg?.csrfToken ? "present" : "MISSING" });
+  try {
+    const response = await fetch(DATA.cfg.routeBase + "/api/media/playback/authorize", {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json", "x-csrf-token": DATA.cfg.csrfToken || "" },
+      body: JSON.stringify({ assetId: id })
+    });
+    const result = await response.json().catch(() => ({}));
+    console.log("[playback] API response", { status: response.status, ok: response.ok, error: result.error, hasUrl: !!result.url, kind: result.kind });
+    if (!response.ok) throw new Error(result.error || `http_${response.status}`);
+    /* Audio (voiceover) plays in place through an <audio> element so the
+       surrounding frame keeps its label and version controls. */
+    const isAudio = kind === "audio";
+    const frame = button.closest(isAudio ? ".media-audio" : ".media-approved");
+    console.log("[playback] DOM lookup", { isAudio, frameFound: !!frame, frameClass: frame?.className });
+    if (!frame) throw new Error("playback_frame_not_found");
+    const player = document.createElement(isAudio ? "audio" : "video");
+    player.controls = true;
+    player.preload = "metadata";
+    if (!isAudio) player.playsInline = true;
+    player.src = result.url;
+    player.setAttribute("aria-label", button.querySelector("strong")?.textContent || (isAudio ? "Approved voiceover" : "Approved video"));
+    frame.classList.add("is-playing");
+    if (isAudio) {
+      const slot = frame.querySelector("[data-media-audio-slot]") || frame;
+      slot.replaceChildren(player);
+    } else {
+      frame.replaceChildren(player);
+    }
+    player.play().catch((playErr) => console.log("[playback] play() rejected (likely autoplay policy — user can press play on the control)", playErr?.name));
+    console.log("[playback] audio element inserted, src set");
+  } catch (error) {
+    console.error("[playback] FAILED", error);
+    const isAudio = kind === "audio";
+    appToast(error.message === "not_client_visible"
+      ? `This ${isAudio ? "voiceover" : "video"} is awaiting Third i approval before it can be played.`
+      : `The secure ${isAudio ? "voiceover" : "video"} could not be loaded. Try again.`);
+    button.disabled = false;
+  }
 }
 
 async function authorizeDownload(button) {
@@ -150,6 +198,7 @@ function renderRoute() {
 
   contentEl.innerHTML = view.html;
   hydrateDesignerFrames();
+  hydrateMediaPreviews();
   setContext({ crumb: view.crumb || "", title: view.title || "", action: view.action || "", fullscreen: view.fullscreen || false, commentContext: view.commentContext || null });
   setActiveNav(m.name);
   document.title = `${view.title || "Home"} · ${DATA.portal.client.shortName} · Third i`;
@@ -168,6 +217,7 @@ function renderRoute() {
 }
 
 let designerSvgPromise = null;
+const previewCache = new Map();
 function designerSvg() {
   if (!designerSvgPromise) {
     designerSvgPromise = fetch("/assets/designer.svg", { credentials: "same-origin" })
@@ -196,6 +246,56 @@ function hydrateDesignerFrames() {
     } catch {
       frame.classList.add("designer-unavailable");
       frame.innerHTML = iconFallback();
+    }
+  });
+}
+
+function hydrateMediaPreviews() {
+  document.querySelectorAll("[data-media-preview]:not([data-media-preview-state])").forEach(async (frame) => {
+    const assetId = frame.getAttribute("data-media-preview");
+    if (!assetId) return;
+    frame.dataset.mediaPreviewState = "loading";
+    try {
+      let result = previewCache.get(assetId);
+      if (!result || result.expiresAt <= Date.now()) {
+        const response = await fetch(DATA.cfg.routeBase + "/api/media/preview/authorize", {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "content-type": "application/json",
+            "x-csrf-token": DATA.cfg.csrfToken || ""
+          },
+          body: JSON.stringify({ assetId })
+        });
+        result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || `http_${response.status}`);
+        result.expiresAt = Date.now() + Math.max(30, Number(result.expiresIn || 60) - 30) * 1000;
+        previewCache.set(assetId, result);
+      }
+      if (!frame.isConnected) return;
+      const media = document.createElement(result.kind === "video" ? "video" : "img");
+      media.className = "media-thumbnail-asset";
+      media.src = result.url;
+      media.setAttribute("aria-hidden", "true");
+      if (result.kind === "video") {
+        media.muted = true;
+        media.playsInline = true;
+        media.preload = "metadata";
+        media.addEventListener("loadedmetadata", () => {
+          if (Number.isFinite(media.duration) && media.duration > 0) {
+            try { media.currentTime = Math.min(0.05, media.duration / 2); } catch { /* first decodable frame remains valid */ }
+          }
+        }, { once: true });
+      } else {
+        media.alt = "";
+        media.decoding = "async";
+      }
+      frame.replaceChildren(media);
+      frame.dataset.mediaPreviewState = "ready";
+    } catch {
+      if (!frame.isConnected) return;
+      frame.dataset.mediaPreviewState = "unavailable";
+      frame.innerHTML = `<span class="media-thumbnail-unavailable" aria-hidden="true">${iconFallback()}</span>`;
     }
   });
 }
